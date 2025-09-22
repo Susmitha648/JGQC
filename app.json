@@ -1,0 +1,39 @@
+{
+  "id": "6b9b3057-27a4-4846-8674-41034a18509d",
+  "name": "QC",
+  "publisher": "Comm-IT",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "71c566a2-89ff-42b9-92cb-71a988a6c984",
+      "name": "Purchase",
+      "version": "1.0.0.0",
+      "publisher": "Comm-IT"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 50000,
+      "to": 50050
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "15.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
