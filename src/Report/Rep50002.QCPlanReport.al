@@ -17,6 +17,7 @@ report 50002 "QC Plan Report"
             column(Room_Temperature; "Room Temperature") { }
             column(IM_Starwheel_Code; "IM Starwheel Code") { }
             column(Colour; Colour) { }
+            column(CompanyLogo; CompanyInfo.Picture) { }
 
             dataitem(QCPlanLine; "QC Plan Lines")
             {
@@ -64,4 +65,13 @@ report 50002 "QC Plan Report"
             }
         }
     }
+
+    trigger OnPreReport()
+    begin
+        CompanyInfo.GET;
+        CompanyInfo.CALCFIELDS(Picture);
+    end;
+
+    var
+        CompanyInfo: Record "Company Information";
 }
