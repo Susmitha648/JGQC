@@ -2,13 +2,13 @@ table 50004 "QC Plan Lines"
 {
     Caption = 'QC Plan Lines';
     DataClassification = CustomerContent;
-    
+
     fields
     {
-        field(1; "Job No.";Code[20] )
+        field(1; "Job No."; Code[20])
         {
             Caption = 'Job No.';
-            TableRelation = Item where(Blocked = const(false),Type = const(Inventory));
+            TableRelation = Item where(Blocked = const(false), Type = const(Inventory));
             Editable = false;
         }
         field(2; "Parameter Code"; Code[20])
@@ -16,15 +16,30 @@ table 50004 "QC Plan Lines"
             DataClassification = CustomerContent;
             TableRelation = "QC Parameters";
             trigger OnValidate()
-            var 
-            Parameter : Record "QC Parameters";
+            var
+                Parameter: Record "QC Parameters";
+                ParameterType: Record "QC Parameter Type";
             begin
-            CheckStatusOpen();
-              If Parameter.Get("Parameter Code") then
-                 "Parameter Name" := Parameter."Parameter Name";
+                CheckStatusOpen();
+                If Parameter.Get("Parameter Code") then begin
+                    "Parameter Name" := Parameter."Parameter Name";
+                    "Parameter Type" := Parameter."Parameter Type";
+                    If ParameterType.Get(Parameter."Parameter Type") then
+                        "COA Needed" := ParameterType."COA Needed";
+
+                end;
             end;
         }
         field(3; "Parameter Name"; Text[100])
+        {
+            DataClassification = CustomerContent;
+            Editable = false;
+            trigger OnValidate()
+            begin
+                CheckStatusOpen();
+            end;
+        }
+        field(12; "Parameter Type"; Code[50])
         {
             DataClassification = CustomerContent;
             Editable = false;
@@ -61,7 +76,7 @@ table 50004 "QC Plan Lines"
         field(7; Nom; Text[100])
         {
             DataClassification = CustomerContent;
-            
+
             trigger OnValidate()
             begin
                 CheckStatusOpen();
@@ -91,21 +106,27 @@ table 50004 "QC Plan Lines"
                 CheckStatusOpen();
             end;
         }
+        field(11; "COA Needed"; Boolean)
+        {
+            DataClassification = CustomerContent;
+            Editable = false;
+        }
     }
     keys
     {
-        key(PK; "Job No.","Parameter Code")
+        key(PK; "Job No.", "Parameter Code")
         {
             Clustered = true;
         }
     }
     trigger OnInsert()
     var
-    Item : Record Item;
+        Item: Record Item;
     begin
-      If Item.Get("Job No.") then
-         Description := Item.Description;
+        If Item.Get("Job No.") then
+            Description := Item.Description;
     end;
+
     var
         QCPlanHeader: Record "QC Plan Header";
 

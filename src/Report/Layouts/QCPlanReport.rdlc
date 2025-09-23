@@ -10265,20 +10265,11 @@ End Function
         <Field Name="Min">
           <DataField>Min</DataField>
         </Field>
-        <Field Name="MinFormat">
-          <DataField>MinFormat</DataField>
-        </Field>
         <Field Name="Max">
           <DataField>Max</DataField>
         </Field>
-        <Field Name="MaxFormat">
-          <DataField>MaxFormat</DataField>
-        </Field>
         <Field Name="Nom">
           <DataField>Nom</DataField>
-        </Field>
-        <Field Name="NomFormat">
-          <DataField>NomFormat</DataField>
         </Field>
         <Field Name="Required_for_CE">
           <DataField>Required_for_CE</DataField>

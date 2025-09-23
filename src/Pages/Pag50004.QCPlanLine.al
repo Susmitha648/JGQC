@@ -27,6 +27,14 @@ page 50004 "QC Plan Line"
                 {
                     ToolTip = 'Specifies the value of the Parameter Name field.', Comment = '%';
                 }
+                field("Parameter Type"; Rec."Parameter Type")
+                {
+                    ToolTip = 'Specifies the value of the Parameter Type field.', Comment = '%';
+                }
+                field("COA Needed"; Rec."COA Needed")
+                {
+                    ToolTip = 'Specifies the value of the COA Needed field.', Comment = '%';
+                }
                 field("Min"; Rec."Min")
                 {
                     ToolTip = 'Specifies the value of the Min field.', Comment = '%';

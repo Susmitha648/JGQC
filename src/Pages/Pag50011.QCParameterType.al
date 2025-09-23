@@ -20,6 +20,10 @@ page 50011 "QC Parameter Type"
                 {
                     ToolTip = 'Specifies the value of the Description field.', Comment = '%';
                 }
+                  field("COA Needed"; Rec."COA Needed")
+                {
+                    ToolTip = 'Specifies the value of the COA Needed field.', Comment = '%';
+                }
             }
         }
     }

@@ -2,7 +2,7 @@ table 50003 "QC Plan Header"
 {
     Caption = 'QC Plan Header';
     DataClassification = CustomerContent;
-
+    LookupPageId = "QC Plan List";
     fields
     {
         field(1; "Job No."; Code[20])
@@ -84,6 +84,12 @@ table 50003 "QC Plan Header"
         key(PK; "Job No.")
         {
             Clustered = true;
+        }
+    }
+    fieldgroups
+    {
+        fieldgroup(DropDown; "Job No.", Description,"Customer Code","Customer Name")
+        {
         }
     }
     var

@@ -4,7 +4,8 @@ page 50019 "COA Lines"
     Caption = 'COA Lines';
     PageType = ListPart;
     SourceTable = "COA Lines";
-    AutoSplitKey = True;
+    DeleteAllowed = false;
+    InsertAllowed = false;
     layout
     {
         area(Content)
