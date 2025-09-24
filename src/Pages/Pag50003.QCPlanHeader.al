@@ -4,7 +4,7 @@ page 50003 "QC Plan Header"
     Caption = 'QC Plan Header';
     PageType = Document;
     SourceTable = "QC Plan Header";
-    
+
     layout
     {
         area(Content)
@@ -12,7 +12,7 @@ page 50003 "QC Plan Header"
             group(General)
             {
                 Caption = 'General';
-                
+
                 field("Job No."; Rec."Job No.")
                 {
                     ToolTip = 'Specifies the value of the Job No. field.', Comment = '%';
@@ -46,7 +46,7 @@ page 50003 "QC Plan Header"
                 {
                     ToolTip = 'Specifies the value of the Colour field.', Comment = '%';
                 }
-                 field(Status; Rec.Status)
+                field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status field.', Comment = '%';
                 }
@@ -54,12 +54,12 @@ page 50003 "QC Plan Header"
             part(QCPlanLine; "QC Plan Line")
             {
                 ApplicationArea = All;
-               // Editable = IsSalesLinesEditable;
+                // Editable = IsSalesLinesEditable;
                 //Enabled = IsSalesLinesEditable;
                 SubPageLink = "Job No." = field("Job No.");
                 UpdatePropagation = Both;
             }
-            
+
         }
         area(factboxes)
         {
@@ -79,7 +79,7 @@ page 50003 "QC Plan Header"
         {
             group(Action12)
             {
-                 action(Release)
+                action(Release)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Re&lease';
@@ -93,13 +93,13 @@ page 50003 "QC Plan Header"
 
                     trigger OnAction()
                     var
-                        
+
                     begin
-                        
+
                         PerformManualRelease();
                     end;
                 }
-                  action(ReOpen)
+                action(ReOpen)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Re&Open';
@@ -111,30 +111,59 @@ page 50003 "QC Plan Header"
                     PromotedCategory = Process;
                     ToolTip = 'ReOpen the document.';
 
-                    trigger OnAction() 
+                    trigger OnAction()
                     begin
                         PerformManualReopen();
                     end;
                 }
 
             }
+            group(Print)
+            {
+                action("QC Plan Report Old")
+                {
+                    ApplicationArea = All;
+                    Caption = 'QC Plan Report Old';
+                    Image = Report; // Optional icon
+                    trigger OnAction()
+                    var
+                        MyReportID: Integer;
+                    begin
+                        MyReportID := Report::"QC Plan Report";
+                        Report.RunModal(MyReportID, true, false);
+                    end;
+                }
+                action("QC Plan Report New")
+                {
+                    ApplicationArea = All;
+                    Caption = 'QC Plan Report New';
+                    Image = Report; // Optional icon
+                    trigger OnAction()
+                    var
+                        MyReportID: Integer;
+                    begin
+                        MyReportID := Report::"QC Plan Report New";
+                        Report.RunModal(MyReportID, true, false);
+                    end;
+                }
+            }
         }
     }
-     procedure PerformManualReopen()
+    procedure PerformManualReopen()
     begin
-       
+
         if Rec.Status = Rec.Status::Open then
             exit;
         Rec.Status := Rec.Status::Open;
-         Rec.Modify();
+        Rec.Modify();
     end;
 
     procedure PerformManualRelease()
     begin
-       
+
         if Rec.Status <> Rec.Status::Released then begin
             Rec.Status := Rec.Status::Released;
-             Rec.Modify();
+            Rec.Modify();
         end;
     end;
 }
