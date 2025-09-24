@@ -2231,7 +2231,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Flint  Amber Green</Value>
+                      <Value>=First(Fields!Colour.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>

@@ -128,9 +128,13 @@ page 50003 "QC Plan Header"
                     trigger OnAction()
                     var
                         MyReportID: Integer;
+                        JobNo: Record "QC Plan Header";
                     begin
                         MyReportID := Report::"QC Plan Report";
-                        Report.RunModal(MyReportID, true, false);
+                        JobNo.Reset();
+                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        If JobNo.FindSet() then
+                            Report.RunModal(MyReportID, true, false, JobNo);
                     end;
                 }
                 action("QC Plan Report New")
@@ -141,9 +145,13 @@ page 50003 "QC Plan Header"
                     trigger OnAction()
                     var
                         MyReportID: Integer;
+                        JobNo: Record "QC Plan Header";
                     begin
                         MyReportID := Report::"QC Plan Report New";
-                        Report.RunModal(MyReportID, true, false);
+                        JobNo.Reset();
+                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        If JobNo.FindSet() then
+                            Report.RunModal(MyReportID, true, false, JobNo);
                     end;
                 }
             }

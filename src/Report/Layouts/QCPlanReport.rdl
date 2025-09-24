@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-09-24T06:47:51.9602348Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-09-24T09:29:28.9118861Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -4859,15 +4859,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Flint  </Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <Color>Red</Color>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>Amber Green</Value>
+                      <Value>=First(Fields!Colour.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
