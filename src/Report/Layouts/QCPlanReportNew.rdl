@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-09-24T08:41:42.0447861Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-09-24T09:22:23.4470877Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -59,7 +59,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="ParameterTyp_Type">
                           <rd:DefaultName>ParameterTyp_Type</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -2232,15 +2231,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Flint  </Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <Color>Red</Color>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>Amber Green</Value>
+                      <Value>Flint  Amber Green</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
