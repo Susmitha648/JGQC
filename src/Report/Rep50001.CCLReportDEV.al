@@ -4,7 +4,7 @@ report 50001 "CCI Report (DEV)"
     Caption = 'CCI Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/CCIReport.rdlc';
+    RDLCLayout = './src/Report/Layouts/CCIReport.rdl';
 
     dataset
     {

@@ -4,7 +4,7 @@ report 50002 "QC Plan Report"
     Caption = 'QC Plan Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/QCPlanReport.rdlc';
+    RDLCLayout = './src/Report/Layouts/QCPlanReport.rdl';
     dataset
     {
         dataitem(QCPlanHeader; "QC Plan Header")

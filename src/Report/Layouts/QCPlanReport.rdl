@@ -5523,6 +5523,9 @@ End Function
         <Field Name="Colour">
           <DataField>Colour</DataField>
         </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
+        </Field>
         <Field Name="Line_Job_No_">
           <DataField>Line_Job_No_</DataField>
         </Field>

@@ -4,7 +4,7 @@ report 50000 "CCR Report (DEV)"
     Caption = 'CCR Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/CCRReport.rdlc';
+    RDLCLayout = './src/Report/Layouts/CCRReport.rdl';
     dataset
     {
         dataitem(CustomerComplaintReport; "Customer Complaint Report")
