@@ -35,5 +35,32 @@ page 50020 "COA Details"
                 }
             }
         }
+
+    }
+    actions
+    {
+        area(Processing)
+        {
+            group(Print)
+            {
+                action("COA Report")
+                {
+                    ApplicationArea = All;
+                    Caption = 'COA Report';
+                    Image = Report; // Optional icon
+                    trigger OnAction()
+                    var
+                        MyReportID: Integer;
+                        JobNo: Record "COA Header";
+                    begin
+                        MyReportID := Report::"COA Report";
+                        JobNo.Reset();
+                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        If JobNo.FindSet() then
+                            Report.RunModal(MyReportID, true, false, JobNo);
+                    end;
+                }
+            }
+        }
     }
 }

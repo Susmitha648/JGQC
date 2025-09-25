@@ -1,0 +1,59 @@
+report 50004 "COA Report"
+{
+    ApplicationArea = All;
+    Caption = 'COA Report';
+    UsageCategory = ReportsAndAnalysis;
+    DefaultLayout = RDLC;
+    RDLCLayout = './src/Report/Layouts/COAReport.rdl';
+    dataset
+    {
+        dataitem(COAHeader; "COA Header")
+        {
+            column(Job_No_; "Job No.") { }
+            column(Description; Description) { }
+            column(Send_To; "Send To") { }
+            column(Contact; '') { }
+            column(Production_Order_Date; Format("Production Order Date")) { }
+            column(Ring_Finish; "Ring Finish") { }
+            column(Machine; "Machine") { }
+            column(Fill_Point; "Fill Point") { }
+            column(Water_Temp; "Water Temp") { }
+            column(Lot_No; '') { }
+            column(CompanyLogo; CompanyInfo.Picture) { }
+
+            dataitem(COALines; "COA Lines")
+            {
+                column(Result; "Result") { }
+                column(UserId; UserId) { }
+                column(SystemCreatedAt; "SystemCreatedAt") { }
+            }
+        }
+    }
+    requestpage
+    {
+        layout
+        {
+            area(Content)
+            {
+                group(GroupName)
+                {
+                }
+            }
+        }
+        actions
+        {
+            area(Processing)
+            {
+            }
+        }
+    }
+
+    trigger OnPreReport()
+    begin
+        CompanyInfo.GET;
+        CompanyInfo.CALCFIELDS(Picture);
+    end;
+
+    var
+        CompanyInfo: Record "Company Information";
+}
