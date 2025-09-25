@@ -20,9 +20,9 @@ report 50004 "COA Report"
             column(Water_Temp; "Water Temp") { }
             column(Lot_No; '') { }
             column(CompanyLogo; CompanyInfo.Picture) { }
-
             dataitem(COALines; "COA Lines")
             {
+                DataItemLink = "Released Prod Order No." = field("Released Prod Order No.");
                 column(Result; "Result") { }
                 column(UserId; UserId) { }
                 column(SystemCreatedAt; "SystemCreatedAt") { }
