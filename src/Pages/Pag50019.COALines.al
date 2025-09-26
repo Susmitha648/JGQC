@@ -59,4 +59,33 @@ page 50019 "COA Lines"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            group(Action12)
+            {
+                action(EditExcel)
+                {
+                    Caption = 'ZY Edit in Excel';
+                    Image = Excel;
+                    ToolTip = 'Send the data to an Excel file for analysis or editing.';
+                    ApplicationArea = All;
+
+                    trigger OnAction()
+                    var
+                        EditInExcel: Codeunit "Edit in Excel";
+                        EditInExcelFilters: Codeunit "Edit in Excel Filters";
+                        ODataFilter: Text;
+                        Filters: Label 'No eq ''%1''';
+                    begin
+                        EditInExcelFilters.AddFieldV2(Rec."Released Prod Order No.",Enum::"Edit in Excel Edm Type"::"Edm.String");
+                        
+                        //ODataFilter := StrSubstNo(Filters, Rec."Released Prod Order No.",Rec."Production Order Date",Rec."Line No.");
+                        EditInExcel.EditPageInExcel(CurrPage.ObjectId(true), 50019,EditInExcelFilters);
+                    end;
+                }
+            }
+        }
+    }
 }
