@@ -26,6 +26,13 @@ report 50004 "COA Report"
                 column(Result; "Result") { }
                 column(UserId; UserId) { }
                 column(SystemCreatedAt; "SystemCreatedAt") { }
+                column(QC_Parameter_Code; "QC Parameter Code") { }
+                column(QC_Parameter_Name; "QC Parameter Name") { }
+                column(Min; Min) { }
+                column(Max; Max) { }
+                column(Mould_Numbers; "Mould Numbers") { }
+                column(Section_No_; "Section No.") { }
+                column(Front_Back; "Front/Back") { }
             }
         }
     }
