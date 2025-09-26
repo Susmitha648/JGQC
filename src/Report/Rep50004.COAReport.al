@@ -33,6 +33,7 @@ report 50004 "COA Report"
                 column(Mould_Numbers; "Mould Numbers") { }
                 column(Section_No_; "Section No.") { }
                 column(Front_Back; "Front/Back") { }
+                column(Line_No_; "Line No.") { }
             }
         }
     }
