@@ -24,6 +24,82 @@
       <rd:DataSourceID>156278ef-7836-45d5-9658-3a80fdef8b3b</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="Job_No_">
+          <DataField>Job_No_</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Send_To">
+          <DataField>Send_To</DataField>
+        </Field>
+        <Field Name="Contact">
+          <DataField>Contact</DataField>
+        </Field>
+        <Field Name="Production_Order_Date">
+          <DataField>Production_Order_Date</DataField>
+        </Field>
+        <Field Name="Ring_Finish">
+          <DataField>Ring_Finish</DataField>
+        </Field>
+        <Field Name="Machine">
+          <DataField>Machine</DataField>
+        </Field>
+        <Field Name="Fill_Point">
+          <DataField>Fill_Point</DataField>
+        </Field>
+        <Field Name="Water_Temp">
+          <DataField>Water_Temp</DataField>
+        </Field>
+        <Field Name="Lot_No">
+          <DataField>Lot_No</DataField>
+        </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
+        </Field>
+        <Field Name="Result">
+          <DataField>Result</DataField>
+        </Field>
+        <Field Name="UserId">
+          <DataField>UserId</DataField>
+        </Field>
+        <Field Name="SystemCreatedAt">
+          <DataField>SystemCreatedAt</DataField>
+        </Field>
+        <Field Name="QC_Parameter_Code">
+          <DataField>QC_Parameter_Code</DataField>
+        </Field>
+        <Field Name="QC_Parameter_Name">
+          <DataField>QC_Parameter_Name</DataField>
+        </Field>
+        <Field Name="Min">
+          <DataField>Min</DataField>
+        </Field>
+        <Field Name="Max">
+          <DataField>Max</DataField>
+        </Field>
+        <Field Name="Mould_Numbers">
+          <DataField>Mould_Numbers</DataField>
+        </Field>
+        <Field Name="Section_No_">
+          <DataField>Section_No_</DataField>
+        </Field>
+        <Field Name="Front_Back">
+          <DataField>Front_Back</DataField>
+        </Field>
+        <Field Name="Line_No_">
+          <DataField>Line_No_</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -886,7 +962,7 @@
       <Width>9.71972in</Width>
       <Page>
         <PageHeader>
-          <Height>2.14168in</Height>
+          <Height>1.94724in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2653,7 +2729,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Height>2.07224in</Height>
+              <Height>1.91946in</Height>
               <Width>9.71972in</Width>
               <Style>
                 <Border>
@@ -2692,10 +2768,10 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
+              <Top>0.22222in</Top>
               <Left>0in</Left>
               <Height>0.22222in</Height>
-              <Width>1.05556in</Width>
+              <Width>1.0326in</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -2746,10 +2822,10 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
-              <Left>1.05556in</Left>
+              <Top>0.22222in</Top>
+              <Left>1.0326in</Left>
               <Height>0.22222in</Height>
-              <Width>1.0404in</Width>
+              <Width>1.06336in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2800,7 +2876,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
+              <Top>0.22222in</Top>
               <Left>2.20535in</Left>
               <Height>0.22222in</Height>
               <Width>0.4375in</Width>
@@ -2856,7 +2932,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
+              <Top>0.22222in</Top>
               <Left>2.64285in</Left>
               <Height>0.22222in</Height>
               <Width>1.03346in</Width>
@@ -2910,7 +2986,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
+              <Top>0.22222in</Top>
               <Left>6.31647in</Left>
               <Height>0.22222in</Height>
               <Width>1.06944in</Width>
@@ -2966,7 +3042,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
+              <Top>0.22222in</Top>
               <Left>7.38591in</Left>
               <Height>0.22222in</Height>
               <Width>1.0404in</Width>
@@ -3020,7 +3096,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
+              <Top>0.22222in</Top>
               <Left>8.59424in</Left>
               <Height>0.22222in</Height>
               <Width>0.41667in</Width>
@@ -3076,7 +3152,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.31944in</Top>
+              <Top>0.22222in</Top>
               <Left>9.01091in</Left>
               <Height>0.22222in</Height>
               <Width>0.70406in</Width>
@@ -3130,7 +3206,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.65278in</Top>
+              <Top>0.55556in</Top>
               <Left>0.00001in</Left>
               <Height>0.22222in</Height>
               <Width>0.53027in</Width>
@@ -3185,7 +3261,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.65278in</Top>
+              <Top>0.55556in</Top>
               <Left>0.5326in</Left>
               <Height>0.22222in</Height>
               <Width>3.14371in</Width>
@@ -3240,7 +3316,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.04514in</Top>
+              <Top>0in</Top>
               <Left>0in</Left>
               <Height>0.22222in</Height>
               <Width>1.0326in</Width>
@@ -3295,7 +3371,7 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.04514in</Top>
+              <Top>0in</Top>
               <Left>1.0326in</Left>
               <Height>0.22222in</Height>
               <Width>8.68237in</Width>
@@ -3304,26 +3380,6 @@
                 <Border>
                   <Style>Solid</Style>
                 </Border>
-                <TopBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </TopBorder>
-                <BottomBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </BottomBorder>
-                <LeftBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </LeftBorder>
-                <RightBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                  <Width>1pt</Width>
-                </RightBorder>
                 <VerticalAlign>Bottom</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
@@ -3348,6 +3404,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3466,80 +3528,4 @@ zGa4kjmSNUiaI/kMuWVlykqaceBnil7xj58tKfWKn2X0b0eH/ZJKr/hZLGnvK36WSHpJ0n65SjIvSjZ6
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="Job_No_">
-          <DataField>Job_No_</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Send_To">
-          <DataField>Send_To</DataField>
-        </Field>
-        <Field Name="Contact">
-          <DataField>Contact</DataField>
-        </Field>
-        <Field Name="Production_Order_Date">
-          <DataField>Production_Order_Date</DataField>
-        </Field>
-        <Field Name="Ring_Finish">
-          <DataField>Ring_Finish</DataField>
-        </Field>
-        <Field Name="Machine">
-          <DataField>Machine</DataField>
-        </Field>
-        <Field Name="Fill_Point">
-          <DataField>Fill_Point</DataField>
-        </Field>
-        <Field Name="Water_Temp">
-          <DataField>Water_Temp</DataField>
-        </Field>
-        <Field Name="Lot_No">
-          <DataField>Lot_No</DataField>
-        </Field>
-        <Field Name="CompanyLogo">
-          <DataField>CompanyLogo</DataField>
-        </Field>
-        <Field Name="Result">
-          <DataField>Result</DataField>
-        </Field>
-        <Field Name="UserId">
-          <DataField>UserId</DataField>
-        </Field>
-        <Field Name="SystemCreatedAt">
-          <DataField>SystemCreatedAt</DataField>
-        </Field>
-        <Field Name="QC_Parameter_Code">
-          <DataField>QC_Parameter_Code</DataField>
-        </Field>
-        <Field Name="QC_Parameter_Name">
-          <DataField>QC_Parameter_Name</DataField>
-        </Field>
-        <Field Name="Min">
-          <DataField>Min</DataField>
-        </Field>
-        <Field Name="Max">
-          <DataField>Max</DataField>
-        </Field>
-        <Field Name="Mould_Numbers">
-          <DataField>Mould_Numbers</DataField>
-        </Field>
-        <Field Name="Section_No_">
-          <DataField>Section_No_</DataField>
-        </Field>
-        <Field Name="Front_Back">
-          <DataField>Front_Back</DataField>
-        </Field>
-        <Field Name="Line_No_">
-          <DataField>Line_No_</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>
