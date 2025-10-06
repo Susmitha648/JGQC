@@ -1,7 +1,7 @@
 report 50005 RecordingSlipReport
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Reports/Layouts/RecordingSlipReport.rdl';
+    RDLCLayout = './src/Report/Layouts/RecordingSlipReport.rdl';
     Caption = 'Recording Slip';
     ApplicationArea = Suite;
     UsageCategory = Documents;
@@ -78,7 +78,7 @@ report 50005 RecordingSlipReport
             column(CustomerName; QCPlanHeader."Customer Name") { }
             column(WorkShiftCode; ShopCalenderWorkingDays."Work Shift Code") { }
             column(Color; QCPlanHeader.Colour) { }
-            column(PackSize; PackSizeRec.Code) { }
+            column(PackSize; Item."Pack Size") { }
             column(QtyofPiecePerPack; PackSizeRec."Qty of Pieces Per Pack") { }
             column(QtyofCarton_TraysPerPallet; PackSizeRec."Qty of Cartons") { }
             column(QtyPerPack; PackSizeRec."Qty Per Pack") {}

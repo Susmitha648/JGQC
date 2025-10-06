@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>b717bad0-0854-4d81-a0b2-005cf04cd18a</rd:ReportID>
   <am:AuthoringMetadata>
     <am:CreatedBy>
       <am:Name>MSRB</am:Name>
@@ -9,21 +7,136 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>MSRB</am:Name>
-      <am:Version>15.1.30001.02</am:Version>
+      <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-09-29T05:49:03.4406979Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-03T02:32:59.7875774Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource">
-      <rd:SecurityType>None</rd:SecurityType>
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>3f1f0eb4-9fd3-47b9-ac59-0b5b15b1672c</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="PrintName">
+          <DataField>PrintName</DataField>
+        </Field>
+        <Field Name="CompanyAddress">
+          <DataField>CompanyAddress</DataField>
+        </Field>
+        <Field Name="CompanyPostcode">
+          <DataField>CompanyPostcode</DataField>
+        </Field>
+        <Field Name="CompanyCity">
+          <DataField>CompanyCity</DataField>
+        </Field>
+        <Field Name="CompanyState">
+          <DataField>CompanyState</DataField>
+        </Field>
+        <Field Name="CompanyCountry">
+          <DataField>CompanyCountry</DataField>
+        </Field>
+        <Field Name="CompanyInfoName">
+          <DataField>CompanyInfoName</DataField>
+        </Field>
+        <Field Name="CompanyInfoFax">
+          <DataField>CompanyInfoFax</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhoneNo">
+          <DataField>CompanyInfoPhoneNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoEmail">
+          <DataField>CompanyInfoEmail</DataField>
+        </Field>
+        <Field Name="CompanyInfoHomePage">
+          <DataField>CompanyInfoHomePage</DataField>
+        </Field>
+        <Field Name="CompanyInfoVATRegNo">
+          <DataField>CompanyInfoVATRegNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoBusinessRegistrationNo">
+          <DataField>CompanyInfoBusinessRegistrationNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoGiroNo">
+          <DataField>CompanyInfoGiroNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankName">
+          <DataField>CompanyInfoBankName</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankAccountNo">
+          <DataField>CompanyInfoBankAccountNo</DataField>
+        </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
+        </Field>
+        <Field Name="CompanyPicture1">
+          <DataField>CompanyPicture1</DataField>
+        </Field>
+        <Field Name="CompanyPicture2">
+          <DataField>CompanyPicture2</DataField>
+        </Field>
+        <Field Name="CompanyPicture3">
+          <DataField>CompanyPicture3</DataField>
+        </Field>
+        <Field Name="Last_Date_Modified">
+          <DataField>Last_Date_Modified</DataField>
+        </Field>
+        <Field Name="Job_Code">
+          <DataField>Job_Code</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Finish">
+          <DataField>Finish</DataField>
+        </Field>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+        </Field>
+        <Field Name="WorkShiftCode">
+          <DataField>WorkShiftCode</DataField>
+        </Field>
+        <Field Name="Color">
+          <DataField>Color</DataField>
+        </Field>
+        <Field Name="PackSize">
+          <DataField>PackSize</DataField>
+        </Field>
+        <Field Name="QtyofPiecePerPack">
+          <DataField>QtyofPiecePerPack</DataField>
+        </Field>
+        <Field Name="QtyofPiecePerPackFormat">
+          <DataField>QtyofPiecePerPackFormat</DataField>
+        </Field>
+        <Field Name="QtyofCarton_TraysPerPallet">
+          <DataField>QtyofCarton_TraysPerPallet</DataField>
+        </Field>
+        <Field Name="QtyofCarton_TraysPerPalletFormat">
+          <DataField>QtyofCarton_TraysPerPalletFormat</DataField>
+        </Field>
+        <Field Name="QtyPerPack">
+          <DataField>QtyPerPack</DataField>
+        </Field>
+        <Field Name="QtyPerPackFormat">
+          <DataField>QtyPerPackFormat</DataField>
+        </Field>
+        <Field Name="SlipNo">
+          <DataField>SlipNo</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -487,6 +600,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox30">
@@ -538,6 +652,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox43">
@@ -590,6 +705,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox31">
@@ -693,6 +809,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox32">
@@ -796,6 +913,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox33">
@@ -804,7 +922,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Constant" />
+                    <Value>=Fields!PackSize.Value</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Segoe UI</FontFamily>
@@ -847,6 +965,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox46">
@@ -899,6 +1018,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox47">
@@ -907,7 +1027,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!QtyofPiecePerPack.Value, "DataSet_Result")</Value>
+                    <Value>=Code.BlankZero(Fields!QtyofPiecePerPack.Value)</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Segoe UI</FontFamily>
@@ -950,6 +1070,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox48">
@@ -1002,6 +1123,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox49">
@@ -1053,6 +1175,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox50">
@@ -1105,6 +1228,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
           <Textbox Name="ExecutionTimeTextBox51">
@@ -1156,6 +1280,7 @@
                 <Width>1pt</Width>
               </RightBorder>
               <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
             </Style>
           </Textbox>
         </ReportItems>
@@ -1219,6 +1344,7 @@
                       <Width>1pt</Width>
                     </RightBorder>
                     <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
                   </Style>
                 </Textbox>
                 <Textbox Name="ExecutionTimeTextBox24">
@@ -1271,6 +1397,7 @@
                       <Width>1pt</Width>
                     </RightBorder>
                     <VerticalAlign>Top</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
                   </Style>
                 </Textbox>
                 <Textbox Name="ExecutionTimeTextBox34">
@@ -1323,6 +1450,7 @@
                       <Width>1pt</Width>
                     </RightBorder>
                     <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
                   </Style>
                 </Textbox>
                 <Textbox Name="ExecutionTimeTextBox35">
@@ -1373,10 +1501,10 @@
                       <Width>1pt</Width>
                     </RightBorder>
                     <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
                   </Style>
                 </Textbox>
                 <Textbox Name="Textbox1">
-                  <rd:DefaultName>Textbox1</rd:DefaultName>
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
@@ -1396,6 +1524,7 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
+                  <rd:DefaultName>Textbox1</rd:DefaultName>
                   <Top>1.27646cm</Top>
                   <Left>2.74028cm</Left>
                   <Height>2.13377cm</Height>
@@ -1552,6 +1681,7 @@
                       <Width>1pt</Width>
                     </RightBorder>
                     <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
                   </Style>
                 </Textbox>
                 <Textbox Name="ExecutionTimeTextBox25">
@@ -1565,6 +1695,7 @@
                             <FontStyle>Normal</FontStyle>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>14pt</FontSize>
+                            <Format>dd/MM/yyyy</Format>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -1582,27 +1713,8 @@
                     <Border>
                       <Style>Solid</Style>
                     </Border>
-                    <TopBorder>
-                      <Color>Black</Color>
-                      <Style>Solid</Style>
-                      <Width>1pt</Width>
-                    </TopBorder>
-                    <BottomBorder>
-                      <Color>Black</Color>
-                      <Style>Solid</Style>
-                      <Width>1pt</Width>
-                    </BottomBorder>
-                    <LeftBorder>
-                      <Color>Black</Color>
-                      <Style>Solid</Style>
-                      <Width>1pt</Width>
-                    </LeftBorder>
-                    <RightBorder>
-                      <Color>Black</Color>
-                      <Style>Solid</Style>
-                      <Width>1pt</Width>
-                    </RightBorder>
                     <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
                   </Style>
                 </Textbox>
               </ReportItems>
@@ -1855,14 +1967,14 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <Top>3.33376cm</Top>
-              <Left>0.73088cm</Left>
+              <Left>1.22431cm</Left>
               <Height>15pt</Height>
-              <Width>16.06652cm</Width>
+              <Width>15.70009cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1886,14 +1998,14 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <Top>3.86292cm</Top>
-              <Left>2.40259cm</Left>
+              <Left>1.22431cm</Left>
               <Height>15pt</Height>
-              <Width>14.39481cm</Width>
+              <Width>15.70009cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -1917,14 +2029,14 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <Top>4.42737cm</Top>
-              <Left>1.09731cm</Left>
+              <Left>1.22431cm</Left>
               <Height>15pt</Height>
-              <Width>16.06652cm</Width>
+              <Width>15.70009cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -1953,9 +2065,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>4.95653cm</Top>
-              <Left>1.09731cm</Left>
+              <Left>1.22431cm</Left>
               <Height>15.5pt</Height>
-              <Width>16.06652cm</Width>
+              <Width>15.70009cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -1979,14 +2091,14 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <Top>5.92667cm</Top>
-              <Left>1.09731cm</Left>
+              <Left>1.22431cm</Left>
               <Height>15pt</Height>
-              <Width>16.06652cm</Width>
+              <Width>15.70009cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -2015,6 +2127,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2114,110 +2232,6 @@ ohhNZOMp2UrqoTkcOfwTbdukMGnSBG697Q7sNttxtvIJHQ+333oTz/Xsdn5Z1OWU8zeZMWsOb703jJ5P
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="PrintName">
-          <DataField>PrintName</DataField>
-        </Field>
-        <Field Name="CompanyAddress">
-          <DataField>CompanyAddress</DataField>
-        </Field>
-        <Field Name="CompanyPostcode">
-          <DataField>CompanyPostcode</DataField>
-        </Field>
-        <Field Name="CompanyCity">
-          <DataField>CompanyCity</DataField>
-        </Field>
-        <Field Name="CompanyState">
-          <DataField>CompanyState</DataField>
-        </Field>
-        <Field Name="CompanyCountry">
-          <DataField>CompanyCountry</DataField>
-        </Field>
-        <Field Name="CompanyInfoName">
-          <DataField>CompanyInfoName</DataField>
-        </Field>
-        <Field Name="CompanyInfoFax">
-          <DataField>CompanyInfoFax</DataField>
-        </Field>
-        <Field Name="CompanyInfoPhoneNo">
-          <DataField>CompanyInfoPhoneNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoEmail">
-          <DataField>CompanyInfoEmail</DataField>
-        </Field>
-        <Field Name="CompanyInfoHomePage">
-          <DataField>CompanyInfoHomePage</DataField>
-        </Field>
-        <Field Name="CompanyInfoVATRegNo">
-          <DataField>CompanyInfoVATRegNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoBusinessRegistrationNo">
-          <DataField>CompanyInfoBusinessRegistrationNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoGiroNo">
-          <DataField>CompanyInfoGiroNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoBankName">
-          <DataField>CompanyInfoBankName</DataField>
-        </Field>
-        <Field Name="CompanyInfoBankAccountNo">
-          <DataField>CompanyInfoBankAccountNo</DataField>
-        </Field>
-        <Field Name="CompanyLogo">
-          <DataField>CompanyLogo</DataField>
-        </Field>
-        <Field Name="CompanyPicture1">
-          <DataField>CompanyPicture1</DataField>
-        </Field>
-        <Field Name="CompanyPicture2">
-          <DataField>CompanyPicture2</DataField>
-        </Field>
-        <Field Name="CompanyPicture3">
-          <DataField>CompanyPicture3</DataField>
-        </Field>
-        <Field Name="Last_Date_Modified">
-          <DataField>Last_Date_Modified</DataField>
-        </Field>
-        <Field Name="Job_Code">
-          <DataField>Job_Code</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Finish">
-          <DataField>Finish</DataField>
-        </Field>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
-        </Field>
-        <Field Name="WorkShiftCode">
-          <DataField>WorkShiftCode</DataField>
-        </Field>
-        <Field Name="Color">
-          <DataField>Color</DataField>
-        </Field>
-        <Field Name="PackSize">
-          <DataField>PackSize</DataField>
-        </Field>
-        <Field Name="QtyofPiecePerPack">
-          <DataField>QtyofPiecePerPack</DataField>
-        </Field>
-        <Field Name="QtyofCarton_TraysPerPallet">
-          <DataField>QtyofCarton_TraysPerPallet</DataField>
-        </Field>
-        <Field Name="QtyPerPack">
-          <DataField>QtyPerPack</DataField>
-        </Field>
-        <Field Name="SlipNo">
-          <DataField>SlipNo</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>b717bad0-0854-4d81-a0b2-005cf04cd18a</rd:ReportID>
 </Report>
