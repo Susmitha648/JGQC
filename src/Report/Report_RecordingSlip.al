@@ -81,8 +81,9 @@ report 50005 RecordingSlipReport
             column(PackSize; Item."Pack Size") { }
             column(QtyofPiecePerPack; PackSizeRec."Qty of Pieces Per Pack") { }
             column(QtyofCarton_TraysPerPallet; PackSizeRec."Qty of Cartons") { }
-            column(QtyPerPack; PackSizeRec."Qty Per Pack") {}
+            column(QtyPerPack; PackSizeRec."Qty Per Pack") { }
             column(SlipNo; '') { }
+            column(Quantity; Quantity) { }
             trigger OnPreDataItem()
             var
                 CountryRegion: Record "Country/Region";
@@ -103,11 +104,11 @@ report 50005 RecordingSlipReport
             trigger OnAfterGetRecord()
             begin
                 If Item.Get("Source No.") then
-                If PackSizeRec.Get(Item."Pack Size") then;
+                    If PackSizeRec.Get(Item."Pack Size") then;
                 If QCPlanHeader.Get("Source No.") then;
                 ShopCalenderWorkingDays.Reset();
-                ShopCalenderWorkingDays.SetFilter("Starting Time",'>%1',"Ending Time");
-                ShopCalenderWorkingDays.SetFilter("Ending Time",'<%1',"Ending Time");
+                ShopCalenderWorkingDays.SetFilter("Starting Time", '>%1', "Ending Time");
+                ShopCalenderWorkingDays.SetFilter("Ending Time", '<%1', "Ending Time");
                 If ShopCalenderWorkingDays.FindFirst() then;
             end;
         }
@@ -122,9 +123,9 @@ report 50005 RecordingSlipReport
 
     var
         QCPlanHeader: Record "QC Plan Header";
-        PackSizeRec : Record "Pack Size";
-        Item : Record Item;
-        ShopCalenderWorkingDays : Record "Shop Calendar Working Days";
+        PackSizeRec: Record "Pack Size";
+        Item: Record Item;
+        ShopCalenderWorkingDays: Record "Shop Calendar Working Days";
         QtyPerPack: Text;
         QtyofCarton_TraysPerPallet: Text;
         QtyofPiecePerPack: Text;
