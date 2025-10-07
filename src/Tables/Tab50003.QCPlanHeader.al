@@ -42,7 +42,7 @@ table 50003 "QC Plan Header"
                     "Customer Name" := Customer.Name;
             end;
         }
-        field(5; "Customer Name"; Text[80])
+        field(5; "Customer Name"; Text[100])
         {
             DataClassification = CustomerContent;
             Editable = false;
