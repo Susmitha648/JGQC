@@ -1,6 +1,6 @@
 pageextension 50000 "Released Production Order" extends "Released Production Order"
 {
-     actions
+    actions
     {
         addafter("Re&plan")
         {
@@ -41,11 +41,16 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 var
                     MyReportID: Integer;
                     DocumentNo: Record "Production Order";
+                    Count: Integer;
+                    QtyToPrint: Integer;
                 begin
                     MyReportID := Report::RecordingSlipReport;
                     // Run with request page
                     CurrPage.SetSelectionFilter(DocumentNo);
-                    Report.RunModal(MyReportID, true, false, DocumentNo);
+                    QtyToPrint := DocumentNo.Quantity;
+                    for Count := 1 to QtyToPrint do begin
+                        Report.Run(MyReportID, true, false, DocumentNo);
+                    end;
                 end;
             }
         }
