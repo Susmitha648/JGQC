@@ -49264,6 +49264,30 @@ Hd6IcKpafQ9O62eLRagBAGcOBQgAAFBlz1Hdqj2SyNcu2Ft/9FcuCNSPGqg9tldFJ6WRNlMgtFS527Ne
         <Field Name="Customer_Name">
           <DataField>Customer_Name</DataField>
         </Field>
+        <Field Name="released_Prod_Order_No_li">
+          <DataField>released_Prod_Order_No_li</DataField>
+        </Field>
+        <Field Name="Line_No">
+          <DataField>Line_No</DataField>
+        </Field>
+        <Field Name="Production_Order_Date_li">
+          <DataField>Production_Order_Date_li</DataField>
+        </Field>
+        <Field Name="Time">
+          <DataField>Time</DataField>
+        </Field>
+        <Field Name="Section_No_">
+          <DataField>Section_No_</DataField>
+        </Field>
+        <Field Name="Front_Back">
+          <DataField>Front_Back</DataField>
+        </Field>
+        <Field Name="Cavity_No">
+          <DataField>Cavity_No</DataField>
+        </Field>
+        <Field Name="QC_Defect_Code">
+          <DataField>QC_Defect_Code</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

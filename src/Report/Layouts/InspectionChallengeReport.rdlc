@@ -49774,6 +49774,30 @@ j3/yPJ57/gVlR3/2Ao7Ko/k89s3/fye2iX2bZvo2bSjfppm+TTN9m5bk2zTTt2lJvk1L8m1akm/TTN+m
         <Field Name="FurnaceNo">
           <DataField>FurnaceNo</DataField>
         </Field>
+        <Field Name="ReleasedProdOrderNo_li">
+          <DataField>ReleasedProdOrderNo_li</DataField>
+        </Field>
+        <Field Name="ProductionOrderDate_li">
+          <DataField>ProductionOrderDate_li</DataField>
+        </Field>
+        <Field Name="LineNo">
+          <DataField>LineNo</DataField>
+        </Field>
+        <Field Name="Time">
+          <DataField>Time</DataField>
+        </Field>
+        <Field Name="Inspection_Type">
+          <DataField>Inspection_Type</DataField>
+        </Field>
+        <Field Name="QC_Defect_Code">
+          <DataField>QC_Defect_Code</DataField>
+        </Field>
+        <Field Name="Reject__">
+          <DataField>Reject__</DataField>
+        </Field>
+        <Field Name="Reject__Format">
+          <DataField>Reject__Format</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
