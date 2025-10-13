@@ -34,9 +34,9 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 ApplicationArea = All;
                 Caption = 'Print Recording Slip';
                 Image = Report; // Optional icon
-                Promoted = true;
-                PromotedIsBig = true;
-                PromotedCategory = Category4;
+               // Promoted = true;
+               // PromotedIsBig = true;
+                //PromotedCategory = Report;
                 trigger OnAction()
                 var
                     MyReportID: Integer;
@@ -47,10 +47,11 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                     MyReportID := Report::RecordingSlipReport;
                     // Run with request page
                     CurrPage.SetSelectionFilter(DocumentNo);
-                    QtyToPrint := DocumentNo.Quantity;
-                    for Count := 1 to QtyToPrint do begin
+                   // If DocumentNo.FindFirst() then
+                     //   QtyToPrint := DocumentNo.Quantity;
+                    //for Count := 1 to QtyToPrint do begin
                         Report.Run(MyReportID, true, false, DocumentNo);
-                    end;
+                
                 end;
             }
         }

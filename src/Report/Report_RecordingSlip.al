@@ -84,6 +84,30 @@ report 50005 RecordingSlipReport
             column(QtyPerPack; PackSizeRec."Qty Per Pack") { }
             column(SlipNo; '') { }
             column(Quantity; Quantity) { }
+            dataitem(CopyLoop; "Integer")
+            {
+                DataItemTableView = sorting(Number);
+
+                dataitem(PageLoop; "Integer")
+                {
+                    DataItemTableView = sorting(Number) where(Number = const(1));
+                    column(OutputNo; OutputNo) { }
+                }
+                trigger OnAfterGetRecord()
+                begin
+                    OutputNo := OutputNo + 1;
+                    //ItemLabelBufferTemp := ItemLabelBufferTemp;
+                end;
+
+                trigger OnPreDataItem()
+                begin
+                    NoOfLoops := Abs("Production Order".Quantity);
+                    CopyText := '';
+                    SetRange(Number, 1, NoOfLoops);
+                    OutputNo := 0;
+
+                end;
+            }
             trigger OnPreDataItem()
             var
                 CountryRegion: Record "Country/Region";
@@ -107,9 +131,14 @@ report 50005 RecordingSlipReport
                     If PackSizeRec.Get(Item."Pack Size") then;
                 If QCPlanHeader.Get("Source No.") then;
                 ShopCalenderWorkingDays.Reset();
-                ShopCalenderWorkingDays.SetFilter("Starting Time", '>%1', "Ending Time");
-                ShopCalenderWorkingDays.SetFilter("Ending Time", '<%1', "Ending Time");
+                ShopCalenderWorkingDays.SetFilter("Starting Time", '<=%1', "Production Order"."Ending Time");
+                ShopCalenderWorkingDays.SetFilter("Ending Time", '>=%1', "Production Order"."Ending Time");
+                //ShopCalenderWorkingDays.SetFilter("Work Shift Code",'<>%1','');
                 If ShopCalenderWorkingDays.FindFirst() then;
+
+
+
+
             end;
         }
     }
@@ -141,4 +170,9 @@ report 50005 RecordingSlipReport
         FormatAddr: Codeunit "Format Address";
         ReportTitle: Text[30];
         CompanyAddr: array[8] of Text[100];
+        NoOfCopies: Integer;
+        ItemQuantity: Integer;
+        NoOfLoops: Integer;
+        CopyText: Text[30];
+        OutputNo: Integer;
 }

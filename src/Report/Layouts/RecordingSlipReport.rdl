@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>b717bad0-0854-4d81-a0b2-005cf04cd18a</rd:ReportID>
   <am:AuthoringMetadata>
     <am:CreatedBy>
       <am:Name>MSRB</am:Name>
@@ -9,18 +7,18 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>MSRB</am:Name>
-      <am:Version>15.1.30001.02</am:Version>
+      <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-06T03:36:31.0857259Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-13T08:44:26.9750544Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource">
-      <rd:SecurityType>None</rd:SecurityType>
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>3f1f0eb4-9fd3-47b9-ac59-0b5b15b1672c</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -55,7 +53,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=First(Fields!SlipNo.Value, "DataSet_Result")</Value>
+                                      <Value>=Fields!OutputNo.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Segoe UI</FontFamily>
@@ -97,7 +95,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox24">
@@ -203,7 +201,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox35">
@@ -258,7 +256,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox1">
-                              <rd:DefaultName>Textbox1</rd:DefaultName>
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -278,6 +275,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
+                              <rd:DefaultName>Textbox1</rd:DefaultName>
                               <Top>1.27646cm</Top>
                               <Left>2.74424cm</Left>
                               <Height>2.13377cm</Height>
@@ -435,7 +433,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox25">
@@ -468,7 +466,7 @@
                                   <Style>Solid</Style>
                                 </Border>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox37">
@@ -534,6 +532,7 @@
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Segoe UI</FontFamily>
                                         <FontSize>14pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -934,7 +933,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox30">
@@ -943,7 +942,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=First(Fields!WorkShiftCode.Value, "DataSet_Result")</Value>
+                                      <Value>=Fields!WorkShiftCode.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Segoe UI</FontFamily>
@@ -986,7 +985,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox43">
@@ -1039,7 +1038,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox31">
@@ -1143,7 +1142,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox32">
@@ -1152,7 +1151,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant" />
+                                      <Value>=Fields!Color.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Segoe UI</FontFamily>
@@ -1195,6 +1194,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox45">
@@ -1247,7 +1247,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox33">
@@ -1299,7 +1299,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox46">
@@ -1352,7 +1352,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox47">
@@ -1404,7 +1404,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox48">
@@ -1457,7 +1457,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox49">
@@ -1509,7 +1509,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox50">
@@ -1562,7 +1562,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox51">
@@ -1614,7 +1614,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Rectangle Name="Rectangle1">
@@ -2020,7 +2020,7 @@
                 <TablixMember>
                   <Group Name="Details">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Quantity.Value</GroupExpression>
+                      <GroupExpression>=Fields!OutputNo.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                 </TablixMember>
@@ -2064,10 +2064,10 @@
         <PageWidth>21cm</PageWidth>
         <InteractiveHeight>11in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
-        <LeftMargin>1.76388cm</LeftMargin>
-        <RightMargin>1.05834cm</RightMargin>
-        <TopMargin>1.05834cm</TopMargin>
-        <BottomMargin>1.48166cm</BottomMargin>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
@@ -2172,6 +2172,8 @@ ohhNZOMp2UrqoTkcOfwTbdukMGnSBG697Q7sNttxtvIJHQ+333oTz/Xsdn5Z1OWU8zeZMWsOb703jJ5P
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>b717bad0-0854-4d81-a0b2-005cf04cd18a</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
@@ -2285,6 +2287,9 @@ ohhNZOMp2UrqoTkcOfwTbdukMGnSBG697Q7sNttxtvIJHQ+333oTz/Xsdn5Z1OWU8zeZMWsOb703jJ5P
         </Field>
         <Field Name="QuantityFormat">
           <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="OutputNo">
+          <DataField>OutputNo</DataField>
         </Field>
       </Fields>
       <Query>
