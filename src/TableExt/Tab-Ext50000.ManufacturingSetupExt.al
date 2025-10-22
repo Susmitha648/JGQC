@@ -6,6 +6,7 @@ tableextension 50000 "Manufacturing Setup Ext" extends "Manufacturing Setup"
         {
             Caption = 'Production Programme No.';
             DataClassification = CustomerContent;
+            TableRelation = "No. Series".Code;
         }
     }
 }

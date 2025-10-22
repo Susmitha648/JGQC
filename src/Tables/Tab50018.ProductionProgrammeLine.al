@@ -31,7 +31,7 @@ table 50018 "Production Programme Line"
         {
             Caption = 'WT';
         }
-        field(7; Speed; Enum "ABS Blob Access Tier")
+        field(7; Speed; Enum Speed)
         {
             Caption = 'Speed';
         }

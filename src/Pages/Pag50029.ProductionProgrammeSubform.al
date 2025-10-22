@@ -4,7 +4,7 @@ page 50029 "Production Programme Subform"
     Caption = 'Production Programme Subform';
     PageType = ListPart;
     SourceTable = "Production Programme Line";
-    
+    Editable = false;
     layout
     {
         area(Content)

@@ -47,7 +47,21 @@ page 50028 "Production Programme"
                 ApplicationArea = All;
                 SubPageLink = "No." = field("No.");
                 UpdatePropagation = Both;
+                Caption = 'Production Programme Lines';
             }
         }
     }
+    trigger OnNewRecord(BelowxRec: Boolean)
+    var
+        ManufacturingSetup: Record "Manufacturing Setup";
+        NoSeries: Codeunit "No. Series";
+    begin
+
+        If ManufacturingSetup.Get() then
+            If not (ManufacturingSetup."Production Programme No." = '') then begin
+                Rec."No." := NoSeries.PeekNextNo(ManufacturingSetup."Production Programme No.");
+                Rec."Created Date" := System.Today();
+            end else
+                Error('Production Programme No series setup is not done in Manufacturing setup');
+    end;
 }
