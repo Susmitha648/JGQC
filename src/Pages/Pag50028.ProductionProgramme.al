@@ -4,7 +4,7 @@ page 50028 "Production Programme"
     Caption = 'Production Programme';
     PageType = Document;
     SourceTable = "Production Programme Header";
-    
+    PromotedActionCategoriesML = ENU = 'Home,Process,Report,Release,Create';
     layout
     {
         area(Content)
@@ -36,6 +36,7 @@ page 50028 "Production Programme"
                 field(Remarks; Rec.Remarks)
                 {
                     ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
+                    MultiLine = True;
                 }
                 field(Status; Rec.Status)
                 {
@@ -51,6 +52,109 @@ page 50028 "Production Programme"
             }
         }
     }
+    actions
+    {
+        area(Navigation)
+        {
+            group(Action12)
+            {
+                action(Create)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Generate Production Programme Lines';
+                    Image = Create;
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = Category5;
+                    ToolTip = 'Create Production Programme Lines based on the Request form data';
+                    trigger OnAction()
+                    var
+                    ProdProg : Record "Production Programme Header";
+                    begin
+                        CurrPage.SetSelectionFilter(ProdProg);
+                        Report.RunModal(50008,True,false,ProdProg);
+                    end;    
+                }
+                 action("Archive Document")
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Archi&ve Document';
+                    Image = Archive;
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = Category5;
+                    ToolTip = 'Send the document to the archive, for example because it is too soon to delete it. Later, you delete or reprocess the archived document.';
+
+                    trigger OnAction()
+                    begin
+                        ArchiveProdProgDocument();
+                        
+                    end;
+                }
+            }
+        }
+         
+        area(Processing)
+        {
+            group(ReleaseDoc)
+            {
+                Caption = 'Process';
+                action(Release)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Re&lease';
+                    Enabled = Rec.Status <> Rec.Status::Released;
+                    Image = ReleaseDoc;
+                    ShortCutKey = 'Ctrl+F9';
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = Category4;
+                    ToolTip = 'Release the document to the next stage of processing. You must reopen the document before you can make changes to it.';
+
+                    trigger OnAction()
+                    begin
+
+                        PerformManualRelease();
+                    end;
+                }
+                action(ReOpen)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Re&Open';
+                    Enabled = Rec.Status <> Rec.Status::Open;
+                    Image = ReOpen;
+                    ShortCutKey = 'Ctrl+F9';
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = Category4;
+                    ToolTip = 'ReOpen the document.';
+
+                    trigger OnAction()
+                    begin
+                        PerformManualReopen();
+                    end;
+                }
+
+            }
+        }
+    }
+      procedure PerformManualReopen()
+    begin
+
+        if Rec.Status = Rec.Status::Open then
+            exit;
+        Rec.Status := Rec.Status::Open;
+        Rec.Modify();
+    end;
+
+    procedure PerformManualRelease()
+    begin
+
+        if Rec.Status <> Rec.Status::Released then begin
+            Rec.Status := Rec.Status::Released;
+            Rec.Modify();
+        end;
+    end;
     trigger OnNewRecord(BelowxRec: Boolean)
     var
         ManufacturingSetup: Record "Manufacturing Setup";
@@ -64,4 +168,36 @@ page 50028 "Production Programme"
             end else
                 Error('Production Programme No series setup is not done in Manufacturing setup');
     end;
+     procedure ArchiveProdProgDocument()
+    var
+        ProdLine: Record "Production Programme Line";
+        HeaderArchive: Record "Production Programme Archive";
+        PurchLineArchive: Record "Production Prgrme Archive Line";
+        IsHandled: Boolean;
+    begin
+        
+
+        HeaderArchive.Init();
+        HeaderArchive.TransferFields(Rec);
+        HeaderArchive."Archived By" := CopyStr(UserId(), 1, MaxStrLen(HeaderArchive."Archived By"));
+        HeaderArchive."Date Archived" := Today();
+        HeaderArchive."Time Archived" := Time();
+        HeaderArchive."Version No." := Rec."No of Archived Versions" + 1;
+        HeaderArchive.Insert();
+        
+
+        ProdLine.SetRange("No.",Rec."No.");
+        if ProdLine.FindSet() then
+            repeat
+                PurchLineArchive.Init();
+                PurchLineArchive.TransferFields(ProdLine);
+                PurchLineArchive."Version No." := HeaderArchive."Version No.";
+                PurchLineArchive.Insert();
+               
+            until ProdLine.Next() = 0;
+        Rec."No of Archived Versions" := Rec."No of Archived Versions" + 1;
+        Rec.Modify();
+    end;
+    
+    
 }

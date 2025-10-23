@@ -95,4 +95,13 @@ table 50003 "QC Plan Header"
     var
         Customer: Record Customer;
         Item : Record Item;
-}
+         trigger OnDelete()
+    var
+        QCLines : Record "QC Plan Lines";
+    begin
+        TestField(Status, Status::Open);
+        QCLines.Reset();
+        QCLines.SetRange("Job No.",Rec."Job No.");
+        QCLines.DeleteAll();
+    end;
+}   

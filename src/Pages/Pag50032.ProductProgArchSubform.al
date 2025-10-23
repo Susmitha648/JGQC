@@ -1,12 +1,10 @@
-page 50029 "Production Programme Subform"
+page 50032 "Product Prog Arch Subform"
 {
     ApplicationArea = All;
-    Caption = 'Production Programme Subform';
+    Caption = 'Product Prog Arch Subform';
     PageType = ListPart;
-    SourceTable = "Production Programme Line";
-    //DeleteAllowed = True;
-   // Editable = false;
-   InsertAllowed = false;
+    SourceTable = "Production Prgrme Archive Line";
+    
     layout
     {
         area(Content)
@@ -16,52 +14,42 @@ page 50029 "Production Programme Subform"
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.', Comment = '%';
-                    Editable = false;
                 }
                 field("Date"; Rec."Date")
                 {
                     ToolTip = 'Specifies the value of the Date field.', Comment = '%';
-                    Editable = false;
                 }
                 field(Day; Rec.Day)
                 {
                     ToolTip = 'Specifies the value of the Day field.', Comment = '%';
-                    Editable = false;
                 }
                 field(Furnace; Rec.Furnace)
                 {
                     ToolTip = 'Specifies the value of the Furnace field.', Comment = '%';
-                    Editable = false;
                 }
                 field(Job; Rec.Job)
                 {
                     ToolTip = 'Specifies the value of the Job field.', Comment = '%';
-                    Editable = false;
                 }
                 field(WT; Rec.WT)
                 {
                     ToolTip = 'Specifies the value of the WT field.', Comment = '%';
-                    Editable = false;
                 }
                 field(Speed; Rec.Speed)
                 {
                     ToolTip = 'Specifies the value of the Speed field.', Comment = '%';
-                    Editable = false;
                 }
                 field(Ton; Rec.Ton)
                 {
                     ToolTip = 'Specifies the value of the Ton field.', Comment = '%';
-                    Editable = false;
                 }
                 field(Tray; Rec.Tray)
                 {
                     ToolTip = 'Specifies the value of the Tray field.', Comment = '%';
-                    Editable = false;
                 }
                 field(Pallet; Rec.Pallet)
                 {
                     ToolTip = 'Specifies the value of the Pallet field.', Comment = '%';
-                    Editable = false;
                 }
             }
         }

@@ -2,12 +2,42 @@ report 50008 "Generate Production Programme"
 {
     ApplicationArea = All;
     Caption = 'Generate Production Programme';
-    UsageCategory = Tasks;
     ProcessingOnly = True;
     dataset
     {
         dataitem(ProductionProgrammeHeader; "Production Programme Header")
         {
+            trigger OnAfterGetRecord()
+            var
+                ProductionProgramLine: Record "Production Programme Line";
+                Item: Record Item;
+            begin
+                If Item.Get(JobNo) then;
+                While FromDate <= ToDate do begin
+                    ProductionProgramLine.Reset();
+                    ProductionProgramLine.SetRange("No.", "No.");
+                    ProductionProgramLine.SetRange(Date, FromDate);
+                    ProductionProgramLine.SetRange(Job, JobNo);
+                    If not ProductionProgramLine.FindFirst() then begin
+                        ProductionProgramLine.Init();
+                        ProductionProgramLine."No." := "No.";
+                        ProductionProgramLine.Date := FromDate;
+                        ProductionProgramLine.Job := JobNo;
+                        ProductionProgramLine.Insert();
+                    End;
+                    ProductionProgramLine.Speed := Speed;
+                    ProductionProgramLine.Pallet := Pallet;
+                    ProductionProgramLine.Tray := Tray;
+
+                    ProductionProgramLine.WT := Item."Net Weight";
+                    ProductionProgramLine.Furnace := Furnace;
+                    ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
+                    ProductionProgramLine.Ton := Ton;
+                    ProductionProgramLine.Modify();
+                    FromDate := FromDate + 1;
+
+                end;
+            end;
         }
     }
     requestpage
@@ -16,7 +46,7 @@ report 50008 "Generate Production Programme"
         {
             area(Content)
             {
-                 group(Options)
+                group(Options)
                 {
                     field(FromDate; FromDate)
                     {
@@ -34,8 +64,19 @@ report 50008 "Generate Production Programme"
                     {
                         ApplicationArea = All;
                         Caption = 'Furnace';
-                        TableRelation = "Work Center"."No.";
                         ToolTip = 'Specifies Furnace.';
+                        trigger OnDrillDown()
+
+                        begin
+                            GeneralLegderSetup.Get();
+                            DimensionValue.Reset();
+                            DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
+                            If DimensionValue.FindSet() then;
+                            if Page.RunModal(537,DimensionValue) = Action::LookupOK then begin
+                               Furnace := DimensionValue.Code;
+                               
+                            end;
+                        end;
                     }
                     field(JobNo; JobNo)
                     {
@@ -71,15 +112,27 @@ report 50008 "Generate Production Programme"
                 }
             }
         }
-        
+
     }
-    var 
-    FromDate : Date;
-    ToDate : Date;
-    Furnace : Code[20];
-    JobNo : Code[20];
-    Ton : Decimal;
-    Tray : Text[50];
-    Pallet : Text[50];
-    Speed : Enum Speed;
+    var
+        FromDate: Date;
+        ToDate: Date;
+        Furnace: Code[20];
+        JobNo: Code[20];
+        Ton: Decimal;
+        Tray: Text[50];
+        Pallet: Text[50];
+        Speed: Enum Speed;
+        GeneralLegderSetup: Record "General Ledger Setup";
+        DimensionValue: Record "Dimension Value";
+        ShortCutDimension: Code[20];
+
+    trigger OnPreReport()
+    begin
+        GeneralLegderSetup.Get();
+        ShortCutDimension := GeneralLegderSetup."Shortcut Dimension 8 Code";
+        DimensionValue.Reset();
+        DimensionValue.SetRange(Code, GeneralLegderSetup."Shortcut Dimension 8 Code");
+        if DimensionValue.FindSet() then;
+    end;
 }

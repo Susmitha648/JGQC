@@ -6,6 +6,8 @@ page 50027 "Production Programme List"
     SourceTable = "Production Programme Header";
     UsageCategory = Lists;
     CardPageId = "Production Programme";
+    Editable = false;
+    DeleteAllowed = false;
     layout
     {
         area(Content)
@@ -39,26 +41,5 @@ page 50027 "Production Programme List"
             }
         }
     }
-    actions
-    {
-        area(Processing)
-        {
-            group(Action12)
-            {
-                action(Release)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Generate Production Programme Lines';
-                    Image = Create;
-                    Promoted = True;
-                    PromotedIsBig = True;
-                    PromotedCategory = Process;
-                    ToolTip = 'Create Production Programme Lines based on the Request form data';
-                    trigger OnAction()
-                    begin
-                    end;    
-                }
-            }
-        }
-    }
+    
 }

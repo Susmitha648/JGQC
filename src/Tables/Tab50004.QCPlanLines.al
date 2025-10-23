@@ -135,4 +135,10 @@ table 50004 "QC Plan Lines"
         If QCPlanHeader.Get("Job No.") then
             QCPlanHeader.TestField(QCPlanHeader.Status, QCPlanHeader.Status::Open);
     end;
+    trigger OnDelete()
+
+    begin
+       CheckStatusOpen();
+    end;
+   
 }

@@ -1,9 +1,9 @@
-table 50017 "Production Programme Header"
+table 50019 "Production Programme Archive"
 {
-    Caption = 'Production Programme Header';
+    Caption = 'Production Programme Archive';
     DataClassification = CustomerContent;
-    LookupPageId = "Production Programme List";
-    fields
+    
+     fields
     {
         field(1; "No."; Code[20])
         {
@@ -33,9 +33,9 @@ table 50017 "Production Programme Header"
                 TestField(Status, Status::Open);
             end;
         }
-        field(2; "No of Archived Versions"; Integer)
+        field(2; "Version No."; Integer)
         {
-            Caption = 'No of Archived Versions';
+            Caption = 'Version No.';
             Editable = false;
         }
         field(6; Remarks; Text[100])
@@ -51,36 +51,27 @@ table 50017 "Production Programme Header"
             Caption = 'Status';
             Editable = false;
         }
+        field(8; "Archived By"; Code[20])
+        {
+            Caption = 'Archived By';
+            Editable = false;
+        }
+          field(9; "Date Archived"; Date)
+        {
+            Caption = 'Date Archived';
+            Editable = false;
+        }
+          field(10; "Time Archived"; Time)
+        {
+            Caption = 'Time Archived';
+            Editable = false;
+        }
     }
     keys
     {
-        key(PK; "No.")
+        key(PK; "No.","Version No.")
         {
             Clustered = true;
         }
     }
-    trigger OnInsert()
-    var
-        ManufacturingSetup: Record "Manufacturing Setup";
-        NoSeries: Codeunit "No. Series";
-    begin
-
-        If ManufacturingSetup.Get() then
-            If not (ManufacturingSetup."Production Programme No." = '') then begin
-                Rec."No." := NoSeries.GetNextNo(ManufacturingSetup."Production Programme No.", Today(), true);
-                Rec."Created Date" := System.Today();
-            end else
-                Error('Production Programme No series setup is not done in Manufacturing setup');
-
-    end;
-    trigger OnDelete()
-    var
-    ProgramingLines : Record "Production Programme Line";
-    begin
-        TestField(Status, Status::Open);
-        ProgramingLines.Reset();
-        ProgramingLines.SetRange("No.",Rec."No.");
-        ProgramingLines.DeleteAll();
-    end;
-    
 }

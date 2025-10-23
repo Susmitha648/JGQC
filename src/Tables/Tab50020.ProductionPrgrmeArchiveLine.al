@@ -1,9 +1,9 @@
-table 50018 "Production Programme Line"
+table 50020 "Production Prgrme Archive Line"
 {
-    Caption = 'Production Programme Line';
+    Caption = 'Production Prgrme Archive Line';
     DataClassification = CustomerContent;
     
-    fields
+     fields
     {
         field(1; "No."; Code[20])
         {
@@ -17,15 +17,15 @@ table 50018 "Production Programme Line"
         {
             Caption = 'Day';
         }
-         field(5; Job; Code[20])
-        {
-            Caption = 'Job';
-            TableRelation = Item."No.";
-        }
         field(4; Furnace; Code[20])
         {
             Caption = 'Furnace';
-            TableRelation = "Dimension Value".Code;
+            TableRelation = "Work Center"."No.";
+        }
+        field(5; Job; Code[20])
+        {
+            Caption = 'Job';
+            TableRelation = Item."No.";
         }
         field(6; WT; Decimal)
         {
@@ -47,20 +47,18 @@ table 50018 "Production Programme Line"
         {
             Caption = 'Pallet';
         }
+         field(11; "Version No."; Integer)
+        {
+            Caption = 'Version No.';
+            Editable = false;
+        }
+
     }
     keys
     {
-        key(PK; "No.",Date,Job)
+        key(PK; "No.",Date,Job,"Version No.")
         {
             Clustered = true;
         }
     }
-    trigger OnDelete()
-    var
-      ProgramingHeader : Record "Production Programme Header";
-    begin
-       If ProgramingHeader.Get("No.") then
-          If ProgramingHeader.Status = ProgramingHeader.Status::Released then
-             Error('Status must be equal to released');
-    end;
 }
