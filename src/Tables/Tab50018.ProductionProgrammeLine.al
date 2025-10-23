@@ -12,40 +12,76 @@ table 50018 "Production Programme Line"
         field(2; "Date"; Date)
         {
             Caption = 'Date';
+            trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
         field(3; Day; Code[10])
         {
             Caption = 'Day';
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
          field(5; Job; Code[20])
         {
             Caption = 'Job';
             TableRelation = Item."No.";
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
         field(4; Furnace; Code[20])
         {
             Caption = 'Furnace';
             TableRelation = "Dimension Value".Code;
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
         field(6; WT; Decimal)
         {
             Caption = 'WT';
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
         field(7; Speed; Enum Speed)
         {
             Caption = 'Speed';
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
         field(8; Ton; Decimal)
         {
             Caption = 'Ton';
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
         field(9; Tray; Text[50])
         {
             Caption = 'Tray';
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
         field(10; Pallet; Text[50])
         {
             Caption = 'Pallet';
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
     }
     keys
@@ -56,11 +92,17 @@ table 50018 "Production Programme Line"
         }
     }
     trigger OnDelete()
+    
+    begin
+       TestStatusOpen();
+    end;
+    procedure TestStatusOpen()
     var
       ProgramingHeader : Record "Production Programme Header";
     begin
        If ProgramingHeader.Get("No.") then
           If ProgramingHeader.Status = ProgramingHeader.Status::Released then
              Error('Status must be equal to released');
+
     end;
 }
