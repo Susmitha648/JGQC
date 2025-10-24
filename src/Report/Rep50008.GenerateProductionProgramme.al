@@ -127,12 +127,4 @@ report 50008 "Generate Production Programme"
         DimensionValue: Record "Dimension Value";
         ShortCutDimension: Code[20];
 
-    trigger OnPreReport()
-    begin
-        GeneralLegderSetup.Get();
-        ShortCutDimension := GeneralLegderSetup."Shortcut Dimension 8 Code";
-        DimensionValue.Reset();
-        DimensionValue.SetRange(Code, GeneralLegderSetup."Shortcut Dimension 8 Code");
-        if DimensionValue.FindSet() then;
-    end;
 }

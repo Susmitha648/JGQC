@@ -2,7 +2,7 @@ table 50018 "Production Programme Line"
 {
     Caption = 'Production Programme Line';
     DataClassification = CustomerContent;
-    
+
     fields
     {
         field(1; "No."; Code[20])
@@ -20,16 +20,16 @@ table 50018 "Production Programme Line"
         field(3; Day; Code[10])
         {
             Caption = 'Day';
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
             end;
         }
-         field(5; Job; Code[20])
+        field(5; Job; Code[20])
         {
             Caption = 'Job';
             TableRelation = Item."No.";
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
             end;
@@ -38,15 +38,24 @@ table 50018 "Production Programme Line"
         {
             Caption = 'Furnace';
             TableRelation = "Dimension Value".Code;
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
+            end;
+            trigger OnLookup()
+            begin
+                GeneralLegderSetup.Get();
+                DimensionValue.Reset();
+                DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
+                If DimensionValue.FindSet() then;
+                if Page.RunModal(537, DimensionValue) = Action::LookupOK then 
+                    Furnace := DimensionValue.Code;
             end;
         }
         field(6; WT; Decimal)
         {
             Caption = 'WT';
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
             end;
@@ -54,7 +63,7 @@ table 50018 "Production Programme Line"
         field(7; Speed; Enum Speed)
         {
             Caption = 'Speed';
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
             end;
@@ -62,7 +71,7 @@ table 50018 "Production Programme Line"
         field(8; Ton; Decimal)
         {
             Caption = 'Ton';
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
             end;
@@ -70,7 +79,7 @@ table 50018 "Production Programme Line"
         field(9; Tray; Text[50])
         {
             Caption = 'Tray';
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
             end;
@@ -78,7 +87,7 @@ table 50018 "Production Programme Line"
         field(10; Pallet; Text[50])
         {
             Caption = 'Pallet';
-             trigger OnValidate()
+            trigger OnValidate()
             begin
                 TestStatusOpen();
             end;
@@ -86,23 +95,28 @@ table 50018 "Production Programme Line"
     }
     keys
     {
-        key(PK; "No.",Date,Job)
+        key(PK; "No.", Date, Job)
         {
             Clustered = true;
         }
     }
     trigger OnDelete()
-    
+
     begin
-       TestStatusOpen();
+        TestStatusOpen();
     end;
+
     procedure TestStatusOpen()
     var
-      ProgramingHeader : Record "Production Programme Header";
+        ProgramingHeader: Record "Production Programme Header";
     begin
-       If ProgramingHeader.Get("No.") then
-          If ProgramingHeader.Status = ProgramingHeader.Status::Released then
-             Error('Status must be equal to released');
+        If ProgramingHeader.Get("No.") then
+            If ProgramingHeader.Status = ProgramingHeader.Status::Released then
+                Error('Status must be equal to released');
 
     end;
+
+    var
+        GeneralLegderSetup: Record "General Ledger Setup";
+        DimensionValue: Record "Dimension Value";
 }
