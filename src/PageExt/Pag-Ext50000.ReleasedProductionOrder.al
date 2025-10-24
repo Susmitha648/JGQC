@@ -26,6 +26,17 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "COA Details";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
+            action(BatchOperatorEntry)
+            {
+                ApplicationArea = All;
+                Caption = 'Batch Operators Daily Entry';
+                Image = List;
+                ToolTip = 'Batch Operators Daily Entry';
+                Promoted = true;
+                PromotedCategory = Process;
+                RunObject = Page "Batch Operators Daily Entries";
+                RunPageLink = "Production Order No." = field("No.");
+            }
         }
         addafter("Shortage List")
         {
