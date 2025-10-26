@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-24T02:32:39.6502380Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-26T16:46:46.0200539Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -2093,7 +2093,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.53455in</Height>
+                  <Height>0.46728in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2111,7 +2111,7 @@
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>0.26728in</Height>
+                                    <Height>0.2in</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -2359,6 +2359,9 @@
                               <TablixRowHierarchy>
                                 <TablixMembers>
                                   <TablixMember>
+                                    <Visibility>
+                                      <Hidden>=String.IsNullOrEmpty(Fields!Furnace.Value) OR (Fields!Furnace.Value = "0")</Hidden>
+                                    </Visibility>
                                     <KeepWithGroup>After</KeepWithGroup>
                                   </TablixMember>
                                   <TablixMember>
@@ -2372,9 +2375,10 @@
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
+                              <KeepTogether>true</KeepTogether>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Height>0.53455in</Height>
-                              <Width>0.84965in</Width>
+                              <Height>0.46728in</Height>
+                              <Width>0.84966in</Width>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -2434,9 +2438,9 @@
             </TablixRowHierarchy>
             <KeepTogether>true</KeepTogether>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>0.66105in</Top>
+            <Top>0.46104in</Top>
             <Left>4.07718in</Left>
-            <Height>0.53455in</Height>
+            <Height>0.46728in</Height>
             <Width>0.84965in</Width>
             <ZIndex>1</ZIndex>
             <Style>
@@ -2467,7 +2471,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.42566in</Height>
+        <Height>0.92832in</Height>
         <Style />
       </Body>
       <Width>9.69in</Width>
@@ -2485,9 +2489,23 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!Description.Value, "DataSet_Result") + First(Fields!No_of_Archived_Versions.Value, "DataSet_Result")</Value>
+                      <Value>=First(Fields!Description.Value, "DataSet_Result")</Value>
                       <Style>
-                        <FontSize>9pt</FontSize>
+                        <FontStyle>Italic</FontStyle>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve"> </Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=First(Fields!No_of_Archived_Versions.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -2519,15 +2537,24 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
+                      <Value>="Date : "</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Format>d</Format>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
                       <Value>=First(Fields!Created_Date.Value, "DataSet_Result")</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                        <Format>d</Format>
                       </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
@@ -2554,10 +2581,20 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=First(Fields!Remarks.Value, "DataSet_Result")</Value>
+                      <Value>="Remarks :- "</Value>
                       <Style>
+                        <FontStyle>Italic</FontStyle>
                         <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=First(Fields!Remarks.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontStyle>Italic</FontStyle>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2567,9 +2604,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.36111in</Top>
-              <Left>6.67361in</Left>
+              <Left>5.78194in</Left>
               <Height>0.22in</Height>
-              <Width>1.20389in</Width>
+              <Width>2.70417in</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -2703,6 +2740,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.1563in</Top>
+              <Left>0.8017cm</Left>
               <Height>0.33305in</Height>
               <Width>2.64866in</Width>
               <Style>
@@ -2753,7 +2791,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.1563in</Top>
-              <Left>3.13575in</Left>
+              <Left>3.45138in</Left>
               <Height>0.33305in</Height>
               <Width>2.64866in</Width>
               <ZIndex>1</ZIndex>
@@ -2805,7 +2843,7 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.1563in</Top>
-              <Left>6.37647in</Left>
+              <Left>6.6921in</Left>
               <Height>0.33305in</Height>
               <Width>2.64866in</Width>
               <ZIndex>2</ZIndex>
