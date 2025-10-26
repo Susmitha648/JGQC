@@ -487,6 +487,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox55">
                           <rd:DefaultName>Textbox55</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -495,9 +496,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Speed.Value = "8S", Fields!Speed.Value, Nothing)</Value>
+                                  <Value>=IIf(Fields!Speed.Value = "8S", "ü", Nothing)</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
                                     <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -554,9 +556,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Speed.Value = "9S", Fields!Speed.Value, Nothing)</Value>
+                                  <Value>=IIf(Fields!Speed.Value = "9S", "ü", Nothing)</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
                                     <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -613,9 +616,10 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Speed.Value = "10S", Fields!Speed.Value, Nothing)</Value>
+                                  <Value>=IIf(Fields!Speed.Value = "10S", "ü", Nothing)</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
                                     <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
