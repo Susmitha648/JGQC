@@ -145,7 +145,7 @@ report 50005 RecordingSlipReport
                 If ShopCalenderWorkingDays.FindFirst() then;
 
                 if "Source No." <> '' then begin
-                    BarcodeString := 'vinaysingh'; //+ "Variant Code" + Description + Format("Last Date Modified");
+                    BarcodeString := "Source No.";// + "Variant Code" + Description;// + Format("Last Date Modified");
                     // Validate the input
                     BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
                     // Encode the data string to the barcode font
