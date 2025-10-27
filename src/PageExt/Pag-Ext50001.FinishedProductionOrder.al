@@ -22,8 +22,8 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
                 Image = List;
                 ToolTip = 'COA Details';
                 Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "COA Details";
+                PromotedCategory = Category4;
+                RunObject = Page "COA Details Finished";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
             action(BatchOperatorEntry)
@@ -33,8 +33,8 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
                 Image = List;
                 ToolTip = 'Batch Operators Daily Entry';
                 Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "Batch Operators Daily Entries";
+                PromotedCategory = Category4;
+                RunObject = Page "Batch Operator Entries Finishe";
                 RunPageLink = "Production Order No." = field("No.");
             }
         }

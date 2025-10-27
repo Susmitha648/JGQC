@@ -1,12 +1,12 @@
-page 50033 "Batch Operators Daily Entries"
+page 50034 "Batch Operators Daily Entries"
 {
     ApplicationArea = All;
     Caption = 'Batch Operators Daily Entries';
     PageType = List;
     SourceTable = "Batch Operators Daily Entry";
     UsageCategory = Lists;
-    Editable = false;
-    CardPageId = "Batch Operator Daily Entry";
+    CardPageId = "Batch Operators Daily Entry";
+    Editable =false;
     layout
     {
         area(Content)
@@ -32,4 +32,5 @@ page 50033 "Batch Operators Daily Entries"
             }
         }
     }
+    
 }

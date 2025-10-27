@@ -2316,9 +2316,12 @@ ohhNZOMp2UrqoTkcOfwTbdukMGnSBG697Q7sNttxtvIJHQ+333oTz/Xsdn5Z1OWU8zeZMWsOb703jJ5P
         <Field Name="QuantityFormat">
           <DataField>QuantityFormat</DataField>
         </Field>
+<<<<<<< HEAD
         <Field Name="GTINQRCode">
           <DataField>GTINQRCode</DataField>
         </Field>
+=======
+>>>>>>> 31aa74ee4c4a25633cd01243392231b843151ca0
         <Field Name="OutputNo">
           <DataField>OutputNo</DataField>
         </Field>

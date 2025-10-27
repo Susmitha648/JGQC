@@ -1,10 +1,10 @@
-page 50034 "Batch Operator Daily Entry"
+page 50037 "Batch Operator Daily Entry Fin"
 {
     ApplicationArea = All;
-    Caption = 'Batch Operator Daily Entry';
+    Caption = 'Batch Operators Daily Entry';
     PageType = Document;
     SourceTable = "Batch Operators Daily Entry";
-    
+    Editable = false;
     layout
     {
         area(Content)
@@ -30,7 +30,7 @@ page 50034 "Batch Operator Daily Entry"
                     ToolTip = 'Specifies the value of the Furnace field.', Comment = '%';
                 }
             }
-            part(BatchOperatorEntryLine; "Batch Operator Entry Line")
+              part(BatchOperatorEntryLine; "Batch Operator Entry Line")
             {
                 ApplicationArea = All;
                 Caption = 'Batch Operator Entry Line';
@@ -38,6 +38,19 @@ page 50034 "Batch Operator Daily Entry"
                 UpdatePropagation = Both;
             }
         }
-        
     }
+    trigger OnNewRecord(BelowxRec: Boolean)
+    var
+        ReleaseProdOrder: Record "Production Order";
+        Singleinstance : Codeunit "QC Subcriber";
+    begin
+
+        Rec."Production Order No." := Singleinstance.GetProductionHdr();
+        If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Production Order No.") then
+            If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
+                Rec."Due Date" := ReleaseProdOrder."Due Date";
+                Rec."Work Order No." :=  ReleaseProdOrder."Source No.";
+            end;
+            Clear(Singleinstance);
+    end;
 }
