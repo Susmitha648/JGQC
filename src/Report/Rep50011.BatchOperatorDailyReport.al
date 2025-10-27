@@ -13,10 +13,6 @@ report 50011 "Batch Operator Daily Report"
             {
 
             }
-            column(Work_Order_No_; "Work Order No.")
-            {
-
-            }
             column(Due_Date; "Due Date")
             {
 
