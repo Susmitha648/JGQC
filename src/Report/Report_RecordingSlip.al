@@ -72,7 +72,7 @@ report 50005 RecordingSlipReport
             {
             }
             column(Last_Date_Modified; Format("Last Date Modified")) { }
-            column(Job_Code; "Source No.") { }
+            column(Job_Code; "Shortcut Dimension 2 Code") { }
             column(Description; Description) { }
             column(Finish; QCPlanHeader.Finish) { }
             column(CustomerName; QCPlanHeader."Customer Name") { }
@@ -143,8 +143,8 @@ report 50005 RecordingSlipReport
                 //ShopCalenderWorkingDays.SetFilter("Work Shift Code",'<>%1','');
                 If ShopCalenderWorkingDays.FindFirst() then;
 
-                if "Source No." <> '' then begin
-                    BarcodeString := Format("Source No.") + Format("Variant Code") + Format(Description) + Format("Last Date Modified", 0, '<Day,2>/<Month,2>/<Year4>');
+                if "Shortcut Dimension 2 Code" <> '' then begin
+                    BarcodeString := Format("Shortcut Dimension 2 Code") + Format("Variant Code") + Format(Description) + Format("Last Date Modified", 0, '<Day,2>/<Month,2>/<Year4>');
                     // Validate the input
                     BarcodeString := DelChr(BarcodeString, '=', ' ');
                     BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
