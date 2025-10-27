@@ -17,6 +17,10 @@ table 50007 "QC Parameter Type"
         {
             Caption = 'COA Needed';
         }
+          field(4; "Sequence"; Integer)
+        {
+            Caption = 'Sequence';
+        }
         
     }
     keys
