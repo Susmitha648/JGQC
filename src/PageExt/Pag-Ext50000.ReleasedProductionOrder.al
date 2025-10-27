@@ -29,9 +29,9 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
              action(BatchOperationEntry)
             {
                 ApplicationArea = All;
-                Caption = 'Batch Operation Entries';
+                Caption = 'Batch Operation Daily Entries';
                 Image = List;
-                ToolTip = 'Batch Operation Entries';
+                ToolTip = 'Batch Operation Daily Entries';
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "Batch Operators Daily Entries";

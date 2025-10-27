@@ -29,9 +29,9 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
             action(BatchOperatorEntry)
             {
                 ApplicationArea = All;
-                Caption = 'Batch Operators Daily Entry';
+                Caption = 'Batch Operators Daily Entries';
                 Image = List;
-                ToolTip = 'Batch Operators Daily Entry';
+                ToolTip = 'Batch Operators Daily Entries';
                 Promoted = true;
                 PromotedCategory = Category4;
                 RunObject = Page "Batch Operator Entries Finishe";
