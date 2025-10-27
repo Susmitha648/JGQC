@@ -84,6 +84,7 @@ report 50005 RecordingSlipReport
             column(QtyPerPack; PackSizeRec."Qty Per Pack") { }
             column(SlipNo; '') { }
             column(Quantity; Quantity) { }
+            column(GTINQRCode; GTINQRCode) { }
             dataitem(CopyLoop; "Integer")
             {
                 DataItemTableView = sorting(Number);
@@ -126,7 +127,14 @@ report 50005 RecordingSlipReport
             end;
 
             trigger OnAfterGetRecord()
+            var
+                BarcodeString: Text;
+                BarcodeFontProvider: Interface "Barcode Font Provider";
+                BarcodeFontProvider2D: Interface "Barcode Font Provider 2D";
             begin
+                // Declare the barcode provider using the barcode provider interface and enum
+                BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
+                BarcodeFontProvider2D := Enum::"Barcode Font Provider 2D"::IDAutomation2D;
                 If Item.Get("Source No.") then
                     If PackSizeRec.Get(Item."Pack Size") then;
                 If QCPlanHeader.Get("Source No.") then;
@@ -136,9 +144,14 @@ report 50005 RecordingSlipReport
                 //ShopCalenderWorkingDays.SetFilter("Work Shift Code",'<>%1','');
                 If ShopCalenderWorkingDays.FindFirst() then;
 
-
-
-
+                if "Source No." <> '' then begin
+                    BarcodeString := 'vinaysingh'; //+ "Variant Code" + Description + Format("Last Date Modified");
+                    // Validate the input
+                    BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
+                    // Encode the data string to the barcode font
+                    GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
+                    GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
+                end
             end;
         }
     }
@@ -148,6 +161,8 @@ report 50005 RecordingSlipReport
         CompanyInfo.SetAutoCalcFields("Company Logo 1");
         CompanyInfo.SetAutoCalcFields("Company Logo 2");
         CompanyInfo.SetAutoCalcFields("Company Logo 3");
+        BarcodeSymbology := Enum::"Barcode Symbology"::Code39;
+        BarcodeSymbology2D := Enum::"Barcode Symbology 2D"::"QR-Code";
     end;
 
     var
@@ -175,4 +190,8 @@ report 50005 RecordingSlipReport
         NoOfLoops: Integer;
         CopyText: Text[30];
         OutputNo: Integer;
+        BarcodeSymbology: Enum "Barcode Symbology";
+        BarcodeSymbology2D: Enum "Barcode Symbology 2D";
+        GTINBarCode: Text;
+        GTINQRCode: Text;
 }
