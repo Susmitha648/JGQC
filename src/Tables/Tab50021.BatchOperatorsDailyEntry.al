@@ -7,13 +7,7 @@ table 50021 "Batch Operators Daily Entry"
     {
         field(1; "Production Order No."; Code[20])
         {
-            Caption = 'Production Order No.';
-            Editable = false;
-        }
-        field(2; "Work Order No."; Code[20])
-        {
             Caption = 'Work Order No.';
-            TableRelation = Item."No.";
             Editable = false;
         }
         field(3; "Due Date"; Date)
