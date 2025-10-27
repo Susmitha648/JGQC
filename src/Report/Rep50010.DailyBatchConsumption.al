@@ -13,10 +13,6 @@ report 50010 "Daily Batch Consumption"
             {
 
             }
-            column(Work_Order_No_; "Work Order No.")
-            {
-
-            }
             column(Due_Date; "Due Date")
             {
 
@@ -60,22 +56,5 @@ report 50010 "Daily Batch Consumption"
             }
         }
     }
-    requestpage
-    {
-        layout
-        {
-            area(Content)
-            {
-                group(GroupName)
-                {
-                }
-            }
-        }
-        actions
-        {
-            area(Processing)
-            {
-            }
-        }
-    }
+   
 }
