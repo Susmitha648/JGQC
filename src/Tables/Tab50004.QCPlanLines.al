@@ -8,7 +8,7 @@ table 50004 "QC Plan Lines"
         field(1; "Job No."; Code[20])
         {
             Caption = 'Job No.';
-            TableRelation = Item where(Blocked = const(false), Type = const(Inventory));
+           // TableRelation = Item where(Blocked = const(false), Type = const(Inventory));
             Editable = false;
         }
         field(2; "Parameter Code"; Code[20])

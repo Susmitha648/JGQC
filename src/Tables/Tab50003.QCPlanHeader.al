@@ -8,7 +8,7 @@ table 50003 "QC Plan Header"
         field(1; "Job No."; Code[20])
         {
             Caption = 'Job No.';
-            TableRelation = Item where(Blocked = Const(False), Type = const(Inventory));
+            //TableRelation = Item where(Blocked = Const(False), Type = const(Inventory));
             trigger OnValidate()
             var
             QCPlanLine : Record "QC Plan Lines";
@@ -21,7 +21,6 @@ table 50003 "QC Plan Header"
         field(2; Description; Text[80])
         {
             DataClassification = CustomerContent;
-            Editable = false;
         }
         field(3; Finish; Text[80])
         {

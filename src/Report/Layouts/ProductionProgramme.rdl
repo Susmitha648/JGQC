@@ -24,6 +24,127 @@
       <rd:DataSourceID>39930317-ade4-4410-956c-de23f06c3535</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="No_of_Archived_Versions">
+          <DataField>No_of_Archived_Versions</DataField>
+        </Field>
+        <Field Name="Created_Date">
+          <DataField>Created_Date</DataField>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+        </Field>
+        <Field Name="Demand_Forecast_Name">
+          <DataField>Demand_Forecast_Name</DataField>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+        </Field>
+        <Field Name="No_">
+          <DataField>No_</DataField>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+        </Field>
+        <Field Name="Day">
+          <DataField>Day</DataField>
+        </Field>
+        <Field Name="Furnace">
+          <DataField>Furnace</DataField>
+        </Field>
+        <Field Name="Job">
+          <DataField>Job</DataField>
+        </Field>
+        <Field Name="WT">
+          <DataField>WT</DataField>
+        </Field>
+        <Field Name="WTFormat">
+          <DataField>WTFormat</DataField>
+        </Field>
+        <Field Name="Ton">
+          <DataField>Ton</DataField>
+        </Field>
+        <Field Name="TonFormat">
+          <DataField>TonFormat</DataField>
+        </Field>
+        <Field Name="Tray">
+          <DataField>Tray</DataField>
+        </Field>
+        <Field Name="Pallet">
+          <DataField>Pallet</DataField>
+        </Field>
+        <Field Name="Speed">
+          <DataField>Speed</DataField>
+        </Field>
+        <Field Name="Production_Forecast_Name">
+          <DataField>Production_Forecast_Name</DataField>
+        </Field>
+        <Field Name="Entry_No_">
+          <DataField>Entry_No_</DataField>
+        </Field>
+        <Field Name="Item_No_">
+          <DataField>Item_No_</DataField>
+        </Field>
+        <Field Name="Forecast_Date">
+          <DataField>Forecast_Date</DataField>
+        </Field>
+        <Field Name="Forecast_Quantity">
+          <DataField>Forecast_Quantity</DataField>
+        </Field>
+        <Field Name="Forecast_QuantityFormat">
+          <DataField>Forecast_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Forecast_Quantity__Base_">
+          <DataField>Forecast_Quantity__Base_</DataField>
+        </Field>
+        <Field Name="Forecast_Quantity__Base_Format">
+          <DataField>Forecast_Quantity__Base_Format</DataField>
+        </Field>
+        <Field Name="Unit_of_Measure_Code">
+          <DataField>Unit_of_Measure_Code</DataField>
+        </Field>
+        <Field Name="Qty__per_Unit_of_Measure">
+          <DataField>Qty__per_Unit_of_Measure</DataField>
+        </Field>
+        <Field Name="Qty__per_Unit_of_MeasureFormat">
+          <DataField>Qty__per_Unit_of_MeasureFormat</DataField>
+        </Field>
+        <Field Name="Location_Code">
+          <DataField>Location_Code</DataField>
+        </Field>
+        <Field Name="Variant_Code">
+          <DataField>Variant_Code</DataField>
+        </Field>
+        <Field Name="Component_Forecast">
+          <DataField>Component_Forecast</DataField>
+        </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="Line_No_">
+          <DataField>Line_No_</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -32,25 +153,31 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
+                  <Width>0.32027in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.36064in</Width>
+                </TablixColumn>
+                <TablixColumn>
                   <Width>0.36064in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.36064in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.42553in</Width>
+                  <Width>0.57085in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.3193in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.27949in</Width>
+                  <Width>0.26334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.27949in</Width>
+                  <Width>0.26334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.27949in</Width>
+                  <Width>0.26334in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.33276in</Width>
@@ -59,16 +186,135 @@
                   <Width>0.38759in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.54762in</Width>
+                  <Width>0.52473in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.56527in</Width>
+                  <Width>0.4603in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
                   <Height>0.26728in</Height>
                   <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Date3">
+                          <rd:DefaultName>Date</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Format(Fields!Date.Value, "dd")</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Day3">
+                          <rd:DefaultName>Day</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Left(Fields!Day.Value, 3)</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                            </RightBorder>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Date2">
@@ -729,6 +975,332 @@
             <TablixColumnHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <TablixHeader>
+                    <Size>0.1958in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox15">
+                        <rd:DefaultName>Textbox15</rd:DefaultName>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value />
+                                <Style>
+                                  <FontStyle>Italic</FontStyle>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <Style>
+                          <Border>
+                            <Style>Solid</Style>
+                            <Width>0.5pt</Width>
+                          </Border>
+                          <TopBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </TopBorder>
+                          <BottomBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </RightBorder>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>0.1958in</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox42">
+                            <rd:DefaultName>Textbox15</rd:DefaultName>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>DT</Value>
+                                    <Style>
+                                      <FontStyle>Italic</FontStyle>
+                                      <FontSize>8pt</FontSize>
+                                      <FontWeight>Bold</FontWeight>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <Style>
+                              <Border>
+                                <Style>None</Style>
+                              </Border>
+                              <LeftBorder>
+                                <Color>Black</Color>
+                                <Style>Solid</Style>
+                                <Width>0.5pt</Width>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Color>Black</Color>
+                                <Style>Solid</Style>
+                                <Width>0.5pt</Width>
+                              </RightBorder>
+                              <VerticalAlign>Bottom</VerticalAlign>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>0.2in</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox17">
+                                <rd:DefaultName>Textbox17</rd:DefaultName>
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value />
+                                        <Style>
+                                          <FontStyle>Italic</FontStyle>
+                                          <FontSize>8pt</FontSize>
+                                          <FontWeight>Bold</FontWeight>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <Style>
+                                  <Border>
+                                    <Style>None</Style>
+                                  </Border>
+                                  <BottomBorder>
+                                    <Color>Black</Color>
+                                    <Style>Solid</Style>
+                                    <Width>0.5pt</Width>
+                                  </BottomBorder>
+                                  <LeftBorder>
+                                    <Color>Black</Color>
+                                    <Style>Solid</Style>
+                                    <Width>0.5pt</Width>
+                                  </LeftBorder>
+                                  <RightBorder>
+                                    <Color>Black</Color>
+                                    <Style>Solid</Style>
+                                    <Width>0.5pt</Width>
+                                  </RightBorder>
+                                  <VerticalAlign>Middle</VerticalAlign>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>0.1958in</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox9">
+                        <rd:DefaultName>Textbox9</rd:DefaultName>
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value />
+                                <Style>
+                                  <FontStyle>Italic</FontStyle>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <Style>
+                          <Border>
+                            <Style>Solid</Style>
+                            <Width>0.5pt</Width>
+                          </Border>
+                          <TopBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </TopBorder>
+                          <BottomBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </BottomBorder>
+                          <LeftBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </LeftBorder>
+                          <RightBorder>
+                            <Color>Black</Color>
+                            <Style>Solid</Style>
+                          </RightBorder>
+                          <VerticalAlign>Middle</VerticalAlign>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>0.1958in</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox43">
+                            <rd:DefaultName>Textbox16</rd:DefaultName>
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>DAY</Value>
+                                    <Style>
+                                      <FontStyle>Italic</FontStyle>
+                                      <FontSize>8pt</FontSize>
+                                      <FontWeight>Bold</FontWeight>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <Style>
+                              <Border>
+                                <Style>None</Style>
+                              </Border>
+                              <LeftBorder>
+                                <Color>Black</Color>
+                                <Style>Solid</Style>
+                                <Width>0.5pt</Width>
+                              </LeftBorder>
+                              <RightBorder>
+                                <Color>Black</Color>
+                                <Style>Solid</Style>
+                                <Width>0.5pt</Width>
+                              </RightBorder>
+                              <VerticalAlign>Bottom</VerticalAlign>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>0.2in</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox12">
+                                <rd:DefaultName>Textbox12</rd:DefaultName>
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value />
+                                        <Style>
+                                          <FontStyle>Italic</FontStyle>
+                                          <FontSize>8pt</FontSize>
+                                          <FontWeight>Bold</FontWeight>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style>
+                                      <TextAlign>Center</TextAlign>
+                                    </Style>
+                                  </Paragraph>
+                                </Paragraphs>
+                                <Style>
+                                  <Border>
+                                    <Style>None</Style>
+                                  </Border>
+                                  <BottomBorder>
+                                    <Color>Black</Color>
+                                    <Style>Solid</Style>
+                                    <Width>0.5pt</Width>
+                                  </BottomBorder>
+                                  <LeftBorder>
+                                    <Color>Black</Color>
+                                    <Style>Solid</Style>
+                                    <Width>0.5pt</Width>
+                                  </LeftBorder>
+                                  <RightBorder>
+                                    <Color>Black</Color>
+                                    <Style>Solid</Style>
+                                    <Width>0.5pt</Width>
+                                  </RightBorder>
+                                  <VerticalAlign>Middle</VerticalAlign>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
                   <Group Name="ColumnGroup">
                     <GroupExpressions>
                       <GroupExpression>=Fields!Furnace.Value</GroupExpression>
@@ -896,6 +1468,9 @@
                           </TablixHeader>
                         </TablixMember>
                       </TablixMembers>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                      </Visibility>
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
@@ -1001,6 +1576,9 @@
                           </TablixHeader>
                         </TablixMember>
                       </TablixMembers>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                      </Visibility>
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
@@ -1988,7 +2566,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.06944in</Top>
             <Height>0.85888in</Height>
-            <Width>4.13782in</Width>
+            <Width>4.78772in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2010,315 +2588,6 @@
                     <TablixCell>
                       <CellContents>
                         <Rectangle Name="Rectangle4">
-                          <ReportItems>
-                            <Tablix Name="Tablix9">
-                              <TablixBody>
-                                <TablixColumns>
-                                  <TablixColumn>
-                                    <Width>0.47155in</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.37811in</Width>
-                                  </TablixColumn>
-                                </TablixColumns>
-                                <TablixRows>
-                                  <TablixRow>
-                                    <Height>0.2in</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Furnace1">
-                                            <rd:DefaultName>Furnace1</rd:DefaultName>
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Furnace.Value</Value>
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>8pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </RightBorder>
-                                              <BackgroundColor>LightGrey</BackgroundColor>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox276">
-                                            <rd:DefaultName>Textbox276</rd:DefaultName>
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>QTY</Value>
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>8pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </RightBorder>
-                                              <BackgroundColor>LightGrey</BackgroundColor>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
-                                  <TablixRow>
-                                    <Height>0.26728in</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Job1">
-                                            <rd:DefaultName>Job1</rd:DefaultName>
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Job.Value</Value>
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>8pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </RightBorder>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Forecast_Quantity">
-                                            <rd:DefaultName>Forecast_Quantity</rd:DefaultName>
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Forecast_Quantity.Value</Value>
-                                                    <Style>
-                                                      <FontStyle>Italic</FontStyle>
-                                                      <FontSize>8pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Center</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Style>
-                                              <Border>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </RightBorder>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
-                                </TablixRows>
-                              </TablixBody>
-                              <TablixColumnHierarchy>
-                                <TablixMembers>
-                                  <TablixMember />
-                                  <TablixMember />
-                                </TablixMembers>
-                              </TablixColumnHierarchy>
-                              <TablixRowHierarchy>
-                                <TablixMembers>
-                                  <TablixMember>
-                                    <Visibility>
-                                      <Hidden>=String.IsNullOrEmpty(Fields!Furnace.Value) OR (Fields!Furnace.Value = "0")</Hidden>
-                                    </Visibility>
-                                    <KeepWithGroup>After</KeepWithGroup>
-                                  </TablixMember>
-                                  <TablixMember>
-                                    <Group Name="Details1" />
-                                    <TablixMembers>
-                                      <TablixMember />
-                                    </TablixMembers>
-                                    <Visibility>
-                                      <Hidden>=String.IsNullOrEmpty(Fields!Job.Value) OR (Fields!Job.Value = "0")</Hidden>
-                                    </Visibility>
-                                  </TablixMember>
-                                </TablixMembers>
-                              </TablixRowHierarchy>
-                              <KeepTogether>true</KeepTogether>
-                              <DataSetName>DataSet_Result</DataSetName>
-                              <Height>0.46728in</Height>
-                              <Width>0.84966in</Width>
-                              <Style>
-                                <Border>
-                                  <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
-                                </Border>
-                                <TopBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
-                                </BottomBorder>
-                                <LeftBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
-                                </LeftBorder>
-                                <RightBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
-                                </RightBorder>
-                              </Style>
-                            </Tablix>
-                          </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <Style>
                             <Border>
@@ -2351,7 +2620,7 @@
             <KeepTogether>true</KeepTogether>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.46104in</Top>
-            <Left>4.13782in</Left>
+            <Left>4.78772in</Left>
             <Height>0.46728in</Height>
             <Width>0.84965in</Width>
             <ZIndex>1</ZIndex>
@@ -2382,11 +2651,334 @@
               </RightBorder>
             </Style>
           </Tablix>
+          <Rectangle Name="Rectangle1">
+            <KeepTogether>true</KeepTogether>
+            <Top>2.6924cm</Top>
+            <Left>0cm</Left>
+            <Height>0.50681cm</Height>
+            <Width>10.73205cm</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Rectangle>
+          <Tablix Name="Tablix9">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>0.47155in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.37811in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.2in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Furnace1">
+                          <rd:DefaultName>Furnace1</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Furnace.Value</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox276">
+                          <rd:DefaultName>Textbox276</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>QTY</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </RightBorder>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.26728in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Job1">
+                          <rd:DefaultName>Job1</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Job.Value</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Forecast_Quantity">
+                          <rd:DefaultName>Forecast_Quantity</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!Forecast_Quantity.Value</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=String.IsNullOrEmpty(Fields!Furnace.Value) OR (Fields!Furnace.Value = "0")</Hidden>
+                  </Visibility>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details1" />
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <Visibility>
+                    <Hidden>=String.IsNullOrEmpty(Fields!Job.Value) OR (Fields!Job.Value = "0")</Hidden>
+                  </Visibility>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <KeepTogether>true</KeepTogether>
+            <DataSetName>DataSet_Result</DataSetName>
+            <Top>0.46104in</Top>
+            <Left>4.78772in</Left>
+            <Height>0.46728in</Height>
+            <Width>0.84966in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+                <Width>0.5pt</Width>
+              </Border>
+              <TopBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>0.5pt</Width>
+              </TopBorder>
+              <BottomBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>0.5pt</Width>
+              </BottomBorder>
+              <LeftBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>0.5pt</Width>
+              </LeftBorder>
+              <RightBorder>
+                <Color>Black</Color>
+                <Style>Solid</Style>
+                <Width>0.5pt</Width>
+              </RightBorder>
+            </Style>
+          </Tablix>
         </ReportItems>
-        <Height>2.35793cm</Height>
+        <Height>3.65782cm</Height>
         <Style />
       </Body>
-      <Width>27.7cm</Width>
+      <Width>26.7cm</Width>
       <Page>
         <PageHeader>
           <Height>1.47602cm</Height>
@@ -2780,7 +3372,7 @@
         <PageHeight>21cm</PageHeight>
         <PageWidth>29.7cm</PageWidth>
         <LeftMargin>1cm</LeftMargin>
-        <RightMargin>0cm</RightMargin>
+        <RightMargin>1cm</RightMargin>
         <TopMargin>0.25cm</TopMargin>
         <BottomMargin>0.25cm</BottomMargin>
         <ColumnSpacing>0cm</ColumnSpacing>
@@ -2788,6 +3380,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2825,125 +3423,4 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="No">
-          <DataField>No</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="No_of_Archived_Versions">
-          <DataField>No_of_Archived_Versions</DataField>
-        </Field>
-        <Field Name="Created_Date">
-          <DataField>Created_Date</DataField>
-        </Field>
-        <Field Name="Remarks">
-          <DataField>Remarks</DataField>
-        </Field>
-        <Field Name="Demand_Forecast_Name">
-          <DataField>Demand_Forecast_Name</DataField>
-        </Field>
-        <Field Name="Status">
-          <DataField>Status</DataField>
-        </Field>
-        <Field Name="No_">
-          <DataField>No_</DataField>
-        </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
-        </Field>
-        <Field Name="Day">
-          <DataField>Day</DataField>
-        </Field>
-        <Field Name="Furnace">
-          <DataField>Furnace</DataField>
-        </Field>
-        <Field Name="Job">
-          <DataField>Job</DataField>
-        </Field>
-        <Field Name="WT">
-          <DataField>WT</DataField>
-        </Field>
-        <Field Name="WTFormat">
-          <DataField>WTFormat</DataField>
-        </Field>
-        <Field Name="Ton">
-          <DataField>Ton</DataField>
-        </Field>
-        <Field Name="TonFormat">
-          <DataField>TonFormat</DataField>
-        </Field>
-        <Field Name="Tray">
-          <DataField>Tray</DataField>
-        </Field>
-        <Field Name="Pallet">
-          <DataField>Pallet</DataField>
-        </Field>
-        <Field Name="Speed">
-          <DataField>Speed</DataField>
-        </Field>
-        <Field Name="Production_Forecast_Name">
-          <DataField>Production_Forecast_Name</DataField>
-        </Field>
-        <Field Name="Entry_No_">
-          <DataField>Entry_No_</DataField>
-        </Field>
-        <Field Name="Item_No_">
-          <DataField>Item_No_</DataField>
-        </Field>
-        <Field Name="Forecast_Date">
-          <DataField>Forecast_Date</DataField>
-        </Field>
-        <Field Name="Forecast_Quantity">
-          <DataField>Forecast_Quantity</DataField>
-        </Field>
-        <Field Name="Forecast_QuantityFormat">
-          <DataField>Forecast_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Forecast_Quantity__Base_">
-          <DataField>Forecast_Quantity__Base_</DataField>
-        </Field>
-        <Field Name="Forecast_Quantity__Base_Format">
-          <DataField>Forecast_Quantity__Base_Format</DataField>
-        </Field>
-        <Field Name="Unit_of_Measure_Code">
-          <DataField>Unit_of_Measure_Code</DataField>
-        </Field>
-        <Field Name="Qty__per_Unit_of_Measure">
-          <DataField>Qty__per_Unit_of_Measure</DataField>
-        </Field>
-        <Field Name="Qty__per_Unit_of_MeasureFormat">
-          <DataField>Qty__per_Unit_of_MeasureFormat</DataField>
-        </Field>
-        <Field Name="Location_Code">
-          <DataField>Location_Code</DataField>
-        </Field>
-        <Field Name="Variant_Code">
-          <DataField>Variant_Code</DataField>
-        </Field>
-        <Field Name="Component_Forecast">
-          <DataField>Component_Forecast</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Line_No_">
-          <DataField>Line_No_</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>
