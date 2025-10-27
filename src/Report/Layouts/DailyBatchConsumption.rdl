@@ -2384,9 +2384,6 @@ End Function
         <Field Name="Production_Order_No_">
           <DataField>Production_Order_No_</DataField>
         </Field>
-        <Field Name="Work_Order_No_">
-          <DataField>Work_Order_No_</DataField>
-        </Field>
         <Field Name="Due_Date">
           <DataField>Due_Date</DataField>
         </Field>
