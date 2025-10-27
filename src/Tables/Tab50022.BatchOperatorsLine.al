@@ -8,6 +8,7 @@ table 50022 "Batch Operators Line"
         field(1; "Production Order No."; Code[20])
         {
             Caption = 'Work Order No.';
+            Editable = false;
         }
         field(2; Shift; Code[10])
         {
