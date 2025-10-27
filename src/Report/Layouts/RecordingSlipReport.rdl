@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-27T08:14:02.0410089Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-27T08:27:18.9003967Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1980,25 +1980,24 @@
                                       <Value>=Fields!GTINQRCode.Value</Value>
                                       <Style>
                                         <FontFamily>IDAutomation2D</FontFamily>
-                                        <FontSize>8pt</FontSize>
+                                        <FontSize>14pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
-                                  <Style />
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>16.08038cm</Top>
-                              <Left>10.44787cm</Left>
-                              <Height>2.99861cm</Height>
-                              <Width>3.3839cm</Width>
+                              <Top>16.021cm</Top>
+                              <Left>12.53846cm</Left>
+                              <Height>4.34562cm</Height>
+                              <Width>5.67264cm</Width>
                               <ZIndex>37</ZIndex>
                               <Style>
                                 <Border />
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
+                                <VerticalAlign>Middle</VerticalAlign>
                               </Style>
                             </Textbox>
                           </ReportItems>
