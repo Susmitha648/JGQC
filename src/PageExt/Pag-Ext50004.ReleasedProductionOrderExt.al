@@ -9,7 +9,7 @@ pageextension 50004 "Released Production Order Ext" extends "Released Production
                 ApplicationArea = Manufacturing;
                 Caption = 'Daily Batch Consumption';
                 Image = "Report";
-                RunObject = Report 50010; // Replace with your actual report ID
+                RunObject = Report 50010;
             }
 
             action("Batch Operator Daily")
@@ -17,7 +17,7 @@ pageextension 50004 "Released Production Order Ext" extends "Released Production
                 ApplicationArea = Manufacturing;
                 Caption = 'Daily Batch Operator';
                 Image = "Report";
-                RunObject = Report 50011; // Replace with your actual report ID
+                RunObject = Report 50011;
             }
         }
 
