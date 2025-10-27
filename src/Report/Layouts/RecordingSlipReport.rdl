@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-27T08:06:02.5509351Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-27T08:14:02.0410089Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -47,7 +47,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Rectangle Name="Rectangle3">
                           <ReportItems>
                             <Textbox Name="ExecutionTimeTextBox23">
@@ -1992,7 +1991,7 @@
                               <Top>16.08038cm</Top>
                               <Left>10.44787cm</Left>
                               <Height>2.99861cm</Height>
-                              <Width>3.66612cm</Width>
+                              <Width>3.3839cm</Width>
                               <ZIndex>37</ZIndex>
                               <Style>
                                 <Border />
