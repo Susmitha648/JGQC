@@ -102,7 +102,7 @@ report 50005 RecordingSlipReport
 
                 trigger OnPreDataItem()
                 begin
-                    NoOfLoops := Abs("Production Order".Quantity);
+                    NoOfLoops := 1;//Abs("Production Order".Quantity);
                     CopyText := '';
                     SetRange(Number, 1, NoOfLoops);
                     OutputNo := 0;
@@ -143,17 +143,15 @@ report 50005 RecordingSlipReport
                 //ShopCalenderWorkingDays.SetFilter("Work Shift Code",'<>%1','');
                 If ShopCalenderWorkingDays.FindFirst() then;
 
-                //if "Source No." <> '' then begin
-                //BarcodeString := Format("Source No.") + Format("Variant Code") + Format(Description) + Format("Last Date Modified", 0, '<Day,2>/<Month,2>/<Year4>');
-                // Validate the input
-                //BarcodeString := DelChr(BarcodeString, '=', ' ');
-                //Message('Encoding string: %1', BarcodeString);
-                //BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
-                // Encode the data string to the barcode font
-                //GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
-
-                //GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
-                //end
+                if "Source No." <> '' then begin
+                    BarcodeString := Format("Source No.") + Format("Variant Code") + Format(Description) + Format("Last Date Modified", 0, '<Day,2>/<Month,2>/<Year4>');
+                    // Validate the input
+                    BarcodeString := DelChr(BarcodeString, '=', ' ');
+                    BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
+                    // Encode the data string to the barcode font
+                    GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
+                    GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
+                end
             end;
         }
     }
