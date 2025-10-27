@@ -102,7 +102,7 @@ report 50005 RecordingSlipReport
 
                 trigger OnPreDataItem()
                 begin
-                    NoOfLoops := 1;//Abs("Production Order".Quantity);
+                    NoOfLoops := Round(Abs("Production Order".Quantity), 1);
                     CopyText := '';
                     SetRange(Number, 1, NoOfLoops);
                     OutputNo := 0;
