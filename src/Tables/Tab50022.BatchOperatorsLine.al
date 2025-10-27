@@ -2,7 +2,7 @@ table 50022 "Batch Operators Line"
 {
     Caption = 'Batch Operators Line';
     DataClassification = CustomerContent;
-    
+
     fields
     {
         field(1; "Production Order No."; Code[20])
@@ -18,13 +18,15 @@ table 50022 "Batch Operators Line"
         {
             Caption = 'Batching';
         }
-        field(4; "Batch Unit";Integer)
+        field(4; "Batch Unit"; Integer)
         {
             Caption = 'Batch Unit';
         }
         field(5; Tonnage; Decimal)
         {
             Caption = 'Tonnage';
+             DecimalPlaces = 0 : 2;
+            BlankZero = true;
         }
         field(6; "Time"; Time)
         {
@@ -33,15 +35,19 @@ table 50022 "Batch Operators Line"
         field(7; "Sand Moisture Test"; Decimal)
         {
             Caption = 'Sand Moisture Test';
+            DecimalPlaces = 0 : 2;
+            BlankZero = true;
         }
         field(8; "Moisture Compensated"; Decimal)
         {
             Caption = 'Moisture Compensated';
+            DecimalPlaces = 0 : 2;
+            BlankZero = true;
         }
     }
     keys
     {
-        key(PK; "Production Order No.",Shift,Batching)
+        key(PK; "Production Order No.", Shift, Batching)
         {
             Clustered = true;
         }

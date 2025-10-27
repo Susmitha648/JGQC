@@ -26,17 +26,25 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "COA Details";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
-            action(BatchOperatorEntry)
+             action(BatchOperationEntry)
             {
                 ApplicationArea = All;
-                Caption = 'Batch Operators Daily Entry';
+                Caption = 'Batch Operation Entries';
                 Image = List;
-                ToolTip = 'Batch Operators Daily Entry';
+                ToolTip = 'Batch Operation Entries';
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "Batch Operators Daily Entries";
                 RunPageLink = "Production Order No." = field("No.");
+                trigger OnAction()
+                var 
+                BatchOperator : Record "Batch Operators Daily Entry";
+                Singleinstance : Codeunit "QC Subcriber";
+                begin
+                   Singleinstance.SetProductionHdr(Rec);
+                end;
             }
+                                         
         }
         addafter("Shortage List")
         {

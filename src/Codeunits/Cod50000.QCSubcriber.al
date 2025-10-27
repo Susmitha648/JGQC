@@ -1,5 +1,6 @@
 codeunit 50000 "QC Subcriber"
 {
+    SingleInstance = true;
      [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
     local procedure OnBeforeDrillDown(DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
     var
@@ -87,5 +88,17 @@ codeunit 50000 "QC Subcriber"
                 end;
         end;
     end;
+    Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
+    begin
+        ProductionOrder := ProductionHdr;
+    end;
+
+    Procedure GetProductionHdr() : Code[20];
+    begin
+        Exit(ProductionOrder."No.");
+    end;
+
+    var
+        ProductionOrder: Record "Production Order";
 }
 
