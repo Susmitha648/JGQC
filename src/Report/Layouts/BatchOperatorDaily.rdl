@@ -24,55 +24,6 @@
       <rd:DataSourceID>6795718e-7b65-42cc-8e86-f8c2209e596e</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Production_Order_No_">
-          <DataField>Production_Order_No_</DataField>
-        </Field>
-        <Field Name="Due_Date">
-          <DataField>Due_Date</DataField>
-        </Field>
-        <Field Name="Furnace">
-          <DataField>Furnace</DataField>
-        </Field>
-        <Field Name="Production_Order_No_Line">
-          <DataField>Production_Order_No_Line</DataField>
-        </Field>
-        <Field Name="Shift">
-          <DataField>Shift</DataField>
-        </Field>
-        <Field Name="Batching">
-          <DataField>Batching</DataField>
-        </Field>
-        <Field Name="Batch_Unit">
-          <DataField>Batch_Unit</DataField>
-        </Field>
-        <Field Name="Tonnage">
-          <DataField>Tonnage</DataField>
-        </Field>
-        <Field Name="TonnageFormat">
-          <DataField>TonnageFormat</DataField>
-        </Field>
-        <Field Name="Moisture_Compensated">
-          <DataField>Moisture_Compensated</DataField>
-        </Field>
-        <Field Name="Moisture_CompensatedFormat">
-          <DataField>Moisture_CompensatedFormat</DataField>
-        </Field>
-        <Field Name="Sand_Moisture_Test">
-          <DataField>Sand_Moisture_Test</DataField>
-        </Field>
-        <Field Name="Sand_Moisture_TestFormat">
-          <DataField>Sand_Moisture_TestFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -5224,12 +5175,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -5267,4 +5212,53 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Production_Order_No_">
+          <DataField>Production_Order_No_</DataField>
+        </Field>
+        <Field Name="Due_Date">
+          <DataField>Due_Date</DataField>
+        </Field>
+        <Field Name="Furnace">
+          <DataField>Furnace</DataField>
+        </Field>
+        <Field Name="Production_Order_No_Line">
+          <DataField>Production_Order_No_Line</DataField>
+        </Field>
+        <Field Name="Shift">
+          <DataField>Shift</DataField>
+        </Field>
+        <Field Name="Batching">
+          <DataField>Batching</DataField>
+        </Field>
+        <Field Name="Batch_Unit">
+          <DataField>Batch_Unit</DataField>
+        </Field>
+        <Field Name="Tonnage">
+          <DataField>Tonnage</DataField>
+        </Field>
+        <Field Name="TonnageFormat">
+          <DataField>TonnageFormat</DataField>
+        </Field>
+        <Field Name="Moisture_Compensated">
+          <DataField>Moisture_Compensated</DataField>
+        </Field>
+        <Field Name="Moisture_CompensatedFormat">
+          <DataField>Moisture_CompensatedFormat</DataField>
+        </Field>
+        <Field Name="Sand_Moisture_Test">
+          <DataField>Sand_Moisture_Test</DataField>
+        </Field>
+        <Field Name="Sand_Moisture_TestFormat">
+          <DataField>Sand_Moisture_TestFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

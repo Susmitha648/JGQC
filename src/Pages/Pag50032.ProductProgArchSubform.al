@@ -39,6 +39,10 @@ page 50032 "Product Prog Arch Subform"
                 {
                     ToolTip = 'Specifies the value of the Speed field.', Comment = '%';
                 }
+                field("Bottles Per Minute"; Rec."Bottles Per Minute")
+                {
+                    ToolTip = 'Specifies the value of the Bottles Per Minute field.', Comment = '%'; 
+                }
                 field(Ton; Rec.Ton)
                 {
                     ToolTip = 'Specifies the value of the Ton field.', Comment = '%';

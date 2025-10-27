@@ -6,6 +6,7 @@ codeunit 50000 "QC Subcriber"
     var
         CustComplLog: Record "Customer Complaint Log";
         CustComplRep: Record "Customer Complaint Report";
+        QCPlanHdr : Record "QC Plan Header";
     begin
         case DocumentAttachment."Table ID" of
             DATABASE::"Customer Complaint Log":
@@ -21,6 +22,14 @@ codeunit 50000 "QC Subcriber"
                     RecRef.Open(DATABASE::"Customer Complaint Report");
                     if CustComplRep.Get(DocumentAttachment."No.") then
                         RecRef.GetTable(CustComplRep);
+                end;
+        end;
+         case DocumentAttachment."Table ID" of
+            DATABASE::"QC Plan Header":
+                begin
+                    RecRef.Open(DATABASE::"QC Plan Header");
+                    if QCPlanHdr.Get(DocumentAttachment."No.") then
+                        RecRef.GetTable(QCPlanHdr);
                 end;
         end;
     end;
