@@ -45,5 +45,12 @@ table 50021 "Batch Operators Daily Entry"
     var
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
-
+    trigger OnDelete()
+    var
+        BatchOperatorsLines: Record "Batch Operators Line";
+    begin
+        BatchOperatorsLines.Reset();
+        BatchOperatorsLines.SetRange("Production Order No.","Production Order No.");
+        BatchOperatorsLines.DeleteAll();
+    end;
 }
