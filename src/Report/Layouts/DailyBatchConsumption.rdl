@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-27T03:39:21.9231239Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-27T06:28:08.3468666Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -24,6 +24,55 @@
       <rd:DataSourceID>15251925-2b95-43e7-8f53-4dbe454f6871</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="Production_Order_No_">
+          <DataField>Production_Order_No_</DataField>
+        </Field>
+        <Field Name="Due_Date">
+          <DataField>Due_Date</DataField>
+        </Field>
+        <Field Name="Furnace">
+          <DataField>Furnace</DataField>
+        </Field>
+        <Field Name="Production_Order_No_Line">
+          <DataField>Production_Order_No_Line</DataField>
+        </Field>
+        <Field Name="Shift">
+          <DataField>Shift</DataField>
+        </Field>
+        <Field Name="Batching">
+          <DataField>Batching</DataField>
+        </Field>
+        <Field Name="Batch_Unit">
+          <DataField>Batch_Unit</DataField>
+        </Field>
+        <Field Name="Tonnage">
+          <DataField>Tonnage</DataField>
+        </Field>
+        <Field Name="TonnageFormat">
+          <DataField>TonnageFormat</DataField>
+        </Field>
+        <Field Name="Moisture_Compensated">
+          <DataField>Moisture_Compensated</DataField>
+        </Field>
+        <Field Name="Moisture_CompensatedFormat">
+          <DataField>Moisture_CompensatedFormat</DataField>
+        </Field>
+        <Field Name="Sand_Moisture_Test">
+          <DataField>Sand_Moisture_Test</DataField>
+        </Field>
+        <Field Name="Sand_Moisture_TestFormat">
+          <DataField>Sand_Moisture_TestFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1062,7 +1111,7 @@
             <Top>0cm</Top>
             <Left>0cm</Left>
             <Height>1.92182cm</Height>
-            <Width>19.00463cm</Width>
+            <Width>19.00464cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1520,7 +1569,7 @@
             <Top>1.92182cm</Top>
             <Left>0cm</Left>
             <Height>0.45cm</Height>
-            <Width>19.00463cm</Width>
+            <Width>19.00465cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1694,7 +1743,7 @@
             <Top>2.37182cm</Top>
             <Left>0cm</Left>
             <Height>0.54681cm</Height>
-            <Width>19.00463cm</Width>
+            <Width>19.00464cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1726,7 +1775,7 @@
         <Height>2.91863cm</Height>
         <Style />
       </Body>
-      <Width>19.00463cm</Width>
+      <Width>19.00465cm</Width>
       <Page>
         <PageHeader>
           <Height>4.02869cm</Height>
@@ -2341,6 +2390,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2378,53 +2433,4 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="Production_Order_No_">
-          <DataField>Production_Order_No_</DataField>
-        </Field>
-        <Field Name="Due_Date">
-          <DataField>Due_Date</DataField>
-        </Field>
-        <Field Name="Furnace">
-          <DataField>Furnace</DataField>
-        </Field>
-        <Field Name="Production_Order_No_Line">
-          <DataField>Production_Order_No_Line</DataField>
-        </Field>
-        <Field Name="Shift">
-          <DataField>Shift</DataField>
-        </Field>
-        <Field Name="Batching">
-          <DataField>Batching</DataField>
-        </Field>
-        <Field Name="Batch_Unit">
-          <DataField>Batch_Unit</DataField>
-        </Field>
-        <Field Name="Tonnage">
-          <DataField>Tonnage</DataField>
-        </Field>
-        <Field Name="TonnageFormat">
-          <DataField>TonnageFormat</DataField>
-        </Field>
-        <Field Name="Moisture_Compensated">
-          <DataField>Moisture_Compensated</DataField>
-        </Field>
-        <Field Name="Moisture_CompensatedFormat">
-          <DataField>Moisture_CompensatedFormat</DataField>
-        </Field>
-        <Field Name="Sand_Moisture_Test">
-          <DataField>Sand_Moisture_Test</DataField>
-        </Field>
-        <Field Name="Sand_Moisture_TestFormat">
-          <DataField>Sand_Moisture_TestFormat</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>
