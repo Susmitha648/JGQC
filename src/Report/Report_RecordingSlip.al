@@ -143,14 +143,17 @@ report 50005 RecordingSlipReport
                 //ShopCalenderWorkingDays.SetFilter("Work Shift Code",'<>%1','');
                 If ShopCalenderWorkingDays.FindFirst() then;
 
-                if "Source No." <> '' then begin
-                    BarcodeString := "Source No.";// + "Variant Code" + Description;// + Format("Last Date Modified");
-                    // Validate the input
-                    BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
-                    // Encode the data string to the barcode font
-                    GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
-                    GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
-                end
+                //if "Source No." <> '' then begin
+                //BarcodeString := Format("Source No.") + Format("Variant Code") + Format(Description) + Format("Last Date Modified", 0, '<Day,2>/<Month,2>/<Year4>');
+                // Validate the input
+                //BarcodeString := DelChr(BarcodeString, '=', ' ');
+                //Message('Encoding string: %1', BarcodeString);
+                //BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
+                // Encode the data string to the barcode font
+                //GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
+
+                //GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
+                //end
             end;
         }
     }
@@ -160,7 +163,7 @@ report 50005 RecordingSlipReport
         CompanyInfo.SetAutoCalcFields("Company Logo 1");
         CompanyInfo.SetAutoCalcFields("Company Logo 2");
         CompanyInfo.SetAutoCalcFields("Company Logo 3");
-        BarcodeSymbology := Enum::"Barcode Symbology"::Code39;
+        BarcodeSymbology := Enum::"Barcode Symbology"::Code128;
         BarcodeSymbology2D := Enum::"Barcode Symbology 2D"::"QR-Code";
     end;
 
@@ -191,6 +194,7 @@ report 50005 RecordingSlipReport
         OutputNo: Integer;
         BarcodeSymbology: Enum "Barcode Symbology";
         BarcodeSymbology2D: Enum "Barcode Symbology 2D";
-        GTINBarCode: Text;
-        GTINQRCode: Text;
+        GTINBarCode: Text[500];
+        GTINQRCode: Text[500];
+        BarcodeString: Text[500];
 }
