@@ -128,7 +128,6 @@ report 50005 RecordingSlipReport
 
             trigger OnAfterGetRecord()
             var
-                BarcodeString: Text;
                 BarcodeFontProvider: Interface "Barcode Font Provider";
                 BarcodeFontProvider2D: Interface "Barcode Font Provider 2D";
             begin
