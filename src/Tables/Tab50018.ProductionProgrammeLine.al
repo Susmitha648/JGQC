@@ -92,6 +92,11 @@ table 50018 "Production Programme Line"
                 TestStatusOpen();
             end;
         }
+        field(12; "Bottles Per Minute"; Integer)
+        {
+            Caption = 'Bottles Per Minute';
+            Editable = false;
+        }
     }
     keys
     {

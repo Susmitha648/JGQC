@@ -28,7 +28,7 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.Speed := Speed;
                     ProductionProgramLine.Pallet := Pallet;
                     ProductionProgramLine.Tray := Tray;
-
+                    ProductionProgramLine."Bottles Per Minute" := BottlesPerMinute;
                     ProductionProgramLine.WT := Item."Net Weight";
                     ProductionProgramLine.Furnace := Furnace;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
@@ -91,6 +91,12 @@ report 50008 "Generate Production Programme"
                         Caption = 'Speed';
                         ToolTip = 'Specifies Speed.';
                     }
+                    field(BottlesPerMinute; BottlesPerMinute)
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Bottles Per Minute';
+                        ToolTip = 'Bottles Per Minute.';
+                    }
                     field(Ton; Ton)
                     {
                         ApplicationArea = All;
@@ -123,6 +129,7 @@ report 50008 "Generate Production Programme"
         Tray: Text[50];
         Pallet: Text[50];
         Speed: Enum Speed;
+        BottlesPerMinute : Integer;
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
         ShortCutDimension: Code[20];

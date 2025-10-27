@@ -26,25 +26,25 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "COA Details";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
-             action(BatchOperationEntry)
+            action(BatchOperationEntry)
             {
                 ApplicationArea = All;
-                Caption = 'Batch Operation Daily Entries';
+                Caption = 'Batch Operators Daily Entries';
                 Image = List;
-                ToolTip = 'Batch Operation Daily Entries';
+                ToolTip = 'Batch Operators Daily Entries';
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "Batch Operators Daily Entries";
                 RunPageLink = "Production Order No." = field("No.");
                 trigger OnAction()
-                var 
-                BatchOperator : Record "Batch Operators Daily Entry";
-                Singleinstance : Codeunit "QC Subcriber";
+                var
+                    BatchOperator: Record "Batch Operators Daily Entry";
+                    Singleinstance: Codeunit "QC Subcriber";
                 begin
-                   Singleinstance.SetProductionHdr(Rec);
+                    Singleinstance.SetProductionHdr(Rec);
                 end;
             }
-                                         
+
         }
         addafter("Shortage List")
         {
@@ -53,9 +53,9 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 ApplicationArea = All;
                 Caption = 'Print Recording Slip';
                 Image = Report; // Optional icon
-               // Promoted = true;
-               // PromotedIsBig = true;
-                //PromotedCategory = Report;
+                                // Promoted = true;
+                                // PromotedIsBig = true;
+                                //PromotedCategory = Report;
                 trigger OnAction()
                 var
                     MyReportID: Integer;
@@ -66,11 +66,11 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                     MyReportID := Report::RecordingSlipReport;
                     // Run with request page
                     CurrPage.SetSelectionFilter(DocumentNo);
-                   // If DocumentNo.FindFirst() then
-                     //   QtyToPrint := DocumentNo.Quantity;
+                    // If DocumentNo.FindFirst() then
+                    //   QtyToPrint := DocumentNo.Quantity;
                     //for Count := 1 to QtyToPrint do begin
-                        Report.Run(MyReportID, true, false, DocumentNo);
-                
+                    Report.Run(MyReportID, true, false, DocumentNo);
+
                 end;
             }
         }

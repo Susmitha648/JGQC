@@ -52,6 +52,11 @@ table 50020 "Production Prgrme Archive Line"
             Caption = 'Version No.';
             Editable = false;
         }
+          field(12; "Bottles Per Minute"; Integer)
+        {
+            Caption = 'Bottles Per Minute';
+            Editable = false;
+        }
 
     }
     keys
