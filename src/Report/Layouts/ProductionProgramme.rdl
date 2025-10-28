@@ -32,40 +32,40 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.27in</Width>
+                  <Width>0.33904in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.35751in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.03125in</Width>
+                  <Width>0.71096in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.03125in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.45535in</Width>
+                  <Width>0.03125in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.30856in</Width>
+                  <Width>0.50262in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.26334in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.26334in</Width>
+                  <Width>0.3in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.26334in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.33276in</Width>
+                  <Width>0.25928in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.38759in</Width>
+                  <Width>0.27552in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.51734in</Width>
+                  <Width>0.3in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.35916in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.45236in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.45222in</Width>
@@ -73,7 +73,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.16981in</Height>
+                  <Height>0.15748in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -849,6 +849,1030 @@
                     </TablixCell>
                   </TablixCells>
                 </TablixRow>
+                <TablixRow>
+                  <Height>0.15748in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox101">
+                          <rd:DefaultName>Textbox101</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>AVERAGE TON</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <LeftIndent>2pt</LeftIndent>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>2</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox103">
+                          <rd:DefaultName>Textbox103</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox104">
+                          <rd:DefaultName>Textbox104</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox105">
+                          <rd:DefaultName>Textbox105</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox106">
+                          <rd:DefaultName>Textbox106</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox107">
+                          <rd:DefaultName>Textbox107</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox108">
+                          <rd:DefaultName>Textbox108</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox109">
+                          <rd:DefaultName>Textbox109</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox110">
+                          <rd:DefaultName>Textbox110</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(
+    CountDistinct(IIF(IsNothing(Fields!Ton.Value) OR Fields!Ton.Value = 0, Nothing, Fields!Date.Value), "ColumnGroup") &gt; 0,
+    Sum(Fields!Ton.Value, "ColumnGroup") / CountDistinct(IIF(IsNothing(Fields!Ton.Value) OR Fields!Ton.Value = 0, Nothing, Fields!Date.Value), "ColumnGroup"),
+    0
+)</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                    <Format>0;(0)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox111">
+                          <rd:DefaultName>Textbox111</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox112">
+                          <rd:DefaultName>Textbox112</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox113">
+                          <rd:DefaultName>Textbox113</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(
+    CountDistinct(IIF(IsNothing(Fields!Ton.Value) OR Fields!Ton.Value = 0, Nothing, Fields!Date.Value)) &gt; 0,
+    Sum(Fields!Ton.Value) / CountDistinct(IIF(IsNothing(Fields!Ton.Value) OR Fields!Ton.Value = 0, Nothing, Fields!Date.Value)),
+    0
+)</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                    <Format>0;(0)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.15748in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox83">
+                          <rd:DefaultName>Textbox83</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>TOTAL FURNACE PULL TON</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>5pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <LeftIndent>2pt</LeftIndent>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <ColSpan>2</ColSpan>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell />
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox85">
+                          <rd:DefaultName>Textbox85</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox88">
+                          <rd:DefaultName>Textbox88</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox89">
+                          <rd:DefaultName>Textbox89</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox90">
+                          <rd:DefaultName>Textbox90</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox94">
+                          <rd:DefaultName>Textbox94</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox95">
+                          <rd:DefaultName>Textbox95</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox96">
+                          <rd:DefaultName>Textbox96</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontFamily>Wingdings</FontFamily>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox102">
+                          <rd:DefaultName>Textbox100</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Ton.Value)</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                    <Format>0;(0)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox98">
+                          <rd:DefaultName>Textbox98</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox99">
+                          <rd:DefaultName>Textbox99</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox100">
+                          <rd:DefaultName>Textbox100</rd:DefaultName>
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Sum(Fields!Ton.Value)</Value>
+                                  <Style>
+                                    <FontStyle>Italic</FontStyle>
+                                    <FontSize>7pt</FontSize>
+                                    <Format>0;(0)</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <BackgroundColor>=Switch(
+   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
+   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   True, "Transparent"
+)</BackgroundColor>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
@@ -911,7 +1935,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox42">
                             <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -960,7 +1984,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox17">
                                 <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -1074,7 +2098,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox43">
                             <rd:DefaultName>Textbox16</rd:DefaultName>
@@ -1123,7 +2147,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox12">
                                 <rd:DefaultName>Textbox12</rd:DefaultName>
@@ -1245,7 +2269,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox40">
                             <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -1294,7 +2318,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox18">
                                 <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -1353,7 +2377,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox41">
                             <rd:DefaultName>Textbox16</rd:DefaultName>
@@ -1402,7 +2426,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox11">
                                 <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -1461,7 +2485,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox14">
                             <rd:DefaultName>Textbox14</rd:DefaultName>
@@ -1515,7 +2539,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox86">
                                 <rd:DefaultName>Textbox86</rd:DefaultName>
@@ -1574,7 +2598,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox20">
                             <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -1628,7 +2652,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox87">
                                 <rd:DefaultName>Textbox87</rd:DefaultName>
@@ -1687,7 +2711,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox21">
                             <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -1743,7 +2767,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox22">
                                 <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -1802,7 +2826,7 @@
                         </TablixMember>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="WTFormat">
                                 <rd:DefaultName>WTFormat</rd:DefaultName>
@@ -1861,7 +2885,7 @@
                         </TablixMember>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox25">
                                 <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -1922,7 +2946,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox27">
                             <rd:DefaultName>Textbox27</rd:DefaultName>
@@ -1976,7 +3000,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox91">
                                 <rd:DefaultName>Textbox91</rd:DefaultName>
@@ -2035,7 +3059,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox29">
                             <rd:DefaultName>Textbox29</rd:DefaultName>
@@ -2089,7 +3113,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox92">
                                 <rd:DefaultName>Textbox92</rd:DefaultName>
@@ -2148,7 +3172,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox31">
                             <rd:DefaultName>Textbox31</rd:DefaultName>
@@ -2202,7 +3226,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox93">
                                 <rd:DefaultName>Textbox93</rd:DefaultName>
@@ -2319,7 +3343,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.16981in</Size>
+                        <Size>0.15748in</Size>
                         <CellContents>
                           <Textbox Name="Textbox235">
                             <rd:DefaultName>Textbox235</rd:DefaultName>
@@ -2368,7 +3392,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.16981in</Size>
+                            <Size>0.15748in</Size>
                             <CellContents>
                               <Textbox Name="Textbox236">
                                 <rd:DefaultName>Textbox236</rd:DefaultName>
@@ -2433,6 +3457,15 @@
                     <GroupExpressions>
                       <GroupExpression>=Fields!Date.Value</GroupExpression>
                     </GroupExpressions>
+                    <Filters>
+                      <Filter>
+                        <FilterExpression>=IsNothing(Fields!Date.Value)</FilterExpression>
+                        <Operator>Equal</Operator>
+                        <FilterValues>
+                          <FilterValue DataType="Boolean">false</FilterValue>
+                        </FilterValues>
+                      </Filter>
+                    </Filters>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
@@ -2443,12 +3476,18 @@
                     <TablixMember />
                   </TablixMembers>
                 </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.06944in</Top>
-            <Height>0.67924in</Height>
-            <Width>3.93385in</Width>
+            <Height>0.95721in</Height>
+            <Width>4.27701in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2460,12 +3499,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.16654cm</Width>
+                  <Width>2.95961cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.83136cm</Height>
+                  <Height>0.8cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2475,18 +3514,18 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>0.45535in</Width>
+                                    <Width>0.43778in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>0.32742in</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>0.4639in</Width>
+                                    <Width>0.4in</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>0.16365in</Height>
+                                    <Height>0.15in</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -2665,7 +3704,7 @@
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
-                                    <Height>0.16365in</Height>
+                                    <Height>0.16496in</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -2871,8 +3910,8 @@
                               </TablixRowHierarchy>
                               <KeepTogether>true</KeepTogether>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Height>0.32731in</Height>
-                              <Width>1.24667in</Width>
+                              <Height>0.31496in</Height>
+                              <Width>1.1652in</Width>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
@@ -2931,10 +3970,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>0.6077cm</Top>
-            <Left>9.99198cm</Left>
-            <Height>0.83136cm</Height>
-            <Width>3.16654cm</Width>
+            <Top>0.60769cm</Top>
+            <Left>10.86361cm</Left>
+            <Height>0.8cm</Height>
+            <Width>2.95961cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -2943,7 +3982,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.90166cm</Height>
+        <Height>2.60769cm</Height>
         <Style />
       </Body>
       <Width>26.7cm</Width>
@@ -3412,14 +4451,17 @@ End Function
         <Field Name="Status">
           <DataField>Status</DataField>
         </Field>
-        <Field Name="No_">
-          <DataField>No_</DataField>
+        <Field Name="MonthYear">
+          <DataField>MonthYear</DataField>
         </Field>
         <Field Name="Date">
           <DataField>Date</DataField>
         </Field>
         <Field Name="Day">
           <DataField>Day</DataField>
+        </Field>
+        <Field Name="No_">
+          <DataField>No_</DataField>
         </Field>
         <Field Name="Furnace">
           <DataField>Furnace</DataField>

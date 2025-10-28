@@ -15,68 +15,110 @@ report 50009 "Production Programme"
             }
             column(Description; Description)
             {
-
             }
             column(No_of_Archived_Versions; "No of Archived Versions")
             {
             }
             column(Created_Date; "Created Date")
             {
-
             }
             column(Remarks; Remarks)
             {
             }
             column(Demand_Forecast_Name; "Demand Forecast Name")
             {
-
             }
             column(Status; Status)
             {
-
             }
 
-            dataitem(ProductionProgrammeLine; "Production Programme Line")
+            dataitem(MonthRange; Integer)
             {
-                DataItemLink = "No." = field("No.");
-                column(No_; "No.")
+                column(MonthYear; MonthYearText)
                 {
                 }
-                column(Date; Date)
-                {
 
-                }
-                column(Day; Day)
+                dataitem(DateRange; Integer)
                 {
+                    DataItemTableView = sorting(Number) where(Number = filter(1 .. 31));
 
-                }
-                column(Furnace; Furnace)
-                {
+                    column(Date; CurrentDate)
+                    {
+                    }
+                    column(Day; DayName)
+                    {
+                    }
 
-                }
-                column(Job; Job)
-                {
+                    dataitem(ProductionProgrammeLine; "Production Programme Line")
+                    {
+                        DataItemLinkReference = ProductionProgrammeHeader;
+                        DataItemLink = "No." = field("No.");
 
-                }
-                column(WT; WT)
-                {
+                        column(No_; "No.")
+                        {
+                        }
+                        column(Furnace; Furnace)
+                        {
+                        }
+                        column(Job; Job)
+                        {
+                        }
+                        column(WT; WT)
+                        {
+                        }
+                        column(Ton; Ton)
+                        {
+                        }
+                        column(Tray; Tray)
+                        {
+                        }
+                        column(Pallet; Pallet)
+                        {
+                        }
+                        column(Speed; Speed)
+                        {
+                        }
 
-                }
-                column(Ton; Ton)
-                {
+                        trigger OnPreDataItem()
+                        begin
+                            SetRange(Date, CurrentDate);
+                        end;
+                    }
 
-                }
-                column(Tray; Tray)
-                {
+                    trigger OnPreDataItem()
+                    begin
+                        // Filter to show only valid days in the current month
+                        SetRange(Number, 1, DaysInCurrentMonth);
+                    end;
 
+                    trigger OnAfterGetRecord()
+                    begin
+                        CurrentDate := CalcDate('<' + Format(Number - 1) + 'D>', CurrentMonthStart);
+                        DayName := Format(CurrentDate, 0, '<Weekday Text>');
+                    end;
                 }
-                column(Pallet; Pallet)
-                {
 
-                }
-                column(Speed; Speed)
-                {
-                }
+                trigger OnPreDataItem()
+                begin
+                    // Calculate the number of months to iterate
+                    SetRange(Number, 1, TotalMonths);
+                end;
+
+                trigger OnAfterGetRecord()
+                var
+                    MonthStart: Date;
+                    MonthEnd: Date;
+                begin
+                    // Calculate the start date of the current month in the iteration
+                    CurrentMonthStart := CalcDate('<' + Format(Number - 1) + 'M>', FirstMonthStart);
+                    CurrentMonthEnd := CalcDate('<CM>', CurrentMonthStart);
+
+                    // Calculate days in this month
+                    DaysInCurrentMonth := Date2DMY(CurrentMonthEnd, 1);
+
+                    // Format month/year for display (optional)
+                    MonthYearText := Format(CurrentMonthStart, 0, '<Month Text> <Year4>');
+                end;
             }
 
             dataitem("Production Forecast Entry"; "Production Forecast Entry")
@@ -124,7 +166,6 @@ report 50009 "Production Programme"
                     }
                     column(Line_No_; "Line No.")
                     {
-
                     }
                     column(Quantity; Quantity)
                     {
@@ -132,6 +173,41 @@ report 50009 "Production Programme"
                 }
             }
 
+            trigger OnAfterGetRecord()
+            var
+                ProdLine: Record "Production Programme Line";
+                MinDate: Date;
+                MaxDate: Date;
+                YearDiff: Integer;
+                MonthDiff: Integer;
+            begin
+                // Find the min and max dates in the production lines
+                ProdLine.SetRange("No.", "No.");
+                if ProdLine.FindSet() then begin
+                    MinDate := ProdLine.Date;
+                    MaxDate := ProdLine.Date;
+
+                    repeat
+                        if ProdLine.Date < MinDate then
+                            MinDate := ProdLine.Date;
+                        if ProdLine.Date > MaxDate then
+                            MaxDate := ProdLine.Date;
+                    until ProdLine.Next() = 0;
+
+                    // Calculate the first month's start date
+                    FirstMonthStart := CalcDate('<-CM>', MinDate);
+                    LastMonthStart := CalcDate('<-CM>', MaxDate);
+
+                    // Calculate total number of months between min and max dates
+                    YearDiff := Date2DMY(MaxDate, 3) - Date2DMY(MinDate, 3);
+                    MonthDiff := Date2DMY(MaxDate, 2) - Date2DMY(MinDate, 2);
+                    TotalMonths := (YearDiff * 12) + MonthDiff + 1;
+                end else begin
+                    // Fallback if no lines exist
+                    FirstMonthStart := CalcDate('<-CM>', "Created Date");
+                    TotalMonths := 1;
+                end;
+            end;
         }
     }
     requestpage
@@ -152,4 +228,15 @@ report 50009 "Production Programme"
             }
         }
     }
+
+    var
+        CurrentDate: Date;
+        DayName: Text[30];
+        FirstMonthStart: Date;
+        LastMonthStart: Date;
+        CurrentMonthStart: Date;
+        CurrentMonthEnd: Date;
+        TotalMonths: Integer;
+        DaysInCurrentMonth: Integer;
+        MonthYearText: Text[50];
 }
