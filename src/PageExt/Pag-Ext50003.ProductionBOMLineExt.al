@@ -7,10 +7,6 @@ pageextension 50003 "Production BOM Line Ext" extends "Production BOM Lines"
             {
                 ApplicationArea = All;
             }
-            field("Glass Yield"; Rec."Glass Yield")
-            {
-                ApplicationArea = All;
-            }
         }
     }
 }
