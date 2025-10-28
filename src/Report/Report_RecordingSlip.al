@@ -144,7 +144,7 @@ report 50005 RecordingSlipReport
                 If ShopCalenderWorkingDays.FindFirst() then;
 
                 if "Shortcut Dimension 2 Code" <> '' then begin
-                    BarcodeString := Format("Shortcut Dimension 2 Code") + Format("Variant Code") + Format(Description) + Format("Last Date Modified", 0, '<Day,2>/<Month,2>/<Year4>');
+                    BarcodeString := Format("Shortcut Dimension 2 Code") + Format(Item."Pack Size") + Format(Description) + Format("Last Date Modified", 0, '<Day,2>/<Month,2>/<Year4>');
                     // Validate the input
                     BarcodeString := DelChr(BarcodeString, '=', ' ');
                     BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
