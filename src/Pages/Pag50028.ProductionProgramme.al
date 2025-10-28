@@ -4,7 +4,7 @@ page 50028 "Production Programme"
     Caption = 'Production Programme';
     PageType = Document;
     SourceTable = "Production Programme Header";
-    PromotedActionCategoriesML = ENU = 'Home,Process,Report,Release,Create';
+    PromotedActionCategoriesML = ENU = 'Home,Process,Report,Release,Create, Print';
     layout
     {
         area(Content)
@@ -12,7 +12,7 @@ page 50028 "Production Programme"
             group(General)
             {
                 Caption = 'General';
-                
+
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the No. field.', Comment = '%';
@@ -69,13 +69,15 @@ page 50028 "Production Programme"
                     ToolTip = 'Create Production Programme Lines based on the Request form data';
                     trigger OnAction()
                     var
-                    ProdProg : Record "Production Programme Header";
+                        ProdProg: Record "Production Programme Header";
                     begin
                         CurrPage.SetSelectionFilter(ProdProg);
-                        Report.RunModal(50008,True,false,ProdProg);
-                    end;    
+                        Report.RunModal(50008, True, false, ProdProg);
+                    end;
                 }
-                 action("Archive Document")
+
+
+                action("Archive Document")
                 {
                     ApplicationArea = Suite;
                     Caption = 'Archi&ve Document';
@@ -88,12 +90,12 @@ page 50028 "Production Programme"
                     trigger OnAction()
                     begin
                         ArchiveProdProgDocument();
-                        
+
                     end;
                 }
             }
         }
-         
+
         area(Processing)
         {
             group(ReleaseDoc)
@@ -134,11 +136,32 @@ page 50028 "Production Programme"
                         PerformManualReopen();
                     end;
                 }
+            }
+
+            group(_Print)
+            {
+                action(Print)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Production Programme';
+                    Image = Print;
+                    Promoted = true;
+                    PromotedCategory = Category6;
+                    ToolTip = 'Generate the Production Programme report.';
+
+                    trigger OnAction()
+                    var
+                        ProdProgHeader: Record "Production Programme Header";
+                    begin
+                        CurrPage.SetSelectionFilter(ProdProgHeader);
+                        Report.RunModal(Report::"Production Programme", true, false, ProdProgHeader);
+                    end;
+                }
 
             }
         }
     }
-      procedure PerformManualReopen()
+    procedure PerformManualReopen()
     begin
 
         if Rec.Status = Rec.Status::Open then
@@ -155,6 +178,7 @@ page 50028 "Production Programme"
             Rec.Modify();
         end;
     end;
+
     trigger OnNewRecord(BelowxRec: Boolean)
     var
         ManufacturingSetup: Record "Manufacturing Setup";
@@ -168,14 +192,15 @@ page 50028 "Production Programme"
             end else
                 Error('Production Programme No series setup is not done in Manufacturing setup');
     end;
-     procedure ArchiveProdProgDocument()
+
+    procedure ArchiveProdProgDocument()
     var
         ProdLine: Record "Production Programme Line";
         HeaderArchive: Record "Production Programme Archive";
         PurchLineArchive: Record "Production Prgrme Archive Line";
         IsHandled: Boolean;
     begin
-        
+
 
         HeaderArchive.Init();
         HeaderArchive.TransferFields(Rec);
@@ -184,20 +209,20 @@ page 50028 "Production Programme"
         HeaderArchive."Time Archived" := Time();
         HeaderArchive."Version No." := Rec."No of Archived Versions" + 1;
         HeaderArchive.Insert();
-        
 
-        ProdLine.SetRange("No.",Rec."No.");
+
+        ProdLine.SetRange("No.", Rec."No.");
         if ProdLine.FindSet() then
             repeat
                 PurchLineArchive.Init();
                 PurchLineArchive.TransferFields(ProdLine);
                 PurchLineArchive."Version No." := HeaderArchive."Version No.";
                 PurchLineArchive.Insert();
-               
+
             until ProdLine.Next() = 0;
         Rec."No of Archived Versions" := Rec."No of Archived Versions" + 1;
         Rec.Modify();
     end;
-    
-    
+
+
 }

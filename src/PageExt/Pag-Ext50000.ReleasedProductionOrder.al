@@ -10,8 +10,6 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 Caption = 'Machine/Section Stoppages Details';
                 Image = List;
                 ToolTip = 'Machine/Section Stoppages Details';
-                Promoted = true;
-                PromotedCategory = Process;
                 RunObject = Page "Machine/Section Stoppages List";
                 RunPageLink = "Production Order No." = field("No.");
             }
@@ -21,8 +19,6 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 Caption = 'COA Details';
                 Image = List;
                 ToolTip = 'COA Details';
-                Promoted = true;
-                PromotedCategory = Process;
                 RunObject = Page "COA Details";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
@@ -32,8 +28,6 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 Caption = 'Batch Operators Daily Entries';
                 Image = List;
                 ToolTip = 'Batch Operators Daily Entries';
-                Promoted = true;
-                PromotedCategory = Process;
                 RunObject = Page "Batch Operators Daily Entries";
                 RunPageLink = "Production Order No." = field("No.");
                 trigger OnAction()
@@ -44,7 +38,6 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                     Singleinstance.SetProductionHdr(Rec);
                 end;
             }
-
         }
         addafter("Shortage List")
         {
@@ -52,10 +45,7 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
             {
                 ApplicationArea = All;
                 Caption = 'Print Recording Slip';
-                Image = Report; // Optional icon
-                                // Promoted = true;
-                                // PromotedIsBig = true;
-                                //PromotedCategory = Report;
+                Image = Report;
                 trigger OnAction()
                 var
                     MyReportID: Integer;
@@ -64,14 +54,46 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                     QtyToPrint: Integer;
                 begin
                     MyReportID := Report::RecordingSlipReport;
-                    // Run with request page
                     CurrPage.SetSelectionFilter(DocumentNo);
-                    // If DocumentNo.FindFirst() then
-                    //   QtyToPrint := DocumentNo.Quantity;
-                    //for Count := 1 to QtyToPrint do begin
                     Report.Run(MyReportID, true, false, DocumentNo);
-
                 end;
+            }
+            action("Daily Batch Consumption")
+            {
+                ApplicationArea = Manufacturing;
+                Caption = 'Daily Batch Consumption';
+                Image = "Report";
+                RunObject = Report 50010;
+            }
+            action("Batch Operator Daily")
+            {
+                ApplicationArea = Manufacturing;
+                Caption = 'Daily Batch Operator';
+                Image = "Report";
+                RunObject = Report 50011;
+            }
+        }
+
+        addafter("Re&plan_Promoted")
+        {
+            actionref("MachineSectionStoppages_Promoted"; MachineSectionStoppages)
+            {
+            }
+            actionref(COADetails_Promoted; COADetails)
+            {
+            }
+            actionref(BatchOperationEntry_Promoted; BatchOperationEntry)
+            {
+            }
+        }
+
+        addafter("Shortage List_Promoted")
+        {
+            actionref("Daily Batch Consumption_Promoted"; "Daily Batch Consumption")
+            {
+            }
+            actionref("Batch Operator Daily_Promoted"; "Batch Operator Daily")
+            {
             }
         }
     }
