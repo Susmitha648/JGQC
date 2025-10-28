@@ -5526,6 +5526,9 @@ End Function
         <Field Name="ParameterTyp_Type">
           <DataField>ParameterTyp_Type</DataField>
         </Field>
+        <Field Name="Sequence">
+          <DataField>Sequence</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

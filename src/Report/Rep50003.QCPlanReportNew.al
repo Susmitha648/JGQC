@@ -42,8 +42,14 @@ report 50003 "QC Plan Report New"
                     column(ParameterTyp_Code; "Parameter Code") { }
                     column(ParameterTyp_Name; "Parameter Name") { }
                     column(ParameterTyp_Type; "Parameter Type") { }
+                     dataitem("QC Parameter Type"; "QC Parameter Type")
+                    {
+                        DataItemLink = "Code" = field("Parameter Type");
+                        DataItemLinkReference = ParameterType;
+                        column(Sequence;Sequence){}
+                        
+                    }
                 }
-
             }
         }
     }
