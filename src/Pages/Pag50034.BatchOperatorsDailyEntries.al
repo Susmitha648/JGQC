@@ -4,7 +4,6 @@ page 50034 "Batch Operators Daily Entries"
     Caption = 'Batch Operators Daily Entries';
     PageType = List;
     SourceTable = "Batch Operators Daily Entry";
-    UsageCategory = Lists;
     CardPageId = "Batch Operators Daily Entry";
     Editable =false;
     layout

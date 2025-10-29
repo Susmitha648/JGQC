@@ -95,7 +95,10 @@ table 50018 "Production Programme Line"
         field(12; "Bottles Per Minute"; Integer)
         {
             Caption = 'Bottles Per Minute';
-            Editable = false;
+             trigger OnValidate()
+            begin
+                TestStatusOpen();
+            end;
         }
     }
     keys
