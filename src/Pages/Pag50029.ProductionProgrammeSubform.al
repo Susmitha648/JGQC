@@ -82,8 +82,9 @@ page 50029 "Production Programme Subform"
     {
         area(Processing)
         {
-            group(Action12)
+            group(CreatePO)
             {
+                Caption = 'Create PO';
                 action(Create)
                 {
                     ApplicationArea = Suite;
