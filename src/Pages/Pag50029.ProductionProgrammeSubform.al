@@ -113,35 +113,41 @@ page 50029 "Production Programme Subform"
         NoSeries: Codeunit "No. Series";
         WorkShift: Record "Work Shift";
         ShopCalender: Record "Shop Calendar Working Days";
+        HdrQty: Decimal;
     begin
+        Clear(HdrQty);
+        WorkShift.Reset();
         If ManufacturingSetup.Get() then;
         ProductionHdr.InitRecord();
         ProductionHdr."No." := NoSeries.GetNextNo(ManufacturingSetup."Released Order Nos.");
-        ProductionHdr.Status := ProductionHdr.Status::Finished;
+        ProductionHdr.Status := ProductionHdr.Status::Released;
         ProductionHdr.Insert(true);
         ProductionHdr.Validate("Source Type", ProductionHdr."Source Type"::Item);
         ProductionHdr.Validate("Source No.", ProdProgramLine.Job);
         ProductionHdr.Validate("Due Date", ProdProgramLine.Date);
         ProductionHdr."Dimension Set ID" := CreateDimension(ProdProgramLine);
+        ProductionHdr.Validate(Quantity, (8 * 60 * ProdProgramLine."Bottles Per Minute") * WorkShift.Count);
         ProductionHdr.Modify();
         If WorkShift.FindSet() then
             repeat
                 ProductionLine.Init();
-                ProductionLine.Status := ProductionLine.Status::Finished;
+                ProductionLine.Status := ProductionLine.Status::Released;
                 ProductionLine.Validate("Prod. Order No.", ProductionHdr."No.");
                 ProdLine.Reset();
                 ProdLine.SetAscending("Line No.", false);
-                ProdLine.SetRange(Status, ProdLine.Status::Finished);
+                ProdLine.SetRange(Status, ProdLine.Status::Released);
                 ProdLine.SetRange("Prod. Order No.", ProductionHdr."No.");
                 If ProdLine.FindFirst() then
                     ProductionLine."Line No." := ProdLine."Line No." + 10000
                 Else
                     ProductionLine."Line No." := 10000;
-                ProdLine.Insert(true);
-                ProdLine.Validate("Item No.", ProdProgramLine.Job);
-                ProdLine.Validate("Due Date", ProductionHdr."Due Date");
-                ProdLine.Validate(Quantity, 8 * 60 * ProdProgramLine."Bottles Per Minute");
-                ProdLine.Validate("Net Weight", ProdProgramLine.WT);
+                ProductionLine.Insert(true);
+                ProductionLine.Validate("Item No.", ProdProgramLine.Job);
+                ProductionLine.Validate("Due Date", ProductionHdr."Due Date");
+                ProductionLine.Validate(Quantity, 8 * 60 * ProdProgramLine."Bottles Per Minute");
+                HdrQty += 8 * 60 * ProdProgramLine."Bottles Per Minute";
+                ProductionLine.Validate("Net Weight", ProdProgramLine.WT);
+
                 ShopCalender.Reset();
                 ShopCalender.SetRange("Work Shift Code", WorkShift.Code);
 
@@ -160,14 +166,15 @@ page 50029 "Production Programme Subform"
                 If ProdProgramLine.Day = 'SUNDAY' then
                     ShopCalender.SetRange(Day, ShopCalender.Day::Sunday);
                 If ShopCalender.FindFirst() then;
-                ProdLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Starting Time"));
-                ProdLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Ending Time"));
-                ProdLine.Modify();
+                ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Starting Time"));
+                ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Ending Time"));
+                ProductionLine.Modify();
             until WorkShift.Next() = 0;
+
         ProdProgramLine."Production Order No." := ProductionHdr."No.";
         ProdProgramLine."Prod Order Created" := True;
         ProdProgramLine.Modify();
-
+        Message('Production Orders Created');
     end;
 
     procedure CreateDimension(ProdProgramDim: Record "Production Programme Line"): Integer
