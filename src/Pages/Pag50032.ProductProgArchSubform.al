@@ -55,6 +55,14 @@ page 50032 "Product Prog Arch Subform"
                 {
                     ToolTip = 'Specifies the value of the Pallet field.', Comment = '%';
                 }
+                  field("Production Order No."; Rec."Production Order No.")
+                {
+                    ToolTip = 'Specifies the value of the Production Order No. field.', Comment = '%';
+                }
+                field("Prod Order Created"; Rec."Prod Order Created")
+                {
+                    ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
+                }
             }
         }
     }

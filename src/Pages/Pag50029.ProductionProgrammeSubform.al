@@ -5,8 +5,8 @@ page 50029 "Production Programme Subform"
     PageType = ListPart;
     SourceTable = "Production Programme Line";
     //DeleteAllowed = True;
-   // Editable = false;
-   
+    // Editable = false;
+
     layout
     {
         area(Content)
@@ -21,53 +21,214 @@ page 50029 "Production Programme Subform"
                 field("Date"; Rec."Date")
                 {
                     ToolTip = 'Specifies the value of the Date field.', Comment = '%';
-                    
+
                 }
                 field(Day; Rec.Day)
                 {
                     ToolTip = 'Specifies the value of the Day field.', Comment = '%';
-                   
+
                 }
                 field(Furnace; Rec.Furnace)
                 {
                     ToolTip = 'Specifies the value of the Furnace field.', Comment = '%';
-                    
+
                 }
                 field(Job; Rec.Job)
                 {
                     ToolTip = 'Specifies the value of the Job field.', Comment = '%';
-                   
+
                 }
                 field(WT; Rec.WT)
                 {
                     ToolTip = 'Specifies the value of the WT field.', Comment = '%';
-                    
+
                 }
                 field(Speed; Rec.Speed)
                 {
                     ToolTip = 'Specifies the value of the Speed field.', Comment = '%';
-                    
+
                 }
                 field("Bottles Per Minute"; Rec."Bottles Per Minute")
                 {
                     ToolTip = 'Specifies the value of the Bottles Per Minute field.', Comment = '%';
-                    
+
                 }
                 field(Ton; Rec.Ton)
                 {
                     ToolTip = 'Specifies the value of the Ton field.', Comment = '%';
-                    
+
                 }
                 field(Tray; Rec.Tray)
                 {
                     ToolTip = 'Specifies the value of the Tray field.', Comment = '%';
-                    
+
                 }
                 field(Pallet; Rec.Pallet)
                 {
                     ToolTip = 'Specifies the value of the Pallet field.', Comment = '%';
                 }
+                field("Production Order No."; Rec."Production Order No.")
+                {
+                    ToolTip = 'Specifies the value of the Production Order No. field.', Comment = '%';
+                }
+                field("Prod Order Created"; Rec."Prod Order Created")
+                {
+                    ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
+                }
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            group(Action12)
+            {
+                action(Create)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Generate Production Orders';
+                    Image = Create;
+                    ToolTip = 'Create Production Orders based on the Production Programme Lines';
+                    trigger OnAction()
+                    var
+                        ProdProgLine: Record "Production Programme Line";
+                    begin
+                        CurrPage.SetSelectionFilter(ProdProgLine);
+                        If ProdProgLine.FindSet() then
+                            repeat
+                                CreateProductionOrders(ProdProgLine);
+                            until ProdProgLine.Next() = 0;
+                    end;
+                }
+            }
+        }
+    }
+    procedure CreateProductionOrders(var ProdProgramLine: Record "Production Programme Line")
+    var
+        ProductionHdr: Record "Production Order";
+        ProductionLine: Record "Prod. Order Line";
+        ProdLine: Record "Prod. Order Line";
+        ManufacturingSetup: Record "Manufacturing Setup";
+        NoSeries: Codeunit "No. Series";
+        WorkShift: Record "Work Shift";
+        ShopCalender: Record "Shop Calendar Working Days";
+    begin
+        If ManufacturingSetup.Get() then;
+        ProductionHdr.InitRecord();
+        ProductionHdr."No." := NoSeries.GetNextNo(ManufacturingSetup."Released Order Nos.");
+        ProductionHdr.Status := ProductionHdr.Status::Finished;
+        ProductionHdr.Insert(true);
+        ProductionHdr.Validate("Source Type", ProductionHdr."Source Type"::Item);
+        ProductionHdr.Validate("Source No.", ProdProgramLine.Job);
+        ProductionHdr.Validate("Due Date", ProdProgramLine.Date);
+        ProductionHdr."Dimension Set ID" := CreateDimension(ProdProgramLine);
+        ProductionHdr.Modify();
+        If WorkShift.FindSet() then
+            repeat
+                ProductionLine.Init();
+                ProductionLine.Status := ProductionLine.Status::Finished;
+                ProductionLine.Validate("Prod. Order No.", ProductionHdr."No.");
+                ProdLine.Reset();
+                ProdLine.SetAscending("Line No.", false);
+                ProdLine.SetRange(Status, ProdLine.Status::Finished);
+                ProdLine.SetRange("Prod. Order No.", ProductionHdr."No.");
+                If ProdLine.FindFirst() then
+                    ProductionLine."Line No." := ProdLine."Line No." + 10000
+                Else
+                    ProductionLine."Line No." := 10000;
+                ProdLine.Insert(true);
+                ProdLine.Validate("Item No.", ProdProgramLine.Job);
+                ProdLine.Validate("Due Date", ProductionHdr."Due Date");
+                ProdLine.Validate(Quantity, 8 * 60 * ProdProgramLine."Bottles Per Minute");
+                ProdLine.Validate("Net Weight", ProdProgramLine.WT);
+                ShopCalender.Reset();
+                ShopCalender.SetRange("Work Shift Code", WorkShift.Code);
+
+                If ProdProgramLine.Day = 'MONDAY' then
+                    ShopCalender.SetRange(Day, ShopCalender.Day::Monday);
+                If ProdProgramLine.Day = 'TUESDAY' then
+                    ShopCalender.SetRange(Day, ShopCalender.Day::Tuesday);
+                If ProdProgramLine.Day = 'WEDNESDAY' then
+                    ShopCalender.SetRange(Day, ShopCalender.Day::Wednesday);
+                If ProdProgramLine.Day = 'THURSDAY' then
+                    ShopCalender.SetRange(Day, ShopCalender.Day::Thursday);
+                If ProdProgramLine.Day = 'FRIDAY' then
+                    ShopCalender.SetRange(Day, ShopCalender.Day::Friday);
+                If ProdProgramLine.Day = 'SATURDAY' then
+                    ShopCalender.SetRange(Day, ShopCalender.Day::Saturday);
+                If ProdProgramLine.Day = 'SUNDAY' then
+                    ShopCalender.SetRange(Day, ShopCalender.Day::Sunday);
+                If ShopCalender.FindFirst() then;
+                ProdLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Starting Time"));
+                ProdLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Ending Time"));
+                ProdLine.Modify();
+            until WorkShift.Next() = 0;
+        ProdProgramLine."Production Order No." := ProductionHdr."No.";
+        ProdProgramLine."Prod Order Created" := True;
+        ProdProgramLine.Modify();
+
+    end;
+
+    procedure CreateDimension(ProdProgramDim: Record "Production Programme Line"): Integer
+    var
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        TempDimensionSetEntry: Record "Dimension Set Entry" temporary;
+        DimensionSetEntry: Record "Dimension Set Entry";
+        DimensionValue: Record "Dimension Value";
+        DimensionManagement: Codeunit DimensionManagement;
+        DimSetID: Integer;
+        Item: Record Item;
+    begin
+        GeneralLedgerSetup.Get();
+
+        If not DimensionValue.Get(GeneralLedgerSetup."Shortcut Dimension 2 Code", ProdProgramDim.Job) then begin
+            DimensionValue.Init();
+            DimensionValue.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 2 Code");
+            DimensionValue.Validate(Code, ProdProgramDim.Job);
+            If Item.Get(ProdProgramDim.Job) then;
+            DimensionValue.Validate(Name, Item.Description);
+            DimensionValue.Validate("Dimension Value Type", DimensionValue."Dimension Value Type"::Standard);
+            DimensionValue.Insert();
+        end;
+
+        DimSetID := 0;
+        TempDimensionSetEntry.DeleteAll();
+
+
+        TempDimensionSetEntry.Init();
+        TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 2 Code");
+        TempDimensionSetEntry.Validate("Dimension Value Code", ProdProgramDim.Job);
+        TempDimensionSetEntry.Insert();
+
+
+        If ProdProgramDim.Furnace <> '' then begin
+            TempDimensionSetEntry.Init();
+            TempDimensionSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
+            TempDimensionSetEntry.Validate("Dimension Value Code", ProdProgramDim.Furnace);
+            TempDimensionSetEntry.Insert();
+        end;
+
+        DimSetID := DimensionManagement.GetDimensionSetID(TempDimensionSetEntry);
+
+        DimensionSetEntry.Reset();
+        DimensionSetEntry.SetRange("Dimension Set ID", DimSetID);
+        if not DimensionSetEntry.FindFirst() then begin
+            TempDimensionSetEntry.Reset();
+            if TempDimensionSetEntry.FindSet() then
+                repeat
+                    DimensionSetEntry.Init();
+                    DimensionSetEntry.Validate("Dimension Set ID", DimSetID);
+                    DimensionSetEntry.Validate("Dimension Code", TempDimensionSetEntry."Dimension Code");
+                    DimensionSetEntry.Validate("Dimension Value Code", TempDimensionSetEntry."Dimension Value Code");
+                    DimensionSetEntry.Insert();
+                until TempDimensionSetEntry.Next() = 0;
+        end;
+
+        TempDimensionSetEntry.Reset();
+        TempDimensionSetEntry.DeleteAll();
+        exit(DimSetID);
+    end;
+
+
 }

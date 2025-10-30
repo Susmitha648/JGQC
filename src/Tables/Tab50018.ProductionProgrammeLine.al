@@ -100,6 +100,18 @@ table 50018 "Production Programme Line"
                 TestStatusOpen();
             end;
         }
+         field(13; "Production Order No."; Code[20])
+        {
+            Caption = 'Bottles Per Minute';
+            Editable = false;
+            TableRelation = "Production Order"."No.";
+        }
+          field(14; "Prod Order Created"; Boolean)
+        {
+            Caption = 'Prod Order Created';
+            Editable = false;
+        }
+
     }
     keys
     {

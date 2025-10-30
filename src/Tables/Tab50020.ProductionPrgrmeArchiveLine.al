@@ -57,6 +57,17 @@ table 50020 "Production Prgrme Archive Line"
             Caption = 'Bottles Per Minute';
             Editable = false;
         }
+         field(13; "Production Order No."; Code[20])
+        {
+            Caption = 'Bottles Per Minute';
+            Editable = false;
+            TableRelation = "Production Order"."No.";
+        }
+          field(14; "Prod Order Created"; Boolean)
+        {
+            Caption = 'Prod Order Created';
+            Editable = false;
+        }
 
     }
     keys
