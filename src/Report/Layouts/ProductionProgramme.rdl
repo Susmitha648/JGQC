@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-28T15:55:42.2214002Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-10-30T03:03:31.3225512Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -120,9 +120,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -180,9 +179,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
    UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -239,9 +237,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -299,9 +296,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -358,9 +354,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
    UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -417,9 +412,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -477,9 +471,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -537,9 +530,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -597,9 +589,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -656,9 +647,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -715,9 +705,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -774,9 +763,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -833,9 +821,8 @@
                               <Style>Solid</Style>
                             </RightBorder>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
    UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -880,9 +867,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Bottom</VerticalAlign>
@@ -923,9 +909,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -965,9 +950,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1006,9 +990,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1047,9 +1030,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1089,9 +1071,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1131,9 +1112,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1173,9 +1153,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1220,9 +1199,8 @@
                               <Width>0.5pt</Width>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1261,9 +1239,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1302,9 +1279,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1349,9 +1325,8 @@
                               <Width>0.5pt</Width>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1396,9 +1371,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
@@ -1439,9 +1413,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1481,9 +1454,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1522,9 +1494,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1563,9 +1534,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1605,9 +1575,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1647,9 +1616,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1689,9 +1657,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1731,9 +1698,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
@@ -1772,9 +1738,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1813,9 +1778,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
@@ -1855,9 +1819,8 @@
                               <Style>None</Style>
                             </Border>
                             <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "TUESDAY", "LimeGreen",
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "Lime",
+      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
    True, "Transparent"
 )</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
@@ -3484,7 +3447,7 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.06944in</Top>
-            <Height>1.1527in</Height>
+            <Height>1.15272in</Height>
             <Width>4.277in</Width>
             <Style>
               <Border>
@@ -3706,15 +3669,15 @@
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Job1">
-                                            <rd:DefaultName>Job1</rd:DefaultName>
+                                          <Textbox Name="Item_No_PPL">
+                                            <rd:DefaultName>Item_No_PPL</rd:DefaultName>
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Job.Value</Value>
+                                                    <Value>=Fields!Item_No_PPL.Value</Value>
                                                     <Style>
                                                       <FontStyle>Italic</FontStyle>
                                                       <FontSize>7pt</FontSize>
@@ -3762,18 +3725,26 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Forecast_Quantity">
-                                            <rd:DefaultName>Forecast_Quantity</rd:DefaultName>
+                                          <Textbox Name="Forecast_Quantity_Base">
+                                            <rd:DefaultName>Forecast_Quantity_Base</rd:DefaultName>
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Forecast_Quantity.Value</Value>
+                                                    <Value>=Switch(
+Fields!Forecast_Quantity_Base.Value &gt;= 1000000,
+Format(Fields!Forecast_Quantity_Base.Value / 1000000, "0.0") + "M",
+Fields!Forecast_Quantity_Base.Value &gt;= 1000,
+Format(Fields!Forecast_Quantity_Base.Value / 1000, "0.0") + "K",
+True,
+CStr(Fields!Forecast_Quantity_Base.Value)
+)</Value>
                                                     <Style>
                                                       <FontStyle>Italic</FontStyle>
                                                       <FontSize>7pt</FontSize>
+                                                      <Format>#,0;(#,0)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -3787,26 +3758,6 @@
                                                 <Style>Solid</Style>
                                                 <Width>0.5pt</Width>
                                               </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>0.5pt</Width>
-                                              </RightBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3908,7 +3859,6 @@
                               </TablixRowHierarchy>
                               <KeepTogether>true</KeepTogether>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Left>0in</Left>
                               <Height>0.35433in</Height>
                               <Width>1.1652in</Width>
                               <Style>
@@ -3978,7 +3928,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>3.10423cm</Height>
+        <Height>3.10429cm</Height>
         <Style />
       </Body>
       <Width>26.7cm</Width>
@@ -4459,6 +4409,9 @@ End Function
         <Field Name="No_">
           <DataField>No_</DataField>
         </Field>
+        <Field Name="Item_No_PPL">
+          <DataField>Item_No_PPL</DataField>
+        </Field>
         <Field Name="Furnace">
           <DataField>Furnace</DataField>
         </Field>
@@ -4486,17 +4439,11 @@ End Function
         <Field Name="Speed">
           <DataField>Speed</DataField>
         </Field>
-        <Field Name="Production_Forecast_Name">
-          <DataField>Production_Forecast_Name</DataField>
+        <Field Name="Forecast_Quantity_Base">
+          <DataField>Forecast_Quantity_Base</DataField>
         </Field>
-        <Field Name="Entry_No_">
-          <DataField>Entry_No_</DataField>
-        </Field>
-        <Field Name="Item_No_">
-          <DataField>Item_No_</DataField>
-        </Field>
-        <Field Name="Forecast_Date">
-          <DataField>Forecast_Date</DataField>
+        <Field Name="Forecast_Quantity_BaseFormat">
+          <DataField>Forecast_Quantity_BaseFormat</DataField>
         </Field>
         <Field Name="Forecast_Quantity">
           <DataField>Forecast_Quantity</DataField>
@@ -4504,41 +4451,14 @@ End Function
         <Field Name="Forecast_QuantityFormat">
           <DataField>Forecast_QuantityFormat</DataField>
         </Field>
-        <Field Name="Forecast_Quantity__Base_">
-          <DataField>Forecast_Quantity__Base_</DataField>
-        </Field>
-        <Field Name="Forecast_Quantity__Base_Format">
-          <DataField>Forecast_Quantity__Base_Format</DataField>
-        </Field>
         <Field Name="Unit_of_Measure_Code">
           <DataField>Unit_of_Measure_Code</DataField>
-        </Field>
-        <Field Name="Qty__per_Unit_of_Measure">
-          <DataField>Qty__per_Unit_of_Measure</DataField>
-        </Field>
-        <Field Name="Qty__per_Unit_of_MeasureFormat">
-          <DataField>Qty__per_Unit_of_MeasureFormat</DataField>
         </Field>
         <Field Name="Location_Code">
           <DataField>Location_Code</DataField>
         </Field>
         <Field Name="Variant_Code">
           <DataField>Variant_Code</DataField>
-        </Field>
-        <Field Name="Component_Forecast">
-          <DataField>Component_Forecast</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Line_No_">
-          <DataField>Line_No_</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
         </Field>
       </Fields>
       <Query>

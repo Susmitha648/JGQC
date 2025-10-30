@@ -32,15 +32,18 @@ report 50009 "Production Programme"
             {
             }
 
+
             dataitem(MonthRange; Integer)
             {
                 column(MonthYear; MonthYearText)
                 {
                 }
 
+
                 dataitem(DateRange; Integer)
                 {
                     DataItemTableView = sorting(Number) where(Number = filter(1 .. 31));
+
 
                     column(Date; CurrentDate)
                     {
@@ -49,6 +52,7 @@ report 50009 "Production Programme"
                     {
                     }
 
+
                     dataitem(ProductionProgrammeLine; "Production Programme Line")
                     {
                         DataItemLinkReference = ProductionProgrammeHeader;
@@ -56,6 +60,10 @@ report 50009 "Production Programme"
 
                         column(No_; "No.")
                         {
+                        }
+                        column(Item_No_PPL; Job)
+                        {
+                            Caption = 'Item No.';
                         }
                         column(Furnace; Furnace)
                         {
@@ -79,17 +87,56 @@ report 50009 "Production Programme"
                         {
                         }
 
+                        dataitem(ProdForecastEntry; "Production Forecast Entry")
+                        {
+                            column(Forecast_Quantity_Base; "Forecast Quantity (Base)")
+                            {
+                            }
+                            column(Forecast_Quantity; "Forecast Quantity")
+                            {
+                            }
+                            column(Unit_of_Measure_Code; "Unit of Measure Code")
+                            {
+                            }
+                            column(Location_Code; "Location Code")
+                            {
+                            }
+                            column(Variant_Code; "Variant Code")
+                            {
+                            }
+
+                            trigger OnPreDataItem()
+                            var
+                                DemandForecastName: Code[10];
+                                JobNo: Code[20];
+                                ForecastDateValue: Date;
+                            begin
+                                // Get parent field values
+                                DemandForecastName := ProductionProgrammeHeader."Demand Forecast Name";
+                                JobNo := ProductionProgrammeLine.Job;
+                                ForecastDateValue := ProductionProgrammeLine.Date;
+
+                                // Filter forecast entries by Demand Forecast Name, Item No (Job), and Date
+                                SetCurrentKey("Production Forecast Name", "Item No.", "Component Forecast", "Forecast Date", "Location Code", "Variant Code");
+                                SetRange("Production Forecast Name", DemandForecastName);
+                                SetRange("Item No.", JobNo);
+                                SetRange("Forecast Date", ForecastDateValue);
+                            end;
+                        }
+
                         trigger OnPreDataItem()
                         begin
                             SetRange(Date, CurrentDate);
                         end;
                     }
 
+
                     trigger OnPreDataItem()
                     begin
                         // Filter to show only valid days in the current month
                         SetRange(Number, 1, DaysInCurrentMonth);
                     end;
+
 
                     trigger OnAfterGetRecord()
                     begin
@@ -98,11 +145,13 @@ report 50009 "Production Programme"
                     end;
                 }
 
+
                 trigger OnPreDataItem()
                 begin
                     // Calculate the number of months to iterate
                     SetRange(Number, 1, TotalMonths);
                 end;
+
 
                 trigger OnAfterGetRecord()
                 var
@@ -113,65 +162,16 @@ report 50009 "Production Programme"
                     CurrentMonthStart := CalcDate('<' + Format(Number - 1) + 'M>', FirstMonthStart);
                     CurrentMonthEnd := CalcDate('<CM>', CurrentMonthStart);
 
+
                     // Calculate days in this month
                     DaysInCurrentMonth := Date2DMY(CurrentMonthEnd, 1);
+
 
                     // Format month/year for display (optional)
                     MonthYearText := Format(CurrentMonthStart, 0, '<Month Text> <Year4>');
                 end;
             }
 
-            dataitem("Production Forecast Entry"; "Production Forecast Entry")
-            {
-                DataItemLink = "Production Forecast Name" = field("Demand Forecast Name");
-                column(Production_Forecast_Name; "Production Forecast Name")
-                {
-                }
-                column(Entry_No_; "Entry No.")
-                {
-                }
-                column(Item_No_; "Item No.")
-                {
-                }
-                column(Forecast_Date; "Forecast Date")
-                {
-                }
-                column(Forecast_Quantity; "Forecast Quantity")
-                {
-                }
-                column(Forecast_Quantity__Base_; "Forecast Quantity (Base)")
-                {
-                }
-                column(Unit_of_Measure_Code; "Unit of Measure Code")
-                {
-                }
-                column(Qty__per_Unit_of_Measure; "Qty. per Unit of Measure")
-                {
-                }
-                column(Location_Code; "Location Code")
-                {
-                }
-                column(Variant_Code; "Variant Code")
-                {
-                }
-                column(Component_Forecast; "Component Forecast")
-                {
-                }
-
-                dataitem("Sales Line"; "Sales Line")
-                {
-                    DataItemLink = "Quantity" = field("Forecast Quantity");
-                    column(Document_No_; "Document No.")
-                    {
-                    }
-                    column(Line_No_; "Line No.")
-                    {
-                    }
-                    column(Quantity; Quantity)
-                    {
-                    }
-                }
-            }
 
             trigger OnAfterGetRecord()
             var
@@ -187,6 +187,7 @@ report 50009 "Production Programme"
                     MinDate := ProdLine.Date;
                     MaxDate := ProdLine.Date;
 
+
                     repeat
                         if ProdLine.Date < MinDate then
                             MinDate := ProdLine.Date;
@@ -194,9 +195,11 @@ report 50009 "Production Programme"
                             MaxDate := ProdLine.Date;
                     until ProdLine.Next() = 0;
 
+
                     // Calculate the first month's start date
                     FirstMonthStart := CalcDate('<-CM>', MinDate);
                     LastMonthStart := CalcDate('<-CM>', MaxDate);
+
 
                     // Calculate total number of months between min and max dates
                     YearDiff := Date2DMY(MaxDate, 3) - Date2DMY(MinDate, 3);
@@ -228,6 +231,7 @@ report 50009 "Production Programme"
             }
         }
     }
+
 
     var
         CurrentDate: Date;
