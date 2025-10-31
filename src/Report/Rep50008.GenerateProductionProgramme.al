@@ -11,8 +11,10 @@ report 50008 "Generate Production Programme"
             var
                 ProductionProgramLine: Record "Production Programme Line";
                 Item: Record Item;
+                WorkShift : Record "Work Shift";
             begin
                 If Item.Get(JobNo) then;
+                If WorkShift.FindSet() then;
                 While FromDate <= ToDate do begin
                     ProductionProgramLine.Reset();
                     ProductionProgramLine.SetRange("No.", "No.");
@@ -32,7 +34,7 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.WT := Item."Net Weight";
                     ProductionProgramLine.Furnace := Furnace;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
-                    ProductionProgramLine.Ton := Ton;
+                    ProductionProgramLine.Ton := BottlesPerMinute*8*60*WorkShift.Count*Item."Net Weight";
                     ProductionProgramLine.Modify();
                     FromDate := FromDate + 1;
 
@@ -88,20 +90,14 @@ report 50008 "Generate Production Programme"
                     field(Speed; Speed)
                     {
                         ApplicationArea = All;
-                        Caption = 'Speed';
-                        ToolTip = 'Specifies Speed.';
+                        Caption = 'Section';
+                        ToolTip = 'Specifies Section.';
                     }
                     field(BottlesPerMinute; BottlesPerMinute)
                     {
                         ApplicationArea = All;
                         Caption = 'Bottles Per Minute';
                         ToolTip = 'Bottles Per Minute.';
-                    }
-                    field(Ton; Ton)
-                    {
-                        ApplicationArea = All;
-                        Caption = 'Ton';
-                        ToolTip = 'Specifies Ton.';
                     }
                     field(Tray; Tray)
                     {

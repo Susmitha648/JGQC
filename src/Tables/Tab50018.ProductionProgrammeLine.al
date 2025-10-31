@@ -62,7 +62,7 @@ table 50018 "Production Programme Line"
         }
         field(7; Speed; Enum Speed)
         {
-            Caption = 'Speed';
+            Caption = 'Section';
             trigger OnValidate()
             begin
                 TestStatusOpen();
