@@ -13,4 +13,8 @@ enum 50001 "Complaint Type"
     {
         Caption = 'Pack';
     }
+    value(3; Others)
+    {
+        Caption = 'Others';
+    }
 }

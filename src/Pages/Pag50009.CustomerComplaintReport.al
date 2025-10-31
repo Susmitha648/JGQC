@@ -79,6 +79,10 @@ page 50009 "Customer Complaint Report"
                 {
                     ToolTip = 'Specifies the value of the Status by field.', Comment = '%';
                 }
+                 field("Sales Return Order"; Rec."Sales Return Order")
+                {
+                    ToolTip = 'Specifies the value of the Sales Return Order by field.', Comment = '%';
+                }
 
             }
         }

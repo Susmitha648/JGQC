@@ -972,7 +972,7 @@
       <SecurityFilter />
     </Permission>
     <Permission>
-      <ObjectID>50005</ObjectID>
+      <ObjectID>50011</ObjectID>
       <ObjectType>3</ObjectType>
       <ReadPermission>0</ReadPermission>
       <InsertPermission>0</InsertPermission>
@@ -982,7 +982,7 @@
       <SecurityFilter />
     </Permission>
     <Permission>
-      <ObjectID>50011</ObjectID>
+      <ObjectID>50005</ObjectID>
       <ObjectType>3</ObjectType>
       <ReadPermission>0</ReadPermission>
       <InsertPermission>0</InsertPermission>

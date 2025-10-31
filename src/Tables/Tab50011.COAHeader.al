@@ -40,8 +40,20 @@ table 50011 "COA Header"
         }
         field(6; Machine; Code[20])
         {
-            Caption = 'Machine';
-            TableRelation = "Machine Center"."No.";
+            Caption = 'Work Center';
+            TableRelation = "Dimension Value".Code;
+            trigger OnLookup()
+            var
+                GeneralLegderSetup: Record "General Ledger Setup";
+                DimensionValue: Record "Dimension Value";
+            begin
+                GeneralLegderSetup.Get();
+                DimensionValue.Reset();
+                DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
+                If DimensionValue.FindSet() then;
+                if Page.RunModal(537, DimensionValue) = Action::LookupOK then
+                    Machine := DimensionValue.Code;
+            end;
         }
         field(7; "Fill Point"; Text[50])
         {
@@ -81,9 +93,9 @@ table 50011 "COA Header"
         If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Released Prod Order No.") then
             If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
                 Rec."Production Order Date" := WorkDate();
-                Rec.Validate("Job No.",ReleaseProdOrder."Source No.");
+                Rec.Validate("Job No.", ReleaseProdOrder."Source No.");
             end;
-        
+
 
     end;
 }

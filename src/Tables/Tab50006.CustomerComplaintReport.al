@@ -145,6 +145,12 @@ table 50006 "Customer Complaint Report"
             Caption = 'Status';
             Editable = false;
         }
+        field(17; "Sales Return Order"; Code[20])
+        {
+            Caption = 'Sales Return Order';
+            TableRelation = "Sales Header"."No." where("Document Type" = filter("Return Order"));
+        }
+
     }
     keys
     {

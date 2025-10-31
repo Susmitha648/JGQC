@@ -18,6 +18,7 @@ table 50021 "Batch Operators Daily Entry"
         field(4; Furnace; Code[20])
         {
             Caption = 'Furnace';
+            TableRelation = "Dimension Value".Code;
             trigger OnLookup()
             begin
                 GeneralLegderSetup.Get();
