@@ -1,10 +1,10 @@
-report 50012 "F1 - Daily Production Report"
+report 50013 "F2 Daily Production Report"
 {
     ApplicationArea = All;
-    Caption = 'F1 - Daily Production Report';
+    Caption = 'F2 Daily Production Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/DailyProductionReport.rdl';
+    RDLCLayout = './src/Report/Layouts/DailyProductionReportF2.rdl';
     dataset
     {
         dataitem(ProductionProgrammeLine; "Production Programme Line")
@@ -31,10 +31,10 @@ report 50012 "F1 - Daily Production Report"
             column(Speed; Speed)
             {
             }
-            column(Ton; Ton)
+            column(TonPerLine; TonPerLine)
             {
             }
-             column(TonPerLine; TonPerLine)
+            column(Ton; Ton)
             {
             }
             column(Tray; Tray)
@@ -52,27 +52,32 @@ report 50012 "F1 - Daily Production Report"
             column(ProdOrderCreated; "Prod Order Created")
             {
             }
-            dataitem("Production Order";"Production Order")
+            dataitem("Production Order"; "Production Order")
             {
                 DataItemLink = "No." = field("Production Order No.");
-                column(Description;Description){}
-                dataitem("Prod. Order Line";"Prod. Order Line")
+                column(Description; Description) { }
+                dataitem("Prod. Order Line"; "Prod. Order Line")
                 {
-                   DataItemLink = "Prod. Order No." = field("No.");
-                   column(Work_Shift;"Work Shift"){}
-                   column(GobCutOutPutQuantity;Quantity){}
-                   dataitem("Item Ledger Entry";"Item Ledger Entry")
-                   {
-                       DataItemLink = "Document No." = field("Prod. Order No."),"Order Line No." = Field("Line No.");
-                       DataItemTableView = Where ("Entry Type" = Filter(Output));
-                   }
+                    DataItemLink = "Prod. Order No." = field("No.");
+                    column(Work_Shift; "Work Shift") { }
+                    column(GobCutOutPutQuantity; Quantity) { }
+                    dataitem("Item Ledger Entry"; "Item Ledger Entry")
+                    {
+                        DataItemLink = "Document No." = field("Prod. Order No."), "Order Line No." = Field("Line No.");
+                        DataItemTableView = Where("Entry Type" = Filter(Output));
+                    }
+                    trigger OnPostDataItem()
+                    begin
+                        TonPerLine := ProductionProgrammeLine.Ton / "Prod. Order Line".Count;
+                    end;
                 }
             }
             trigger OnPreDataItem()
             begin
-                ProductionProgrammeLine.SetFilter(Furnace,'%1','F1*');
+                ProductionProgrammeLine.SetFilter(Furnace, '%1', 'F2*');
             end;
-             trigger OnAfterGetRecord()
+
+            trigger OnAfterGetRecord()
             begin
                 ProdOrdLine.Reset();
                 ProdOrdLine.SetRange("Prod. Order No.",ProductionProgrammeLine."Production Order No.");
@@ -98,7 +103,7 @@ report 50012 "F1 - Daily Production Report"
             }
         }
     }
-     var
+    var
         TonPerLine: Decimal;
         ProdOrdLine: Record "Prod. Order Line";
 }
