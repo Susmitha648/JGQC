@@ -1,7 +1,7 @@
 report 50013 "F2 Daily Production Report"
 {
     ApplicationArea = All;
-    Caption = 'F2 Daily Production Report';
+    Caption = 'F2 - Daily Production Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
     RDLCLayout = './src/Report/Layouts/DailyProductionReportF2.rdl';
@@ -56,19 +56,26 @@ report 50013 "F2 Daily Production Report"
             {
                 DataItemLink = "No." = field("Production Order No.");
                 column(Description; Description) { }
-                dataitem("Prod. Order Line"; "Prod. Order Line")
+                dataitem(ProdOrderLine; "Prod. Order Line")
                 {
                     DataItemLink = "Prod. Order No." = field("No.");
                     column(Work_Shift; "Work Shift") { }
                     column(GobCutOutPutQuantity; Quantity) { }
-                    dataitem("Item Ledger Entry"; "Item Ledger Entry")
+                    dataitem(ItemLedgerEntry; "Item Ledger Entry")
                     {
                         DataItemLink = "Document No." = field("Prod. Order No."), "Order Line No." = Field("Line No.");
                         DataItemTableView = Where("Entry Type" = Filter(Output));
+                        column(PackQty; ItemLedgerEntry.Quantity) { }
+                        column(ActPackQty;ActPackQty){}
+                        trigger OnAfterGetRecord()
+                        begin
+                            If ProdOrderLine.Quantity <> 0 then 
+                            ActPackQty := Round((ItemLedgerEntry.Quantity/ProdOrderLine.Quantity) * 100);
+                        end;
                     }
                     trigger OnPostDataItem()
                     begin
-                        TonPerLine := ProductionProgrammeLine.Ton / "Prod. Order Line".Count;
+                        TonPerLine := ProductionProgrammeLine.Ton / ProdOrderLine.Count;
                     end;
                 }
             }
@@ -80,7 +87,7 @@ report 50013 "F2 Daily Production Report"
             trigger OnAfterGetRecord()
             begin
                 ProdOrdLine.Reset();
-                ProdOrdLine.SetRange("Prod. Order No.",ProductionProgrammeLine."Production Order No.");
+                ProdOrdLine.SetRange("Prod. Order No.", ProductionProgrammeLine."Production Order No.");
                 TonPerLine := ProductionProgrammeLine.Ton / ProdOrdLine.Count;
             end;
         }
@@ -106,4 +113,5 @@ report 50013 "F2 Daily Production Report"
     var
         TonPerLine: Decimal;
         ProdOrdLine: Record "Prod. Order Line";
+        ActPackQty : Decimal;
 }
