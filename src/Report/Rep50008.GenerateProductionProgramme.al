@@ -34,10 +34,9 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.WT := Item."Net Weight";
                     ProductionProgramLine.Furnace := Furnace;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
-                    ProductionProgramLine.Ton := BottlesPerMinute*8*60*WorkShift.Count*Item."Net Weight";
+                    ProductionProgramLine.Ton := BottlesPerMinute*8*60*WorkShift.Count*Item."Net Weight"/1000000;
                     ProductionProgramLine.Modify();
                     FromDate := FromDate + 1;
-
                 end;
             end;
         }

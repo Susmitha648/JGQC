@@ -100,6 +100,7 @@ page 50029 "Production Programme Subform"
                             repeat
                                 CreateProductionOrders(ProdProgLine);
                             until ProdProgLine.Next() = 0;
+                            Message('Production Orders Created');
                     end;
                 }
             }
@@ -167,15 +168,17 @@ page 50029 "Production Programme Subform"
                 If ProdProgramLine.Day = 'SUNDAY' then
                     ShopCalender.SetRange(Day, ShopCalender.Day::Sunday);
                 If ShopCalender.FindFirst() then;
-                ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Starting Time"));
-                ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Ending Time"));
+               // ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Starting Time"));
+                //ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Ending Time"));
+                ProductionLine."Work Shift" := WorkShift.Code;
+                ProductionLine."Work Center" := ProdProgramLine.Furnace;
                 ProductionLine.Modify();
             until WorkShift.Next() = 0;
 
         ProdProgramLine."Production Order No." := ProductionHdr."No.";
         ProdProgramLine."Prod Order Created" := True;
         ProdProgramLine.Modify();
-        Message('Production Orders Created');
+        
     end;
 
     procedure CreateDimension(ProdProgramDim: Record "Production Programme Line"): Integer

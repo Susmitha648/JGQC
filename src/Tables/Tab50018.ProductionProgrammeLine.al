@@ -102,13 +102,13 @@ table 50018 "Production Programme Line"
         }
          field(13; "Production Order No."; Code[20])
         {
-            Caption = 'Bottles Per Minute';
+            Caption = 'Production Order No.';
             Editable = false;
             TableRelation = "Production Order"."No.";
         }
           field(14; "Prod Order Created"; Boolean)
         {
-            Caption = 'Prod Order Created';
+            Caption = 'Production Order Created';
             Editable = false;
         }
 
