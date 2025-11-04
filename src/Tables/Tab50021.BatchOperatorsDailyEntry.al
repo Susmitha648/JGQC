@@ -23,7 +23,7 @@ table 50021 "Batch Operators Daily Entry"
             begin
                 GeneralLegderSetup.Get();
                 DimensionValue.Reset();
-                DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
+                DimensionValue.SetRange("Dimension Code", 'FURNACE');
                 If DimensionValue.FindSet() then;
                 if Page.RunModal(537, DimensionValue) = Action::LookupOK then
                     Furnace := DimensionValue.Code;

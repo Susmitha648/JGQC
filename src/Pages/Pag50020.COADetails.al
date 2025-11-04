@@ -4,7 +4,6 @@ page 50020 "COA Details"
     Caption = 'COA Details';
     PageType = List;
     SourceTable = "COA Header";
-    UsageCategory = Lists;
     Editable = false;
     CardPageId = "COA Detail";
     layout
