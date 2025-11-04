@@ -1,5 +1,15 @@
 pageextension 50001 "Finished Production Order" extends "Finished Production Order"
 {
+    layout{
+        modify("Starting Date-Time")
+        {
+            Visible = false;
+        }
+        modify("Ending Date-Time")
+        {
+            Visible = false;
+        }
+    }
      actions
     {
         addafter("E&ntries")

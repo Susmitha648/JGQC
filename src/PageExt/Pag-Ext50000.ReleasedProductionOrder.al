@@ -1,5 +1,15 @@
 pageextension 50000 "Released Production Order" extends "Released Production Order"
 {
+    layout{
+        modify("Starting Date-Time")
+        {
+            Visible = false;
+        }
+        modify("Ending Date-Time")
+        {
+            Visible = false;
+        }
+    }
     actions
     {
         addafter("Re&plan")

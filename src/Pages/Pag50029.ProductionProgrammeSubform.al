@@ -84,11 +84,11 @@ page 50029 "Production Programme Subform"
         {
             group(CreatePO)
             {
-                Caption = 'Create PO';
+                Caption = 'Create Work Order';
                 action(Create)
                 {
                     ApplicationArea = Suite;
-                    Caption = 'Generate Production Orders';
+                    Caption = 'Create Work Order';
                     Image = Create;
                     ToolTip = 'Create Production Orders based on the Production Programme Lines';
                     trigger OnAction()

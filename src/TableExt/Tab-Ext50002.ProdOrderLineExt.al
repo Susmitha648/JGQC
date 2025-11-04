@@ -14,5 +14,15 @@ tableextension 50002 "Prod Order Line Ext" extends "Prod. Order Line"
             DataClassification = CustomerContent;
             TableRelation = "Dimension Value".Code;
         }
+          field(50002; "Starting Time WO"; Time )
+        {
+            Caption = 'Starting Time';
+            DataClassification = CustomerContent;
+        }
+         field(50003; "Ending Time WO"; Time )
+        {
+            Caption = 'Ending Time';
+            DataClassification = CustomerContent;
+        }
     }
 }

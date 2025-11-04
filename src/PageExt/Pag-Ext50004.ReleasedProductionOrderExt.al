@@ -1,5 +1,15 @@
 pageextension 50004 "Released Production Order Ext" extends "Released Production Orders"
 {
+    layout{
+        modify("Starting Date-Time")
+        {
+            Visible = false;
+        }
+        modify("Ending Date-Time")
+        {
+            Visible = false;
+        }
+    }
     actions
     {
         addafter("Production Order Statistics")

@@ -22,91 +22,6 @@
       <rd:DataSourceID>db9fb9f1-a79d-426a-b1cd-bb893c65ecba</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No">
-          <DataField>No</DataField>
-        </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
-        </Field>
-        <Field Name="Day">
-          <DataField>Day</DataField>
-        </Field>
-        <Field Name="Furnace">
-          <DataField>Furnace</DataField>
-        </Field>
-        <Field Name="Job">
-          <DataField>Job</DataField>
-        </Field>
-        <Field Name="WT">
-          <DataField>WT</DataField>
-        </Field>
-        <Field Name="WTFormat">
-          <DataField>WTFormat</DataField>
-        </Field>
-        <Field Name="Speed">
-          <DataField>Speed</DataField>
-        </Field>
-        <Field Name="TonPerLine">
-          <DataField>TonPerLine</DataField>
-        </Field>
-        <Field Name="TonPerLineFormat">
-          <DataField>TonPerLineFormat</DataField>
-        </Field>
-        <Field Name="Ton">
-          <DataField>Ton</DataField>
-        </Field>
-        <Field Name="TonFormat">
-          <DataField>TonFormat</DataField>
-        </Field>
-        <Field Name="Tray">
-          <DataField>Tray</DataField>
-        </Field>
-        <Field Name="Pallet">
-          <DataField>Pallet</DataField>
-        </Field>
-        <Field Name="BottlesPerMinute">
-          <DataField>BottlesPerMinute</DataField>
-        </Field>
-        <Field Name="ProductionOrderNo">
-          <DataField>ProductionOrderNo</DataField>
-        </Field>
-        <Field Name="ProdOrderCreated">
-          <DataField>ProdOrderCreated</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Work_Shift">
-          <DataField>Work_Shift</DataField>
-        </Field>
-        <Field Name="GobCutOutPutQuantity">
-          <DataField>GobCutOutPutQuantity</DataField>
-        </Field>
-        <Field Name="GobCutOutPutQuantityFormat">
-          <DataField>GobCutOutPutQuantityFormat</DataField>
-        </Field>
-        <Field Name="PackQty">
-          <DataField>PackQty</DataField>
-        </Field>
-        <Field Name="PackQtyFormat">
-          <DataField>PackQtyFormat</DataField>
-        </Field>
-        <Field Name="ActPackQty">
-          <DataField>ActPackQty</DataField>
-        </Field>
-        <Field Name="ActPackQtyFormat">
-          <DataField>ActPackQtyFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -4710,12 +4625,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4755,4 +4664,89 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+        </Field>
+        <Field Name="Day">
+          <DataField>Day</DataField>
+        </Field>
+        <Field Name="Furnace">
+          <DataField>Furnace</DataField>
+        </Field>
+        <Field Name="Job">
+          <DataField>Job</DataField>
+        </Field>
+        <Field Name="WT">
+          <DataField>WT</DataField>
+        </Field>
+        <Field Name="WTFormat">
+          <DataField>WTFormat</DataField>
+        </Field>
+        <Field Name="Speed">
+          <DataField>Speed</DataField>
+        </Field>
+        <Field Name="TonPerLine">
+          <DataField>TonPerLine</DataField>
+        </Field>
+        <Field Name="TonPerLineFormat">
+          <DataField>TonPerLineFormat</DataField>
+        </Field>
+        <Field Name="Ton">
+          <DataField>Ton</DataField>
+        </Field>
+        <Field Name="TonFormat">
+          <DataField>TonFormat</DataField>
+        </Field>
+        <Field Name="Tray">
+          <DataField>Tray</DataField>
+        </Field>
+        <Field Name="Pallet">
+          <DataField>Pallet</DataField>
+        </Field>
+        <Field Name="BottlesPerMinute">
+          <DataField>BottlesPerMinute</DataField>
+        </Field>
+        <Field Name="ProductionOrderNo">
+          <DataField>ProductionOrderNo</DataField>
+        </Field>
+        <Field Name="ProdOrderCreated">
+          <DataField>ProdOrderCreated</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Work_Shift">
+          <DataField>Work_Shift</DataField>
+        </Field>
+        <Field Name="GobCutOutPutQuantity">
+          <DataField>GobCutOutPutQuantity</DataField>
+        </Field>
+        <Field Name="GobCutOutPutQuantityFormat">
+          <DataField>GobCutOutPutQuantityFormat</DataField>
+        </Field>
+        <Field Name="PackQty">
+          <DataField>PackQty</DataField>
+        </Field>
+        <Field Name="PackQtyFormat">
+          <DataField>PackQtyFormat</DataField>
+        </Field>
+        <Field Name="ActPackQty">
+          <DataField>ActPackQty</DataField>
+        </Field>
+        <Field Name="ActPackQtyFormat">
+          <DataField>ActPackQtyFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
