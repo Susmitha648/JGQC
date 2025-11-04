@@ -64,8 +64,8 @@ report 50008 "Generate Production Programme"
                     field(Furnace; Furnace)
                     {
                         ApplicationArea = All;
-                        Caption = 'Furnace';
-                        ToolTip = 'Specifies Furnace.';
+                        Caption = 'Work Center';
+                        ToolTip = 'Specifies Work Center.';
                         trigger OnDrillDown()
 
                         begin

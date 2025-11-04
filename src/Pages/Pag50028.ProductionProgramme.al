@@ -61,7 +61,7 @@ page 50028 "Production Programme"
                 action(Create)
                 {
                     ApplicationArea = Suite;
-                    Caption = 'Generate Production Programme Lines';
+                    Caption = 'Create Production Programme Lines';
                     Image = Create;
                     Promoted = True;
                     PromotedIsBig = True;

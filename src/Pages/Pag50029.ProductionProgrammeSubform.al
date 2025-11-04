@@ -172,6 +172,8 @@ page 50029 "Production Programme Subform"
                 //ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Ending Time"));
                 ProductionLine."Work Shift" := WorkShift.Code;
                 ProductionLine."Work Center" := ProdProgramLine.Furnace;
+                ProductionLine."Starting Time" := WorkShift."Starting Time";
+                ProductionLine."Ending Time" := WorkShift."Ending Time";
                 ProductionLine.Modify();
             until WorkShift.Next() = 0;
 

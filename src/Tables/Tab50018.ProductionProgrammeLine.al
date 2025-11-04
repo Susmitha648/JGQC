@@ -36,7 +36,7 @@ table 50018 "Production Programme Line"
         }
         field(4; Furnace; Code[20])
         {
-            Caption = 'Furnace';
+            Caption = 'Work Center';
             TableRelation = "Dimension Value".Code;
             trigger OnValidate()
             begin
