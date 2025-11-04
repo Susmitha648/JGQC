@@ -119,8 +119,8 @@ report 50010 "Daily Batch Consumption"
                     if BatchOperatorsLine.FindSet() then begin
                         repeat
                             LocalBatchUnit += BatchOperatorsLine."Batch Unit";
-                            LocalTotalConsumption += BatchOperatorsLine."Batch Unit" * 1000;
-                            LocalMoistureKG += BatchOperatorsLine."Moisture Compensated";
+                            LocalTotalConsumption += (BatchOperatorsLine."Batch Unit" * 1000);
+                            LocalMoistureKG += (BatchOperatorsLine."Moisture Compensated" - 1000) * (BatchOperatorsLine."Batch Unit");
                         until BatchOperatorsLine.Next() = 0;
 
                         // Assign to temp variables for display
@@ -131,7 +131,7 @@ report 50010 "Daily Batch Consumption"
                         // Calculate batching value for this specific batch range
                         // Formula: (Total Consumption Per Day KG + Moisture KG) / 10
                         // Where Total Consumption = Batch Unit * 1000
-                        TempBatchingValue := (LocalTotalConsumption + LocalMoistureKG) / 10;
+                        TempBatchingValue := ((LocalTotalConsumption + LocalMoistureKG) / 10);
                     end;
                 end;
 

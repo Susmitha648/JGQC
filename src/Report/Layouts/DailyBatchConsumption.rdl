@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-11-03T20:50:00.7678080Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-04T03:10:31.4436948Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -628,7 +628,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Batch_Unit.Value</Value>
+                                  <Value>=IIF(Fields!Batch_Unit.Value = 0, "", Fields!Batch_Unit.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -791,7 +791,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Batching_Value.Value</Value>
+                                  <Value>=IIF(Fields!Batching_Value.Value = 0, "", Fields!Batching_Value.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,0;(#,0)</Format>
@@ -827,7 +827,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Total_Consumption_Per_Day_KG.Value</Value>
+                                  <Value>=IIF(Fields!Total_Consumption_Per_Day_KG.Value = 0, "", Fields!Total_Consumption_Per_Day_KG.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,0;(#,0)</Format>
@@ -863,7 +863,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Moisture_KG.Value</Value>
+                                  <Value>=IIF(Fields!Moisture_KG.Value = 0, "", Fields!Moisture_KG.Value)</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,0;(#,0)</Format>
@@ -1483,7 +1483,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Component_Moisture_Summary.Value</Value>
+                                  <Value>=IIf(RowNumber("Details1") = 1, Fields!Component_Moisture_Summary.Value, "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
