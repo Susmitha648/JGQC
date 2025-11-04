@@ -63,7 +63,15 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 ApplicationArea = Manufacturing;
                 Caption = 'Daily Batch Consumption';
                 Image = "Report";
-                RunObject = Report 50010;
+                trigger OnAction()
+                var
+                    DailyBatchConsumption: Report 50010;
+                    BatchOperatorsDailyEntry: Record "Batch Operators Daily Entry";
+                begin
+                    BatchOperatorsDailyEntry.SetRange("Production Order No.", Rec."No.");
+                    DailyBatchConsumption.SetTableView(BatchOperatorsDailyEntry);
+                    DailyBatchConsumption.Run();
+                end;
             }
             action("Batch Operator Daily")
             {
