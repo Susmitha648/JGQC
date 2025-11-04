@@ -66,7 +66,6 @@ table 50011 "COA Header"
         field(9; "Send To"; Text[100])
         {
             Caption = 'Send To';
-            Editable = false;
         }
     }
     keys

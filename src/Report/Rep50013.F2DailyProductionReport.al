@@ -66,17 +66,13 @@ report 50013 "F2 Daily Production Report"
                         DataItemLink = "Document No." = field("Prod. Order No."), "Order Line No." = Field("Line No.");
                         DataItemTableView = Where("Entry Type" = Filter(Output));
                         column(PackQty; ItemLedgerEntry.Quantity) { }
-                        column(ActPackQty;ActPackQty){}
+                        column(ActPackQty; ActPackQty) { }
                         trigger OnAfterGetRecord()
                         begin
-                            If ProdOrderLine.Quantity <> 0 then 
-                            ActPackQty := Round((ItemLedgerEntry.Quantity/ProdOrderLine.Quantity) * 100);
+                            If ProdOrderLine.Quantity <> 0 then
+                                ActPackQty := Round((ItemLedgerEntry.Quantity / ProdOrderLine.Quantity) * 100);
                         end;
                     }
-                    trigger OnPostDataItem()
-                    begin
-                        TonPerLine := ProductionProgrammeLine.Ton / ProdOrderLine.Count;
-                    end;
                 }
             }
             trigger OnPreDataItem()
@@ -88,7 +84,10 @@ report 50013 "F2 Daily Production Report"
             begin
                 ProdOrdLine.Reset();
                 ProdOrdLine.SetRange("Prod. Order No.", ProductionProgrammeLine."Production Order No.");
-                TonPerLine := ProductionProgrammeLine.Ton / ProdOrdLine.Count;
+                If ProdOrdLine.Count > 1 then
+                    TonPerLine := ProductionProgrammeLine.Ton / ProdOrdLine.Count
+                Else
+                    TonPerLine := ProductionProgrammeLine.Ton;
             end;
         }
     }
@@ -113,5 +112,5 @@ report 50013 "F2 Daily Production Report"
     var
         TonPerLine: Decimal;
         ProdOrdLine: Record "Prod. Order Line";
-        ActPackQty : Decimal;
+        ActPackQty: Decimal;
 }

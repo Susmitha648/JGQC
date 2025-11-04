@@ -48,6 +48,7 @@ page 50018 "COA Detail"
                 field("Send To"; Rec."Send To")
                 {
                     ToolTip = 'Specifies the value of the Send To field.', Comment = '%';
+                    MultiLine = true;
                 }
             }
             part(COALines; "COA Lines")

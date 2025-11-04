@@ -34,7 +34,7 @@ report 50012 "F1 - Daily Production Report"
             column(Ton; Ton)
             {
             }
-             column(TonPerLine; TonPerLine)
+            column(TonPerLine; TonPerLine)
             {
             }
             column(Tray; Tray)
@@ -52,38 +52,42 @@ report 50012 "F1 - Daily Production Report"
             column(ProdOrderCreated; "Prod Order Created")
             {
             }
-            dataitem("Production Order";"Production Order")
+            dataitem("Production Order"; "Production Order")
             {
                 DataItemLink = "No." = field("Production Order No.");
-                column(Description;Description){}
-                dataitem(ProdOrderLine;"Prod. Order Line")
+                column(Description; Description) { }
+                dataitem(ProdOrderLine; "Prod. Order Line")
                 {
-                   DataItemLink = "Prod. Order No." = field("No.");
-                   column(Work_Shift;"Work Shift"){}
-                   column(GobCutOutPutQuantity;Quantity){}
-                   dataitem(ItemLedgerEntry;"Item Ledger Entry")
-                   {
-                       DataItemLink = "Document No." = field("Prod. Order No."),"Order Line No." = Field("Line No.");
-                       DataItemTableView = Where ("Entry Type" = Filter(Output));
-                       column(PackQty; ItemLedgerEntry.Quantity) { }
-                       column(ActPackQty;ActPackQty){}
+                    DataItemLink = "Prod. Order No." = field("No.");
+                    column(Work_Shift; "Work Shift") { }
+                    column(GobCutOutPutQuantity; Quantity) { }
+                    dataitem(ItemLedgerEntry; "Item Ledger Entry")
+                    {
+                        DataItemLink = "Document No." = field("Prod. Order No."), "Order Line No." = Field("Line No.");
+                        DataItemTableView = Where("Entry Type" = Filter(Output));
+                        column(PackQty; ItemLedgerEntry.Quantity) { }
+                        column(ActPackQty; ActPackQty) { }
                         trigger OnAfterGetRecord()
                         begin
-                            If ProdOrderLine.Quantity <> 0 then 
-                            ActPackQty := Round((ItemLedgerEntry.Quantity/ProdOrderLine.Quantity) * 100);
+                            If ProdOrderLine.Quantity <> 0 then
+                                ActPackQty := Round((ItemLedgerEntry.Quantity / ProdOrderLine.Quantity) * 100);
                         end;
-                   }
+                    }
                 }
             }
             trigger OnPreDataItem()
             begin
-                ProductionProgrammeLine.SetFilter(Furnace,'%1','F1*');
+                ProductionProgrammeLine.SetFilter(Furnace, '%1', 'F1*');
             end;
-             trigger OnAfterGetRecord()
+
+            trigger OnAfterGetRecord()
             begin
                 ProdOrdLine.Reset();
-                ProdOrdLine.SetRange("Prod. Order No.",ProductionProgrammeLine."Production Order No.");
-                TonPerLine := ProductionProgrammeLine.Ton / ProdOrdLine.Count;
+                ProdOrdLine.SetRange("Prod. Order No.", ProductionProgrammeLine."Production Order No.");
+                If ProdOrdLine.Count > 1 then
+                    TonPerLine := ProductionProgrammeLine.Ton / ProdOrdLine.Count
+                Else
+                    TonPerLine := ProductionProgrammeLine.Ton;
             end;
         }
     }
@@ -105,8 +109,8 @@ report 50012 "F1 - Daily Production Report"
             }
         }
     }
-     var
+    var
         TonPerLine: Decimal;
         ProdOrdLine: Record "Prod. Order Line";
-        ActPackQty : Decimal;
+        ActPackQty: Decimal;
 }
