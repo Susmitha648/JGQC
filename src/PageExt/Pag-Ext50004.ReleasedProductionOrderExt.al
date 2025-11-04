@@ -23,7 +23,10 @@ pageextension 50004 "Released Production Order Ext" extends "Released Production
                 trigger OnAction()
                 var
                     DailyBatchConsumption: Report 50010;
+                    BatchOperatorsDailyEntry: Record "Batch Operators Daily Entry";
                 begin
+                    BatchOperatorsDailyEntry.SetRange("Production Order No.", Rec."No.");
+                    DailyBatchConsumption.SetTableView(BatchOperatorsDailyEntry);
                     DailyBatchConsumption.Run();
                 end;
             }
