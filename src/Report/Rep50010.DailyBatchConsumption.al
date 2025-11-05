@@ -75,7 +75,10 @@ report 50010 "Daily Batch Consumption"
                 column(Glass_Yield_KG; TempGlassYieldKG)
                 {
                 }
+                column(Moist_Compense; SingleMoistCompensated)
+                {
 
+                }
                 trigger OnAfterGetRecord()
                 var
                     BatchOperatorsLine: Record "Batch Operators Line";
@@ -108,6 +111,7 @@ report 50010 "Daily Batch Consumption"
                     Clear(LocalBatchUnit);
                     Clear(LocalTotalConsumption);
                     Clear(LocalMoistureKG);
+                    Clear(SingleMoistCompensated);
 
                     // Show SILICA SAND only for first 4 rows (Batch 1-40)
                     if Number <= 4 then
@@ -127,6 +131,7 @@ report 50010 "Daily Batch Consumption"
                         TempBatchUnit := LocalBatchUnit;
                         TempTotalConsumption := LocalTotalConsumption;
                         TempMoistureKG := LocalMoistureKG;
+                        SingleMoistCompensated := BatchOperatorsLine."Moisture Compensated";
 
                         // Calculate batching value for this specific batch range
                         // Formula: (Total Consumption Per Day KG + Moisture KG) / 10
@@ -279,4 +284,5 @@ report 50010 "Daily Batch Consumption"
         TotalBatchingText: Text;
         SilicaSandLabel: Text;
         YieldPercent: Decimal;
+        SingleMoistCompensated: Decimal;
 }
