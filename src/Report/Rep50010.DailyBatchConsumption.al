@@ -113,9 +113,9 @@ report 50010 "Daily Batch Consumption"
                     Clear(LocalMoistureKG);
                     Clear(SingleMoistCompensated);
 
-                    // Show SILICA SAND only for first 4 rows (Batch 1-40)
-                    if Number <= 4 then
-                        TempDescription := 'SILICA SAND';
+                    // Note: TempDescription will be set to 'SILICA SAND' only when
+                    // the aggregated Batch Unit for this batch range is non-zero.
+                    // This assignment is done after computing LocalBatchUnit below.
 
                     // Look for data that matches this exact batching text
                     BatchOperatorsLine.SetRange("Production Order No.", BatchOperatorsDailyEntry."Production Order No.");
@@ -132,6 +132,10 @@ report 50010 "Daily Batch Consumption"
                         TempTotalConsumption := LocalTotalConsumption;
                         TempMoistureKG := LocalMoistureKG;
                         SingleMoistCompensated := BatchOperatorsLine."Moisture Compensated";
+
+                        // Set description to SILICA SAND only when there is a batch unit value
+                        if LocalBatchUnit <> 0 then
+                            TempDescription := 'SILICA SAND';
 
                         // Calculate batching value for this specific batch range
                         // Formula: (Total Consumption Per Day KG + Moisture KG) / 10

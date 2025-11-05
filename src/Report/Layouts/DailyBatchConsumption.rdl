@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-11-04T06:34:33.4050279Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-05T03:29:06.6077641Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -783,7 +783,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Batching_Value">
                           <rd:DefaultName>Batching_Value</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -1484,7 +1483,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(RowNumber("Details1") = 1, Fields!Component_Moisture_Summary.Value, "")</Value>
+                                  <Value>=IIf(RunningValue(Fields!Component_Item_No.Value, CountDistinct, Nothing) = 1, Fields!Component_Moisture_Summary.Value, "")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
