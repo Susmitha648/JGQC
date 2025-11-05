@@ -180,7 +180,7 @@ report 50010 "Daily Batch Consumption"
                 trigger OnAfterGetRecord()
                 begin
                     YieldPercent := 82.5;
-                    ComponentGlassYield := "Expected Quantity" * (YieldPercent / 100);
+                    ComponentGlassYield := Round("Expected Quantity" * (YieldPercent / 100), 0.01);
                 end;
             }
 
