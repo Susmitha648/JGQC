@@ -32,15 +32,7 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "COA Details";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
-             action(QCUpdate)
-            {
-                ApplicationArea = All;
-                Caption = 'QC Update Details';
-                Image = List;
-                ToolTip = 'QC Update Details';
-                RunObject = Page "QC Details";
-                RunPageLink = "Work Order No" = field("No.");
-            }
+            
             action(BatchOperationEntry)
             {
                 ApplicationArea = All;
@@ -56,6 +48,15 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 begin
                     Singleinstance.SetProductionHdr(Rec);
                 end;
+            }
+             action(QCUpdate)
+            {
+                ApplicationArea = All;
+                Caption = 'QC Update Details';
+                Image = List;
+                ToolTip = 'QC Update Details';
+                RunObject = Page "QC Details";
+                RunPageLink = "Work Order No" = field("No.");
             }
         }
         addafter("Shortage List")
@@ -128,6 +129,12 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
             {
             }
             actionref("Batch Operator Daily_Promoted"; "Batch Operator Daily")
+            {
+            }
+        }
+         addafter("Re&plan_Promoted")
+        {
+            actionref("QCUpdate_Promoted"; QCUpdate)
             {
             }
         }

@@ -47,6 +47,17 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
                 RunObject = Page "Batch Operator Entries Finishe";
                 RunPageLink = "Production Order No." = field("No.");
             }
+             action(QCUpdate)
+            {
+                ApplicationArea = All;
+                Caption = 'QC Update Details';
+                Image = List;
+                ToolTip = 'QC Update Details';
+                RunObject = Page "QC Details Finished";
+                Promoted = true;
+                PromotedCategory = Category4;
+                RunPageLink = "Work Order No" = field("No.");
+            }
         }
     }
 }

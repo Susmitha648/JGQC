@@ -207,6 +207,15 @@ page 50029 "Production Programme Subform"
             DimensionValue.Insert();
         end;
 
+        If not DimensionValue.Get(GeneralLedgerSetup."Shortcut Dimension 8 Code", ProdProgramDim.Furnace) then begin
+            DimensionValue.Init();
+            DimensionValue.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
+            DimensionValue.Validate(Code, ProdProgramDim.Furnace);
+            DimensionValue.Validate(Name,'');
+            DimensionValue.Validate("Dimension Value Type", DimensionValue."Dimension Value Type"::Standard);
+            DimensionValue.Insert();
+        end;
+
         DimSetID := 0;
         TempDimensionSetEntry.DeleteAll();
 

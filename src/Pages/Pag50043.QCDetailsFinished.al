@@ -1,18 +1,17 @@
-page 50041 "QC Detail"
+page 50043 "QC Details Finished"
 {
     ApplicationArea = All;
-    Caption = 'QC Detail';
-    PageType = Card;
+    Caption = 'QC Details';
+    PageType = List;
     SourceTable = "QC Details";
-    
+    Editable = false;
+    CardPageId = "QC Detail Finished";
     layout
     {
         area(Content)
         {
-            group(General)
+            repeater(General)
             {
-                Caption = 'General';
-                
                 field("Work Order No"; Rec."Work Order No")
                 {
                     ToolTip = 'Specifies the value of the Work Order No field.', Comment = '%';
@@ -48,7 +47,6 @@ page 50041 "QC Detail"
                 field("Action Plan"; Rec."Action Plan")
                 {
                     ToolTip = 'Specifies the value of the Action Plan field.', Comment = '%';
-                    MultiLine = True;
                 }
             }
         }

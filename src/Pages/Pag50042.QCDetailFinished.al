@@ -1,10 +1,10 @@
-page 50041 "QC Detail"
+page 50042 "QC Detail Finished"
 {
     ApplicationArea = All;
     Caption = 'QC Detail';
     PageType = Card;
     SourceTable = "QC Details";
-    
+    Editable = false;
     layout
     {
         area(Content)
@@ -48,7 +48,6 @@ page 50041 "QC Detail"
                 field("Action Plan"; Rec."Action Plan")
                 {
                     ToolTip = 'Specifies the value of the Action Plan field.', Comment = '%';
-                    MultiLine = True;
                 }
             }
         }

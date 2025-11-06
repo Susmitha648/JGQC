@@ -2,13 +2,14 @@ table 50023 "QC Details"
 {
     Caption = 'QC Details';
     DataClassification = CustomerContent;
-    
+
     fields
     {
         field(1; "Work Order No"; Code[20])
         {
             Caption = 'Work Order No';
             TableRelation = "Production Order"."No.";
+
         }
         field(2; Shift; Code[20])
         {
@@ -25,17 +26,19 @@ table 50023 "QC Details"
                 DimensionValue.Reset();
                 DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
                 If DimensionValue.FindSet() then;
-                if Page.RunModal(537, DimensionValue) = Action::LookupOK then 
+                if Page.RunModal(537, DimensionValue) = Action::LookupOK then
                     "Machine No." := DimensionValue.Code;
             end;
         }
         field(4; "IRIZ %"; Integer)
         {
             Caption = 'IRIZ %';
+            BlankZero = true;
         }
         field(5; "SL %"; Integer)
         {
             Caption = 'SL %';
+            BlankZero = true;
         }
         field(6; "Defect Code 1"; Code[20])
         {
@@ -59,12 +62,26 @@ table 50023 "QC Details"
     }
     keys
     {
-        key(PK; "Work Order No",Shift)
+        key(PK; "Work Order No", Shift)
         {
             Clustered = true;
         }
     }
-     var
+    var
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
+        ProductionOrder : Record "Production Order";
+        DimensionSetEntry : Record "Dimension Set Entry";
+
+    trigger OnInsert()
+    begin
+       GeneralLegderSetup.Get();
+       If ProductionOrder.Get(ProductionOrder.Status::Released,"Work Order No") then begin
+        DimensionSetEntry.Reset();
+        DimensionSetEntry.SetRange("Dimension Set ID",ProductionOrder."Dimension Set ID");
+        DimensionSetEntry.SetRange("Dimension Code",GeneralLegderSetup."Shortcut Dimension 8 Code"); 
+        If DimensionSetEntry.FindFirst() then
+          Rec."Machine No." := DimensionSetEntry."Dimension Value Code";
+       end;
+    end;
 }

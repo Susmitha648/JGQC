@@ -4,8 +4,8 @@ page 50010 "QC Details"
     Caption = 'QC Details';
     PageType = List;
     SourceTable = "QC Details";
-    UsageCategory = Lists;
     CardPageId = "QC Detail";
+    Editable = false;
     layout
     {
         area(Content)
