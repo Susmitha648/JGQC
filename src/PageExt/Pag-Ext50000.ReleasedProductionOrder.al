@@ -32,6 +32,15 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "COA Details";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
+             action(QCUpdate)
+            {
+                ApplicationArea = All;
+                Caption = 'QC Update Details';
+                Image = List;
+                ToolTip = 'QC Update Details';
+                RunObject = Page "QC Details";
+                RunPageLink = "Work Order No" = field("No.");
+            }
             action(BatchOperationEntry)
             {
                 ApplicationArea = All;
