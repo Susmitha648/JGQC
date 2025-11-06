@@ -112,6 +112,7 @@ report 50010 "Daily Batch Consumption"
                     Clear(LocalTotalConsumption);
                     Clear(LocalMoistureKG);
                     Clear(SingleMoistCompensated);
+                    // DO NOT reset SummaryMoistureCompensated here - we want to accumulate across all batches
 
                     // Note: TempDescription will be set to 'SILICA SAND' only when
                     // the aggregated Batch Unit for this batch range is non-zero.
@@ -129,6 +130,7 @@ report 50010 "Daily Batch Consumption"
 
                         // Assign to temp variables for display
                         TempBatchUnit := LocalBatchUnit;
+                        SummaryMoistureCompensated += LocalMoistureKG;  // CHANGED: Accumulate instead of assign
                         TempTotalConsumption := LocalTotalConsumption;
                         TempMoistureKG := LocalMoistureKG;
                         SingleMoistCompensated := BatchOperatorsLine."Moisture Compensated";
@@ -188,19 +190,21 @@ report 50010 "Daily Batch Consumption"
             var
                 BatchOperatorsLine: Record "Batch Operators Line";
             begin
+                // Initialize SummaryMoistureCompensated before processing batch sequences
+                SummaryMoistureCompensated := 0;
+
                 // Calculate totals for this daily entry
                 BatchOperatorsLine.SetRange("Production Order No.", "Production Order No.");
                 TotalBatchUnitSum := 0;
-                SummaryMoistureCompensated := 0;
 
                 if BatchOperatorsLine.FindSet() then begin
                     repeat
                         TotalBatchUnitSum += BatchOperatorsLine."Batch Unit";
-                        SummaryMoistureCompensated += BatchOperatorsLine."Moisture Compensated";
                     until BatchOperatorsLine.Next() = 0;
                 end;
 
                 // Calculate the total consumption for the entire day
+                // Note: SummaryMoistureCompensated will be populated by BatchSequence dataitem
                 TotalConsumptionKG := (TotalBatchUnitSum + SummaryMoistureCompensated) / 10;
 
                 SilicaSandLabel := 'SILICA SAND';
