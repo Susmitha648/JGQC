@@ -24,12 +24,12 @@ table 50010 "Machine/Section Stoppages"
         {
             Caption = 'Machine Stoppages Code';
             TableRelation = "Machine Stoppages Master"."Code";
-            trigger OnValidate() 
+            trigger OnValidate()
             var
-            MachineStoppageCode : Record "Machine Stoppages Master";
+                MachineStoppageCode: Record "Machine Stoppages Master";
             begin
                 If MachineStoppageCode.Get("Machine Stoppages Code") then
-                   "Machine Stoppage Description" := MachineStoppageCode.Description;
+                    "Machine Stoppage Description" := MachineStoppageCode.Description;
             end;
         }
         field(5; "Machine Stoppage Description"; Text[250])
@@ -40,12 +40,12 @@ table 50010 "Machine/Section Stoppages"
         {
             Caption = 'Section Stoppage Code';
             TableRelation = "Section Stoppages Master".Code;
-            trigger OnValidate() 
+            trigger OnValidate()
             var
-            SectionStoppageMaster : Record "Section Stoppages Master";
+                SectionStoppageMaster: Record "Section Stoppages Master";
             begin
-               If SectionStoppageMaster.Get("Section Stoppage Code") then 
-                 "Section Stoppage Description" := SectionStoppageMaster.Description;
+                If SectionStoppageMaster.Get("Section Stoppage Code") then
+                    "Section Stoppage Description" := SectionStoppageMaster.Description;
             end;
         }
         field(7; "Section Stoppage Description"; Text[250])
@@ -72,18 +72,35 @@ table 50010 "Machine/Section Stoppages"
         {
             Caption = 'Status';
         }
+        field(14; Department; Code[20])
+        {
+            Caption = 'Department';
+            TableRelation = "Dimension Value".Code;
+            trigger OnLookup()
+            begin
+                GeneralLegderSetup.Get();
+                DimensionValue.Reset();
+                DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 1 Code");
+                If DimensionValue.FindSet() then;
+                if Page.RunModal(537, DimensionValue) = Action::LookupOK then
+                    Department := DimensionValue.Code;
+            end;
+        }
     }
     keys
     {
-        key(PK; "Production Order No.","Line No.")
+        key(PK; "Production Order No.", "Line No.")
         {
             Clustered = true;
         }
     }
-     procedure GetLastLineNo(): Integer;
+    procedure GetLastLineNo(): Integer;
     var
         FindRecordManagement: Codeunit "Find Record Management";
     begin
         exit(FindRecordManagement.GetLastEntryIntFieldValue(Rec, FieldNo("Line No.")))
     end;
+    var
+        GeneralLegderSetup: Record "General Ledger Setup";
+        DimensionValue: Record "Dimension Value";
 }
