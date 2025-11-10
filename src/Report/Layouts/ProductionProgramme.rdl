@@ -613,6 +613,7 @@
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontSize>7pt</FontSize>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
