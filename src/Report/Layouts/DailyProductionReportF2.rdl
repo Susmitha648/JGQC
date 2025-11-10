@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-11-04T04:21:31.7585855Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-07T06:43:13.3763269Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -22,6 +22,100 @@
       <rd:DataSourceID>db9fb9f1-a79d-426a-b1cd-bb893c65ecba</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+        </Field>
+        <Field Name="Day">
+          <DataField>Day</DataField>
+        </Field>
+        <Field Name="Furnace">
+          <DataField>Furnace</DataField>
+        </Field>
+        <Field Name="Job">
+          <DataField>Job</DataField>
+        </Field>
+        <Field Name="WT">
+          <DataField>WT</DataField>
+        </Field>
+        <Field Name="WTFormat">
+          <DataField>WTFormat</DataField>
+        </Field>
+        <Field Name="Speed">
+          <DataField>Speed</DataField>
+        </Field>
+        <Field Name="TonPerLine">
+          <DataField>TonPerLine</DataField>
+        </Field>
+        <Field Name="TonPerLineFormat">
+          <DataField>TonPerLineFormat</DataField>
+        </Field>
+        <Field Name="Ton">
+          <DataField>Ton</DataField>
+        </Field>
+        <Field Name="TonFormat">
+          <DataField>TonFormat</DataField>
+        </Field>
+        <Field Name="Tray">
+          <DataField>Tray</DataField>
+        </Field>
+        <Field Name="Pallet">
+          <DataField>Pallet</DataField>
+        </Field>
+        <Field Name="BottlesPerMinute">
+          <DataField>BottlesPerMinute</DataField>
+        </Field>
+        <Field Name="ProductionOrderNo">
+          <DataField>ProductionOrderNo</DataField>
+        </Field>
+        <Field Name="ProdOrderCreated">
+          <DataField>ProdOrderCreated</DataField>
+        </Field>
+        <Field Name="TotalPackQty">
+          <DataField>TotalPackQty</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Work_Shift">
+          <DataField>Work_Shift</DataField>
+        </Field>
+        <Field Name="GobCutOutPutQuantity">
+          <DataField>GobCutOutPutQuantity</DataField>
+        </Field>
+        <Field Name="GobCutOutPutQuantityFormat">
+          <DataField>GobCutOutPutQuantityFormat</DataField>
+        </Field>
+        <Field Name="PackQty">
+          <DataField>PackQty</DataField>
+        </Field>
+        <Field Name="PackQtyFormat">
+          <DataField>PackQtyFormat</DataField>
+        </Field>
+        <Field Name="ActPackQty">
+          <DataField>ActPackQty</DataField>
+        </Field>
+        <Field Name="ActPackQtyFormat">
+          <DataField>ActPackQtyFormat</DataField>
+        </Field>
+        <Field Name="NetPackPerc">
+          <DataField>NetPackPerc</DataField>
+        </Field>
+        <Field Name="NetPackPercFormat">
+          <DataField>NetPackPercFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -92,7 +186,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>F1 - DAILY PRODUCTION REPORT</Value>
+                    <Value>F2 - DAILY PRODUCTION REPORT</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -564,10 +658,6 @@
                               <Width>0.5pt</Width>
                             </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -1616,6 +1706,7 @@
                                   <Value>=Fields!TonPerLine.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1628,27 +1719,8 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1668,6 +1740,7 @@
                                   <Value>=Fields!TonPerLine.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1680,27 +1753,8 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1873,7 +1927,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ActPackQty.Value</Value>
+                                  <Value>=If(Fields!ActPackQty.Value = 0,"",Fields!ActPackQty.Value &amp; " %")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -1888,27 +1942,8 @@
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2188,25 +2223,23 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox64">
+                        <Textbox Name="PackQty2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!PackQty.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
+                              <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox64</rd:DefaultName>
+                          <rd:DefaultName>PackQty</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -2234,8 +2267,6 @@
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -2303,10 +2334,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value EvaluationMode="Constant" />
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <Color>White</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2877,42 +2907,24 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style />
+                                  <Value>=If(Fields!ActPackQty.Value = 0,"",Avg(Fields!ActPackQty.Value) &amp; " %")</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox47</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3164,21 +3176,23 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox65">
+                        <Textbox Name="Textbox46">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style />
+                                  <Value>=Sum(Fields!PackQty.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox65</rd:DefaultName>
+                          <rd:DefaultName>Textbox44</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -3203,10 +3217,9 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3269,13 +3282,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Avg(Fields!TotalPackQty.Value)</Value>
                                   <Style>
-                                    <Color>White</Color>
+                                    <FontSize>8pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox71</rd:DefaultName>
@@ -3303,10 +3318,9 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
+                            <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3751,42 +3765,24 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style />
+                                  <Value>=If(Fields!ActPackQty.Value = 0,"",Avg(Fields!ActPackQty.Value) &amp; " %")</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox91</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
+                              <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3801,10 +3797,14 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox92</rd:DefaultName>
@@ -3832,10 +3832,7 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3850,10 +3847,14 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox93</rd:DefaultName>
@@ -3881,10 +3882,7 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3899,10 +3897,14 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox94</rd:DefaultName>
@@ -3930,10 +3932,7 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3948,10 +3947,14 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox95</rd:DefaultName>
@@ -3979,10 +3982,7 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -3997,10 +3997,14 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value />
-                                  <Style />
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox96</rd:DefaultName>
@@ -4028,31 +4032,30 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox97">
+                        <Textbox Name="Textbox100">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style />
+                                  <Value>=Sum(Fields!PackQty.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox97</rd:DefaultName>
+                          <rd:DefaultName>Textbox90</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -4077,10 +4080,9 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </RightBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -4613,6 +4615,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4652,89 +4660,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="No">
-          <DataField>No</DataField>
-        </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
-        </Field>
-        <Field Name="Day">
-          <DataField>Day</DataField>
-        </Field>
-        <Field Name="Furnace">
-          <DataField>Furnace</DataField>
-        </Field>
-        <Field Name="Job">
-          <DataField>Job</DataField>
-        </Field>
-        <Field Name="WT">
-          <DataField>WT</DataField>
-        </Field>
-        <Field Name="WTFormat">
-          <DataField>WTFormat</DataField>
-        </Field>
-        <Field Name="Speed">
-          <DataField>Speed</DataField>
-        </Field>
-        <Field Name="TonPerLine">
-          <DataField>TonPerLine</DataField>
-        </Field>
-        <Field Name="TonPerLineFormat">
-          <DataField>TonPerLineFormat</DataField>
-        </Field>
-        <Field Name="Ton">
-          <DataField>Ton</DataField>
-        </Field>
-        <Field Name="TonFormat">
-          <DataField>TonFormat</DataField>
-        </Field>
-        <Field Name="Tray">
-          <DataField>Tray</DataField>
-        </Field>
-        <Field Name="Pallet">
-          <DataField>Pallet</DataField>
-        </Field>
-        <Field Name="BottlesPerMinute">
-          <DataField>BottlesPerMinute</DataField>
-        </Field>
-        <Field Name="ProductionOrderNo">
-          <DataField>ProductionOrderNo</DataField>
-        </Field>
-        <Field Name="ProdOrderCreated">
-          <DataField>ProdOrderCreated</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Work_Shift">
-          <DataField>Work_Shift</DataField>
-        </Field>
-        <Field Name="GobCutOutPutQuantity">
-          <DataField>GobCutOutPutQuantity</DataField>
-        </Field>
-        <Field Name="GobCutOutPutQuantityFormat">
-          <DataField>GobCutOutPutQuantityFormat</DataField>
-        </Field>
-        <Field Name="PackQty">
-          <DataField>PackQty</DataField>
-        </Field>
-        <Field Name="PackQtyFormat">
-          <DataField>PackQtyFormat</DataField>
-        </Field>
-        <Field Name="ActPackQty">
-          <DataField>ActPackQty</DataField>
-        </Field>
-        <Field Name="ActPackQtyFormat">
-          <DataField>ActPackQtyFormat</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

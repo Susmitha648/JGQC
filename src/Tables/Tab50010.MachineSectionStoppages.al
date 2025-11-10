@@ -86,6 +86,10 @@ table 50010 "Machine/Section Stoppages"
                     Department := DimensionValue.Code;
             end;
         }
+        field(15; Remarks; Text[100])
+        {
+            Caption = 'Remarks';
+        }
     }
     keys
     {

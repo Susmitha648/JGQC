@@ -118,6 +118,7 @@ page 50018 "COA Detail"
                                                 COALine."QC Parameter Code" := QCPlanLine."Parameter Code";
                                                 COALine."QC Parameter Name" := QCPlanLine."Parameter Name";
                                                 COALine.Modify();
+                                                
                                                 Count += 1;
                                             end;
                                         end;

@@ -67,6 +67,10 @@ page 50016 "Machine/SectionStoppage Fin"
                 {
                     ToolTip = 'Specifies the value of the Department field.', Comment = '%';
                 }
+                  field(Remarks; Rec.Remarks)
+                {
+                    ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
+                }
             }
         }
 }
