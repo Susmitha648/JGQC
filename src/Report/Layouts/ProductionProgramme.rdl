@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-30T03:03:31.3225512Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-10T06:52:40.5667082Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -35,7 +35,7 @@
                   <Width>0.33904in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.71096in</Width>
+                  <Width>0.65617in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.03125in</Width>
@@ -59,10 +59,10 @@
                   <Width>0.27552in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.3in</Width>
+                  <Width>0.30582in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.35916in</Width>
+                  <Width>0.40083in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.45236in</Width>
@@ -435,10 +435,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Speed.Value = "8S", "ü", Nothing)</Value>
+                                  <Value>=IIf(Fields!Speed.Value = "8S", Fields!Bottles_Per_Minute.Value, Nothing)</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Wingdings</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -494,10 +493,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Speed.Value = "9S", "ü", Nothing)</Value>
+                                  <Value>=IIf(Fields!Speed.Value = "9S", Fields!Bottles_Per_Minute.Value, Nothing)</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Wingdings</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -553,10 +551,9 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIf(Fields!Speed.Value = "10S", "ü", Nothing)</Value>
+                                  <Value>=IIf(Fields!Speed.Value = "10S", Fields!Bottles_Per_Minute.Value, Nothing)</Value>
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
-                                    <FontFamily>Wingdings</FontFamily>
                                     <FontSize>7pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -629,23 +626,6 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </RightBorder>
                             <BackgroundColor>=Switch(
       UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
    UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
@@ -790,6 +770,7 @@
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontSize>7pt</FontSize>
+                                    <Format>0.00;(0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -803,23 +784,6 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </RightBorder>
                             <BackgroundColor>=Switch(
    UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
    UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
@@ -1310,7 +1274,7 @@
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontSize>7pt</FontSize>
-                                    <Format>0;(0)</Format>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -3448,7 +3412,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.06944in</Top>
             <Height>1.15272in</Height>
-            <Width>4.277in</Width>
+            <Width>4.2697in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3916,7 +3880,7 @@ CStr(Fields!Forecast_Quantity_Base.Value)
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.62638cm</Top>
-            <Left>10.86361cm</Left>
+            <Left>10.84503cm</Left>
             <Height>0.9cm</Height>
             <Width>2.95961cm</Width>
             <ZIndex>1</ZIndex>
@@ -4438,6 +4402,9 @@ End Function
         </Field>
         <Field Name="Speed">
           <DataField>Speed</DataField>
+        </Field>
+        <Field Name="Bottles_Per_Minute">
+          <DataField>Bottles_Per_Minute</DataField>
         </Field>
         <Field Name="Forecast_Quantity_Base">
           <DataField>Forecast_Quantity_Base</DataField>

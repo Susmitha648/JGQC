@@ -86,6 +86,10 @@ report 50009 "Production Programme"
                         column(Speed; Speed)
                         {
                         }
+                        column(Bottles_Per_Minute; "Bottles Per Minute")
+                        {
+
+                        }
 
                         dataitem(ProdForecastEntry; "Production Forecast Entry")
                         {
