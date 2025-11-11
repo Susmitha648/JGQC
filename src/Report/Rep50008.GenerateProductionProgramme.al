@@ -19,12 +19,12 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.Reset();
                     ProductionProgramLine.SetRange("No.", "No.");
                     ProductionProgramLine.SetRange(Date, FromDate);
-                    ProductionProgramLine.SetRange(Job, JobNo);
+                    ProductionProgramLine.SetRange(Furnace, Furnace);
                     If not ProductionProgramLine.FindFirst() then begin
                         ProductionProgramLine.Init();
                         ProductionProgramLine."No." := "No.";
                         ProductionProgramLine.Date := FromDate;
-                        ProductionProgramLine.Job := JobNo;
+                        ProductionProgramLine.Furnace := Furnace;
                         ProductionProgramLine.Insert();
                     End;
                     ProductionProgramLine.Speed := Speed;
@@ -32,7 +32,7 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.Tray := Tray;
                     ProductionProgramLine."Bottles Per Minute" := BottlesPerMinute;
                     ProductionProgramLine.WT := Item."Net Weight";
-                    ProductionProgramLine.Furnace := Furnace;
+                    ProductionProgramLine.Job := JobNo;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
                     ProductionProgramLine.Ton := (BottlesPerMinute*8*60*WorkShift.Count*Item."Net Weight")/1000000;
                     ProductionProgramLine.Modify();

@@ -58,6 +58,7 @@ report 50013 "F2 Daily Production Report"
             dataitem("Production Order"; "Production Order")
             {
                 DataItemLink = "No." = field("Production Order No.");
+                DataItemLinkReference = ProductionProgrammeLine;
                 column(Description; Description) { }
                 dataitem(ProdOrderLine; "Prod. Order Line")
                 {
@@ -82,6 +83,27 @@ report 50013 "F2 Daily Production Report"
                         end;
                     }
                 }
+                dataitem("QC Details";"QC Details")
+                {
+                    DataItemLink = "Work Order No" = field("No.");
+                    DataItemLinkReference = "Production Order";
+                    column(MachineNo;"Machine No."){}
+                    column(Shift1;Shift){}
+                    column(IRIZ;"IRIZ %"){}
+                    column(SL;"SL %"){}
+                    column(Defect_Code_1;"Defect Code 1"){}
+                    column(Defect_Code_2;"Defect Code 2"){}
+                    column(Defect_Code_3;"Defect Code 3"){}
+                    dataitem("Machine/Section Stoppages";"Machine/Section Stoppages")
+                    {
+                        DataItemLink = "Production Order No." = field("Work Order No"), Shift = Field(Shift);
+                        DataItemLinkReference = "QC Details";
+                        column(Machine_Stoppage_Description;"Machine Stoppage Description"){}
+                        column(Section_Stoppage_Description;"Section Stoppage Description"){}
+                        column(Department;Department){}
+                        column(Remarks;Remarks){}
+                    }
+                }
             }
             trigger OnPreDataItem()
             begin
@@ -92,6 +114,7 @@ report 50013 "F2 Daily Production Report"
             trigger OnAfterGetRecord()
             begin
                 Clear(TotalPackQty);
+                Clear(TonPerLine);
                 ProdOrdLine.Reset();
                 ProdOrdLine.SetRange("Prod. Order No.", ProductionProgrammeLine."Production Order No.");
                 If ProdOrdLine.Count > 1 then

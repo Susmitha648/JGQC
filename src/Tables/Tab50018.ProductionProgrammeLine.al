@@ -2,12 +2,12 @@ table 50018 "Production Programme Line"
 {
     Caption = 'Production Programme Line';
     DataClassification = CustomerContent;
-
     fields
     {
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
+            TableRelation = "Production Programme Header"."No.";
         }
         field(2; "Date"; Date)
         {
@@ -115,7 +115,7 @@ table 50018 "Production Programme Line"
     }
     keys
     {
-        key(PK; "No.", Date, Job)
+        key(PK; "No.", Date, Furnace)
         {
             Clustered = true;
         }
@@ -134,6 +134,14 @@ table 50018 "Production Programme Line"
             If ProgramingHeader.Status = ProgramingHeader.Status::Released then
                 Error('Status must be equal to released');
 
+    end;
+    procedure CheckFurncae()
+    var
+    ProdProgLine : Record "Production Programme Line";
+    begin
+      ProdProgLine.Reset();
+      ProdProgLine.SetRange(Date,Rec.Date);
+      ProdProgLine.SetRange(Furnace,Rec.Furnace);
     end;
 
     var

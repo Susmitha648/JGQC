@@ -59,6 +59,12 @@ table 50017 "Production Programme Header"
             Clustered = true;
         }
     }
+     fieldgroups
+    {
+        fieldgroup(DropDown; "No.", "Created Date",Description)
+        {
+        }
+    }
     trigger OnInsert()
     var
         ManufacturingSetup: Record "Manufacturing Setup";

@@ -4742,6 +4742,39 @@ End Function
         <Field Name="ActPackQtyFormat">
           <DataField>ActPackQtyFormat</DataField>
         </Field>
+        <Field Name="MachineNo">
+          <DataField>MachineNo</DataField>
+        </Field>
+        <Field Name="Shift1">
+          <DataField>Shift1</DataField>
+        </Field>
+        <Field Name="IRIZ">
+          <DataField>IRIZ</DataField>
+        </Field>
+        <Field Name="SL">
+          <DataField>SL</DataField>
+        </Field>
+        <Field Name="Defect_Code_1">
+          <DataField>Defect_Code_1</DataField>
+        </Field>
+        <Field Name="Defect_Code_2">
+          <DataField>Defect_Code_2</DataField>
+        </Field>
+        <Field Name="Defect_Code_3">
+          <DataField>Defect_Code_3</DataField>
+        </Field>
+        <Field Name="Machine_Stoppage_Description">
+          <DataField>Machine_Stoppage_Description</DataField>
+        </Field>
+        <Field Name="Section_Stoppage_Description">
+          <DataField>Section_Stoppage_Description</DataField>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

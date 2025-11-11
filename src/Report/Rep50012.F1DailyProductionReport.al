@@ -9,7 +9,7 @@ report 50012 "F1 - Daily Production Report"
     {
         dataitem(ProductionProgrammeLine; "Production Programme Line")
         {
-            RequestFilterFields = Date;
+            RequestFilterFields = Date,"No.";
             column(No; "No.")
             {
             }
@@ -72,6 +72,27 @@ report 50012 "F1 - Daily Production Report"
                             If ProdOrderLine.Quantity <> 0 then
                                 ActPackQty := Round((ItemLedgerEntry.Quantity / ProdOrderLine.Quantity) * 100);
                         end;
+                    }
+                }
+                dataitem("QC Details";"QC Details")
+                {
+                    DataItemLink = "Work Order No" = field("No.");
+                    DataItemLinkReference = "Production Order";
+                    column(MachineNo;"Machine No."){}
+                    column(Shift1;Shift){}
+                    column(IRIZ;"IRIZ %"){}
+                    column(SL;"SL %"){}
+                    column(Defect_Code_1;"Defect Code 1"){}
+                    column(Defect_Code_2;"Defect Code 2"){}
+                    column(Defect_Code_3;"Defect Code 3"){}
+                    dataitem("Machine/Section Stoppages";"Machine/Section Stoppages")
+                    {
+                        DataItemLink = "Production Order No." = field("Work Order No"), Shift = Field(Shift);
+                        DataItemLinkReference = "QC Details";
+                        column(Machine_Stoppage_Description;"Machine Stoppage Description"){}
+                        column(Section_Stoppage_Description;"Section Stoppage Description"){}
+                        column(Department;Department){}
+                        column(Remarks;Remarks){}
                     }
                 }
             }

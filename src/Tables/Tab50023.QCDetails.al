@@ -9,6 +9,7 @@ table 50023 "QC Details"
         {
             Caption = 'Work Order No';
             TableRelation = "Production Order"."No.";
+            Editable  = false;
 
         }
         field(2; Shift; Code[20])
@@ -20,6 +21,8 @@ table 50023 "QC Details"
         {
             Caption = 'Machine No.';
             TableRelation = "Dimension Value".Code;
+            Editable  = false;
+
             trigger OnLookup()
             begin
                 GeneralLegderSetup.Get();
