@@ -63,7 +63,11 @@ page 50004 "QC Plan Line"
         }
     }
     trigger OnNewRecord(BelowxRec: Boolean)
+    var
+        QCPlanHeader1: Record "QC Plan Header";
     begin
-        
+        If QCPlanHeader1.Get(Rec."Job No.") then
+            Rec.Description := QCPlanHeader1.Description;
     end;
+
 }

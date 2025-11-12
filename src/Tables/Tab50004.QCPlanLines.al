@@ -119,13 +119,13 @@ table 50004 "QC Plan Lines"
             Clustered = true;
         }
     }
-    trigger OnInsert()
+   /* trigger OnInsert()
     var
-        Item: Record Item;
+        QCPlanHeader1: Record "QC Plan Header";
     begin
-        If Item.Get("Job No.") then
-            Description := Item.Description;
-    end;
+        If QCPlanHeader1.Get("Job No.") then
+            Description := QCPlanHeader1.Description;
+    end;*/
 
     var
         QCPlanHeader: Record "QC Plan Header";

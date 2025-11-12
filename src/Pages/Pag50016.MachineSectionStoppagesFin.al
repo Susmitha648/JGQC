@@ -63,29 +63,54 @@ page 50016 "Machine/SectionStoppage Fin"
                     ToolTip = 'Specifies the value of the Foreman/Shift Supt field.', Comment = '%';
                     MultiLine = true;
                 }
-                 field(Department; Rec.Department)
+                field(Department; Rec.Department)
                 {
                     ToolTip = 'Specifies the value of the Department field.', Comment = '%';
                 }
-                  field(Remarks; Rec.Remarks)
+                field(Remarks; Rec.Remarks)
                 {
                     ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
+                    MultiLine = true;
+                }
+                field("Root Cause"; Rec."Root Cause")
+                {
+                    ToolTip = 'Specifies the value of the Root Cause field.', Comment = '%';
+                    MultiLine = true;
+                }
+                field("Corrective Action Taken"; Rec."Corrective Action Taken")
+                {
+                    ToolTip = 'Specifies the value of the Corrective Action Taken field.', Comment = '%';
+                    MultiLine = true;
+                }
+                field("Preventive Action Taken"; Rec."Preventive Action Taken")
+                {
+                    ToolTip = 'Specifies the value of the Preventive Action Taken field.', Comment = '%';
+                    MultiLine = true;
+                }
+                field(Status; Rec.Status)
+                {
+                    ToolTip = 'Specifies the value of the Status field.', Comment = '%';
+                }
+                field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
+                {
+                    ToolTip = 'Specifies the value of the Downtime (Hrs) field.', Comment = '%';
                 }
             }
         }
-}
+    }
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         Rec."Line No." := Rec.GetLastLineNo() + 10;
     end;
+
     trigger OnOpenPage()
     var
-    ProductionOrder : Record "Production Order";
+        ProductionOrder: Record "Production Order";
     begin
-      /* ProductionOrder.SetRange("No.",Rec."Production Order No.");
-       If ProductionOrder.FindFirst() then
-          If ProductionOrder.Status = ProductionOrder.Status::Finished then 
-            IsEditable := false;*/
+        /* ProductionOrder.SetRange("No.",Rec."Production Order No.");
+         If ProductionOrder.FindFirst() then
+            If ProductionOrder.Status = ProductionOrder.Status::Finished then 
+              IsEditable := false;*/
     end;
-    
+
 }

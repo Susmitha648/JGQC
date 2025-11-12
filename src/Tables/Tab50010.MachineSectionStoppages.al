@@ -90,6 +90,26 @@ table 50010 "Machine/Section Stoppages"
         {
             Caption = 'Remarks';
         }
+        field(16; "Root Cause"; Text[100])
+        {
+            Caption = 'Root Cause';
+        }
+        field(17; "Corrective Action Taken"; Text[100])
+        {
+            Caption = 'Corrective Action Taken';
+        }
+        field(18; "Preventive Action Taken"; Text[100])
+        {
+            Caption = 'Preventive Action Taken';
+        }
+         field(19;"MS Status"; Enum Status)
+        {
+            Caption = 'Status';
+        }
+         field(20;"Downtime (Hrs)"; Integer)
+        {
+            Caption = 'Downtime (Hrs)';
+        }
     }
     keys
     {

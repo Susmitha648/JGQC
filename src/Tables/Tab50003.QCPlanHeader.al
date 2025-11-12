@@ -9,14 +9,14 @@ table 50003 "QC Plan Header"
         {
             Caption = 'Job No.';
             //TableRelation = Item where(Blocked = Const(False), Type = const(Inventory));
-            trigger OnValidate()
+           /* trigger OnValidate()
             var
             QCPlanLine : Record "QC Plan Lines";
             begin
               If Item.Get("Job No.") then
                  Description := Item.Description;
               
-            end;
+            end;*/
         }
         field(2; Description; Text[80])
         {

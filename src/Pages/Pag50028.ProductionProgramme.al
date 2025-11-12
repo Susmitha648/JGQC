@@ -147,7 +147,7 @@ page 50028 "Production Programme"
                     Image = Print;
                     Promoted = true;
                     PromotedCategory = Category6;
-                    ToolTip = 'Generate the Production Programme report.';
+                    ToolTip = 'Print the Production Programme report.';
 
                     trigger OnAction()
                     var
@@ -155,6 +155,23 @@ page 50028 "Production Programme"
                     begin
                         CurrPage.SetSelectionFilter(ProdProgHeader);
                         Report.RunModal(Report::"Production Programme", true, false, ProdProgHeader);
+                    end;
+                }
+                action(F2DailyProduction)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'F2 - Daily Production Report';
+                    Image = Print;
+                    Promoted = true;
+                    PromotedCategory = Category6;
+                    ToolTip = 'Print the F2 - Daily Production Report.';
+
+                    trigger OnAction()
+                    var
+                        ProdProgHeader: Record "Production Programme Line";
+                    begin
+                        
+                        Report.RunModal(Report::"F2 Daily Production Report", true, false);
                     end;
                 }
 

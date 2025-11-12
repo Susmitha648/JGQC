@@ -69,6 +69,30 @@ page 50014 "Machine/Section Stoppages"
                 field(Remarks; Rec.Remarks)
                 {
                     ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
+                    MultiLine = true;
+                }
+                  field("Root Cause"; Rec."Root Cause")
+                {
+                    ToolTip = 'Specifies the value of the Root Cause field.', Comment = '%';
+                    MultiLine = true;
+                }
+                  field("Corrective Action Taken"; Rec."Corrective Action Taken")
+                {
+                    ToolTip = 'Specifies the value of the Corrective Action Taken field.', Comment = '%';
+                    MultiLine = true;
+                }
+                  field("Preventive Action Taken"; Rec."Preventive Action Taken")
+                {
+                    ToolTip = 'Specifies the value of the Preventive Action Taken field.', Comment = '%';
+                    MultiLine = true;
+                }
+                  field("MS Status"; Rec."MS Status")
+                {
+                    ToolTip = 'Specifies the value of the Status field.', Comment = '%';
+                }
+                  field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
+                {
+                    ToolTip = 'Specifies the value of the Downtime (Hrs) field.', Comment = '%';
                 }
             }
         }
