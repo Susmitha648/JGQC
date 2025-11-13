@@ -71,44 +71,53 @@ page 50014 "Machine/Section Stoppages"
                     ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
                     MultiLine = true;
                 }
-                  field("Root Cause"; Rec."Root Cause")
+                field("Root Cause"; Rec."Root Cause")
                 {
                     ToolTip = 'Specifies the value of the Root Cause field.', Comment = '%';
                     MultiLine = true;
                 }
-                  field("Corrective Action Taken"; Rec."Corrective Action Taken")
+                field("Corrective Action Taken"; Rec."Corrective Action Taken")
                 {
                     ToolTip = 'Specifies the value of the Corrective Action Taken field.', Comment = '%';
                     MultiLine = true;
                 }
-                  field("Preventive Action Taken"; Rec."Preventive Action Taken")
+                field("Preventive Action Taken"; Rec."Preventive Action Taken")
                 {
                     ToolTip = 'Specifies the value of the Preventive Action Taken field.', Comment = '%';
                     MultiLine = true;
                 }
-                  field("MS Status"; Rec."MS Status")
+                field("MS Status"; Rec."MS Status")
                 {
                     ToolTip = 'Specifies the value of the Status field.', Comment = '%';
                 }
-                  field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
+                field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
                 {
                     ToolTip = 'Specifies the value of the Downtime (Hrs) field.', Comment = '%';
                 }
             }
         }
-}
+    }
     trigger OnNewRecord(BelowxRec: Boolean)
+    var
+        MachinSectinStoppages: Record "Machine/Section Stoppages";
     begin
-        Rec."Line No." := Rec.GetLastLineNo() + 10;
+        MachinSectinStoppages.Reset();
+        MachinSectinStoppages.SetAscending("Line No.", false);
+        MachinSectinStoppages.SetRange("Production Order No.", Rec."Production Order No.");
+        If MachinSectinStoppages.FindFirst() then
+            Rec."Line No." := MachinSectinStoppages."Line No." + 10
+        else
+            Rec."Line No." := MachinSectinStoppages."Line No.";
     end;
+
     trigger OnOpenPage()
     var
-    ProductionOrder : Record "Production Order";
+        ProductionOrder: Record "Production Order";
     begin
-      /* ProductionOrder.SetRange("No.",Rec."Production Order No.");
-       If ProductionOrder.FindFirst() then
-          If ProductionOrder.Status = ProductionOrder.Status::Finished then 
-            IsEditable := false;*/
+        /* ProductionOrder.SetRange("No.",Rec."Production Order No.");
+         If ProductionOrder.FindFirst() then
+            If ProductionOrder.Status = ProductionOrder.Status::Finished then 
+              IsEditable := false;*/
     end;
-    
+
 }

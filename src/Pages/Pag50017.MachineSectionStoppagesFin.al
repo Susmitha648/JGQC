@@ -28,6 +28,18 @@ page 50017 "Machine/SectionStoppagesFinLis"
                 {
                     ToolTip = 'Specifies the value of the Section Stoppage Code field.', Comment = '%';
                 }
+                  field(Department; Rec.Department)
+                {
+                    ToolTip = 'Specifies the value of the Department field.', Comment = '%';
+                }
+                  field("MS Status"; Rec."MS Status")
+                {
+                    ToolTip = 'Specifies the value of the Status field.', Comment = '%';
+                }
+                  field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
+                {
+                    ToolTip = 'Specifies the value of the Downtime (Hrs) field.', Comment = '%';
+                }
             }
         }
     }

@@ -106,9 +106,10 @@ table 50010 "Machine/Section Stoppages"
         {
             Caption = 'Status';
         }
-         field(20;"Downtime (Hrs)"; Integer)
+         field(20;"Downtime (Hrs)"; Decimal)
         {
             Caption = 'Downtime (Hrs)';
+            BlankZero = true;
         }
     }
     keys
