@@ -147,6 +147,7 @@ report 50013 "F2 Daily Production Report"
                                 RemarksTxt += MachineSectionStoppages.Remarks + Format(cr) + Format(lf);
                                 DeptTxt += MachineSectionStoppages.Department + Format(cr) + Format(lf);
                             until MachineSectionStoppages.Next() = 0;
+                        //to remove extra line on the last line
                         StoppageTxt := CopyStr(StoppageTxt, 1, StrLen(StoppageTxt) - 2);
                         RemarksTxt := CopyStr(RemarksTxt, 1, StrLen(RemarksTxt) - 2);
                         DeptTxt := CopyStr(DeptTxt, 1, StrLen(DeptTxt) - 2);

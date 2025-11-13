@@ -170,8 +170,9 @@ page 50028 "Production Programme"
                     var
                         ProdProgHeader: Record "Production Programme Line";
                     begin
-                        
-                        Report.RunModal(Report::"F2 Daily Production Report", true, false);
+                        ProdProgHeader.Reset();
+                        ProdProgHeader.SetRange("No.",Rec."No.");
+                        Report.RunModal(Report::"F2 Daily Production Report", true, false,ProdProgHeader);
                     end;
                 }
 
