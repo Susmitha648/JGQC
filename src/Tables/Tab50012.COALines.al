@@ -57,7 +57,11 @@ table 50012 "COA Lines"
         }
         field(11; Result; Text[100])
         {
-            Caption = 'Result';
+            Caption = 'Min Result';
+        }
+         field(12; "Max Result"; Text[100])
+        {
+            Caption = 'Max Result';
         }
     }
     keys

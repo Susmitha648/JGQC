@@ -55,7 +55,11 @@ page 50019 "COA Lines"
                 }
                 field(Result; Rec.Result)
                 {
-                    ToolTip = 'Specifies the value of the Result field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Min Result field.', Comment = '%';
+                }
+                field("Max Result"; Rec."Max Result")
+                {
+                    ToolTip = 'Specifies the value of the Max Result field.', Comment = '%';
                 }
             }
         }
