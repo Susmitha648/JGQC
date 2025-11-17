@@ -97,6 +97,14 @@ codeunit 50000 "QC Subcriber"
                 end;
         end;
     end;
+    [EventSubscriber(ObjectType::Report, Report::"Refresh Production Order", 'OnAfterOnInit', '', false, false)]
+    local procedure OnAfterOnInitPreprod(var Direction: Option; var CalcLines: Boolean)
+    var
+    Direction1: Option Forward,Backward;
+    begin
+       Direction := Direction1::Forward;
+       CalcLines := false;
+    end;
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin
         ProductionOrder := ProductionHdr;

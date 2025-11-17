@@ -1,7 +1,7 @@
 page 50044 "Update Mould & Weight"
 {
     ApplicationArea = All;
-    Caption = 'Update Mould & Weight';
+    Caption = 'Update Mould No';
     PageType = Card;
 
     layout
@@ -16,18 +16,15 @@ page 50044 "Update Mould & Weight"
                     ApplicationArea = All;
                     Caption = 'Section No.';
                 }
-                field(FrontBackEnum; FrontBackEnum)
+                field(FrontMouldNumber; FrontMouldNumber)
                 {
                     ApplicationArea = All;
-                    Caption = 'Front/Back';
+                    Caption = 'Front Mould No';
                 }
-                field(MouldNumber; MouldNumber)
+                field(BackMouldNumber; BackMouldNumber)
                 {
                     ApplicationArea = All;
-                }
-                field(Weight; Weight)
-                {
-                    ApplicationArea = All;
+                    Caption = 'Back Mould No';
                 }
 
             }
@@ -36,6 +33,15 @@ page 50044 "Update Mould & Weight"
     var
         SectionEnum: Enum "Section No.";
         FrontBackEnum: Enum "Front Back";
-        MouldNumber : Integer;
+        FrontMouldNumber : Integer;
+        BackMouldNumber : Integer;
         Weight : Decimal;
+    procedure GetFrontMouldNo(): Integer
+    begin
+        exit(FrontMouldNumber);
+    end;
+    procedure GetBackMouldNo(): Integer
+    begin
+        exit(BackMouldNumber);
+    end;
 }
