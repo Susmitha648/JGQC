@@ -103,6 +103,23 @@ page 50029 "Production Programme Subform"
                             Message('Production Orders Created');
                     end;
                 }
+                action(F2DailyProduction)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'F2 - Daily Production Report';
+                    Image = Print;
+                    ToolTip = 'Print the F2 - Daily Production Report.';
+                    trigger OnAction()
+                    var
+                        ProdProgHeader: Record "Production Programme Line";
+                    begin
+                        //ProdProgHeader.Reset();
+                        //ProdProgHeader.SetRange("No.",Rec."No.");
+                        CurrPage.SetSelectionFilter(ProdProgHeader);
+                        ProdProgHeader.SetRange(Furnace,'');
+                        Report.RunModal(Report::"F2 Daily Production Report", true, false,ProdProgHeader);
+                    end;
+                }
             }
         }
     }

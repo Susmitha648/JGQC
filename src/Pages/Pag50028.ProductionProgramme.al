@@ -157,7 +157,7 @@ page 50028 "Production Programme"
                         Report.RunModal(Report::"Production Programme", true, false, ProdProgHeader);
                     end;
                 }
-                action(F2DailyProduction)
+                /*action(F2DailyProduction)
                 {
                     ApplicationArea = Suite;
                     Caption = 'F2 - Daily Production Report';
@@ -174,7 +174,7 @@ page 50028 "Production Programme"
                         ProdProgHeader.SetRange("No.",Rec."No.");
                         Report.RunModal(Report::"F2 Daily Production Report", true, false,ProdProgHeader);
                     end;
-                }
+                }*/
 
             }
         }

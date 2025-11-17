@@ -94,4 +94,8 @@ enum 50008 "Time"
     {
         Caption = '23 to 24';
     }
+    value(23; "24 to 1")
+    {
+        Caption = '24 to 1';
+    }
 }
