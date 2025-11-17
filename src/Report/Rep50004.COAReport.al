@@ -24,6 +24,7 @@ report 50004 "COA Report"
             {
                 DataItemLink = "Released Prod Order No." = field("Released Prod Order No.");
                 column(Result; "Result") { }
+                column(Max_Result; "Max Result") { }
                 column(UserId; UserId) { }
                 column(SystemCreatedAt; "SystemCreatedAt") { }
                 column(QC_Parameter_Code; "QC Parameter Code") { }
@@ -34,6 +35,13 @@ report 50004 "COA Report"
                 column(Section_No_; "Section No.") { }
                 column(Front_Back; "Front/Back") { }
                 column(Line_No_; "Line No.") { }
+
+                dataitem(UpdateMouldNo; "Update Mould No")
+                {
+                    DataItemLink = "Work Order No." = field("Released Prod Order No.");
+                    column(Front_Mould_No; "Front Mould No") { }
+                    column(Back_Mould_No; "Back Mould No") { }
+                }
             }
         }
     }
