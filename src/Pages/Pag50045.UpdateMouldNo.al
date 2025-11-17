@@ -11,10 +11,6 @@ page 50045 "Update Mould No"
         {
             repeater(General)
             {
-                field("Work Order No."; Rec."Work Order No.")
-                {
-                    ToolTip = 'Specifies the value of the Work Order No. field.', Comment = '%';
-                }
                 field("Section No."; Rec."Section No.")
                 {
                     ToolTip = 'Specifies the value of the Section No. field.', Comment = '%';

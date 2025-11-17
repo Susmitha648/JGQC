@@ -4,7 +4,7 @@ page 50018 "COA Detail"
     Caption = 'COA Detail';
     PageType = Document;
     SourceTable = "COA Header";
-
+    PromotedActionCategoriesML = ENU = 'Create';
     layout
     {
         area(Content)
@@ -61,19 +61,21 @@ page 50018 "COA Detail"
     }
     actions
     {
-        area(Processing)
+        area(Navigation)
         {
             group(Action12)
             {
+                Caption = 'Create';
+                Image = Create;
                 action(UpdateMouldNo)
                 {
-                    ApplicationArea = All;
+                    ApplicationArea = Suite;
                     Caption = 'Update Mould No';
                     ToolTip = 'Update Mould No';
                     Image = Create;
                     Promoted = True;
                     PromotedIsBig = True;
-                    PromotedCategory = Process;
+                    PromotedCategory = New;
                     RunObject = Page "Update Mould No";
                     RunPageLink = "Work Order No." = field("Released Prod Order No.");
                 }
@@ -82,9 +84,9 @@ page 50018 "COA Detail"
                     ApplicationArea = Suite;
                     Caption = 'Generate COA Lines';
                     Image = Create;
-                    Promoted = True;
+                   Promoted = True;
                     PromotedIsBig = True;
-                    PromotedCategory = Process;
+                    PromotedCategory = New;
                     ToolTip = 'Create COA lines based on the QC Plan Header';
                     trigger OnAction()
                     var
