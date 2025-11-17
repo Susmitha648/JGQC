@@ -76,6 +76,9 @@ report 50013 "F2 Daily Production Report"
                         column(PackTon; PackTon) { }
                         trigger OnAfterGetRecord()
                         begin
+                            Clear(ActPackQty);
+                            Clear(NetPackPerc);
+                            Clear(PackTon);
                             If ProdOrderLine.Quantity <> 0 then begin
                                 ActPackQty := Round((ItemLedgerEntry.Quantity / ProdOrderLine.Quantity) * 100);
                                 NetPackPerc := Round((ItemLedgerEntry.Quantity / ProdOrderLine.Quantity) * 100, 0.1);
@@ -162,7 +165,7 @@ report 50013 "F2 Daily Production Report"
 
             trigger OnAfterGetRecord()
             begin
-
+               Clear(TotalPackQty);
                 ProdProgramLine.Reset();
                 ProdProgramLine.SetRange(Furnace, ProductionProgrammeLine.Furnace);
                 ProdProgramLine.SetRange("No.", ProductionProgrammeLine."No.");

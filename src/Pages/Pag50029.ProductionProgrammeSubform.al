@@ -84,7 +84,7 @@ page 50029 "Production Programme Subform"
         {
             group(CreatePO)
             {
-                Caption = 'Create Work Order';
+                Caption = 'Create Work Order & Print';
                 action(Create)
                 {
                     ApplicationArea = Suite;
