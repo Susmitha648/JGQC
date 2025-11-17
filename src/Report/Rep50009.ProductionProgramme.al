@@ -51,7 +51,24 @@ report 50009 "Production Programme"
                     column(Day; DayName)
                     {
                     }
+                    column(IsHoliday; IsHolidayFlag)
+                    {
+                    }
 
+                    dataitem(ShopCalendarHoliday; "Shop Calendar Holiday")
+                    {
+                        DataItemTableView = sorting(Date);
+
+                        trigger OnPreDataItem()
+                        begin
+                            SetRange(Date, CurrentDate);
+                        end;
+
+                        trigger OnAfterGetRecord()
+                        begin
+                            IsHolidayFlag := true;
+                        end;
+                    }
 
                     dataitem(ProductionProgrammeLine; "Production Programme Line")
                     {
@@ -89,6 +106,9 @@ report 50009 "Production Programme"
                         column(Bottles_Per_Minute; "Bottles Per Minute")
                         {
 
+                        }
+                        column(IsFirstJobRow; IsFirstJobRow)
+                        {
                         }
 
                         dataitem(ProdForecastEntry; "Production Forecast Entry")
@@ -128,6 +148,20 @@ report 50009 "Production Programme"
                             end;
                         }
 
+                        trigger OnAfterGetRecord()
+                        begin
+                            // Check if this is the first row or job number has changed
+                            if PreviousJobNo = '' then
+                                IsFirstJobRow := true
+                            else if PreviousJobNo <> Job then
+                                IsFirstJobRow := true
+                            else
+                                IsFirstJobRow := false;
+
+                            // Update previous job for next iteration
+                            PreviousJobNo := Job;
+                        end;
+
                         trigger OnPreDataItem()
                         begin
                             SetRange(Date, CurrentDate);
@@ -146,6 +180,7 @@ report 50009 "Production Programme"
                     begin
                         CurrentDate := CalcDate('<' + Format(Number - 1) + 'D>', CurrentMonthStart);
                         DayName := Format(CurrentDate, 0, '<Weekday Text>');
+                        IsHolidayFlag := false;
                     end;
                 }
 
@@ -240,6 +275,7 @@ report 50009 "Production Programme"
     var
         CurrentDate: Date;
         DayName: Text[30];
+        IsHolidayFlag: Boolean;
         FirstMonthStart: Date;
         LastMonthStart: Date;
         CurrentMonthStart: Date;
@@ -247,4 +283,6 @@ report 50009 "Production Programme"
         TotalMonths: Integer;
         DaysInCurrentMonth: Integer;
         MonthYearText: Text[50];
+        PreviousJobNo: Code[20];
+        IsFirstJobRow: Boolean;
 }
