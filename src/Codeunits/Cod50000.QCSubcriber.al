@@ -105,6 +105,19 @@ codeunit 50000 "QC Subcriber"
        Direction := Direction1::Forward;
        CalcLines := false;
     end;
+    [EventSubscriber(ObjectType::Table, Database::"Production Order", 'OnAfterValidateEvent', 'Location Code', false, false)]
+    local procedure UpdateLineLocationCode(var Rec: Record "Production Order"; var xRec: Record "Production Order"; CurrFieldNo: Integer)
+    var
+    ProdOrderLine : Record "Prod. Order Line";
+    begin
+       ProdOrderLine.Reset();
+       ProdOrderLine.SetRange("Prod. Order No.",Rec."No.");
+       If ProdOrderLine.FindSet(True) then repeat
+          ProdOrderLine.Validate("Location Code",Rec."Location Code");
+          ProdOrderLine.Modify();
+       until ProdOrderLine.Next() = 0;
+       
+    end;
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin
         ProductionOrder := ProductionHdr;
