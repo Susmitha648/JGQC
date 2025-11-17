@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-11-14T07:41:50.8518685Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-17T03:08:43.4453665Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -119,10 +119,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Max(Fields!IsFirstJobRow.Value) = true,
+    "CornflowerBlue",
+    IIf(
+        Max(Fields!IsHoliday.Value) = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -176,10 +184,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Max(Fields!IsFirstJobRow.Value) = true,
+    "CornflowerBlue",
+    IIf(
+        Max(Fields!IsHoliday.Value) = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -232,10 +248,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -291,10 +315,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -349,10 +381,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -405,10 +445,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -461,10 +509,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -517,10 +573,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -573,10 +637,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -613,10 +685,18 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </Border>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -671,10 +751,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -725,10 +813,18 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
-                            <BackgroundColor>=Switch(
-      UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        Fields!IsHoliday.Value = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
@@ -763,10 +859,18 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </Border>
-                            <BackgroundColor>=Switch(
-   UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-   UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
-   True, "Transparent"
+                            <BackgroundColor>=IIf(
+    Max(Fields!IsFirstJobRow.Value) = true,
+    "CornflowerBlue",
+    IIf(
+        Max(Fields!IsHoliday.Value) = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
+            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
 )</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
@@ -4347,6 +4451,9 @@ End Function
         <Field Name="Day">
           <DataField>Day</DataField>
         </Field>
+        <Field Name="IsHoliday">
+          <DataField>IsHoliday</DataField>
+        </Field>
         <Field Name="No_">
           <DataField>No_</DataField>
         </Field>
@@ -4382,6 +4489,9 @@ End Function
         </Field>
         <Field Name="Bottles_Per_Minute">
           <DataField>Bottles_Per_Minute</DataField>
+        </Field>
+        <Field Name="IsFirstJobRow">
+          <DataField>IsFirstJobRow</DataField>
         </Field>
         <Field Name="Forecast_Quantity_Base">
           <DataField>Forecast_Quantity_Base</DataField>
