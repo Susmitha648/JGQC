@@ -36,6 +36,7 @@ page 50019 "COA Lines"
                 field("Mould Numbers"; Rec."Mould Numbers")
                 {
                     ToolTip = 'Specifies the value of the Mould Numbers field.', Comment = '%';
+                    Visible = false;
                 }
                 field("QC Parameter Code"; Rec."QC Parameter Code")
                 {
