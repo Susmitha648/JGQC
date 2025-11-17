@@ -65,6 +65,18 @@ page 50018 "COA Detail"
         {
             group(Action12)
             {
+                action(UpdateMouldNo)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Update Mould No';
+                    ToolTip = 'Update Mould No';
+                    Image = Create;
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = Process;
+                    RunObject = Page "Update Mould No";
+                    RunPageLink = "Work Order No." = field("Released Prod Order No.");
+                }
                 action(Release)
                 {
                     ApplicationArea = Suite;
@@ -86,8 +98,8 @@ page 50018 "COA Detail"
                         Count: Integer;
                     begin
                         COALine.Reset();
-                        COALine.SetRange("Released Prod Order No.",Rec."Released Prod Order No.");
-                        COALine.SetRange("Production Order Date",Rec."Production Order Date");
+                        COALine.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
+                        COALine.SetRange("Production Order Date", Rec."Production Order Date");
                         COALine.DeleteAll();
                         Clear(Count);
                         QCPlanLine.Reset();
@@ -118,7 +130,7 @@ page 50018 "COA Detail"
                                                 COALine."QC Parameter Code" := QCPlanLine."Parameter Code";
                                                 COALine."QC Parameter Name" := QCPlanLine."Parameter Name";
                                                 COALine.Modify();
-                                                
+
                                                 Count += 1;
                                             end;
                                         end;

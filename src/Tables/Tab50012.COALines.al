@@ -33,6 +33,7 @@ table 50012 "COA Lines"
         field(6; "Mould Numbers"; Integer)
         {
             Caption = 'Mould Numbers';
+            Editable = false;
         }
         field(7; "QC Parameter Code"; Code[20])
         {
