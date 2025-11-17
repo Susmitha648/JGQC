@@ -84,7 +84,7 @@ page 50018 "COA Detail"
                     ApplicationArea = Suite;
                     Caption = 'Generate COA Lines';
                     Image = Create;
-                   Promoted = True;
+                    Promoted = True;
                     PromotedIsBig = True;
                     PromotedCategory = New;
                     ToolTip = 'Create COA lines based on the QC Plan Header';
@@ -102,46 +102,49 @@ page 50018 "COA Detail"
                         COALine.Reset();
                         COALine.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
                         COALine.SetRange("Production Order Date", Rec."Production Order Date");
-                        COALine.DeleteAll();
-                        Clear(Count);
-                        QCPlanLine.Reset();
-                        QCPlanLine.SetRange("Job No.", Rec."Job No.");
-                        If QCPlanLine.FindSet() then
-                            repeat
-                                If QCParameter.Get(QCPlanLine."Parameter Code") then;
-                                If QCParameterType.Get(QCParameter."Parameter Type") then
-                                    If QCParameterType."COA Needed" then begin
-                                        foreach Enumtext in Enum::"Section No.".Ordinals() do begin
-                                            foreach FrontBack in Enum::"Front Back".Ordinals() do begin
-                                                COALine.Init();
-                                                COALine."Released Prod Order No." := Rec."Released Prod Order No.";
-                                                COALine."Production Order Date" := Rec."Production Order Date";
-                                                COALineNo.Reset();
-                                                COALineNo.SetAscending("Line No.", false);
-                                                COALineNo.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
-                                                COALineNo.SetRange("Production Order Date", Rec."Production Order Date");
-                                                If COALineNo.FindFirst() then
-                                                    COALine."Line No." := COALineNo."Line No." + 10000
-                                                else
-                                                    COALine."Line No." := 10000;
-                                                COALine.Insert();
-                                                Evaluate(COALine."Section No.", Format(Enumtext));
-                                                Evaluate(COALine."Front/Back", Format(FrontBack));
-                                                COALine.Min := QCPlanLine.Min;
-                                                COALine.Max := QCPlanLine.Max;
-                                                COALine."QC Parameter Code" := QCPlanLine."Parameter Code";
-                                                COALine."QC Parameter Name" := QCPlanLine."Parameter Name";
-                                                COALine.Modify();
+                        If COALine.FindFirst() then
+                            If Confirm('It will delete the existing lines and create New. Do you want to Continue?') then begin
+                                COALine.DeleteAll();
+                                Clear(Count);
+                                QCPlanLine.Reset();
+                                QCPlanLine.SetRange("Job No.", Rec."Job No.");
+                                If QCPlanLine.FindSet() then
+                                    repeat
+                                        If QCParameter.Get(QCPlanLine."Parameter Code") then;
+                                        If QCParameterType.Get(QCParameter."Parameter Type") then
+                                            If QCParameterType."COA Needed" then begin
+                                                foreach Enumtext in Enum::"Section No.".Ordinals() do begin
+                                                    foreach FrontBack in Enum::"Front Back".Ordinals() do begin
+                                                        COALine.Init();
+                                                        COALine."Released Prod Order No." := Rec."Released Prod Order No.";
+                                                        COALine."Production Order Date" := Rec."Production Order Date";
+                                                        COALineNo.Reset();
+                                                        COALineNo.SetAscending("Line No.", false);
+                                                        COALineNo.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
+                                                        COALineNo.SetRange("Production Order Date", Rec."Production Order Date");
+                                                        If COALineNo.FindFirst() then
+                                                            COALine."Line No." := COALineNo."Line No." + 10000
+                                                        else
+                                                            COALine."Line No." := 10000;
+                                                        COALine.Insert();
+                                                        Evaluate(COALine."Section No.", Format(Enumtext));
+                                                        Evaluate(COALine."Front/Back", Format(FrontBack));
+                                                        COALine.Min := QCPlanLine.Min;
+                                                        COALine.Max := QCPlanLine.Max;
+                                                        COALine."QC Parameter Code" := QCPlanLine."Parameter Code";
+                                                        COALine."QC Parameter Name" := QCPlanLine."Parameter Name";
+                                                        COALine.Modify();
 
-                                                Count += 1;
+                                                        Count += 1;
+                                                    end;
+                                                end;
                                             end;
-                                        end;
-                                    end;
-                            until QCPlanLine.Next() = 0;
-                        If Count > 1 then
-                            Message('COA Lines created')
-                        else
-                            Message('No Lines created');
+                                    until QCPlanLine.Next() = 0;
+                                If Count > 1 then
+                                    Message('COA Lines created')
+                                else
+                                    Message('No Lines created');
+                            end;
                     end;
                 }
             }
