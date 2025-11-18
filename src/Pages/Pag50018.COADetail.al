@@ -95,6 +95,7 @@ page 50018 "COA Detail"
                         QCParameter: Record "QC Parameters";
                         QCParameterType: Record "QC Parameter Type";
                         QCPlanLine: Record "QC Plan Lines";
+                        UploadMouldNo : Record "Update Mould No";
                         Enumtext: Integer;
                         FrontBack: Integer;
                         Count: Integer;
@@ -133,6 +134,14 @@ page 50018 "COA Detail"
                                                         COALine.Max := QCPlanLine.Max;
                                                         COALine."QC Parameter Code" := QCPlanLine."Parameter Code";
                                                         COALine."QC Parameter Name" := QCPlanLine."Parameter Name";
+                                                        UploadMouldNo.Reset();
+                                                        UploadMouldNo.SetRange("Work Order No.",Rec."Released Prod Order No.");
+                                                        UploadMouldNo.SetRange("Section No.",COALine."Section No.");
+                                                        If UploadMouldNo.FindFirst() then
+                                                          If COALine."Front/Back" = COALine."Front/Back"::F then
+                                                             COALine."Mould Numbers" := UploadMouldNo."Front Mould No"
+                                                          Else 
+                                                             COALine."Mould Numbers" := UploadMouldNo."Back Mould No";
                                                         COALine.Modify();
 
                                                         Count += 1;

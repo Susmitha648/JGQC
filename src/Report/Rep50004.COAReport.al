@@ -31,10 +31,23 @@ report 50004 "COA Report"
                 column(QC_Parameter_Name; "QC Parameter Name") { }
                 column(Min; Min) { }
                 column(Max; Max) { }
-                column(Mould_Numbers; "Mould Numbers") { }
+                column(Mould_Numbers; MouldNumber) { }
                 column(Section_No_; "Section No.") { }
                 column(Front_Back; "Front/Back") { }
                 column(Line_No_; "Line No.") { }
+                trigger OnAfterGetRecord()
+                var
+                UploadMouldNo : Record "Update Mould No";
+                begin
+                  UploadMouldNo.Reset();
+                  UploadMouldNo.SetRange("Work Order No.",COALines."Released Prod Order No.");
+                  UploadMouldNo.SetRange("Section No.",COALines."Section No.");
+                  If UploadMouldNo.FindFirst() then
+                     If COALines."Front/Back" = COALines."Front/Back"::F then
+                        MouldNumber := UploadMouldNo."Front Mould No"
+                    else
+                        MouldNumber := UploadMouldNo."Back Mould No";
+                end;
             }
         }
         
@@ -68,4 +81,5 @@ report 50004 "COA Report"
 
     var
         CompanyInfo: Record "Company Information";
+        MouldNumber : Integer;
 }
