@@ -17,10 +17,36 @@ table 50024 "Update Mould No"
         field(3; "Front Mould No"; Integer)
         {
             Caption = 'Front Mould No';
+            trigger OnValidate()
+            var
+            COALine : Record "COA Lines";
+            begin
+                COALine.Reset();
+                COALine.SetRange("Released Prod Order No.","Work Order No.");
+                COALine.SetRange("Section No.","Section No.");
+                COALine.SetRange("Front/Back",COALine."Front/Back"::F);
+                If COALine.FindSet(True) then repeat
+                  COALine."Mould Numbers" := "Front Mould No";
+                  COALine.Modify();
+                until COALine.Next() = 0;
+            end;
         }
         field(4; "Back Mould No"; Integer)
         {
             Caption = 'Back Mould No';
+            trigger OnValidate()
+            var
+            COALine : Record "COA Lines";
+            begin
+                COALine.Reset();
+                COALine.SetRange("Released Prod Order No.","Work Order No.");
+                COALine.SetRange("Section No.","Section No.");
+                COALine.SetRange("Front/Back",COALine."Front/Back"::B);
+                If COALine.FindSet(True) then repeat
+                  COALine."Mould Numbers" := "Back Mould No";
+                  COALine.Modify();
+                until COALine.Next() = 0;
+            end;
         }
     }
     keys

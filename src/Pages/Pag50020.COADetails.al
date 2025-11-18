@@ -44,9 +44,12 @@ page 50020 "COA Details"
             {
                 action("COA Report")
                 {
-                    ApplicationArea = All;
+                    ApplicationArea = Suite;
                     Caption = 'COA Report';
                     Image = Report; // Optional icon
+                    Promoted = true;
+                    PromotedCategory = Report;
+                    PromotedIsBig = true;
                     trigger OnAction()
                     var
                         MyReportID: Integer;

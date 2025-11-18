@@ -147,6 +147,26 @@ page 50018 "COA Detail"
                             end;
                     end;
                 }
+                action("COA Report")
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'COA Report';
+                    Image = Report; // Optional icon
+                    Promoted = true;
+                    PromotedCategory = Report;
+                    PromotedIsBig = true;
+                    trigger OnAction()
+                    var
+                        MyReportID: Integer;
+                        JobNo: Record "COA Header";
+                    begin
+                        MyReportID := Report::"COA Report";
+                        JobNo.Reset();
+                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        If JobNo.FindSet() then
+                            Report.RunModal(MyReportID, true, false, JobNo);
+                    end;
+                }
             }
         }
     }
