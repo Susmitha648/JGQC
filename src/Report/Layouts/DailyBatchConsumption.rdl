@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-11-05T05:40:10.7620282Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-18T03:27:06.5972053Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1389,19 +1389,23 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox53">
-                          <rd:DefaultName>Textbox53</rd:DefaultName>
+                        <Textbox Name="Quantity_per">
+                          <rd:DefaultName>Quantity_per</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style />
+                                  <Value>=Fields!Quantity_per.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <Style>
@@ -2909,6 +2913,12 @@ End Function
         </Field>
         <Field Name="Component_Glass_YieldFormat">
           <DataField>Component_Glass_YieldFormat</DataField>
+        </Field>
+        <Field Name="Quantity_per">
+          <DataField>Quantity_per</DataField>
+        </Field>
+        <Field Name="Quantity_perFormat">
+          <DataField>Quantity_perFormat</DataField>
         </Field>
       </Fields>
       <Query>

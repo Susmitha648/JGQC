@@ -178,10 +178,18 @@ report 50010 "Daily Batch Consumption"
                 column(Component_Glass_Yield; ComponentGlassYield)
                 {
                 }
+                column(Quantity_per; "Quantity per")
+                {
+                }
 
                 trigger OnAfterGetRecord()
                 begin
-                    YieldPercent := 82.5;
+                    // If description contains 'cullet' (case-insensitive) use 100% yield
+                    if StrPos(UpperCase(Description), 'CULLET') > 0 then
+                        YieldPercent := 100
+                    else
+                        YieldPercent := 82.5;
+
                     ComponentGlassYield := Round("Expected Quantity" * (YieldPercent / 100), 0.01);
                 end;
             }
