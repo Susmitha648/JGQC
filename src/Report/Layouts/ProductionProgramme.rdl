@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-11-18T08:23:52.3716355Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-19T06:50:01.6297681Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -119,6 +119,19 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        First(Fields!IsHoliday.Value, "Date") = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
+)</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -128,7 +141,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Day3">
                           <rd:DefaultName>Day</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -172,6 +184,19 @@
                               <Color>Black</Color>
                               <Style>Solid</Style>
                             </RightBorder>
+                            <BackgroundColor>=IIf(
+    Fields!IsFirstJobRow.Value = true,
+    "CornflowerBlue",
+    IIf(
+        First(Fields!IsHoliday.Value, "Date") = true,
+        "SeaGreen",
+        Switch(
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
+            True, "Transparent"
+        )
+    )
+)</BackgroundColor>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -227,11 +252,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -294,11 +319,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -360,11 +385,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -424,11 +449,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -488,11 +513,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -552,11 +577,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -616,11 +641,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -664,11 +689,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -730,11 +755,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -792,11 +817,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
@@ -838,11 +863,11 @@
     Fields!IsFirstJobRow.Value = true,
     "CornflowerBlue",
     IIf(
-        Fields!IsHoliday.Value = true,
+        First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
         Switch(
-            UCase(Trim(Fields!Day.Value)) = "SATURDAY", "LightBlue",
-            UCase(Trim(Fields!Day.Value)) = "SUNDAY", "LightGreen",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SATURDAY", "LightBlue",
+            UCase(Trim(First(Fields!Day.Value, "Date"))) = "SUNDAY", "LightGreen",
             True, "Transparent"
         )
     )
