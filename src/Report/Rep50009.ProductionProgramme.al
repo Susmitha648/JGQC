@@ -149,17 +149,28 @@ report 50009 "Production Programme"
                         }
 
                         trigger OnAfterGetRecord()
+                        var
+                            PrevLine: Record "Production Programme Line";
                         begin
-                            // Check if this is the first row or job number has changed
-                            if PreviousJobNo = '' then
-                                IsFirstJobRow := true
-                            else if PreviousJobNo <> Job then
-                                IsFirstJobRow := true
-                            else
+                            IsFirstJobRow := true; // Default to true
+
+                            // Check if there's a previous line with the same Job on an earlier date
+                            PrevLine.SetRange("No.", "No.");
+                            PrevLine.SetRange(Job, Job);
+                            PrevLine.SetFilter(Date, '<%1', Date);
+                            if PrevLine.FindLast() then
                                 IsFirstJobRow := false;
 
-                            // Update previous job for next iteration
-                            PreviousJobNo := Job;
+                            // If still true, check if there's a previous line with same Job on same date
+                            if IsFirstJobRow then begin
+                                PrevLine.Reset();
+                                PrevLine.SetRange("No.", "No.");
+                                PrevLine.SetRange(Job, Job);
+                                PrevLine.SetRange(Date, Date);
+                                PrevLine.SetFilter("No.", '<%1', "No.");
+                                if PrevLine.FindLast() then
+                                    IsFirstJobRow := false;
+                            end;
                         end;
 
                         trigger OnPreDataItem()
@@ -283,6 +294,5 @@ report 50009 "Production Programme"
         TotalMonths: Integer;
         DaysInCurrentMonth: Integer;
         MonthYearText: Text[50];
-        PreviousJobNo: Code[20];
         IsFirstJobRow: Boolean;
 }
