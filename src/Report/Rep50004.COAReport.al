@@ -39,6 +39,8 @@ report 50004 "COA Report"
                 var
                 UploadMouldNo : Record "Update Mould No";
                 begin
+                    
+
                   UploadMouldNo.Reset();
                   UploadMouldNo.SetRange("Work Order No.",COALines."Released Prod Order No.");
                   UploadMouldNo.SetRange("Section No.",COALines."Section No.");
@@ -47,6 +49,10 @@ report 50004 "COA Report"
                         MouldNumber := UploadMouldNo."Front Mould No"
                     else
                         MouldNumber := UploadMouldNo."Back Mould No";
+                end;
+                trigger OnPreDataItem()
+                begin
+                    COALines.SetFilter("QC Parameter Code",'<>%1','');
                 end;
             }
         }
