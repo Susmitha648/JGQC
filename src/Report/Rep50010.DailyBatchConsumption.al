@@ -178,11 +178,13 @@ report 50010 "Daily Batch Consumption"
                 column(Component_Glass_Yield; ComponentGlassYield)
                 {
                 }
+                column(TotalComponentGlassYield; TotalComponentGlassYield) { }
                 column(Quantity_per; "Quantity per")
                 {
                 }
 
                 trigger OnAfterGetRecord()
+
                 begin
                     // If description contains 'cullet' (case-insensitive) use 100% yield
                     if StrPos(UpperCase(Description), 'CULLET') > 0 then
@@ -191,6 +193,21 @@ report 50010 "Daily Batch Consumption"
                         YieldPercent := 82.5;
 
                     ComponentGlassYield := Round("Expected Quantity" * (YieldPercent / 100), 0.01);
+                    ProdOrderComp1.Reset();
+                    ProdOrderComp1.SetRange("Prod. Order No.", ProdOrderComponent."Prod. Order No.");
+                    ProdOrderComp1.SetRange("Item No.", ProdOrderComponent."Item No.");
+                    If not ProdOrderComp1.FindFirst() then begin
+                        ProdOrderComp1.Init();
+                        ProdOrderComp1 := ProdOrderComponent;
+                        ProdOrderComp1.Insert();
+
+                        TotalComponentGlassYield += Round("Expected Quantity" * (YieldPercent / 100), 0.01);
+                    end;
+                end;
+
+                trigger OnPreDataItem()
+                begin
+                    Clear(TotalComponentGlassYield);
                 end;
             }
 
@@ -296,9 +313,11 @@ report 50010 "Daily Batch Consumption"
         TempGlassYieldKG: Decimal;
         ComponentYieldPercent: Decimal;
         ComponentGlassYield: Decimal;
+        TotalComponentGlassYield: Decimal;
         ReportTitleText: Text;
         TotalBatchingText: Text;
         SilicaSandLabel: Text;
         YieldPercent: Decimal;
         SingleMoistCompensated: Decimal;
+        ProdOrderComp1: Record "Prod. Order Component" temporary;
 }

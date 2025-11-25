@@ -79,7 +79,7 @@ page 50009 "Customer Complaint Report"
                 {
                     ToolTip = 'Specifies the value of the Status by field.', Comment = '%';
                 }
-                 field("Sales Return Order"; Rec."Sales Return Order")
+                field("Sales Return Order"; Rec."Sales Return Order")
                 {
                     ToolTip = 'Specifies the value of the Sales Return Order by field.', Comment = '%';
                 }
@@ -98,13 +98,13 @@ page 50009 "Customer Complaint Report"
             }
         }
     }
-      actions
+    actions
     {
         area(Processing)
         {
             group(Action12)
             {
-                 action(Release)
+                action(Release)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Re&lease';
@@ -118,13 +118,13 @@ page 50009 "Customer Complaint Report"
 
                     trigger OnAction()
                     var
-                        
+
                     begin
-                        
+
                         PerformManualRelease();
                     end;
                 }
-                  action(ReOpen)
+                action(ReOpen)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Re&Open';
@@ -136,12 +136,12 @@ page 50009 "Customer Complaint Report"
                     PromotedCategory = Process;
                     ToolTip = 'ReOpen the document.';
 
-                    trigger OnAction() 
+                    trigger OnAction()
                     begin
                         PerformManualReopen();
                     end;
                 }
-                 action(PrintCCR)
+                action(PrintCCR)
                 {
                     ApplicationArea = All;
                     Caption = 'Print CCR';
@@ -167,14 +167,18 @@ page 50009 "Customer Complaint Report"
             }
         }
     }
+    var
+        SalesReceSetup: Record "Sales & Receivables Setup";
+
     trigger OnAfterGetRecord()
     begin
         if Rec."No." <> '' then
             Rec.Get(Rec."No.");
     end;
-     procedure PerformManualReopen()
+
+    procedure PerformManualReopen()
     begin
-       
+
         if Rec.Status = Rec.Status::Open then
             exit;
         Rec.Status := Rec.Status::Open;
@@ -183,11 +187,22 @@ page 50009 "Customer Complaint Report"
 
     procedure PerformManualRelease()
     begin
-       
+
         if Rec.Status <> Rec.Status::Released then begin
             Rec.Status := Rec.Status::Released;
-             Rec.Modify();
+            Rec.Modify();
         end;
+    end;
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    var
+        NoSeries: Codeunit "No. Series";
+    begin
+        If SalesReceSetup.Get() then
+            If SalesReceSetup."Customer Complaint Report No." <> '' then
+                Rec."No." := NoSeries.PeekNextNo(SalesReceSetup."Customer Complaint Report No.")
+            Else
+                Error('Please setup Customer Complaint Report No. in sales & receivables setup');
     end;
 
 }

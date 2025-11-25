@@ -77,6 +77,8 @@ table 50006 "Customer Complaint Report"
         field(15; "Complaint Raised by"; Text[100])
         {
             Caption = 'Complaint Raised by';
+            TableRelation = "Salesperson/Purchaser".Name;
+            ValidateTableRelation = false;
             trigger OnValidate()
             begin
                 TestField(Status, Status::Open);
@@ -160,6 +162,9 @@ table 50006 "Customer Complaint Report"
         }
     }
 
+    var
+        SalesReceSetup: Record "Sales & Receivables Setup";
+
     procedure LookupContactList()
     var
         ContactBusinessRelation: Record "Contact Business Relation";
@@ -181,5 +186,16 @@ table 50006 "Customer Complaint Report"
         if Page.RunModal(0, ContactForLookup) = Action::LookupOK then begin
             Validate("Customer Contact", ContactForLookup.Name);
         end;
+    end;
+
+    trigger OnInsert()
+    var
+        NoSeries: Codeunit "No. Series";
+    begin
+        If SalesReceSetup.Get() then;
+        If SalesReceSetup."Customer Complaint Report No." <> '' then
+            Rec."No." := NoSeries.GetNextNo(SalesReceSetup."Customer Complaint Report No.", Today(), true)
+        Else
+            Error('Please setup Customer Complaint Report No. in sales & receivables setup');
     end;
 }

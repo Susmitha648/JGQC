@@ -63,6 +63,10 @@ page 50016 "Machine/SectionStoppage Fin"
                     ToolTip = 'Specifies the value of the Foreman/Shift Supt field.', Comment = '%';
                     MultiLine = true;
                 }
+            }
+            group(Action)
+            {
+                Caption = 'Action';
                 field(Department; Rec.Department)
                 {
                     ToolTip = 'Specifies the value of the Department field.', Comment = '%';

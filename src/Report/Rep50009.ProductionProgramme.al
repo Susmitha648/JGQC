@@ -72,6 +72,7 @@ report 50009 "Production Programme"
 
                     dataitem(ProductionProgrammeLine; "Production Programme Line")
                     {
+                        DataItemTableView = sorting("No.", Furnace, Date);
                         DataItemLinkReference = ProductionProgrammeHeader;
                         DataItemLink = "No." = field("No.");
 
@@ -135,6 +136,7 @@ report 50009 "Production Programme"
                                 JobNo: Code[20];
                                 ForecastDateValue: Date;
                             begin
+
                                 // Get parent field values
                                 DemandForecastName := ProductionProgrammeHeader."Demand Forecast Name";
                                 JobNo := ProductionProgrammeLine.Job;
@@ -151,26 +153,75 @@ report 50009 "Production Programme"
                         trigger OnAfterGetRecord()
                         var
                             PrevLine: Record "Production Programme Line";
+
                         begin
-                            IsFirstJobRow := true; // Default to true
+                            IsFirstJobRow := false; // Default to true
 
                             // Check if there's a previous line with the same Job on an earlier date
-                            PrevLine.SetRange("No.", "No.");
-                            PrevLine.SetRange(Job, Job);
+                            /*PrevLine.Reset();
+                            PrevLine.SetRange(Furnace,ProductionProgrammeLine.Furnace);
+                            PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
+                            PrevLine.SetRange(Job, ProductionProgrammeLine.Job);
                             PrevLine.SetFilter(Date, '<%1', Date);
                             if PrevLine.FindLast() then
-                                IsFirstJobRow := false;
+                                IsFirstJobRow := false;*/
 
-                            // If still true, check if there's a previous line with same Job on same date
-                            if IsFirstJobRow then begin
-                                PrevLine.Reset();
-                                PrevLine.SetRange("No.", "No.");
-                                PrevLine.SetRange(Job, Job);
-                                PrevLine.SetRange(Date, Date);
-                                PrevLine.SetFilter("No.", '<%1', "No.");
-                                if PrevLine.FindLast() then
-                                    IsFirstJobRow := false;
+                            PrevLine.Reset();
+                            PrevLine.SetCurrentKey(Date);
+                            PrevLine.SetAscending(Date, True);
+                            PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
+                            PrevLine.SetRange(Job, ProductionProgrammeLine.Job);
+                            PrevLine.SetRange(Furnace, ProductionProgrammeLine.Furnace);
+                            if PrevLine.FindFirst() then
+                                If (PrevLine.Date = ProductionProgrammeLine.Date) then begin
+                                    IsFirstJobRow := True;
+                                end;
+                            
+                            If IsFirstJobRow then begin
+                            PrevLine1.Reset();
+                            PrevLine1.SetCurrentKey(Furnace,Job);
+                            PrevLine.SetAscending(Date, false);
+                            PrevLine1.SetRange("No.", ProductionProgrammeLine."No.");
+                            PrevLine1.SetRange(Furnace, ProductionProgrammeLine.Furnace);
+                            PrevLine1.SetRange(Job, ProductionProgrammeLine.Job);
+                            If PrevLine1.FindFirst() then 
+                               PrevLine1.Mark(True);
+                            
+                            PrevJobNo := ProductionProgrammeLine.Job;
                             end;
+                            
+                             /*PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
+                             PrevLine.SetRange(Job, ProductionProgrammeLine.Job);
+                             PrevLine.SetFilter(Date, '<%1', Date);
+                             if PrevLine.FindLast() then
+                                 IsFirstJobRow := false;
+                             // If still true, check if there's a previous line with same Job on same date
+                             if IsFirstJobRow then begin
+                                 PrevLine.Reset();
+                                 PrevLine.SetRange("No.", "No.");
+                                 PrevLine.SetRange(Job, Job);
+                                 PrevLine.SetRange(Date, Date);
+                                 PrevLine.SetFilter("No.", '<%1', "No.");
+                                 if PrevLine.FindLast() then
+                                     IsFirstJobRow := false;
+                             end;*/
+                            if IsFirstJobRow then begin
+                                If Job = '' then
+                                    IsFirstJobRow := false
+                                else begin
+                                    PrevLine.Reset();
+                                    PrevLine.SetCurrentKey(Date);
+                                    PrevLine.SetAscending(Date, True);
+                                    PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
+                                    PrevLine.SetRange(Furnace, ProductionProgrammeLine.Furnace);
+                                    If PrevLine.FindFirst() then
+                                        If PrevLine.Date = ProductionProgrammeLine.Date then
+                                            IsFirstJobRow := false;
+                                end;
+
+                            end;
+                            // [THEN] Then
+
                         end;
 
                         trigger OnPreDataItem()
@@ -284,6 +335,8 @@ report 50009 "Production Programme"
 
 
     var
+        PrevLine1: Record "Production Programme Line";
+        PrevLinetemp: Record "Production Programme Line" temporary;
         CurrentDate: Date;
         DayName: Text[30];
         IsHolidayFlag: Boolean;
@@ -295,4 +348,5 @@ report 50009 "Production Programme"
         DaysInCurrentMonth: Integer;
         MonthYearText: Text[50];
         IsFirstJobRow: Boolean;
+        PrevJobNo: Code[20];
 }

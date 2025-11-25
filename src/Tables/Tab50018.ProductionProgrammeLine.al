@@ -115,9 +115,12 @@ table 50018 "Production Programme Line"
     }
     keys
     {
-        key(PK; "No.", Date, Furnace)
+        key(PK; "No.",Furnace, Date )
         {
             Clustered = true;
+        }
+         key(PK2; Furnace, Job )
+        {
         }
     }
     trigger OnDelete()
