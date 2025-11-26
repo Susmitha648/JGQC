@@ -129,6 +129,26 @@ report 50011 "Batch Operator Daily Report"
                     end;
                 }
 
+                // MOVED INSIDE ShiftGroup - This is the key fix!
+                dataitem("Prod. Order Component"; "Prod. Order Component")
+                {
+                    DataItemLinkReference = BatchOperatorsDailyEntry;
+                    DataItemLink = "Prod. Order No." = field("Production Order No.");
+
+                    column(Item_No_; "Item No.")
+                    {
+                    }
+                    column(Description; Description)
+                    {
+                    }
+                    column(Quantity_per_Prod_Order; "Quantity per")
+                    {
+                    }
+                    column(Line_No_; "Line No.")
+                    {
+                    }
+                }
+
                 trigger OnAfterGetRecord()
                 var
                     BatchOperatorsLine: Record "Batch Operators Line";
@@ -158,24 +178,6 @@ report 50011 "Batch Operator Daily Report"
                 begin
                     SetRange(Number, 1, 999);
                 end;
-            }
-
-            dataitem("Prod. Order Component"; "Prod. Order Component")
-            {
-                DataItemLink = "Prod. Order No." = field("Production Order No.");
-
-                column(Item_No_; "Item No.")
-                {
-                }
-                column(Description; Description)
-                {
-                }
-                column(Quantity_per_Prod_Order; "Quantity per")
-                {
-                }
-                column(Line_No_; "Line No.")
-                {
-                }
             }
 
             trigger OnAfterGetRecord()
