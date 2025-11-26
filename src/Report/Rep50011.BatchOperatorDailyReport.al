@@ -160,6 +160,24 @@ report 50011 "Batch Operator Daily Report"
                 end;
             }
 
+            dataitem("Prod. Order Component"; "Prod. Order Component")
+            {
+                DataItemLink = "Prod. Order No." = field("Production Order No.");
+
+                column(Item_No_; "Item No.")
+                {
+                }
+                column(Description; Description)
+                {
+                }
+                column(Quantity_per_Prod_Order; "Quantity per")
+                {
+                }
+                column(Line_No_; "Line No.")
+                {
+                }
+            }
+
             trigger OnAfterGetRecord()
             var
                 BatchOperatorsLine: Record "Batch Operators Line";
