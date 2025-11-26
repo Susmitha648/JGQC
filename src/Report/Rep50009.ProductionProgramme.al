@@ -177,18 +177,8 @@ report 50009 "Production Programme"
                                     IsFirstJobRow := True;
                                 end;
                             
-                            If IsFirstJobRow then begin
-                            PrevLine1.Reset();
-                            PrevLine1.SetCurrentKey(Furnace,Job);
-                            PrevLine.SetAscending(Date, false);
-                            PrevLine1.SetRange("No.", ProductionProgrammeLine."No.");
-                            PrevLine1.SetRange(Furnace, ProductionProgrammeLine.Furnace);
-                            PrevLine1.SetRange(Job, ProductionProgrammeLine.Job);
-                            If PrevLine1.FindFirst() then 
-                               PrevLine1.Mark(True);
-                            
-                            PrevJobNo := ProductionProgrammeLine.Job;
-                            end;
+                            If ProductionProgrammeLine."First Line" then
+                                IsFirstJobRow := True;
                             
                              /*PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
                              PrevLine.SetRange(Job, ProductionProgrammeLine.Job);

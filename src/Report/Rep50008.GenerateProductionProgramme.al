@@ -11,10 +11,12 @@ report 50008 "Generate Production Programme"
             var
                 ProductionProgramLine: Record "Production Programme Line";
                 Item: Record Item;
+                FirstLineDate : Date;
                 WorkShift : Record "Work Shift";
             begin
                 If Item.Get(JobNo) then;
                 If WorkShift.FindSet() then;
+                FirstLineDate := FromDate;
                 While FromDate <= ToDate do begin
                     ProductionProgramLine.Reset();
                     ProductionProgramLine.SetRange("No.", "No.");
@@ -35,6 +37,10 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.Job := JobNo;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
                     ProductionProgramLine.Ton := (BottlesPerMinute*8*60*WorkShift.Count*Item."Net Weight")/1000000;
+                    If ProductionProgramLine.Date = ToDate then
+                      ProductionProgramLine."Last Line" := True;
+                    If ProductionProgramLine.Date = FirstLineDate then
+                      ProductionProgramLine."First Line" := True;
                     ProductionProgramLine.Modify();
                     FromDate := FromDate + 1;
                 end;

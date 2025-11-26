@@ -111,6 +111,16 @@ table 50018 "Production Programme Line"
             Caption = 'Production Order Created';
             Editable = false;
         }
+         field(15; "First Line"; Boolean)
+        {
+            Caption = 'First Line';
+            Editable = false;
+        }
+         field(16; "Last Line"; Boolean)
+        {
+            Caption = 'Last Line';
+            Editable = false;
+        }
 
     }
     keys

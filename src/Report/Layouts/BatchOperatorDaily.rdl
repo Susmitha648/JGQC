@@ -5228,6 +5228,21 @@ End Function
         <Field Name="Time">
           <DataField>Time</DataField>
         </Field>
+        <Field Name="Item_No_">
+          <DataField>Item_No_</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Quantity_per_Prod_Order">
+          <DataField>Quantity_per_Prod_Order</DataField>
+        </Field>
+        <Field Name="Quantity_per_Prod_OrderFormat">
+          <DataField>Quantity_per_Prod_OrderFormat</DataField>
+        </Field>
+        <Field Name="Line_No_">
+          <DataField>Line_No_</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
