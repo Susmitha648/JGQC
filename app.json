@@ -34,6 +34,12 @@
       "name": "MRInventory",
       "version": "1.0.0.0",
       "publisher": "Comm-IT"
+    },
+    {
+      "id": "fd09b53c-ff32-4d9c-91ce-6a82a87b8c9c",
+      "name": "MobileNAV",
+      "version": "11.0.0.53",
+      "publisher": "MULTISOFT KFT"
     }
   ],
   "screenshots": [],
