@@ -58,6 +58,15 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "QC Details";
                 RunPageLink = "Work Order No" = field("No.");
             }
+            action(InspectionChallengeSample)
+            {
+                ApplicationArea = All;
+                Caption = 'Inspection Challenge Sample';
+                Image = List;
+                ToolTip = 'Inspection Challenge Sample';
+                RunObject = Page "Inspection Challenge Samples";
+                RunPageLink = "Released Prod Order No." = field("No.");
+            }
         }
         addafter("Shortage List")
         {

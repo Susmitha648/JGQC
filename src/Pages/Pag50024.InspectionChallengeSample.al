@@ -50,4 +50,20 @@ page 50024 "Inspection Challenge Sample"
             }
         }
     }
+     trigger OnNewRecord(BelowxRec: Boolean)
+    var
+        ReleaseProdOrder: Record "Production Order";
+        DimensionSetEntry : Record "Dimension Set Entry";
+        GeneralLedgerSetup : Record "General Ledger Setup";
+    begin
+        GeneralLedgerSetup.Get();
+        If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Released Prod Order No.") then
+            If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
+                Rec."Production Order Date" := WorkDate();
+                Rec.Validate("Job No.", ReleaseProdOrder."Source No.");
+                If DimensionSetEntry.Get(ReleaseProdOrder."Dimension Set ID",GeneralLedgerSetup."Shortcut Dimension 8 Code") then
+                  Rec."MC No." := DimensionSetEntry."Dimension Value Code";
+                  Rec."Furnace No." := ReleaseProdOrder."Location Code";
+            end;
+    end;
 }
