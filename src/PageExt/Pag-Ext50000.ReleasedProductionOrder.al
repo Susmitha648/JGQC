@@ -61,23 +61,7 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
         }
         addafter("Shortage List")
         {
-            action(RecordingSlipReport)
-            {
-                ApplicationArea = All;
-                Caption = 'Print Recording Slip';
-                Image = Report;
-                trigger OnAction()
-                var
-                    MyReportID: Integer;
-                    DocumentNo: Record "Production Order";
-                    Count: Integer;
-                    QtyToPrint: Integer;
-                begin
-                    MyReportID := Report::RecordingSlipReport;
-                    CurrPage.SetSelectionFilter(DocumentNo);
-                    Report.Run(MyReportID, true, false, DocumentNo);
-                end;
-            }
+            
             action("Daily Batch Consumption")
             {
                 ApplicationArea = Manufacturing;

@@ -118,6 +118,7 @@ codeunit 50000 "QC Subcriber"
        until ProdOrderLine.Next() = 0;
        
     end;
+    
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin
         ProductionOrder := ProductionHdr;

@@ -121,11 +121,16 @@ table 50018 "Production Programme Line"
             Caption = 'Last Line';
             Editable = false;
         }
+         field(17; "Record Slip No"; Integer)
+        {
+            Caption = 'Record Slip No';
+            Editable = false;
+        }
 
     }
     keys
     {
-        key(PK; "No.",Furnace, Date )
+        key(PK; "No.",Date,Furnace)
         {
             Clustered = true;
         }
