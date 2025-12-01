@@ -1,10 +1,11 @@
-page 50023 "Cold End Presort Details"
+page 50046 "Cold End Presort Details Finis"
 {
     ApplicationArea = All;
     Caption = 'Cold End Presort Details';
     PageType = List;
     SourceTable = "Cold End Presort Detail Header";
-    CardPageId = "Cold End Presort Detail";
+    
+    CardPageId = "Cold End Presort Detail Finish";
     Editable = false;
     layout
     {
@@ -52,3 +53,4 @@ page 50023 "Cold End Presort Details"
         }
     }
 }
+

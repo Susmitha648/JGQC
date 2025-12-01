@@ -39,6 +39,10 @@ table 50014 "Cold End Presort Detail Lines"
             Caption = 'QC Defect Code';
             TableRelation = "Defect Code"."Defect Code";
         }
+         field(9; Time; Enum Time)
+        {
+            Caption = 'Frequency';
+        }
     }
     keys
     {

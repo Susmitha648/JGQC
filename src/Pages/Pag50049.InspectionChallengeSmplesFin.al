@@ -1,10 +1,10 @@
-page 50023 "Cold End Presort Details"
+page 50049 "Inspection ChallengeSmples Fin"
 {
-    ApplicationArea = All;
-    Caption = 'Cold End Presort Details';
+   ApplicationArea = All;
+    Caption = 'Inspection Challenge Samples';
     PageType = List;
-    SourceTable = "Cold End Presort Detail Header";
-    CardPageId = "Cold End Presort Detail";
+    SourceTable = "Inspection Challenge Sample He";
+    CardPageId = "Inspection Challenge Sample Fi";
     Editable = false;
     layout
     {
@@ -28,27 +28,20 @@ page 50023 "Cold End Presort Details"
                 {
                     ToolTip = 'Specifies the value of the Description field.', Comment = '%';
                 }
-                field(Finish; Rec.Finish)
+                field(Ring; Rec.Ring)
                 {
-                    ToolTip = 'Specifies the value of the Finish field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Ring field.', Comment = '%';
                 }
                 field("MC No."; Rec."MC No.")
                 {
                     ToolTip = 'Specifies the value of the MC No. field.', Comment = '%';
                 }
-                field("Machine Speed"; Rec."Machine Speed")
+                field("Furnace No."; Rec."Furnace No.")
                 {
-                    ToolTip = 'Specifies the value of the Machine Speed field.', Comment = '%';
-                }
-                field("LEHR Time"; Rec."LEHR Time")
-                {
-                    ToolTip = 'Specifies the value of the LEHR Time field.', Comment = '%';
-                }
-                field("Customer Name"; Rec."Customer Name")
-                {
-                    ToolTip = 'Specifies the value of the Customer Name field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Furnace No. field.', Comment = '%';
                 }
             }
         }
     }
 }
+

@@ -4,8 +4,8 @@ page 50025 "Inspection Challenge Samples"
     Caption = 'Inspection Challenge Samples';
     PageType = List;
     SourceTable = "Inspection Challenge Sample He";
-    UsageCategory = Lists;
     CardPageId = "Inspection Challenge Sample";
+    Editable = false;
     layout
     {
         area(Content)

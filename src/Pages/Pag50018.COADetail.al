@@ -67,18 +67,7 @@ page 50018 "COA Detail"
             {
                 Caption = 'Create';
                 Image = Create;
-                action(UpdateMouldNo)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Update Mould No';
-                    ToolTip = 'Update Mould No';
-                    Image = Create;
-                    Promoted = True;
-                    PromotedIsBig = True;
-                    PromotedCategory = New;
-                    RunObject = Page "Update Mould No";
-                    RunPageLink = "Work Order No." = field("Released Prod Order No.");
-                }
+               
                 action(Release)
                 {
                     ApplicationArea = Suite;
@@ -190,7 +179,7 @@ page 50018 "COA Detail"
     begin
         If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Released Prod Order No.") then
             If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
-                Rec."Production Order Date" := WorkDate();
+                
                 Rec.Validate("Job No.", ReleaseProdOrder."Source No.");
             end;
     end;

@@ -1,10 +1,11 @@
-page 50024 "Inspection Challenge Sample"
+page 50048 "Inspection Challenge Sample Fi"
 {
-    ApplicationArea = All;
+     ApplicationArea = All;
     Caption = 'Inspection Challenge Sample';
     PageType = Document;
     SourceTable = "Inspection Challenge Sample He";
     PromotedActionCategoriesML = ENU = 'Create';
+    Editable = false;
     layout
     {
         area(Content)

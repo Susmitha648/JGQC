@@ -1,6 +1,7 @@
 pageextension 50001 "Finished Production Order" extends "Finished Production Order"
 {
-    layout{
+    layout
+    {
         modify("Starting Date-Time")
         {
             Visible = false;
@@ -10,7 +11,7 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
             Visible = false;
         }
     }
-     actions
+    actions
     {
         addafter("E&ntries")
         {
@@ -47,7 +48,7 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
                 RunObject = Page "Batch Operator Entries Finishe";
                 RunPageLink = "Production Order No." = field("No.");
             }
-             action(QCUpdate)
+            action(QCUpdate)
             {
                 ApplicationArea = All;
                 Caption = 'QC Update Details';
@@ -57,6 +58,28 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
                 Promoted = true;
                 PromotedCategory = Category4;
                 RunPageLink = "Work Order No" = field("No.");
+            }
+            action(InspectionChallengeSample)
+            {
+                ApplicationArea = All;
+                Caption = 'Inspection Challenge Sample';
+                Image = List;
+                ToolTip = 'Inspection Challenge Sample';
+                Promoted = true;
+                PromotedCategory = Category4;
+                RunObject = Page "Inspection ChallengeSmples Fin";
+                RunPageLink = "Released Prod Order No." = field("No.");
+            }
+            action(ColdEndPresort)
+            {
+                ApplicationArea = All;
+                Caption = 'Cold End Presort Detail';
+                Image = List;
+                ToolTip = 'Cold End Presort Detail';
+                Promoted = true;
+                PromotedCategory = Category4;
+                RunObject = Page "Cold End Presort Details Finis";
+                RunPageLink = "Released Prod Order No." = field("No.");
             }
         }
     }

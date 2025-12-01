@@ -8,15 +8,17 @@ table 50013 "Cold End Presort Detail Header"
         field(1; "Released Prod Order No."; Code[20])
         {
             Caption = 'Released Prod Order No.';
+            Editable = false;
         }
         field(2; "Production Order Date"; Date)
         {
             Caption = 'Production Order Date';
+            Editable = false;
         }
         field(3; "Job No."; Code[20])
         {
             Caption = 'Job No.';
-            TableRelation = "QC Plan Header"."Job No.";
+            Editable = false;
             trigger OnValidate()
              var
                 QCPlanHeader: Record "QC Plan Header";
@@ -53,8 +55,6 @@ table 50013 "Cold End Presort Detail Header"
          field(9; "Customer Name"; Text[100])
         {
             DataClassification = CustomerContent;
-            Editable = false;
-            
         }
     }
     keys
@@ -64,4 +64,31 @@ table 50013 "Cold End Presort Detail Header"
             Clustered = true;
         }
     }
+    trigger OnDelete()
+    var
+    ColdEndLine : Record "Cold End Presort Detail Lines";
+    begin
+       ColdEndLine.Reset();
+       ColdEndLine.SetRange("Released Prod Order No.","Released Prod Order No.");
+       ColdEndLine.SetRange("Production Order Date","Production Order Date");
+       ColdEndLine.DeleteAll();
+    end;
+    trigger OnInsert()
+    var
+        ReleaseProdOrder: Record "Production Order";
+        DimensionSetEntry: Record "Dimension Set Entry";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+    begin
+        GeneralLedgerSetup.Get();
+        If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Released Prod Order No.") then
+            If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
+                Rec."Production Order Date" := ReleaseProdOrder."Due Date";
+                Rec.Validate("Job No.", ReleaseProdOrder."Source No.");
+                 If DimensionSetEntry.Get(ReleaseProdOrder."Dimension Set ID", GeneralLedgerSetup."Shortcut Dimension 8 Code") then
+                    Rec."MC No." := DimensionSetEntry."Dimension Value Code";
+                    
+            end;
+
+
+    end;
 }

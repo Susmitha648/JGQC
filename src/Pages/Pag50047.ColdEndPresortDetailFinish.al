@@ -1,10 +1,11 @@
-page 50021 "Cold End Presort Detail"
+page 50047 "Cold End Presort Detail Finish"
 {
     ApplicationArea = All;
     Caption = 'Cold End Presort Detail';
     PageType = Document;
     SourceTable = "Cold End Presort Detail Header";
     PromotedActionCategoriesML = ENU = 'Create';
+    Editable = false;
     layout
     {
         area(Content)

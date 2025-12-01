@@ -19,10 +19,6 @@ page 50022 "Cold End Presort Detail Lines"
                 {
                     ToolTip = 'Specifies the value of the Production Order Date field.', Comment = '%';
                 }
-                field("Line No."; Rec."Line No.")
-                {
-                    ToolTip = 'Specifies the value of the Line No. field.', Comment = '%';
-                }
                 field("Section No."; Rec."Section No.")
                 {
                     ToolTip = 'Specifies the value of the Section No. field.', Comment = '%';
@@ -30,6 +26,10 @@ page 50022 "Cold End Presort Detail Lines"
                 field("Front/Back"; Rec."Front/Back")
                 {
                     ToolTip = 'Specifies the value of the Front/Back field.', Comment = '%';
+                }
+                 field("Time"; Rec."Time")
+                {
+                    ToolTip = 'Specifies the value of the Frequency field.', Comment = '%';
                 }
                 field("Cavity No"; Rec."Cavity No")
                 {
@@ -42,4 +42,17 @@ page 50022 "Cold End Presort Detail Lines"
             }
         }
     }
+    trigger OnNewRecord(BelowxRec: Boolean)
+    var
+    ColdEndLine : Record "Cold End Presort Detail Lines";
+    begin
+        ColdEndLine.Reset();
+        ColdEndLine.SetAscending("Line No.", false);
+        ColdEndLine.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
+        ColdEndLine.SetRange("Production Order Date", Rec."Production Order Date");
+        If ColdEndLine.FindFirst() then
+            Rec."Line No." := ColdEndLine."Line No." + 10000
+        else
+            Rec."Line No." := 10000;
+    end;
 }

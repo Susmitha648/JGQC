@@ -91,7 +91,7 @@ table 50011 "COA Header"
     begin
         If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Released Prod Order No.") then
             If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
-                Rec."Production Order Date" := WorkDate();
+                Rec."Production Order Date" := ReleaseProdOrder."Due Date";
                 Rec.Validate("Job No.", ReleaseProdOrder."Source No.");
             end;
 

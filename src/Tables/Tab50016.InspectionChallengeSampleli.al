@@ -23,22 +23,21 @@ table 50016 "Inspection Challenge Sample li"
         field(6; "Inspection Type"; Enum "Inspection Type")
         {
             Caption = 'Inspection Type';
-            Editable = false;
+
         }
-         field(7; "QC Defect Code"; Code[20])
+        field(7; "QC Defect Code"; Code[20])
         {
             Caption = 'QC Defect Code';
             TableRelation = "Defect Code"."Defect Code";
         }
-         field(8; "Reject %"; Decimal)
+        field(8; "Reject %"; Decimal)
         {
             Caption = 'Reject %';
-            DecimalPlaces = 0:2;
+            DecimalPlaces = 0 : 2;
         }
         field(9; Time; Enum Time)
         {
-            Caption = 'Time';
-            Editable = false;
+            Caption = 'Frequency';
         }
     }
     keys

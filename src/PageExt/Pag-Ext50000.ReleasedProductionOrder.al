@@ -30,7 +30,7 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 Image = List;
                 ToolTip = 'COA Details';
                 RunObject = Page "COA Details";
-                RunPageLink = "Released Prod Order No." = field("No.");
+                RunPageLink = "Released Prod Order No." = field("No."),"Production Order Date" = field("Due Date");
             }
             
             action(BatchOperationEntry)
@@ -67,6 +67,24 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "Inspection Challenge Samples";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
+             action(ColdEndPresort)
+            {
+                ApplicationArea = All;
+                Caption = 'Cold End Presort Detail';
+                Image = List;
+                ToolTip = 'Cold End Presort Detail';
+                RunObject = Page "Cold End Presort Details";
+                RunPageLink = "Released Prod Order No." = field("No.");
+            }
+             action(UpdateMouldNo)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Update Mould No';
+                    ToolTip = 'Update Mould No';
+                    Image = Create;
+                    RunObject = Page "Update Mould No";
+                    RunPageLink = "Work Order No." = field("No.");
+                }
         }
         addafter("Shortage List")
         {
@@ -112,6 +130,15 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
             {
             }
             actionref(BatchOperationEntry_Promoted; BatchOperationEntry)
+            {
+            }
+             actionref(InspectionChallengeSample_Promoted; InspectionChallengeSample)
+            {
+            }
+              actionref(ColdEndPresort_Promoted; ColdEndPresort)
+            {
+            }
+             actionref(UpdateMouldNo_Promoted; UpdateMouldNo)
             {
             }
         }
