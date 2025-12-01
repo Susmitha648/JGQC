@@ -16,6 +16,7 @@ report 50008 "Generate Production Programme"
                 WorkShift: Record "Work Shift";
                 Sequence : Integer;
             begin
+                Clear(Sequence);
                 ProductionProgramLineSequence.Reset();
                 ProductionProgramLineSequence.SetAscending(Date, true);
                 ProductionProgramLineSequence.SetRange("No.", ProductionProgrammeHeader."No.");
@@ -52,7 +53,7 @@ report 50008 "Generate Production Programme"
                         ProductionProgramLine."Last Line" := True;
                     If ProductionProgramLine.Date = FirstLineDate then
                         ProductionProgramLine."First Line" := True;
-
+                    ProductionProgramLine."Sequence No" := Sequence;
                     ProductionProgramLine.Modify();
                     FromDate := FromDate + 1;
                 end;
