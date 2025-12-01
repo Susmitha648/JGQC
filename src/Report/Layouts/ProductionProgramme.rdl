@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-11-19T06:50:01.6297681Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-01T01:38:22.1772030Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -121,7 +121,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -186,7 +186,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -447,7 +447,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -511,7 +511,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -575,7 +575,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -639,7 +639,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -687,7 +687,7 @@
                             </Border>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -753,7 +753,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -815,7 +815,7 @@
                             </RightBorder>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
@@ -833,6 +833,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox237">
                           <rd:DefaultName>Textbox237</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -861,7 +862,7 @@
                             </Border>
                             <BackgroundColor>=IIf(
     Fields!IsFirstJobRow.Value = true,
-    "CornflowerBlue",
+    "Transparent",
     IIf(
         First(Fields!IsHoliday.Value, "Date") = true,
         "SeaGreen",
