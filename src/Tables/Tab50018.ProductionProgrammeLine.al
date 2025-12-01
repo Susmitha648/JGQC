@@ -114,22 +114,22 @@ table 50018 "Production Programme Line"
          field(15; "First Line"; Boolean)
         {
             Caption = 'First Line';
-            Editable = false;
+           
         }
          field(16; "Last Line"; Boolean)
         {
             Caption = 'Last Line';
-            Editable = false;
+            
         }
          field(17; "Record Slip No"; Integer)
         {
             Caption = 'Record Slip No';
-            Editable = false;
+           
         }
           field(18; "Sequence No"; Integer)
         {
             Caption = 'Sequence No';
-            Editable = false;
+            
         }
 
     }
