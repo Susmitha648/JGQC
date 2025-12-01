@@ -126,6 +126,11 @@ table 50018 "Production Programme Line"
             Caption = 'Record Slip No';
             Editable = false;
         }
+          field(18; "Sequence No"; Integer)
+        {
+            Caption = 'Sequence No';
+            Editable = false;
+        }
 
     }
     keys

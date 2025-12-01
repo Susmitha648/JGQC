@@ -10,10 +10,21 @@ report 50008 "Generate Production Programme"
             trigger OnAfterGetRecord()
             var
                 ProductionProgramLine: Record "Production Programme Line";
+                ProductionProgramLineSequence: Record "Production Programme Line";
                 Item: Record Item;
-                FirstLineDate : Date;
-                WorkShift : Record "Work Shift";
+                FirstLineDate: Date;
+                WorkShift: Record "Work Shift";
+                Sequence : Integer;
             begin
+                ProductionProgramLineSequence.Reset();
+                ProductionProgramLineSequence.SetAscending(Date, true);
+                ProductionProgramLineSequence.SetRange("No.", ProductionProgrammeHeader."No.");
+                ProductionProgramLineSequence.SetRange(Job, JobNo);
+                If ProductionProgramLineSequence.FindLast() then
+                    Sequence := ProductionProgramLineSequence."Sequence No" + 1
+                else
+                    Sequence :=  1;
+
                 If Item.Get(JobNo) then;
                 If WorkShift.FindSet() then;
                 FirstLineDate := FromDate;
@@ -36,11 +47,12 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.WT := Item."Net Weight";
                     ProductionProgramLine.Job := JobNo;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
-                    ProductionProgramLine.Ton := (BottlesPerMinute*8*60*WorkShift.Count*Item."Net Weight")/1000000;
+                    ProductionProgramLine.Ton := (BottlesPerMinute * 8 * 60 * WorkShift.Count * Item."Net Weight") / 1000000;
                     If ProductionProgramLine.Date = ToDate then
-                      ProductionProgramLine."Last Line" := True;
+                        ProductionProgramLine."Last Line" := True;
                     If ProductionProgramLine.Date = FirstLineDate then
-                      ProductionProgramLine."First Line" := True;
+                        ProductionProgramLine."First Line" := True;
+
                     ProductionProgramLine.Modify();
                     FromDate := FromDate + 1;
                 end;
@@ -79,9 +91,9 @@ report 50008 "Generate Production Programme"
                             DimensionValue.Reset();
                             DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
                             If DimensionValue.FindSet() then;
-                            if Page.RunModal(537,DimensionValue) = Action::LookupOK then begin
-                               Furnace := DimensionValue.Code;
-                               
+                            if Page.RunModal(537, DimensionValue) = Action::LookupOK then begin
+                                Furnace := DimensionValue.Code;
+
                             end;
                         end;
                     }
@@ -130,7 +142,7 @@ report 50008 "Generate Production Programme"
         Tray: Text[50];
         Pallet: Text[50];
         Speed: Enum Speed;
-        BottlesPerMinute : Integer;
+        BottlesPerMinute: Integer;
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
         ShortCutDimension: Code[20];

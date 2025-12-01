@@ -146,62 +146,58 @@ report 50005 RecordingSlipReport
                 ProductionProgram.SetRange(Date, "Due Date");
                 If ProductionProgram.FindFirst() then begin
                     ProductionProgramLine.Reset();
+                    ProductionProgramLine.SetAscending(Date, True);
                     ProductionProgramLine.SetRange("No.", ProductionProgram."No.");
                     ProductionProgramLine.SetRange(Job, "Shortcut Dimension 2 Code");
                     ProductionProgramLine.SetRange("First Line", True);
-                    If ProductionProgramLine.Count = 1 then begin
+                    ProductionProgramLine.SetRange("Sequence No", ProductionProgram."Sequence No");
+                    If ProductionProgramLine.FindFirst() then begin
+                        RecordingSlipNo := ProductionProgramLine."Record Slip No" + 1;
+                        ProductionProgramLine."Record Slip No" := RecordingSlipNo;
+                        ProductionProgramLine.Modify();
+                    end;
+
+                end else begin
+                    ProductionProgram.SetRange(Date, CalcDate('<-1D>', "Due Date"));
+                    If ProductionProgram.FindFirst() then begin
+                        ProductionProgramLine.Reset();
+                        ProductionProgramLine.SetRange("No.", ProductionProgram."No.");
+                        ProductionProgramLine.SetRange(Job, "Shortcut Dimension 2 Code");
+                        ProductionProgramLine.SetRange("First Line", True);
+                        ProductionProgramLine.SetRange("Sequence No", ProductionProgram."Sequence No");
                         If ProductionProgramLine.FindFirst() then begin
                             RecordingSlipNo := ProductionProgramLine."Record Slip No" + 1;
                             ProductionProgramLine."Record Slip No" := RecordingSlipNo;
                             ProductionProgramLine.Modify();
                         end;
-                    end else begin
-                        /*If ProductionProgramLine.FindSet() then repeat
-                            RecordingSlipNo := ProductionProgramLine."Record Slip No" + 1;
-                            ProductionProgramLine."Record Slip No" := RecordingSlipNo;
-                            ProductionProgramLine.Modify();
-                        until ProductionProgramLine.Next() = 0;*/
-                    end;
-                end else begin
-                        ProductionProgram.SetRange(Date, CalcDate('<-1D>', "Due Date"));
-                        If ProductionProgram.FindFirst() then begin
-                            ProductionProgramLine.Reset();
-                            ProductionProgramLine.SetRange("No.", ProductionProgram."No.");
-                            ProductionProgramLine.SetRange(Job, "Shortcut Dimension 2 Code");
-                            ProductionProgramLine.SetRange("First Line", True);
-                            If ProductionProgramLine.FindFirst() then begin
-                                RecordingSlipNo := ProductionProgramLine."Record Slip No" + 1;
-                                ProductionProgramLine."Record Slip No" := RecordingSlipNo;
-                                ProductionProgramLine.Modify();
-                            end;
-                        end
-                    end;
-                    if "Shortcut Dimension 2 Code" <> '' then begin
-                        BarcodeString := Format("Shortcut Dimension 2 Code") + '-' + Format(Item."Pack Size") + '-' + Format("Due Date", 0, '<Day,2>/<Month,2>/<Year4>') + '-' + Format(RecordingSlipNo);
-                        // Validate the input
-                        BarcodeString := DelChr(BarcodeString, '=', ' ');
-                        BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
-                        // Encode the data string to the barcode font
-                        GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
-                        GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
-                    end;
-                    ReservationEntry.Init();
-                    ReservationEntry."Entry No." := 0;
-                    ReservationEntry.Validate("Item No.", "Prod. Order Line"."Item No.");
-                    ReservationEntry."Location Code" := "Prod. Order Line"."Location Code";
-                    ReservationEntry.Positive := true;
-                    ReservationEntry.Validate("Quantity (Base)", 1);
-                    ReservationEntry."Reservation Status" := ReservationEntry."Reservation Status"::Surplus;
-                    ReservationEntry.Validate("Serial No.", BarcodeString);
-                    ReservationEntry."Source ID" := "Prod. Order Line"."Prod. Order No.";
-                    ReservationEntry."Source Type" := 5406;
-                    ReservationEntry."Source Subtype" := 3;
-                    ReservationEntry."Source Prod. Order Line" := "Prod. Order Line"."Line No.";
-                    ReservationEntry."Expected Receipt Date" := "Prod. Order Line"."Due Date";
-                    ReservationEntry."Planning Flexibility" := ReservationEntry."Planning Flexibility"::Unlimited;
-                    ReservationEntry."Item Tracking" := ReservationEntry."Item Tracking"::"Serial No.";
-                    ReservationEntry.Insert(True);
+                    end
                 end;
+                if "Shortcut Dimension 2 Code" <> '' then begin
+                    BarcodeString := Format("Shortcut Dimension 2 Code") + '-' + Format(Item."Pack Size") + '-' + Format("Due Date", 0, '<Day,2>/<Month,2>/<Year4>') + '-' + Format(RecordingSlipNo);
+                    // Validate the input
+                    BarcodeString := DelChr(BarcodeString, '=', ' ');
+                    BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
+                    // Encode the data string to the barcode font
+                    GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
+                    GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
+                end;
+                ReservationEntry.Init();
+                ReservationEntry."Entry No." := 0;
+                ReservationEntry.Validate("Item No.", "Prod. Order Line"."Item No.");
+                ReservationEntry."Location Code" := "Prod. Order Line"."Location Code";
+                ReservationEntry.Positive := true;
+                ReservationEntry.Validate("Quantity (Base)", 1);
+                ReservationEntry."Reservation Status" := ReservationEntry."Reservation Status"::Surplus;
+                ReservationEntry.Validate("Serial No.", BarcodeString);
+                ReservationEntry."Source ID" := "Prod. Order Line"."Prod. Order No.";
+                ReservationEntry."Source Type" := 5406;
+                ReservationEntry."Source Subtype" := 3;
+                ReservationEntry."Source Prod. Order Line" := "Prod. Order Line"."Line No.";
+                ReservationEntry."Expected Receipt Date" := "Prod. Order Line"."Due Date";
+                ReservationEntry."Planning Flexibility" := ReservationEntry."Planning Flexibility"::Unlimited;
+                ReservationEntry."Item Tracking" := ReservationEntry."Item Tracking"::"Serial No.";
+                ReservationEntry.Insert(True);
+            end;
         }
     }
     trigger OnInitReport()
