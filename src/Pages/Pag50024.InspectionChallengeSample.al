@@ -4,7 +4,7 @@ page 50024 "Inspection Challenge Sample"
     Caption = 'Inspection Challenge Sample';
     PageType = Document;
     SourceTable = "Inspection Challenge Sample He";
-    PromotedActionCategoriesML = ENU = 'Create';
+    PromotedActionCategoriesML = ENU = 'Create, Report';
     layout
     {
         area(Content)
@@ -127,8 +127,45 @@ page 50024 "Inspection Challenge Sample"
                                 Message('No Lines created');
                         end;
                     end;
+                }
 
+                group(Action13)
+                {
+                    Caption = 'Print';
+                    Image = Report;
 
+                    action(PrintInspectionChallenge)
+                    {
+                        ApplicationArea = Suite;
+                        Caption = 'Print Inspection Challenge';
+                        Image = Print;
+                        Promoted = True;
+                        PromotedIsBig = True;
+                        PromotedCategory = Report;
+                        ToolTip = 'Print the Inspection Challenge report for the current Released Prod Order No.';
+
+                        trigger OnAction()
+                        var
+                            InspectionHeader: Record "Inspection Challenge Sample He";
+                            InspectionReport: Report "Inspection Challenge Report";
+                        begin
+                            if Rec."Released Prod Order No." = '' then begin
+                                Message('No Released Prod Order No. specified.');
+                                exit;
+                            end;
+
+                            InspectionHeader.Reset();
+                            InspectionHeader.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
+                            InspectionHeader.SetRange("Production Order Date", Rec."Production Order Date");
+
+                            if InspectionHeader.FindFirst() then begin
+                                InspectionReport.SetTableView(InspectionHeader);
+                                InspectionReport.RunModal();
+                            end else begin
+                                Message('No record found to print.');
+                            end;
+                        end;
+                    }
                 }
             }
         }

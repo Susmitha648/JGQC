@@ -48,18 +48,60 @@ report 50006 "Inspection Challenge Report"
                 column(Time; Time)
                 {
                 }
+                column(TimeAsInteger; Time.AsInteger())
+                {
+                }
+                column(FrequencyText; Format(Time))
+                {
+                }
+                column(SectionGroup; SectionGroupNo)
+                {
+                }
                 column(Inspection_Type; "Inspection Type")
                 {
                 }
                 column(QC_Defect_Code; "QC Defect Code")
                 {
                 }
+                column(QC_Defect_Name; DefectName)
+                {
+                }
                 column(Reject__; "Reject %")
                 {
                 }
+
+                trigger OnAfterGetRecord()
+                var
+                    DefectCode: Record "Defect Code";
+                begin
+                    // Get the Defect Name from Defect Code table
+                    DefectName := '';
+                    if "QC Defect Code" <> '' then begin
+                        if DefectCode.Get("QC Defect Code") then
+                            DefectName := DefectCode."Defect Name";
+                    end;
+
+                    // Calculate section group (every 8 frequencies)
+                    SectionGroupNo := Time.AsInteger() div 8;
+                end;
+            }
+
+            // Add a dataitem for signature sections
+            dataitem(SignatureSection; Integer)
+            {
+                DataItemTableView = sorting(Number) where(Number = filter(0 .. 2));
+                column(SignatureSectionNo; Number)
+                {
+                }
+
+                trigger OnAfterGetRecord()
+                begin
+                    // This will create 3 sections (0, 1, 2)
+                end;
             }
         }
     }
+
     requestpage
     {
         layout
@@ -78,4 +120,8 @@ report 50006 "Inspection Challenge Report"
             }
         }
     }
+
+    var
+        DefectName: Text[80];
+        SectionGroupNo: Integer;
 }
