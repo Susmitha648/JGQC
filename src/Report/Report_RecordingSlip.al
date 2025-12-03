@@ -85,6 +85,7 @@ report 50005 RecordingSlipReport
             column(SlipNo; '') { }
             column(Quantity; Quantity) { }
             column(GTINQRCode; GTINQRCode) { }
+            column(JobQRCode; JobQRCode) { }
             column(RecordingSlipNo; RecordingSlipNo) { }
             /*dataitem(CopyLoop; "Integer")
             {
@@ -140,7 +141,8 @@ report 50005 RecordingSlipReport
                 If Item.Get("Item No.") then
                     If PackSizeRec.Get(Item."Pack Size") then;
                 If QCPlanHeader.Get("Item No.") then;
-
+                
+               
                 ProductionProgram.Reset();
                 ProductionProgram.SetRange(Job, "Shortcut Dimension 2 Code");
                 ProductionProgram.SetRange(Date, "Due Date");
@@ -175,11 +177,15 @@ report 50005 RecordingSlipReport
                 if "Shortcut Dimension 2 Code" <> '' then begin
                     BarcodeString := Format("Shortcut Dimension 2 Code") + '-' + Format(Item."Pack Size") + '-' + Format("Due Date", 0, '<Day,2>/<Month,2>/<Year4>') + '-' + Format(RecordingSlipNo);
                     // Validate the input
-                    BarcodeString := DelChr(BarcodeString, '=', ' ');
+                    BarcodeString := DelChr(BarcodeString, '=', ' ');  
                     BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
+                    JobCodeString := Format("Prod. Order Line"."Item No.");
+                    JobCodeString := DelChr(JobCodeString, '=', ' ');  
+                    BarcodeFontProvider.ValidateInput(JobCodeString, BarcodeSymbology);
                     // Encode the data string to the barcode font
                     GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
                     GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
+                    JobQRCode := BarcodeFontProvider2D.EncodeFont(JobCodeString, BarcodeSymbology2D);
                 end;
                 ReservationEntry.Init();
                 ReservationEntry."Entry No." := 0;
@@ -244,4 +250,7 @@ report 50005 RecordingSlipReport
         GTINBarCode: Text[500];
         GTINQRCode: Text[500];
         BarcodeString: Text[500];
+        JobCodeString: Text[20];
+        JobQRCode: Text[200];
+        ProductionOrder : Record "Production Order";
 }
