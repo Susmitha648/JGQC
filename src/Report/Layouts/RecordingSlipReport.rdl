@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-03T03:01:40.4390608Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-04T03:28:02.0859238Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -36,12 +36,12 @@
                   <Width>6.07037cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.07433cm</Width>
+                  <Width>6.10699cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>22.55386cm</Height>
+                  <Height>26.4256cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -56,19 +56,18 @@
                                       <Value>=Fields!RecordingSlipNo.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
                                   <Style>
-                                    <TextAlign>Left</TextAlign>
+                                    <TextAlign>Center</TextAlign>
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>4.20569cm</Top>
-                              <Left>3.34396cm</Left>
-                              <Height>33.46661pt</Height>
+                              <Top>4.04694cm</Top>
+                              <Left>3.34792cm</Left>
+                              <Height>46pt</Height>
                               <Width>5.72385cm</Width>
                               <Style>
                                 <Border>
@@ -77,12 +76,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -119,7 +118,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.64146cm</Top>
-                              <Left>14.26301cm</Left>
+                              <Left>14.26697cm</Left>
                               <Height>18pt</Height>
                               <Width>3.95205cm</Width>
                               <ZIndex>1</ZIndex>
@@ -160,8 +159,7 @@
                                       <Value>SLIP NO:-</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -171,10 +169,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>4.20569cm</Top>
-                              <Left>0.04607cm</Left>
-                              <Height>33.46661pt</Height>
-                              <Width>3.29789cm</Width>
+                              <Top>4.04694cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>3.33058cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -183,12 +181,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -223,7 +221,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Left>14.26301cm</Left>
+                              <Left>14.26697cm</Left>
                               <Height>18.18306pt</Height>
                               <Width>3.95205cm</Width>
                               <ZIndex>3</ZIndex>
@@ -265,7 +263,7 @@
                                       <Value>=First(Fields!PrintName.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>24pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -277,9 +275,9 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
                               <Top>1.27646cm</Top>
-                              <Left>2.74424cm</Left>
-                              <Height>2.13377cm</Height>
-                              <Width>15.47082cm</Width>
+                              <Left>1.66501cm</Left>
+                              <Height>1.66105cm</Height>
+                              <Width>16.55005cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -318,9 +316,9 @@
                               <MIMEType>image/jpeg</MIMEType>
                               <Sizing>FitProportional</Sizing>
                               <Top>1.27646cm</Top>
-                              <Left>0.00396cm</Left>
-                              <Height>2.13377cm</Height>
-                              <Width>2.74028cm</Width>
+                              <Left>0.00792cm</Left>
+                              <Height>1.66105cm</Height>
+                              <Width>1.66105cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
@@ -341,7 +339,7 @@
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -351,10 +349,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.41023cm</Top>
-                              <Left>0.04607cm</Left>
-                              <Height>22.54857pt</Height>
-                              <Width>18.16899cm</Width>
+                              <Top>2.91987cm</Top>
+                              <Left>0cm</Left>
+                              <Height>29pt</Height>
+                              <Width>18.21902cm</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
@@ -363,12 +361,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -380,7 +378,7 @@
                                   <Style>Solid</Style>
                                   <Width>1pt</Width>
                                 </RightBorder>
-                                <VerticalAlign>Top</VerticalAlign>
+                                <VerticalAlign>Middle</VerticalAlign>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox36">
@@ -392,8 +390,7 @@
                                       <Value>DATE:-</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -403,9 +400,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>4.20569cm</Top>
-                              <Left>9.06781cm</Left>
-                              <Height>33.46661pt</Height>
+                              <Top>4.04694cm</Top>
+                              <Left>9.07177cm</Left>
+                              <Height>46pt</Height>
                               <Width>3.84674cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
@@ -415,12 +412,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -445,8 +442,7 @@
                                       <Value>=First(Fields!Last_Date_Modified.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <Format>dd/MM/yyyy</Format>
                                       </Style>
                                     </TextRun>
@@ -456,15 +452,21 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>4.20569cm</Top>
-                              <Left>12.91454cm</Left>
-                              <Height>33.46661pt</Height>
+                              <Top>4.04694cm</Top>
+                              <Left>12.9185cm</Left>
+                              <Height>46pt</Height>
                               <Width>5.30052cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
                                 </Border>
+                                <TopBorder>
+                                  <Width>0.5pt</Width>
+                                </TopBorder>
+                                <BottomBorder>
+                                  <Width>0.5pt</Width>
+                                </BottomBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
                               </Style>
@@ -478,8 +480,7 @@
                                       <Value>JOB No</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -489,10 +490,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>5.38632cm</Top>
-                              <Left>0.04211cm</Left>
-                              <Height>35.22179pt</Height>
-                              <Width>5.61118cm</Width>
+                              <Top>5.67207cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>5.63991cm</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
@@ -501,12 +502,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -530,8 +531,7 @@
                                       <Value>=Fields!Job_Code.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -541,10 +541,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>6.62887cm</Top>
-                              <Left>0.04865cm</Left>
-                              <Height>33.46661pt</Height>
-                              <Width>5.60464cm</Width>
+                              <Top>7.29562cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>5.63991cm</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
@@ -562,8 +562,7 @@
                                       <Value>DESCRIPTION</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -573,9 +572,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>5.38632cm</Top>
-                              <Left>5.65329cm</Left>
-                              <Height>35.22179pt</Height>
+                              <Top>5.67207cm</Top>
+                              <Left>5.65725cm</Left>
+                              <Height>46pt</Height>
                               <Width>6.34862cm</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
@@ -585,12 +584,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -614,8 +613,7 @@
                                       <Value>=First(Fields!Description.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -624,9 +622,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>6.62887cm</Top>
-                              <Left>5.65329cm</Left>
-                              <Height>33.46661pt</Height>
+                              <Top>7.29562cm</Top>
+                              <Left>5.65725cm</Left>
+                              <Height>46pt</Height>
                               <Width>6.34862cm</Width>
                               <ZIndex>12</ZIndex>
                               <Style>
@@ -665,8 +663,7 @@
                                       <Value>FINISH</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -676,9 +673,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>5.38632cm</Top>
-                              <Left>12.00191cm</Left>
-                              <Height>35.61096pt</Height>
+                              <Top>5.67207cm</Top>
+                              <Left>12.00587cm</Left>
+                              <Height>46pt</Height>
                               <Width>6.20919cm</Width>
                               <ZIndex>13</ZIndex>
                               <Style>
@@ -688,12 +685,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -717,8 +714,7 @@
                                       <Value>=First(Fields!Finish.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -727,9 +723,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>6.6426cm</Top>
-                              <Left>12.00191cm</Left>
-                              <Height>33.07744pt</Height>
+                              <Top>7.29562cm</Top>
+                              <Left>12.00587cm</Left>
+                              <Height>46pt</Height>
                               <Width>6.20919cm</Width>
                               <ZIndex>14</ZIndex>
                               <Style>
@@ -768,8 +764,7 @@
                                       <Value>CUSTOMER</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -779,10 +774,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>7.80949cm</Top>
-                              <Left>0.04211cm</Left>
-                              <Height>33.46661pt</Height>
-                              <Width>7.69257cm</Width>
+                              <Top>8.92074cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>7.7213cm</Width>
                               <ZIndex>15</ZIndex>
                               <Style>
                                 <Border>
@@ -791,12 +786,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -820,8 +815,7 @@
                                       <Value>=First(Fields!CustomerName.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -831,9 +825,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>7.80949cm</Top>
-                              <Left>7.73468cm</Left>
-                              <Height>33.46661pt</Height>
+                              <Top>8.92074cm</Top>
+                              <Left>7.73864cm</Left>
+                              <Height>46pt</Height>
                               <Width>10.47642cm</Width>
                               <ZIndex>16</ZIndex>
                               <Style>
@@ -843,12 +837,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -872,8 +866,7 @@
                                       <Value>SHIFT</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -883,10 +876,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.99012cm</Top>
-                              <Left>0.04211cm</Left>
-                              <Height>36.18919pt</Height>
-                              <Width>2.69817cm</Width>
+                              <Top>10.63825cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>2.7269cm</Width>
                               <ZIndex>17</ZIndex>
                               <Style>
                                 <Border>
@@ -895,12 +888,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -925,8 +918,7 @@
                                       <Value>=Fields!WorkShiftCode.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -935,9 +927,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.99012cm</Top>
-                              <Left>2.74028cm</Left>
-                              <Height>36.18919pt</Height>
+                              <Top>10.63825cm</Top>
+                              <Left>2.74424cm</Left>
+                              <Height>46pt</Height>
                               <Width>3.35563cm</Width>
                               <ZIndex>18</ZIndex>
                               <Style>
@@ -947,12 +939,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -977,8 +969,7 @@
                                       <Value>MC/ NO</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -988,9 +979,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.99012cm</Top>
-                              <Left>6.09591cm</Left>
-                              <Height>36.18919pt</Height>
+                              <Top>10.63825cm</Top>
+                              <Left>6.09987cm</Left>
+                              <Height>46pt</Height>
                               <Width>2.90222cm</Width>
                               <ZIndex>19</ZIndex>
                               <Style>
@@ -1000,12 +991,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1030,8 +1021,7 @@
                                       <Value EvaluationMode="Constant" />
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1040,9 +1030,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.99012cm</Top>
-                              <Left>8.99813cm</Left>
-                              <Height>36.18919pt</Height>
+                              <Top>10.63825cm</Top>
+                              <Left>9.00209cm</Left>
+                              <Height>46pt</Height>
                               <Width>3.00378cm</Width>
                               <ZIndex>20</ZIndex>
                               <Style>
@@ -1052,12 +1042,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1081,8 +1071,7 @@
                                       <Value>COLOUR</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1092,9 +1081,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.99012cm</Top>
-                              <Left>12.00191cm</Left>
-                              <Height>36.18919pt</Height>
+                              <Top>10.63825cm</Top>
+                              <Left>12.00587cm</Left>
+                              <Height>46pt</Height>
                               <Width>3.29618cm</Width>
                               <ZIndex>21</ZIndex>
                               <Style>
@@ -1104,12 +1093,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1134,8 +1123,7 @@
                                       <Value>=Fields!Color.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1144,9 +1132,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.99012cm</Top>
-                              <Left>15.29809cm</Left>
-                              <Height>36.18919pt</Height>
+                              <Top>10.63825cm</Top>
+                              <Left>15.30205cm</Left>
+                              <Height>46pt</Height>
                               <Width>2.91301cm</Width>
                               <ZIndex>22</ZIndex>
                               <Style>
@@ -1156,12 +1144,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1186,8 +1174,7 @@
                                       <Value>VARIATION DESC:</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1197,10 +1184,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.62565cm</Top>
-                              <Left>0.04211cm</Left>
-                              <Height>36.18919pt</Height>
-                              <Width>8.95602cm</Width>
+                              <Top>12.28018cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>8.93868cm</Width>
                               <ZIndex>23</ZIndex>
                               <Style>
                                 <Border>
@@ -1209,7 +1196,7 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
@@ -1239,8 +1226,7 @@
                                       <Value>=Fields!PackSize.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1249,10 +1235,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.62565cm</Top>
-                              <Left>8.99813cm</Left>
-                              <Height>36.18919pt</Height>
-                              <Width>9.21297cm</Width>
+                              <Top>12.28018cm</Top>
+                              <Left>8.95602cm</Left>
+                              <Height>46pt</Height>
+                              <Width>9.25904cm</Width>
                               <ZIndex>24</ZIndex>
                               <Style>
                                 <Border>
@@ -1261,7 +1247,7 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
@@ -1291,8 +1277,7 @@
                                       <Value>QTY OF PIECES PER PACK</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1302,10 +1287,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>11.90232cm</Top>
-                              <Left>0.04607cm</Left>
-                              <Height>39.75pt</Height>
-                              <Width>8.95602cm</Width>
+                              <Top>13.9061cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>8.94264cm</Width>
                               <ZIndex>25</ZIndex>
                               <Style>
                                 <Border>
@@ -1314,12 +1299,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1344,8 +1329,7 @@
                                       <Value>=Code.BlankZero(Fields!QtyofPiecePerPack.Value)</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1354,10 +1338,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>11.90232cm</Top>
-                              <Left>9.00209cm</Left>
-                              <Height>39.75pt</Height>
-                              <Width>9.21297cm</Width>
+                              <Top>13.9061cm</Top>
+                              <Left>8.95998cm</Left>
+                              <Height>46pt</Height>
+                              <Width>9.25508cm</Width>
                               <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
@@ -1366,12 +1350,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1396,8 +1380,7 @@
                                       <Value>QTY OF CARTONS/TRAYS PER PALLET</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1407,10 +1390,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>13.30461cm</Top>
-                              <Left>0.04607cm</Left>
-                              <Height>36pt</Height>
-                              <Width>8.95602cm</Width>
+                              <Top>15.53064cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>12.62916cm</Width>
                               <ZIndex>27</ZIndex>
                               <Style>
                                 <Border>
@@ -1419,12 +1402,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1449,8 +1432,7 @@
                                       <Value>=First(Fields!QtyofCarton_TraysPerPallet.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1459,10 +1441,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>13.30461cm</Top>
-                              <Left>9.00209cm</Left>
-                              <Height>36pt</Height>
-                              <Width>9.21297cm</Width>
+                              <Top>15.53064cm</Top>
+                              <Left>12.6465cm</Left>
+                              <Height>46pt</Height>
+                              <Width>5.57252cm</Width>
                               <ZIndex>28</ZIndex>
                               <Style>
                                 <Border>
@@ -1471,12 +1453,12 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
@@ -1501,8 +1483,7 @@
                                       <Value>TOTAL UNITS PER PALLET</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1512,10 +1493,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>14.57461cm</Top>
-                              <Left>0.04607cm</Left>
-                              <Height>36pt</Height>
-                              <Width>8.95602cm</Width>
+                              <Top>17.14989cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>46pt</Height>
+                              <Width>8.94264cm</Width>
                               <ZIndex>29</ZIndex>
                               <Style>
                                 <Border>
@@ -1524,7 +1505,7 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
@@ -1554,8 +1535,7 @@
                                       <Value>=First(Fields!QtyPerPack.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>14pt</FontSize>
+                                        <FontSize>18pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1564,10 +1544,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>14.57461cm</Top>
-                              <Left>9.00209cm</Left>
-                              <Height>36pt</Height>
-                              <Width>9.21297cm</Width>
+                              <Top>17.14989cm</Top>
+                              <Left>8.95998cm</Left>
+                              <Height>46pt</Height>
+                              <Width>9.25508cm</Width>
                               <ZIndex>30</ZIndex>
                               <Style>
                                 <Border>
@@ -1576,7 +1556,7 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.5pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
@@ -1620,7 +1600,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>0.05938cm</Top>
-                                  <Left>0.91722cm</Left>
+                                  <Left>0.84666cm</Left>
                                   <Height>18pt</Height>
                                   <Width>6.66296cm</Width>
                                   <Style>
@@ -1651,7 +1631,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>0.80021cm</Top>
-                                  <Left>0.91722cm</Left>
+                                  <Left>0.84666cm</Left>
                                   <Height>21pt</Height>
                                   <Width>6.66296cm</Width>
                                   <ZIndex>1</ZIndex>
@@ -1683,7 +1663,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>1.6116cm</Top>
-                                  <Left>0.29986cm</Left>
+                                  <Left>0.2293cm</Left>
                                   <Height>18pt</Height>
                                   <Width>2.97643cm</Width>
                                   <ZIndex>2</ZIndex>
@@ -1715,7 +1695,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>1.6116cm</Top>
-                                  <Left>3.2763cm</Left>
+                                  <Left>3.20574cm</Left>
                                   <Height>18pt</Height>
                                   <Width>3.11326cm</Width>
                                   <ZIndex>3</ZIndex>
@@ -1752,7 +1732,7 @@
                                     </Paragraph>
                                   </Paragraphs>
                                   <Top>2.42299cm</Top>
-                                  <Left>1.28476cm</Left>
+                                  <Left>1.2142cm</Left>
                                   <Height>18pt</Height>
                                   <Width>4.73438cm</Width>
                                   <ZIndex>4</ZIndex>
@@ -1765,10 +1745,10 @@
                                 </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>16.021cm</Top>
-                              <Left>0.04865cm</Left>
+                              <Top>20.18025cm</Top>
+                              <Left>5.04442cm</Left>
                               <Height>3.18146cm</Height>
-                              <Width>8.09944cm</Width>
+                              <Width>7.79958cm</Width>
                               <ZIndex>31</ZIndex>
                               <Style>
                                 <Border>
@@ -1815,8 +1795,8 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>19.30829cm</Top>
-                              <Left>0.34851cm</Left>
+                              <Top>23.58575cm</Top>
+                              <Left>3.14738cm</Left>
                               <Height>15pt</Height>
                               <Width>12.15467cm</Width>
                               <ZIndex>32</ZIndex>
@@ -1844,8 +1824,8 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>19.83745cm</Top>
-                              <Left>0.34851cm</Left>
+                              <Top>24.11491cm</Top>
+                              <Left>3.14738cm</Left>
                               <Height>15pt</Height>
                               <Width>12.15467cm</Width>
                               <ZIndex>33</ZIndex>
@@ -1875,8 +1855,8 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>20.4019cm</Top>
-                              <Left>0.34851cm</Left>
+                              <Top>24.67936cm</Top>
+                              <Left>3.14738cm</Left>
                               <Height>15pt</Height>
                               <Width>12.15467cm</Width>
                               <ZIndex>34</ZIndex>
@@ -1904,8 +1884,8 @@
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>20.93106cm</Top>
-                              <Left>0.34851cm</Left>
+                              <Top>25.20852cm</Top>
+                              <Left>3.14738cm</Left>
                               <Height>15.5pt</Height>
                               <Width>12.15467cm</Width>
                               <ZIndex>35</ZIndex>
@@ -1935,8 +1915,8 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>21.94767cm</Top>
-                              <Left>1.22431cm</Left>
+                              <Top>25.86116cm</Top>
+                              <Left>1.22827cm</Left>
                               <Height>15pt</Height>
                               <Width>15.70009cm</Width>
                               <ZIndex>36</ZIndex>
@@ -1968,14 +1948,14 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>GTINQRCode</rd:DefaultName>
-                              <Top>16.021cm</Top>
-                              <Left>12.53846cm</Left>
-                              <Height>4.34562cm</Height>
-                              <Width>5.67264cm</Width>
+                              <Top>19.16072cm</Top>
+                              <Left>12.9185cm</Left>
+                              <Height>4.20099cm</Height>
+                              <Width>5.29656cm</Width>
                               <ZIndex>37</ZIndex>
                               <Style>
                                 <Border />
-                                <VerticalAlign>Middle</VerticalAlign>
+                                <VerticalAlign>Bottom</VerticalAlign>
                               </Style>
                             </Textbox>
                             <Rectangle Name="Rectangle2">
@@ -1989,7 +1969,7 @@
                                           <Value>=Fields!JobQRCode.Value</Value>
                                           <Style>
                                             <FontFamily>IDAutomation2D</FontFamily>
-                                            <FontSize>8pt</FontSize>
+                                            <FontSize>14pt</FontSize>
                                             <FontWeight>Bold</FontWeight>
                                           </Style>
                                         </TextRun>
@@ -2002,19 +1982,19 @@
                                   <rd:DefaultName>GTINQRCode</rd:DefaultName>
                                   <Top>0cm</Top>
                                   <Left>0cm</Left>
-                                  <Height>1.85208cm</Height>
-                                  <Width>2.12722cm</Width>
+                                  <Height>4.21335cm</Height>
+                                  <Width>4.8895cm</Width>
                                   <Style>
                                     <Border />
-                                    <VerticalAlign>Middle</VerticalAlign>
+                                    <VerticalAlign>Bottom</VerticalAlign>
                                   </Style>
                                 </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>16.82121cm</Top>
-                              <Left>8.71448cm</Left>
-                              <Height>1.85208cm</Height>
-                              <Width>2.12722cm</Width>
+                              <Top>19.1325cm</Top>
+                              <Left>0.01734cm</Left>
+                              <Height>4.27685cm</Height>
+                              <Width>4.92477cm</Width>
                               <ZIndex>38</ZIndex>
                               <Style>
                                 <Border>
@@ -2077,8 +2057,8 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Height>22.55386cm</Height>
-            <Width>18.21507cm</Width>
+            <Height>26.4256cm</Height>
+            <Width>18.24773cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -2086,7 +2066,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>22.65323cm</Height>
+        <Height>26.4256cm</Height>
         <Style />
       </Body>
       <Width>18.24773cm</Width>
@@ -2111,9 +2091,10 @@
         <PageWidth>21cm</PageWidth>
         <InteractiveHeight>11in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
-        <LeftMargin>1cm</LeftMargin>
-        <TopMargin>1cm</TopMargin>
-        <BottomMargin>1cm</BottomMargin>
+        <LeftMargin>1.5cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>1.7cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
