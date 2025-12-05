@@ -56,6 +56,9 @@ report 50007 "Cold End Presort Report"
                 column(Section_No_; "Section No.")
                 {
                 }
+                column(SectionGroup; SectionGroupNo)
+                {
+                }
                 column(Front_Back; "Front/Back")
                 {
 
@@ -66,6 +69,11 @@ report 50007 "Cold End Presort Report"
                 column(QC_Defect_Code; "QC Defect Code")
                 {
                 }
+
+                trigger OnAfterGetRecord()
+                begin
+                    SectionGroupNo := Time.AsInteger() div 8;
+                end;
             }
         }
     }
@@ -87,4 +95,7 @@ report 50007 "Cold End Presort Report"
             }
         }
     }
+
+    var
+        SectionGroupNo: Integer;
 }
