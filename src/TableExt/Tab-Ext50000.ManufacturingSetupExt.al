@@ -8,5 +8,17 @@ tableextension 50000 "Manufacturing Setup Ext" extends "Manufacturing Setup"
             DataClassification = CustomerContent;
             TableRelation = "No. Series".Code;
         }
+        field(50001; "From Batch Location"; Code[20] )
+        {
+            Caption = 'From Batch Location';
+            DataClassification = CustomerContent;
+            TableRelation = Location.Code;
+        }
+        field(50002; "To Batch Location"; Code[20] )
+        {
+            Caption = 'To Batch Location';
+            DataClassification = CustomerContent;
+            TableRelation = Location.Code;
+        }
     }
 }

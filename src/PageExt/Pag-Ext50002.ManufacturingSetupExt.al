@@ -8,5 +8,16 @@ pageextension 50002 "Manufacturing Setup Ext" extends "Manufacturing Setup"
                 ApplicationArea = All;
             }
         }
+        addafter("Default Flushing Method")
+        {
+            field("From Batch Loaction"; Rec."From Batch Location")
+            {
+                ApplicationArea = All;
+            }
+            field("To Batch Loaction"; Rec."To Batch Location")
+            {
+                ApplicationArea = All;
+            }
+        }
     }
 }
