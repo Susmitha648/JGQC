@@ -4,7 +4,7 @@ page 50021 "Cold End Presort Detail"
     Caption = 'Cold End Presort Detail';
     PageType = Document;
     SourceTable = "Cold End Presort Detail Header";
-    PromotedActionCategoriesML = ENU = 'Create';
+    PromotedActionCategoriesML = ENU = 'Create, Report';
     layout
     {
         area(Content)
@@ -138,6 +138,45 @@ page 50021 "Cold End Presort Detail"
                                 Message('Lines created')
                             else
                                 Message('No Lines created');
+                        end;
+                    end;
+                }
+            }
+
+            group(Action13)
+            {
+                Caption = 'Print';
+                Image = Report;
+
+                action(PrintInspectionChallenge)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Print Cold End Presort';
+                    Image = Print;
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = Report;
+                    ToolTip = 'Print the Print Cold End Presort report for the current Released Prod Order No.';
+
+                    trigger OnAction()
+                    var
+                        ColdEndPresortHeader: Record "Cold End Presort Detail Header";
+                        ColdEndPresortReport: Report "Cold End Presort Report";
+                    begin
+                        if Rec."Released Prod Order No." = '' then begin
+                            Message('No Released Prod Order No. specified.');
+                            exit;
+                        end;
+
+                        ColdEndPresortHeader.Reset();
+                        ColdEndPresortHeader.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
+                        ColdEndPresortHeader.SetRange("Production Order Date", Rec."Production Order Date");
+
+                        if ColdEndPresortHeader.FindFirst() then begin
+                            ColdEndPresortReport.SetTableView(ColdEndPresortHeader);
+                            ColdEndPresortReport.RunModal();
+                        end else begin
+                            Message('No record found to print.');
                         end;
                     end;
                 }

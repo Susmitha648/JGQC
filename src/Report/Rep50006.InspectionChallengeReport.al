@@ -85,20 +85,6 @@ report 50006 "Inspection Challenge Report"
                     SectionGroupNo := Time.AsInteger() div 8;
                 end;
             }
-
-            // Add a dataitem for signature sections
-            dataitem(SignatureSection; Integer)
-            {
-                DataItemTableView = sorting(Number) where(Number = filter(0 .. 2));
-                column(SignatureSectionNo; Number)
-                {
-                }
-
-                trigger OnAfterGetRecord()
-                begin
-                    // This will create 3 sections (0, 1, 2)
-                end;
-            }
         }
     }
 
