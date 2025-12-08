@@ -25,10 +25,18 @@ table 50026 "Item Reclass Posting"
             DecimalPlaces = 0:2;
             BlankZero = true;
         }
+        field(5; "Line No"; Integer)
+        {
+            Caption = 'Line No';
+        }
+        field(6; "Journal Posted"; Boolean)
+        {
+            Caption = 'Journal Posted';
+        }
     }
     keys
     {
-        key(PK; "Item No.")
+        key(PK; "Line No")
         {
             Clustered = true;
         }
