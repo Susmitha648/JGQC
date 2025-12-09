@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-01T01:38:22.1772030Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-09T05:53:22.6065055Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -339,6 +339,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Job">
                           <rd:DefaultName>Job</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -351,6 +352,7 @@
                                   <Style>
                                     <FontStyle>Italic</FontStyle>
                                     <FontSize>7pt</FontSize>
+                                    <FontWeight>=IIf(Fields!IsFirstJobRow.Value = True, "Bold", "Normal")</FontWeight>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -833,7 +835,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox237">
                           <rd:DefaultName>Textbox237</rd:DefaultName>
                           <CanGrow>true</CanGrow>
