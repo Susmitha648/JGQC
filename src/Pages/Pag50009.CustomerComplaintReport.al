@@ -16,6 +16,7 @@ page 50009 "Customer Complaint Report"
                 field("No."; Rec."No.")
                 {
                     ToolTip = 'Specifies the value of the CCR No field.', Comment = '%';
+                    Editable = false;
                 }
                 field("CCR Date"; Rec."CCR Date")
                 {
