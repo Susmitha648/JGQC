@@ -102,14 +102,35 @@ table 50010 "Machine/Section Stoppages"
         {
             Caption = 'Preventive Action Taken';
         }
-         field(19;"MS Status"; Enum Status)
+        field(19; "MS Status"; Enum Status)
         {
             Caption = 'Status';
         }
-         field(20;"Downtime (Hrs)"; Decimal)
+        field(20; "Downtime (Hrs)"; Decimal)
         {
             Caption = 'Downtime (Hrs)';
             BlankZero = true;
+        }
+        field(21; "Section No."; Enum "Section No.")
+        {
+            Caption = 'Section No.';
+        }
+        field(22; "Incident Date"; Date)
+        {
+            Caption = 'Incident Date';
+        }
+        field(23; "Start Time"; Time)
+        {
+            Caption = 'Start Time';
+        }
+        field(24; "End Time"; Time)
+        {
+            Caption = 'End Time';
+        }
+        field(25; "Machine Number"; Code[20])
+        {
+            Caption = 'Machine Number';
+            Editable = false;
         }
     }
     keys
@@ -119,12 +140,19 @@ table 50010 "Machine/Section Stoppages"
             Clustered = true;
         }
     }
+     fieldgroups
+    {
+        fieldgroup(DropDown; "Production Order No.", "Line No.","Section No.",Shift,"Section Stoppage Description")
+        {
+        }
+    }
     procedure GetLastLineNo(): Integer;
     var
         FindRecordManagement: Codeunit "Find Record Management";
     begin
         exit(FindRecordManagement.GetLastEntryIntFieldValue(Rec, FieldNo("Line No.")))
     end;
+
     var
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";

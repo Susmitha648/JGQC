@@ -190,19 +190,22 @@ report 50005 RecordingSlipReport
                 ReservationEntry.Init();
                 ReservationEntry."Entry No." := 0;
                 ReservationEntry.Validate("Item No.", "Prod. Order Line"."Item No.");
+                ReservationEntry.Validate("Source ID" , "Prod. Order Line"."Prod. Order No.");
                 ReservationEntry."Location Code" := "Prod. Order Line"."Location Code";
                 
                 ReservationEntry.Validate("Quantity (Base)", 1);
                 ReservationEntry.Positive := true;
                 ReservationEntry."Reservation Status" := ReservationEntry."Reservation Status"::Surplus;
+                ReservationEntry."Item Tracking" := ReservationEntry."Item Tracking"::"Serial No.";
                 ReservationEntry.Validate("Serial No.", BarcodeString);
-                ReservationEntry."Source ID" := "Prod. Order Line"."Prod. Order No.";
+                
                 ReservationEntry."Source Type" := 5406;
                 ReservationEntry."Source Subtype" := 3;
                 ReservationEntry."Source Prod. Order Line" := "Prod. Order Line"."Line No.";
                 ReservationEntry."Expected Receipt Date" := "Prod. Order Line"."Due Date";
                 ReservationEntry."Planning Flexibility" := ReservationEntry."Planning Flexibility"::Unlimited;
-                ReservationEntry."Item Tracking" := ReservationEntry."Item Tracking"::"Serial No.";
+                ReservationEntry."Created By" :=  UserId;
+                ReservationEntry."Creation Date" := WorkDate();
                 ReservationEntry."Recording Slip Printed" := True;
                 ReservationEntry.Insert(True);
             end;

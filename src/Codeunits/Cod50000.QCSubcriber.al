@@ -1,12 +1,13 @@
 codeunit 50000 "QC Subcriber"
 {
     SingleInstance = true;
-     [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
+    [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
     local procedure OnBeforeDrillDown(DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
     var
         CustComplLog: Record "Customer Complaint Log";
         CustComplRep: Record "Customer Complaint Report";
-        QCPlanHdr : Record "QC Plan Header";
+        QCPlanHdr: Record "QC Plan Header";
+        MachineSectionStoppages: Record "Machine/Section Stoppages";
     begin
         case DocumentAttachment."Table ID" of
             DATABASE::"Customer Complaint Log":
@@ -24,12 +25,20 @@ codeunit 50000 "QC Subcriber"
                         RecRef.GetTable(CustComplRep);
                 end;
         end;
-         case DocumentAttachment."Table ID" of
+        case DocumentAttachment."Table ID" of
             DATABASE::"QC Plan Header":
                 begin
                     RecRef.Open(DATABASE::"QC Plan Header");
                     if QCPlanHdr.Get(DocumentAttachment."No.") then
                         RecRef.GetTable(QCPlanHdr);
+                end;
+        end;
+        case DocumentAttachment."Table ID" of
+            DATABASE::"Machine/Section Stoppages":
+                begin
+                    RecRef.Open(DATABASE::"Machine/Section Stoppages");
+                    if MachineSectionStoppages.Get(DocumentAttachment."No.",DocumentAttachment."Line No.") then
+                        RecRef.GetTable(MachineSectionStoppages);
                 end;
         end;
     end;
@@ -39,6 +48,7 @@ codeunit 50000 "QC Subcriber"
     var
         FieldRef: FieldRef;
         RecNo: Code[20];
+         LineNo : Integer;
     begin
         case RecRef.Number of
             DATABASE::"Customer Complaint Log":
@@ -48,7 +58,7 @@ codeunit 50000 "QC Subcriber"
                     DocumentAttachment.SetRange("No.", RecNo);
                 end;
         end;
-         case RecRef.Number of
+        case RecRef.Number of
             DATABASE::"Customer Complaint Report":
                 begin
                     FieldRef := RecRef.Field(1);
@@ -56,12 +66,23 @@ codeunit 50000 "QC Subcriber"
                     DocumentAttachment.SetRange("No.", RecNo);
                 end;
         end;
-         case RecRef.Number of
+        case RecRef.Number of
             DATABASE::"QC Plan Header":
                 begin
                     FieldRef := RecRef.Field(1);
                     RecNo := FieldRef.Value;
                     DocumentAttachment.SetRange("No.", RecNo);
+                end;
+        end;
+        case RecRef.Number of
+            DATABASE::"Machine/Section Stoppages":
+                begin
+                    FieldRef := RecRef.Field(1);
+                    RecNo := FieldRef.Value;
+                    DocumentAttachment.SetRange("No.", RecNo);
+                    FieldRef := RecRef.Field(2);
+                    LineNo := FieldRef.Value;
+                    DocumentAttachment.SetRange("Line No.", LineNo);
                 end;
         end;
     end;
@@ -71,6 +92,7 @@ codeunit 50000 "QC Subcriber"
     var
         FieldRef: FieldRef;
         RecNo: Code[20];
+        LineNo : Integer;
     begin
         case RecRef.Number of
             DATABASE::"Customer Complaint Log":
@@ -96,35 +118,49 @@ codeunit 50000 "QC Subcriber"
                     DocumentAttachment.Validate("No.", RecNo);
                 end;
         end;
+        case RecRef.Number of
+            DATABASE::"Machine/Section Stoppages":
+                begin
+                    FieldRef := RecRef.Field(1);
+                    RecNo := FieldRef.Value;
+                    DocumentAttachment.Validate("No.", RecNo);
+                    FieldRef := RecRef.Field(2);
+                    LineNo := FieldRef.Value;
+                    DocumentAttachment.Validate("Line No.", LineNo);
+                end;
+        end;
     end;
+
     [EventSubscriber(ObjectType::Report, Report::"Refresh Production Order", 'OnAfterOnInit', '', false, false)]
     local procedure OnAfterOnInitPreprod(var Direction: Option; var CalcLines: Boolean)
     var
-    Direction1: Option Forward,Backward;
+        Direction1: Option Forward,Backward;
     begin
-       Direction := Direction1::Forward;
-       CalcLines := false;
+        Direction := Direction1::Forward;
+        CalcLines := false;
     end;
+
     [EventSubscriber(ObjectType::Table, Database::"Production Order", 'OnAfterValidateEvent', 'Location Code', false, false)]
     local procedure UpdateLineLocationCode(var Rec: Record "Production Order"; var xRec: Record "Production Order"; CurrFieldNo: Integer)
     var
-    ProdOrderLine : Record "Prod. Order Line";
+        ProdOrderLine: Record "Prod. Order Line";
     begin
-       ProdOrderLine.Reset();
-       ProdOrderLine.SetRange("Prod. Order No.",Rec."No.");
-       If ProdOrderLine.FindSet(True) then repeat
-          ProdOrderLine.Validate("Location Code",Rec."Location Code");
-          ProdOrderLine.Modify();
-       until ProdOrderLine.Next() = 0;
-       
+        ProdOrderLine.Reset();
+        ProdOrderLine.SetRange("Prod. Order No.", Rec."No.");
+        If ProdOrderLine.FindSet(True) then
+            repeat
+                ProdOrderLine.Validate("Location Code", Rec."Location Code");
+                ProdOrderLine.Modify();
+            until ProdOrderLine.Next() = 0;
+
     end;
-    
+
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin
         ProductionOrder := ProductionHdr;
     end;
 
-    Procedure GetProductionHdr() : Code[20];
+    Procedure GetProductionHdr(): Code[20];
     begin
         Exit(ProductionOrder."No.");
     end;

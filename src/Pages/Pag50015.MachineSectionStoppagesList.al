@@ -6,6 +6,7 @@ page 50015 "Machine/Section Stoppages List"
     SourceTable = "Machine/Section Stoppages";
     CardPageId = "Machine/Section Stoppages";
     Editable = false;
+    UsageCategory = Lists;
     layout
     {
         area(Content)
@@ -15,6 +16,10 @@ page 50015 "Machine/Section Stoppages List"
                 field("Production Order No."; Rec."Production Order No.")
                 {
                     ToolTip = 'Specifies the value of the Production Order No. field.', Comment = '%';
+                }
+                field("Line No."; Rec."Line No.")
+                {
+                    ToolTip = 'Specifies the value of the Line No. field.', Comment = '%';
                 }
                 field(Shift; Rec.Shift)
                 {
@@ -28,15 +33,19 @@ page 50015 "Machine/Section Stoppages List"
                 {
                     ToolTip = 'Specifies the value of the Section Stoppage Code field.', Comment = '%';
                 }
-                  field(Department; Rec.Department)
+                field("Section No."; Rec."Section No.")
+                {
+                    ToolTip = 'Specifies the value of the Section No. field.', Comment = '%';
+                }
+                field(Department; Rec.Department)
                 {
                     ToolTip = 'Specifies the value of the Department field.', Comment = '%';
                 }
-                  field("MS Status"; Rec."MS Status")
+                field("MS Status"; Rec."MS Status")
                 {
                     ToolTip = 'Specifies the value of the Status field.', Comment = '%';
                 }
-                  field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
+                field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
                 {
                     ToolTip = 'Specifies the value of the Downtime (Hrs) field.', Comment = '%';
                 }
