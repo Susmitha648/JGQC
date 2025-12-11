@@ -4,7 +4,7 @@ report 50015 "Copy Machine Stoppages"
     ProcessingOnly = true;
     dataset
     {
-
+       
     }
     requestpage
     {
@@ -24,7 +24,7 @@ report 50015 "Copy Machine Stoppages"
                             MachineSectionStoppage1: Record "Machine/Section Stoppages";
                         begin
                             MachineSectionStoppage1.Reset();
-                            MachineSectionStoppage1.SetRange("Production Order No.", MachineSectionStoppages."Production Order No.");
+                            MachineSectionStoppage1.SetRange("Production Order No.",MachineSectionStoppages."Production Order No.");
                             if Page.RunModal(0, MachineSectionStoppage1) = Action::LookupOK then
                                 LineNo := MachineSectionStoppage1."Line No.";
                         end;
@@ -49,21 +49,21 @@ report 50015 "Copy Machine Stoppages"
         LineNo: Integer;
         MachineSectionStoppages: Record "Machine/Section Stoppages";
 
-    trigger OnPostReport()
+    trigger OnPreReport()
     var
         MachineSectionStoppages2: Record "Machine/Section Stoppages";
     begin
         MachineSectionStoppages2.Reset();
         MachineSectionStoppages2.SetRange("Production Order No.", MachineSectionStoppages."Production Order No.");
         MachineSectionStoppages2.SetRange("Line No.", LineNo);
-        If MachineSectionStoppages2.FindFirst() then; 
+        If MachineSectionStoppages2.FindFirst() then;
         If MachineSectionStoppages2.IsEmpty then
             Error('Machine/Section Stoppages Line does not exist')
         else begin
-        
-            MachineSectionStoppages.TransferFields(MachineSectionStoppages2,false);
-           MachineSectionStoppages.Modify();
-           
+
+            MachineSectionStoppages.TransferFields(MachineSectionStoppages2, false);
+            MachineSectionStoppages.Modify();
+
         end;
     end;
 }

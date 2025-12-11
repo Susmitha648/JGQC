@@ -10,6 +10,13 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
         {
             Visible = false;
         }
+        addafter("Due Date")
+        {
+            field("Production Programme"; Rec."Production Programme")
+            {
+                ApplicationArea = All;
+            }
+        }
     }
     actions
     {

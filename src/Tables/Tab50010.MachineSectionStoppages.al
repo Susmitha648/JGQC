@@ -118,6 +118,7 @@ table 50010 "Machine/Section Stoppages"
         field(22; "Incident Date"; Date)
         {
             Caption = 'Incident Date';
+            Editable = false;
         }
         field(23; "Start Time"; Time)
         {
@@ -151,6 +152,14 @@ table 50010 "Machine/Section Stoppages"
         FindRecordManagement: Codeunit "Find Record Management";
     begin
         exit(FindRecordManagement.GetLastEntryIntFieldValue(Rec, FieldNo("Line No.")))
+    end;
+    procedure CopyDocument()
+    var
+        CopyDocument: Report "Copy Machine Stoppages";
+        IsHandled: Boolean;
+    begin
+        CopyDocument.Set(Rec);
+        CopyDocument.RunModal();
     end;
 
     var

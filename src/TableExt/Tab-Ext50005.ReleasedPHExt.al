@@ -7,6 +7,7 @@ tableextension 50005 "Released PH Ext" extends "Production Order"
             Caption = 'Production Programme';
             DataClassification = CustomerContent;
             TableRelation = "Production Programme Header"."No.";
+            Editable = false;
         }
     }
 }

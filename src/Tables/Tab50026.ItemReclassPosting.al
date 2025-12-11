@@ -17,7 +17,7 @@ table 50026 "Item Reclass Posting"
         field(3; "Item Type"; Code[20])
         {
             Caption = 'Item Type';
-            TableRelation = "Item Type".Code;
+            TableRelation = "Item Type".Code where ("Item No." = field("Item No."));
         }
         field(4; "Item Weight"; Decimal)
         {
@@ -32,6 +32,11 @@ table 50026 "Item Reclass Posting"
         field(6; "Journal Posted"; Boolean)
         {
             Caption = 'Journal Posted';
+        }
+         field(7; "Bin Code"; Code[20])
+        {
+            Caption = 'Bin Code';
+            TableRelation = Bin.Code;
         }
     }
     keys

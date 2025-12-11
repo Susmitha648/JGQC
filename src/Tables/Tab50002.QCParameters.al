@@ -3,7 +3,7 @@ table 50002 "QC Parameters"
     Caption = 'QC Parameters';
     DataClassification = CustomerContent;
     LookupPageId = "QC Parameters";
-    
+
     fields
     {
         field(1; "Parameter Code"; Code[20])
@@ -19,9 +19,13 @@ table 50002 "QC Parameters"
             DataClassification = CustomerContent;
             TableRelation = "QC Parameter Type".Code;
         }
-           field(4; "COA Needed"; Boolean)
+        field(4; "COA Needed"; Boolean)
         {
             Caption = 'COA Needed';
+        }
+        field(5; "Sequence"; Integer)
+        {
+            Caption = 'Sequence';
         }
     }
     keys
@@ -33,7 +37,7 @@ table 50002 "QC Parameters"
     }
     fieldgroups
     {
-        fieldgroup(DropDown; "Parameter Code", "Parameter Name","Parameter Type")
+        fieldgroup(DropDown; "Parameter Code", "Parameter Name", "Parameter Type")
         {
         }
     }

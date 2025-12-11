@@ -25,6 +25,10 @@ page 50002 "QC Parameters"
                 {
                     ToolTip = 'Specifies the value of the Parameter Type field.', Comment = '%';
                 }
+                 field(Sequence; Rec.Sequence)
+                {
+                    ToolTip = 'Specifies the value of the Sequence field.', Comment = '%';
+                }
             }
         }
     }

@@ -146,6 +146,7 @@ page 50029 "Production Programme Subform"
         ProductionHdr.Validate("Due Date", ProdProgramLine.Date);
         ProductionHdr."Dimension Set ID" := CreateDimension(ProdProgramLine);
         ProductionHdr.Validate(Quantity, (8 * 60 * ProdProgramLine."Bottles Per Minute") * WorkShift.Count);
+        ProductionHdr."Production Programme" := ProdProgramLine."No.";
         ProductionHdr.Modify();
         If WorkShift.FindSet() then
             repeat

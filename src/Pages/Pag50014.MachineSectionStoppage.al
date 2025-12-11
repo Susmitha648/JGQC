@@ -159,10 +159,12 @@ page 50014 "Machine/Section Stoppages"
                     var
                     CopyReport : Report "Copy Machine Stoppages";
                     begin
-                       CopyReport.Set(Rec);
-                       CopyReport.RunModal();
-                       If Rec.Get(Rec."Production Order No.") then;
-                       CurrPage.Update();
+                        CopyReport.Set(Rec);
+                        CopyReport.RunModal();
+                       
+                        if Rec.Get(Rec."Production Order No.",Rec."Line No.") then;
+                        
+                        CurrPage.Update();
                     end;
                 }
             }
@@ -180,10 +182,11 @@ page 50014 "Machine/Section Stoppages"
         If MachinSectinStoppages.FindFirst() then
             Rec."Line No." := MachinSectinStoppages."Line No." + 10
         else
-            Rec."Line No." := MachinSectinStoppages."Line No.";
+            Rec."Line No." := 10;
         If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Production Order No.") then
             If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
                 Rec."Machine Number" := ReleaseProdOrder."Location Code";
+                Rec."Incident Date" := ReleaseProdOrder."Due Date";
             end;
     end;
 }

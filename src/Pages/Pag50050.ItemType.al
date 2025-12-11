@@ -12,6 +12,10 @@ page 50050 "Item Type"
         {
             repeater(General)
             {
+                field("Item No."; Rec."Item No.")
+                {
+                    ToolTip = 'Specifies the value of the Item No. field.', Comment = '%';
+                }
                 field("Code"; Rec."Code")
                 {
                     ToolTip = 'Specifies the value of the Code field.', Comment = '%';

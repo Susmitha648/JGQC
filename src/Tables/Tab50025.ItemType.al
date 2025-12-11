@@ -17,17 +17,22 @@ table 50025 "Item Type"
         {
             Caption = 'Quantity';
         }
+         field(4; "Item No."; Code[20])
+        {
+            Caption = 'Item No.';
+            TableRelation = Item."No.";
+        }
     }
     keys
     {
-        key(PK; "Code")
+        key(PK; "Item No.","Code")
         {
             Clustered = true;
         }
     }
     fieldgroups
     {
-        fieldgroup(DropDown; "Code", Descritpion, Quantity)
+        fieldgroup(DropDown; "Code", Descritpion, Quantity,"Item No.")
         {
         }
     }

@@ -9,6 +9,13 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
         {
             Visible = false;
         }
+        addafter("Due Date")
+        {
+            field("Production Programme"; Rec."Production Programme")
+            {
+                ApplicationArea = All;
+            }
+        }
     }
     actions
     {
