@@ -148,6 +148,8 @@ page 50029 "Production Programme Subform"
         ProductionHdr.Validate(Quantity, (8 * 60 * ProdProgramLine."Bottles Per Minute") * WorkShift.Count);
         ProductionHdr."Starting Date" := ProdProgramLine.Date;
         ProductionHdr."Ending Date" := ProdProgramLine.Date;
+        ProductionHdr."Ending Date-Time" := CreateDateTime(ProdProgramLine.Date,0T);
+         ProductionHdr."Starting Date-Time" := CreateDateTime(ProdProgramLine.Date,0T);
         ProductionHdr.Modify();
         If WorkShift.FindSet() then
             repeat
@@ -193,8 +195,9 @@ page 50029 "Production Programme Subform"
                 ProductionLine."Work Center" := ProdProgramLine.Furnace;
                 ProductionLine."Starting Time WO" := WorkShift."Starting Time";
                 ProductionLine."Ending Time WO" := WorkShift."Ending Time";
-               // ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date,WorkShift."Starting Time"));
-               // ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date,WorkShift."Ending Time"));
+                ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date,0T));
+                ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date,0T));
+                ProductionLine."Ending Date" := ProdProgramLine.Date;
                 ProductionLine.Modify();
             until WorkShift.Next() = 0;
 
