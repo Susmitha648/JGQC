@@ -16,6 +16,9 @@ report 50016 "QC Plan Report Revised"
             column(Customer_Name; "Customer Name") { }
             column(Room_Temperature; "Room Temperature") { }
             column(IM_Starwheel_Code; "IM Starwheel Code") { }
+            column(Water_Temperature; '') { }
+            column(Drawing_Number; '') { }
+            column(Degree; '') { }
             column(Colour; Colour) { }
             column(CompanyLogo; CompanyInfo.Picture) { }
 
