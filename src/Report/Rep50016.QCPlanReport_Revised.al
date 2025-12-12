@@ -21,34 +21,44 @@ report 50016 "QC Plan Report Revised"
             column(Degree; '') { }
             column(Colour; Colour) { }
             column(CompanyLogo; CompanyInfo.Picture) { }
-
-            dataitem(QCPlanLine; "QC Plan Lines")
+            dataitem(ParameterType; "QC Parameters")
             {
-                DataItemLink = "Job No." = field("Job No.");
-                column(Line_Job_No_; "Job No.") { }
-                column(Line_Description; Description) { }
+                column(ParameterTyp_Code; "Parameter Code") { }
+                column(ParameterTyp_Name; "Parameter Name") { }
+                column(ParameterTyp_Type; "Parameter Type") { }
+                column(Sequence; Sequence) { }
+                column(Line_Job_No_; Line_Job_No_) { }
+                column(Line_Description; Line_Description) { }
                 column(Parameter_Code; "Parameter Code") { }
                 column(Parameter_Name; "Parameter Name") { }
                 column(Frequency; Frequency) { }
                 column(Min; Min) { }
                 column(Max; Max) { }
                 column(Nom; Nom) { }
-                column(Required_for_CE; "Required for CE") { }
-                column(Required_for_HE; "Required for HE") { }
-                dataitem(ParameterType; "QC Parameters")
-                {
-                    DataItemLink = "Parameter Code" = field("Parameter Code");
-                    DataItemLinkReference = QCPlanLine;
-                    column(ParameterTyp_Code; "Parameter Code") { }
-                    column(ParameterTyp_Name; "Parameter Name") { }
-                    column(ParameterTyp_Type; "Parameter Type") { }
-                    dataitem("QC Parameter Type"; "QC Parameter Type")
-                    {
-                        DataItemLink = "Code" = field("Parameter Type");
-                        DataItemLinkReference = ParameterType;
-                        column(Sequence; Sequence) { }
-                    }
-                }
+                column(Required_for_CE; Required_for_CE) { }
+                column(Required_for_HE; Required_for_HE) { }
+                trigger OnAfterGetRecord()
+                var
+                    QCPlanLine: Record "QC Plan Lines";
+                begin
+                    QCPlanLine.Reset();
+                    QCPlanLine.SetRange("Job No.", QCPlanHeader."Job No.");
+                    QCPlanLine.SetRange("Parameter Code", ParameterType."Parameter Code");
+                    //QCPlanLine.SetRange("Parameter Name", "Parameter Name");
+                    //QCPlanLine.SetRange("Parameter Type", "Parameter Type");
+                    IF QCPlanLine.FindFirst() then BEGIN
+                        Line_Job_No_ := QCPlanLine."Job No.";
+                        Line_Description := QCPlanLine."Description";
+                        Parameter_Code := QCPlanLine."Parameter Code";
+                        Parameter_Name := QCPlanLine."Parameter Name";
+                        Frequency := QCPlanLine."Frequency";
+                        Min := QCPlanLine."Min";
+                        Max := QCPlanLine."Max";
+                        Nom := QCPlanLine."Nom";
+                        Required_for_CE := QCPlanLine."Required for CE";
+                        Required_for_HE := QCPlanLine."Required for HE";
+                    END;
+                end;
             }
         }
     }
@@ -79,4 +89,16 @@ report 50016 "QC Plan Report Revised"
 
     var
         CompanyInfo: Record "Company Information";
+        JobNo: Text;
+        Line_Job_No_: Text;
+        Line_Description: Text;
+        Parameter_Code: Text;
+        Parameter_Name: Text;
+        Frequency: Text;
+        Min: Text;
+        Max: Text;
+        Nom: Text;
+        Required_for_CE: Boolean;
+        Required_for_HE: Boolean;
+
 }

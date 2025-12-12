@@ -373,6 +373,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Min">
                           <rd:DefaultName>Min</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -869,7 +870,7 @@
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!ParameterTyp_Type.Value</Value>
+                      <Value>=Fields!Sequence.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixMembers>
@@ -880,7 +881,7 @@
                       <Group Name="Details" />
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!ParameterTyp_Type.Value</Value>
+                          <Value>=Fields!Sequence.Value</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixMembers>
@@ -900,31 +901,29 @@
                 <FilterExpression>=Fields!ParameterTyp_Type.Value</FilterExpression>
                 <Operator>NotEqual</Operator>
                 <FilterValues>
-                  <FilterValue>GAUGE TYPES</FilterValue>
-                </FilterValues>
-              </Filter>
-              <Filter>
-                <FilterExpression> =Fields!ParameterTyp_Type.Value</FilterExpression>
-                <Operator>NotEqual</Operator>
-                <FilterValues>
-                  <FilterValue>C/E Inspection</FilterValue>
+                  <FilterValue>GAUGE TYPE</FilterValue>
                 </FilterValues>
               </Filter>
               <Filter>
                 <FilterExpression>=Fields!ParameterTyp_Type.Value</FilterExpression>
                 <Operator>NotEqual</Operator>
                 <FilterValues>
-                  <FilterValue>Physical Test</FilterValue>
+                  <FilterValue>PHYSICAL TEST</FilterValue>
                 </FilterValues>
               </Filter>
               <Filter>
-                <FilterExpression> =Fields!ParameterTyp_Type.Value</FilterExpression>
+                <FilterExpression>=Fields!ParameterTyp_Type.Value</FilterExpression>
                 <Operator>NotEqual</Operator>
                 <FilterValues>
-                  <FilterValue>GLASS DISTRI (MM)</FilterValue>
+                  <FilterValue>GLASS DISTRIBUTION</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
+            <SortExpressions>
+              <SortExpression>
+                <Value>=Fields!Sequence.Value</Value>
+              </SortExpression>
+            </SortExpressions>
             <Top>0cm</Top>
             <Left>0.00003in</Left>
             <Height>0.54861in</Height>
@@ -1601,7 +1600,7 @@
                 <FilterExpression>=Fields!ParameterTyp_Type.Value</FilterExpression>
                 <Operator>Equal</Operator>
                 <FilterValues>
-                  <FilterValue>GLASS DISTRI (MM)</FilterValue>
+                  <FilterValue>GLASS DISTRIBUTION</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
@@ -2386,7 +2385,7 @@
                 <FilterExpression>=Fields!ParameterTyp_Type.Value</FilterExpression>
                 <Operator>Equal</Operator>
                 <FilterValues>
-                  <FilterValue>Physical Test</FilterValue>
+                  <FilterValue>PHYSICAL TEST</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
@@ -3138,7 +3137,7 @@
                 <FilterExpression>=Fields!ParameterTyp_Type.Value</FilterExpression>
                 <Operator>Equal</Operator>
                 <FilterValues>
-                  <FilterValue>GAUGE TYPES</FilterValue>
+                  <FilterValue>GAUGE TYPE</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>
@@ -3154,13 +3153,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2.24999in</Height>
+        <Height>2.19444in</Height>
         <Style />
       </Body>
       <Width>4.05004in</Width>
       <Page>
         <PageHeader>
-          <Height>1.04582in</Height>
+          <Height>1.10832in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3944,7 +3943,7 @@
               </Paragraphs>
               <Top>0.83333in</Top>
               <Left>0.00004in</Left>
-              <Height>0.21249in</Height>
+              <Height>0.19444in</Height>
               <Width>1.4in</Width>
               <ZIndex>14</ZIndex>
               <Style>
@@ -3998,7 +3997,7 @@
               </Paragraphs>
               <Top>0.83333in</Top>
               <Left>1.40005in</Left>
-              <Height>0.21249in</Height>
+              <Height>0.19444in</Height>
               <Width>2.62501in</Width>
               <ZIndex>15</ZIndex>
               <Style>
@@ -4138,35 +4137,6 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Line Name="Line3">
-              <Top>1.02777in</Top>
-              <Left>0.00285in</Left>
-              <Height>0in</Height>
-              <Width>8.09722in</Width>
-              <ZIndex>18</ZIndex>
-              <Style>
-                <Border>
-                  <Style>Solid</Style>
-                  <Width>0.25pt</Width>
-                </Border>
-                <TopBorder>
-                  <Style>Solid</Style>
-                  <Width>0.25pt</Width>
-                </TopBorder>
-                <BottomBorder>
-                  <Style>Solid</Style>
-                  <Width>0.25pt</Width>
-                </BottomBorder>
-                <LeftBorder>
-                  <Style>Solid</Style>
-                  <Width>0.25pt</Width>
-                </LeftBorder>
-                <RightBorder>
-                  <Style>Solid</Style>
-                  <Width>0.25pt</Width>
-                </RightBorder>
-              </Style>
-            </Line>
             <Textbox Name="Textbox33">
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <CanGrow>true</CanGrow>
@@ -4192,7 +4162,7 @@
               <Left>7.26045in</Left>
               <Height>0.19445in</Height>
               <Width>0.8347in</Width>
-              <ZIndex>19</ZIndex>
+              <ZIndex>18</ZIndex>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -4615,6 +4585,7 @@
                 </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
+              <Top>0cm</Top>
               <Left>0in</Left>
               <Height>1.26737in</Height>
               <Width>8.10007in</Width>
@@ -4720,6 +4691,18 @@ End Function
         <Field Name="CompanyLogo">
           <DataField>CompanyLogo</DataField>
         </Field>
+        <Field Name="ParameterTyp_Code">
+          <DataField>ParameterTyp_Code</DataField>
+        </Field>
+        <Field Name="ParameterTyp_Name">
+          <DataField>ParameterTyp_Name</DataField>
+        </Field>
+        <Field Name="ParameterTyp_Type">
+          <DataField>ParameterTyp_Type</DataField>
+        </Field>
+        <Field Name="Sequence">
+          <DataField>Sequence</DataField>
+        </Field>
         <Field Name="Line_Job_No_">
           <DataField>Line_Job_No_</DataField>
         </Field>
@@ -4749,18 +4732,6 @@ End Function
         </Field>
         <Field Name="Required_for_HE">
           <DataField>Required_for_HE</DataField>
-        </Field>
-        <Field Name="ParameterTyp_Code">
-          <DataField>ParameterTyp_Code</DataField>
-        </Field>
-        <Field Name="ParameterTyp_Name">
-          <DataField>ParameterTyp_Name</DataField>
-        </Field>
-        <Field Name="ParameterTyp_Type">
-          <DataField>ParameterTyp_Type</DataField>
-        </Field>
-        <Field Name="Sequence">
-          <DataField>Sequence</DataField>
         </Field>
       </Fields>
       <Query>
