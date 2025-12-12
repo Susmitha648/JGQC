@@ -73,7 +73,7 @@ page 50362 "Item Reclass Posting"
                         ItemReclassPost: Record "Item Reclass Posting";
                         ReservationEntry: Record "Reservation Entry";
                         ItemJnlPostBatch: Codeunit "Item Jnl.-Post Batch";
-                        LineNo : Integer;
+                        LineNo: Integer;
                     begin
 
 
@@ -104,7 +104,7 @@ page 50362 "Item Reclass Posting"
                         ItemJournalLine."Entry Type" := ItemJournalLine."Entry Type"::Transfer;
                         ItemJournalLine.Validate("Item No.", Rec."Item No.");
                         ItemJournalLine.Validate("Posting Date", WorkDate());
-                        ItemJournalLine."Document No.":=  NoSeries.PeekNextNo(ItemJournalBatch."No. Series",ItemJournalLine."Posting Date");
+                        ItemJournalLine."Document No." := NoSeries.PeekNextNo(ItemJournalBatch."No. Series", ItemJournalLine."Posting Date");
                         ItemJournalLine.Validate("Location Code", ManufacturingSetup."From Batch Location");
                         ItemJournalLine.Validate("New Location Code", ManufacturingSetup."To Batch Location");
 
@@ -112,10 +112,12 @@ page 50362 "Item Reclass Posting"
                             ItemJournalLine.Validate(Quantity, ItemType.Quantity)
                         Else
                             ItemJournalLine.Validate(Quantity, Rec."Item Weight");
+                        ItemJournalLine.Validate("Lot No.", Rec."Batch No.");
                         If Rec."Bin Code" <> '' then
-                           ItemJournalLine."Bin Code" := Rec."Bin Code";
-                           LineNo := ItemJournalLine."Line No.";
-                        ItemJournalLine."Lot No." := Rec."Batch No.";
+                            ItemJournalLine.Validate("Bin Code", Rec."Bin Code");
+                        LineNo := ItemJournalLine."Line No.";
+                        
+                        //ItemJournalLine.Validate("New Lot No." , Rec."Batch No.");
                         ItemJournalLine.Modify();
 
                         ReservationEntry.Init();
@@ -137,12 +139,12 @@ page 50362 "Item Reclass Posting"
                         ReservationEntry.Insert(True);
 
                         ItemJournalLinePost.Reset();
-                        ItemJournalLinePost.SetRange("Journal Template Name",ItemJournalTemplate.Name);
-                        ItemJournalLinePost.SetRange("Journal Batch Name",ItemJournalBatch.Name);
-                        ItemJournalLinePost.SetRange("Line No.",LineNo);
+                        ItemJournalLinePost.SetRange("Journal Template Name", ItemJournalTemplate.Name);
+                        ItemJournalLinePost.SetRange("Journal Batch Name", ItemJournalBatch.Name);
+                        ItemJournalLinePost.SetRange("Line No.", LineNo);
                         If ItemJournalLinePost.FindFirst() then
-                        ItemJnlPostBatch.Run(ItemJournalLinePost);
- 
+                            ItemJnlPostBatch.Run(ItemJournalLinePost);
+
                         Rec."Journal Posted" := True;
                         Rec.Modify();
 
