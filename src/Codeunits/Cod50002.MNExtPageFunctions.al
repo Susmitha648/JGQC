@@ -4,6 +4,7 @@ codeunit 50002 MNExtPageFunctions
     var
         ItemJournalLine: Record "Item Journal Line";
         ItemJournalLineNo: Record "Item Journal Line";
+        ItemJournalLinePost: Record "Item Journal Line";
         ManufacturingSetup: Record "Manufacturing Setup";
         ItemJournalTemplate: Record "Item Journal Template";
         ItemJournalBatch: Record "Item Journal Batch";
@@ -12,6 +13,7 @@ codeunit 50002 MNExtPageFunctions
         ItemReclassPost: Record "Item Reclass Posting";
         ReservationEntry: Record "Reservation Entry";
         ItemJnlPostBatch: Codeunit "Item Jnl.-Post Batch";
+        LineNo: Integer;
     begin
 
 
@@ -50,28 +52,38 @@ codeunit 50002 MNExtPageFunctions
             ItemJournalLine.Validate(Quantity, ItemType.Quantity)
         else
             ItemJournalLine.Validate(Quantity, "Key"."Item Weight");
+        If "Key"."Bin Code" <> '' then
+            ItemJournalLine.Validate("Bin Code", "Key"."Bin Code");
+        LineNo := ItemJournalLine."Line No.";
         ItemJournalLine.Modify();
 
+        ItemJournalLinePost.Reset();
+        ItemJournalLinePost.SetRange("Journal Template Name", ItemJournalTemplate.Name);
+        ItemJournalLinePost.SetRange("Journal Batch Name", ItemJournalBatch.Name);
+        ItemJournalLinePost.SetRange("Line No.", LineNo);
+        If ItemJournalLinePost.FindFirst() then
         ReservationEntry.Init();
         ReservationEntry."Entry No." := 0;
         ReservationEntry.Validate("Item No.", "Key"."Item No.");
         ReservationEntry.Validate("Location Code", ManufacturingSetup."From Batch Location");
         ReservationEntry.Validate(Positive, false);
-        ReservationEntry.Validate("Quantity (Base)", ItemJournalLine.Quantity);
+        ReservationEntry.Validate("Quantity (Base)", -1 * ItemJournalLinePost.Quantity);
         ReservationEntry.Validate("Reservation Status", ReservationEntry."Reservation Status"::Prospect);
         ReservationEntry.Validate("Lot No.", "Key"."Batch No.");
-        ReservationEntry.Validate("Source ID", ItemJournalLine."Journal Template Name");
-        ReservationEntry.Validate("Source Batch Name", ItemJournalLine."Journal Batch Name");
+        ReservationEntry.Validate("New Lot No.", "Key"."Batch No.");
+        ReservationEntry.Validate("Source ID", ItemJournalLinePost."Journal Template Name");
+        ReservationEntry.Validate("Source Batch Name", ItemJournalLinePost."Journal Batch Name");
         ReservationEntry.Validate("Source Type", 83);
         ReservationEntry.Validate("Source Subtype", 4);
-        ReservationEntry.Validate("Source Ref. No.", 10000);
-        ReservationEntry.Validate("Shipment Date", ItemJournalLine."Posting Date");
+        ReservationEntry.Validate("Source Ref. No.", LineNo);
+        ReservationEntry.Validate("Shipment Date", ItemJournalLinePost."Posting Date");
         ReservationEntry.Validate("Planning Flexibility", ReservationEntry."Planning Flexibility"::Unlimited);
         ReservationEntry.Validate("Item Tracking", ReservationEntry."Item Tracking"::"Lot No.");
-        ReservationEntry.Insert(True);
+        ReservationEntry.Insert();
 
 
-        ItemJnlPostBatch.Run(ItemJournalLine);
+
+        ItemJnlPostBatch.Run(ItemJournalLinePost);
 
         "Key"."Journal Posted" := True;
         "Key".Modify();

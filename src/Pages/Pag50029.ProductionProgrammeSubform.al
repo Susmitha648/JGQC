@@ -147,7 +147,7 @@ page 50029 "Production Programme Subform"
         ProductionHdr."Dimension Set ID" := CreateDimension(ProdProgramLine);
         ProductionHdr.Validate(Quantity, (8 * 60 * ProdProgramLine."Bottles Per Minute") * WorkShift.Count);
         ProductionHdr."Starting Date" := ProdProgramLine.Date;
-        ProductionHdr."Ending Date" := ProdProgramLine.Date;
+        ProductionHdr."Ending Date" := 0D;
         ProductionHdr."Ending Date-Time" := CreateDateTime(ProdProgramLine.Date,0T);
          ProductionHdr."Starting Date-Time" := CreateDateTime(ProdProgramLine.Date,0T);
         ProductionHdr.Modify();
@@ -197,7 +197,7 @@ page 50029 "Production Programme Subform"
                 ProductionLine."Ending Time WO" := WorkShift."Ending Time";
                 ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date,0T));
                 ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date,0T));
-                ProductionLine."Ending Date" := ProdProgramLine.Date;
+                ProductionLine."Ending Date" := 0D;
                 ProductionLine.Modify();
             until WorkShift.Next() = 0;
 

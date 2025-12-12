@@ -112,42 +112,44 @@ page 50362 "Item Reclass Posting"
                             ItemJournalLine.Validate(Quantity, ItemType.Quantity)
                         Else
                             ItemJournalLine.Validate(Quantity, Rec."Item Weight");
-                        ItemJournalLine.Validate("Lot No.", Rec."Batch No.");
+
                         If Rec."Bin Code" <> '' then
                             ItemJournalLine.Validate("Bin Code", Rec."Bin Code");
                         LineNo := ItemJournalLine."Line No.";
-                        
-                        //ItemJournalLine.Validate("New Lot No." , Rec."Batch No.");
+
+
+
                         ItemJournalLine.Modify();
-
-                        ReservationEntry.Init();
-                        ReservationEntry."Entry No." := 0;
-                        ReservationEntry.Validate("Item No.", Rec."Item No.");
-                        ReservationEntry.Validate("Location Code", ManufacturingSetup."From Batch Location");
-                        ReservationEntry.Validate(Positive, false);
-                        ReservationEntry.Validate("Quantity (Base)", -1 * ItemJournalLine.Quantity);
-                        ReservationEntry.Validate("Reservation Status", ReservationEntry."Reservation Status"::Prospect);
-                        ReservationEntry.Validate("Lot No.", Rec."Batch No.");
-                        ReservationEntry.Validate("Source ID", ItemJournalLine."Journal Template Name");
-                        ReservationEntry.Validate("Source Batch Name", ItemJournalLine."Journal Batch Name");
-                        ReservationEntry.Validate("Source Type", 83);
-                        ReservationEntry.Validate("Source Subtype", 4);
-                        ReservationEntry.Validate("Source Ref. No.", 10000);
-                        ReservationEntry.Validate("Shipment Date", ItemJournalLine."Posting Date");
-                        ReservationEntry.Validate("Planning Flexibility", ReservationEntry."Planning Flexibility"::Unlimited);
-                        ReservationEntry.Validate("Item Tracking", ReservationEntry."Item Tracking"::"Lot No.");
-                        ReservationEntry.Insert(True);
-
                         ItemJournalLinePost.Reset();
                         ItemJournalLinePost.SetRange("Journal Template Name", ItemJournalTemplate.Name);
                         ItemJournalLinePost.SetRange("Journal Batch Name", ItemJournalBatch.Name);
                         ItemJournalLinePost.SetRange("Line No.", LineNo);
                         If ItemJournalLinePost.FindFirst() then
-                            ItemJnlPostBatch.Run(ItemJournalLinePost);
+                            ReservationEntry.Init();
+                        ReservationEntry."Entry No." := 0;
+                        ReservationEntry.Validate("Item No.", Rec."Item No.");
+                        ReservationEntry.Validate("Location Code", ManufacturingSetup."From Batch Location");
+                        ReservationEntry.Validate(Positive, false);
+                        ReservationEntry.Validate("Quantity (Base)", -1 * ItemJournalLinePost.Quantity);
+                        ReservationEntry.Validate("Reservation Status", ReservationEntry."Reservation Status"::Prospect);
+                        ReservationEntry.Validate("Lot No.", Rec."Batch No.");
+                        ReservationEntry.Validate("New Lot No.", Rec."Batch No.");
+                        ReservationEntry.Validate("Source ID", ItemJournalLinePost."Journal Template Name");
+                        ReservationEntry.Validate("Source Batch Name", ItemJournalLinePost."Journal Batch Name");
+                        ReservationEntry.Validate("Source Type", 83);
+                        ReservationEntry.Validate("Source Subtype", 4);
+                        ReservationEntry.Validate("Source Ref. No.", LineNo);
+                        ReservationEntry.Validate("Shipment Date", ItemJournalLinePost."Posting Date");
+                        ReservationEntry.Validate("Planning Flexibility", ReservationEntry."Planning Flexibility"::Unlimited);
+                        ReservationEntry.Validate("Item Tracking", ReservationEntry."Item Tracking"::"Lot No.");
+                        ReservationEntry.Insert();
 
-                        Rec."Journal Posted" := True;
+
+
+                        ItemJnlPostBatch.Run(ItemJournalLinePost);
+                        Rec."Journal Posted" := true;
                         Rec.Modify();
-
+                        Message('Posted Succesfully');
                     end;
                 }
             }
