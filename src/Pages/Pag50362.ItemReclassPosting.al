@@ -115,7 +115,7 @@ page 50362 "Item Reclass Posting"
                         If Rec."Bin Code" <> '' then
                            ItemJournalLine."Bin Code" := Rec."Bin Code";
                            LineNo := ItemJournalLine."Line No.";
-                        ItemJournalLine."New Lot No." := Rec."Batch No.";
+                        ItemJournalLine."Lot No." := Rec."Batch No.";
                         ItemJournalLine.Modify();
 
                         ReservationEntry.Init();
