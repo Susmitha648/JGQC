@@ -35,30 +35,35 @@ report 50004 "COA Report"
                 column(Section_No_; "Section No.") { }
                 column(Front_Back; "Front/Back") { }
                 column(Line_No_; "Line No.") { }
+                column(WeightEmpty; WeightEmpty) { }
+
                 trigger OnAfterGetRecord()
                 var
-                UploadMouldNo : Record "Update Mould No";
+                    UploadMouldNo: Record "Update Mould No";
                 begin
-                    
 
-                  UploadMouldNo.Reset();
-                  UploadMouldNo.SetRange("Work Order No.",COALines."Released Prod Order No.");
-                  UploadMouldNo.SetRange("Section No.",COALines."Section No.");
-                  If UploadMouldNo.FindFirst() then
-                     If COALines."Front/Back" = COALines."Front/Back"::F then
-                        MouldNumber := UploadMouldNo."Front Mould No"
-                    else
-                        MouldNumber := UploadMouldNo."Back Mould No";
+
+                    UploadMouldNo.Reset();
+                    UploadMouldNo.SetRange("Work Order No.", COALines."Released Prod Order No.");
+                    UploadMouldNo.SetRange("Section No.", COALines."Section No.");
+                    If UploadMouldNo.FindFirst() then begin
+                        If COALines."Front/Back" = COALines."Front/Back"::F then
+                            MouldNumber := UploadMouldNo."Front Mould No"
+                        else
+                            MouldNumber := UploadMouldNo."Back Mould No";
+                        WeightEmpty := UploadMouldNo."Weight Empty";
+                    end;
                 end;
+
                 trigger OnPreDataItem()
                 begin
-                    COALines.SetFilter("QC Parameter Code",'<>%1','');
+                    COALines.SetFilter("QC Parameter Code", '<>%1', '');
                 end;
             }
         }
-        
+
     }
-    
+
     requestpage
     {
         layout
@@ -76,7 +81,7 @@ report 50004 "COA Report"
             {
             }
         }
-        
+
     }
 
     trigger OnPreReport()
@@ -87,5 +92,6 @@ report 50004 "COA Report"
 
     var
         CompanyInfo: Record "Company Information";
-        MouldNumber : Integer;
+        MouldNumber: Integer;
+        WeightEmpty: Decimal;
 }
