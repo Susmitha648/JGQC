@@ -1,7 +1,7 @@
 page 50361 "MNExt Item Reclass Posting"
 {
     ApplicationArea = All;
-    Caption = 'Item Reclass Posting';
+    Caption = 'Batch House Automation';
     PageType = Card;
     SourceTable = "Item Reclass Posting";
     AutoSplitKey = true;
@@ -32,6 +32,10 @@ page 50361 "MNExt Item Reclass Posting"
                     TableRelation = "Item Type".Code;
                 }
                 field("Item Weight"; Rec."Item Weight")
+                {
+                    ApplicationArea = All;
+                }
+                field("Bin Code"; Rec."Bin Code")
                 {
                     ApplicationArea = All;
                 }

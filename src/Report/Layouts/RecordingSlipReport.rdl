@@ -2237,9 +2237,6 @@ ohhNZOMp2UrqoTkcOfwTbdukMGnSBG697Q7sNttxtvIJHQ+333oTz/Xsdn5Z1OWU8zeZMWsOb703jJ5P
         <Field Name="CompanyInfoHomePage">
           <DataField>CompanyInfoHomePage</DataField>
         </Field>
-        <Field Name="CompanyInfoVATRegNo">
-          <DataField>CompanyInfoVATRegNo</DataField>
-        </Field>
         <Field Name="CompanyInfoBusinessRegistrationNo">
           <DataField>CompanyInfoBusinessRegistrationNo</DataField>
         </Field>

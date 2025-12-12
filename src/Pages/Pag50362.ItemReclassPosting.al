@@ -1,12 +1,13 @@
 page 50362 "Item Reclass Posting"
 {
     ApplicationArea = All;
-    Caption = 'Item Reclass Posting';
+    Caption = 'Batch House Automation';
     PageType = Card;
     SourceTable = "Item Reclass Posting";
     AutoSplitKey = true;
     RefreshOnActivate = true;
     UsageCategory = Tasks;
+    PromotedActionCategoriesML = ENU = 'Post';
     layout
     {
         area(Content)
@@ -62,6 +63,7 @@ page 50362 "Item Reclass Posting"
                     trigger OnAction()
                     var
                         ItemJournalLine: Record "Item Journal Line";
+                        ItemJournalLinePost: Record "Item Journal Line";
                         ItemJournalLineNo: Record "Item Journal Line";
                         ManufacturingSetup: Record "Manufacturing Setup";
                         ItemJournalTemplate: Record "Item Journal Template";
@@ -71,6 +73,7 @@ page 50362 "Item Reclass Posting"
                         ItemReclassPost: Record "Item Reclass Posting";
                         ReservationEntry: Record "Reservation Entry";
                         ItemJnlPostBatch: Codeunit "Item Jnl.-Post Batch";
+                        LineNo : Integer;
                     begin
 
 
@@ -97,11 +100,11 @@ page 50362 "Item Reclass Posting"
                             ItemJournalLine."Line No." := ItemJournalLineNo."Line No." + 10000
                         else
                             ItemJournalLine."Line No." := 10000;
-                        ItemJournalLine.Insert(True);
+                        ItemJournalLine.Insert();
                         ItemJournalLine."Entry Type" := ItemJournalLine."Entry Type"::Transfer;
                         ItemJournalLine.Validate("Item No.", Rec."Item No.");
                         ItemJournalLine.Validate("Posting Date", WorkDate());
-                        ItemJournalLine.Validate("Document No.", NoSeries.GetNextNo(ItemJournalBatch."No. Series"));
+                        ItemJournalLine."Document No.":=  NoSeries.PeekNextNo(ItemJournalBatch."No. Series",ItemJournalLine."Posting Date");
                         ItemJournalLine.Validate("Location Code", ManufacturingSetup."From Batch Location");
                         ItemJournalLine.Validate("New Location Code", ManufacturingSetup."To Batch Location");
 
@@ -111,6 +114,7 @@ page 50362 "Item Reclass Posting"
                             ItemJournalLine.Validate(Quantity, Rec."Item Weight");
                         If Rec."Bin Code" <> '' then
                            ItemJournalLine."Bin Code" := Rec."Bin Code";
+                           LineNo := ItemJournalLine."Line No.";
                         ItemJournalLine.Modify();
 
                         ReservationEntry.Init();
@@ -118,7 +122,7 @@ page 50362 "Item Reclass Posting"
                         ReservationEntry.Validate("Item No.", Rec."Item No.");
                         ReservationEntry.Validate("Location Code", ManufacturingSetup."From Batch Location");
                         ReservationEntry.Validate(Positive, false);
-                        ReservationEntry.Validate("Quantity (Base)", ItemJournalLine.Quantity);
+                        ReservationEntry.Validate("Quantity (Base)", -1 * ItemJournalLine.Quantity);
                         ReservationEntry.Validate("Reservation Status", ReservationEntry."Reservation Status"::Prospect);
                         ReservationEntry.Validate("Lot No.", Rec."Batch No.");
                         ReservationEntry.Validate("Source ID", ItemJournalLine."Journal Template Name");
@@ -131,9 +135,13 @@ page 50362 "Item Reclass Posting"
                         ReservationEntry.Validate("Item Tracking", ReservationEntry."Item Tracking"::"Lot No.");
                         ReservationEntry.Insert(True);
 
-
-                        ItemJnlPostBatch.Run(ItemJournalLine);
-
+                        ItemJournalLinePost.Reset();
+                        ItemJournalLinePost.SetRange("Journal Template Name",ItemJournalTemplate.Name);
+                        ItemJournalLinePost.SetRange("Journal Batch Name",ItemJournalBatch.Name);
+                        ItemJournalLinePost.SetRange("Line No.",LineNo);
+                        If ItemJournalLinePost.FindFirst() then
+                        ItemJnlPostBatch.Run(ItemJournalLinePost);
+ 
                         Rec."Journal Posted" := True;
                         Rec.Modify();
 

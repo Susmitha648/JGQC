@@ -44,9 +44,6 @@ report 50005 RecordingSlipReport
             column(CompanyInfoHomePage; CompanyInfo."Home Page")
             {
             }
-            column(CompanyInfoVATRegNo; CompanyInfo."ADY E-INV SST Reg No.")
-            {
-            }
             column(CompanyInfoBusinessRegistrationNo; CompanyInfo."Registration No.")
             {
             }
