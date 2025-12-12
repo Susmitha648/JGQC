@@ -66,6 +66,16 @@ table 50024 "Update Mould No"
                 until ColdEndPresortLine.Next() = 0;
             end;
         }
+        field(5;"Weight Empty" ;Decimal)
+        {
+            Caption = 'Weight Empty';
+            BlankZero = true;
+        }
+        field(6;"Weight Full" ;Decimal)
+        {
+            Caption = 'Weight Full';
+            BlankZero = true;
+        }
     }
     keys
     {

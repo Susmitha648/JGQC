@@ -23,6 +23,14 @@ page 50045 "Update Mould No"
                 {
                     ToolTip = 'Specifies the value of the Back Mould No field.', Comment = '%';
                 }
+                field("Weight Empty"; Rec."Weight Empty")
+                {
+                    ToolTip = 'Specifies the value of the Weight Empty field.', Comment = '%';
+                }
+                field("Weight Full"; Rec."Weight Full")
+                {
+                    ToolTip = 'Specifies the value of the Weight Full field.', Comment = '%';
+                }
             }
         }
     }
