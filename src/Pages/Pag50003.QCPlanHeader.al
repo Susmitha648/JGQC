@@ -120,23 +120,23 @@ page 50003 "QC Plan Header"
             }
             group(Print)
             {
-               /* action("QC Plan Report Old")
-                {
-                    ApplicationArea = All;
-                    Caption = 'QC Plan Report Old';
-                    Image = Report; // Optional icon
-                    trigger OnAction()
-                    var
-                        MyReportID: Integer;
-                        JobNo: Record "QC Plan Header";
-                    begin
-                        MyReportID := Report::"QC Plan Report";
-                        JobNo.Reset();
-                        JobNo.SetRange("Job No.", Rec."Job No.");
-                        If JobNo.FindSet() then
-                            Report.RunModal(MyReportID, true, false, JobNo);
-                    end;
-                }*/
+                /* action("QC Plan Report Old")
+                 {
+                     ApplicationArea = All;
+                     Caption = 'QC Plan Report Old';
+                     Image = Report; // Optional icon
+                     trigger OnAction()
+                     var
+                         MyReportID: Integer;
+                         JobNo: Record "QC Plan Header";
+                     begin
+                         MyReportID := Report::"QC Plan Report";
+                         JobNo.Reset();
+                         JobNo.SetRange("Job No.", Rec."Job No.");
+                         If JobNo.FindSet() then
+                             Report.RunModal(MyReportID, true, false, JobNo);
+                     end;
+                 }*/
                 action("QC Plan Report New")
                 {
                     ApplicationArea = All;
@@ -148,6 +148,23 @@ page 50003 "QC Plan Header"
                         JobNo: Record "QC Plan Header";
                     begin
                         MyReportID := Report::"QC Plan Report New";
+                        JobNo.Reset();
+                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        If JobNo.FindSet() then
+                            Report.RunModal(MyReportID, true, false, JobNo);
+                    end;
+                }
+                action("QC Plan Report Revised")
+                {
+                    ApplicationArea = All;
+                    Caption = 'QC Plan Report Revised';
+                    Image = Report; // Optional icon
+                    trigger OnAction()
+                    var
+                        MyReportID: Integer;
+                        JobNo: Record "QC Plan Header";
+                    begin
+                        MyReportID := Report::"QC Plan Report Revised";
                         JobNo.Reset();
                         JobNo.SetRange("Job No.", Rec."Job No.");
                         If JobNo.FindSet() then
