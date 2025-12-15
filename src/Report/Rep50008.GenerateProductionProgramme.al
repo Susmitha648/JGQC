@@ -54,7 +54,7 @@ report 50008 "Generate Production Programme"
                     If ProductionProgramLine.Date = FirstLineDate then
                         ProductionProgramLine."First Line" := True;
                     ProductionProgramLine."Sequence No" := Sequence;
-                    ProductionProgramLine.Modify();
+                    ProductionProgramLine.Modify(false);
                     FromDate := FromDate + 1;
                 end;
             end;

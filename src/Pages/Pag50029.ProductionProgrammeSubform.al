@@ -215,7 +215,7 @@ page 50029 "Production Programme Subform"
 
         ProdProgramLine."Production Order No." := ProductionHdr."No.";
         ProdProgramLine."Prod Order Created" := True;
-        ProdProgramLine.Modify();
+        ProdProgramLine.Modify(false);
         
     end;
 
