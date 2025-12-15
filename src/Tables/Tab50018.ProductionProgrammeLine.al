@@ -35,38 +35,43 @@ table 50018 "Production Programme Line"
                 ProdProgLine2: Record "Production Programme Line";
             begin
                 TestStatusOpen();
-                If Rec.Job <> xRec.Job then begin
-                    Message('Test');
-                    ProdProgLine2.Reset();
-                    ProdProgLine2.SetAscending(Date, True);
-                    ProdProgLine2.SetRange(Job, Rec.Job);
-                    ProdProgLine2.SetRange(Furnace, Rec.Furnace);
-                    If ProdProgLine2.Count > 1 then begin
-                        ProdProgLine2.SetRange(Date, CalcDate('<-1D>', Date));
-                        If ProdProgLine2.FindFirst() then begin
-                            Rec."Sequence No" := ProdProgLine2."Sequence No";
-                            If ProdProgLine2."Last Line" then begin
-                                ProdProgLine2."Last Line" := false;
-                                ProdProgLine2.Modify();
-                            End;
-                            Rec."Last Line" := True;
-                        end Else begin
-                            ProdProgLine2.SetRange(Date, CalcDate('<+1D>', Date));
+                If Job <> '' then
+                    If Rec.Job <> xRec.Job then begin
+                        ProdProgLine2.Reset();
+                        ProdProgLine2.SetRange(Job, Rec.Job);
+                        ProdProgLine2.SetRange("No.", Rec."No.");
+                        ProdProgLine2.SetRange(Furnace, Rec.Furnace);
+                        If ProdProgLine2.Count > 1 then begin
+                            ProdProgLine2.SetRange(Date, CalcDate('<-1D>', Date));
                             If ProdProgLine2.FindFirst() then begin
                                 Rec."Sequence No" := ProdProgLine2."Sequence No";
-                                If ProdProgLine2."First Line" then begin
-                                    ProdProgLine2."First Line" := false;
+                                If ProdProgLine2."Last Line" then begin
+                                    ProdProgLine2."Last Line" := false;
                                     ProdProgLine2.Modify();
-                                    rec."First Line" := true;
+                                    Rec."Last Line" := True;
+
+                                    Rec."First Line" := false;
+                                End;
+
+                            end Else begin
+                                ProdProgLine2.SetRange(Date, CalcDate('<+1D>', Date));
+                                If ProdProgLine2.FindFirst() then begin
+                                    Rec."Sequence No" := ProdProgLine2."Sequence No";
+                                    If ProdProgLine2."First Line" then begin
+                                        ProdProgLine2."First Line" := false;
+                                        ProdProgLine2.Modify();
+                                        rec."First Line" := true;
+                                        Rec."Last Line" := false;
+                                        Rec."Record Slip No" := ProdProgLine2."Record Slip No";
+                                    end;
                                 end;
                             end;
+                        end else begin
+                            Rec."Sequence No" := 1;
+                            Rec."First Line" := True;
+                            Rec."Last Line" := True;
                         end;
-                    end else begin
-                        Rec."Sequence No" := 1;
-                        Rec."First Line" := True;
-                        Rec."Last Line" := True;
                     end;
-                end;
             end;
         }
         field(4; Furnace; Code[20])
