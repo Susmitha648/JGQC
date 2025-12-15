@@ -5,6 +5,7 @@ report 50004 "COA Report"
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
     RDLCLayout = './src/Report/Layouts/COAReport.rdl';
+
     dataset
     {
         dataitem(COAHeader; "COA Header")
@@ -20,9 +21,11 @@ report 50004 "COA Report"
             column(Water_Temp; "Water Temp") { }
             column(Lot_No; '') { }
             column(CompanyLogo; CompanyInfo.Picture) { }
+
             dataitem(COALines; "COA Lines")
             {
                 DataItemLink = "Released Prod Order No." = field("Released Prod Order No.");
+
                 column(Result; "Result") { }
                 column(Max_Result; "Max Result") { }
                 column(UserId; UserId) { }
@@ -31,37 +34,41 @@ report 50004 "COA Report"
                 column(QC_Parameter_Name; "QC Parameter Name") { }
                 column(Min; Min) { }
                 column(Max; Max) { }
-                column(Mould_Numbers; MouldNumber) { }
                 column(Section_No_; "Section No.") { }
                 column(Front_Back; "Front/Back") { }
                 column(Line_No_; "Line No.") { }
+                column(Mould_Numbers; MouldNumber) { }
                 column(WeightEmpty; WeightEmpty) { }
-
-                trigger OnAfterGetRecord()
-                var
-                    UploadMouldNo: Record "Update Mould No";
-                begin
-
-
-                    UploadMouldNo.Reset();
-                    UploadMouldNo.SetRange("Work Order No.", COALines."Released Prod Order No.");
-                    UploadMouldNo.SetRange("Section No.", COALines."Section No.");
-                    If UploadMouldNo.FindFirst() then begin
-                        If COALines."Front/Back" = COALines."Front/Back"::F then
-                            MouldNumber := UploadMouldNo."Front Mould No"
-                        else
-                            MouldNumber := UploadMouldNo."Back Mould No";
-                        WeightEmpty := UploadMouldNo."Weight Empty";
-                    end;
-                end;
+                column(Water_Temp_Line; COAHeader."Water Temp") { }
 
                 trigger OnPreDataItem()
                 begin
                     COALines.SetFilter("QC Parameter Code", '<>%1', '');
                 end;
+
+                trigger OnAfterGetRecord()
+                var
+                    UploadMouldNo: Record "Update Mould No";
+                begin
+                    Clear(MouldNumber);
+                    Clear(WeightEmpty);
+
+                    UploadMouldNo.Reset();
+                    UploadMouldNo.SetRange("Work Order No.", COALines."Released Prod Order No.");
+                    UploadMouldNo.SetRange("Section No.", COALines."Section No.");
+
+                    if UploadMouldNo.FindFirst() then begin
+                        if COALines."Front/Back" = COALines."Front/Back"::F then
+                            MouldNumber := UploadMouldNo."Front Mould No"
+
+                        else
+                            MouldNumber := UploadMouldNo."Back Mould No";
+
+                        WeightEmpty := UploadMouldNo."Weight Empty";
+                    end;
+                end;
             }
         }
-
     }
 
     requestpage
@@ -81,13 +88,12 @@ report 50004 "COA Report"
             {
             }
         }
-
     }
 
     trigger OnPreReport()
     begin
-        CompanyInfo.GET;
-        CompanyInfo.CALCFIELDS(Picture);
+        CompanyInfo.Get();
+        CompanyInfo.CalcFields(Picture);
     end;
 
     var
