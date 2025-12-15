@@ -29,9 +29,49 @@ table 50018 "Production Programme Line"
         {
             Caption = 'Job';
             TableRelation = Item."No.";
+
             trigger OnValidate()
+            var
+                ProdProgLine2: Record "Production Programme Line";
             begin
                 TestStatusOpen();
+                If Job <> '' then
+                    If Rec.Job <> xRec.Job then begin
+                        ProdProgLine2.Reset();
+                        ProdProgLine2.SetRange(Job, Rec.Job);
+                        ProdProgLine2.SetRange("No.", Rec."No.");
+                        ProdProgLine2.SetRange(Furnace, Rec.Furnace);
+                        If ProdProgLine2.Count > 1 then begin
+                            ProdProgLine2.SetRange(Date, CalcDate('<-1D>', Date));
+                            If ProdProgLine2.FindFirst() then begin
+                                Rec."Sequence No" := ProdProgLine2."Sequence No";
+                                If ProdProgLine2."Last Line" then begin
+                                    ProdProgLine2."Last Line" := false;
+                                    ProdProgLine2.Modify();
+                                    Rec."Last Line" := True;
+
+                                    Rec."First Line" := false;
+                                End;
+
+                            end Else begin
+                                ProdProgLine2.SetRange(Date, CalcDate('<+1D>', Date));
+                                If ProdProgLine2.FindFirst() then begin
+                                    Rec."Sequence No" := ProdProgLine2."Sequence No";
+                                    If ProdProgLine2."First Line" then begin
+                                        ProdProgLine2."First Line" := false;
+                                        ProdProgLine2.Modify();
+                                        rec."First Line" := true;
+                                        Rec."Last Line" := false;
+                                        Rec."Record Slip No" := ProdProgLine2."Record Slip No";
+                                    end;
+                                end;
+                            end;
+                        end else begin
+                            Rec."Sequence No" := 1;
+                            Rec."First Line" := True;
+                            Rec."Last Line" := True;
+                        end;
+                    end;
             end;
         }
         field(4; Furnace; Code[20])
@@ -169,12 +209,14 @@ table 50018 "Production Programme Line"
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
 
-    trigger OnModify()
+    /*trigger OnModify()
     var
         ProdProgLine2: Record "Production Programme Line";
     begin
         If Rec.Job <> xRec.Job then begin
+            Message('Test');
             ProdProgLine2.Reset();
+            ProdProgLine2.SetAscending(Date, True);
             ProdProgLine2.SetRange(Job, Rec.Job);
             ProdProgLine2.SetRange(Furnace, Rec.Furnace);
             If ProdProgLine2.Count > 1 then begin
@@ -188,10 +230,13 @@ table 50018 "Production Programme Line"
                     Rec."Last Line" := True;
                 end Else begin
                     ProdProgLine2.SetRange(Date, CalcDate('<+1D>', Date));
-                    If ProdProgLine2.FindLast() then begin
-                        Rec."Sequence No" := ProdProgLine2."Sequence No" + 1;
-                        Rec."First Line" := True;
-                        Rec."Last Line" := True;
+                    If ProdProgLine2.FindFirst() then begin
+                        Rec."Sequence No" := ProdProgLine2."Sequence No";
+                        If ProdProgLine2."First Line" then begin
+                            ProdProgLine2."First Line" := false;
+                            ProdProgLine2.Modify();
+                            rec."First Line" := true;
+                        end;
                     end;
                 end;
             end else begin
@@ -201,6 +246,45 @@ table 50018 "Production Programme Line"
             end;
         end;
     end;
+
+     trigger OnInsert()
+     var
+         ProdProgLine1: Record "Production Programme Line";
+     begin
+
+
+         ProdProgLine1.Reset();
+         ProdProgLine1.SetAscending(Date,True);
+         ProdProgLine1.SetRange(Job, Rec.Job);
+         ProdProgLine1.SetRange(Furnace, Rec.Furnace);
+         If ProdProgLine1.Count > 1 then begin
+             ProdProgLine1.SetRange(Date, CalcDate('<-1D>', Date));
+             If ProdProgLine1.FindFirst() then begin
+                 Rec."Sequence No" := ProdProgLine1."Sequence No";
+                 If ProdProgLine1."Last Line" then begin
+                     ProdProgLine1."Last Line" := false;
+                     ProdProgLine1.Modify();
+                 End;
+                 Rec."Last Line" := True;
+             end Else begin
+                 ProdProgLine1.SetRange(Date, CalcDate('<+1D>', Date));
+                 If ProdProgLine1.FindFirst() then begin
+                     Rec."Sequence No" := ProdProgLine1."Sequence No";
+                     If ProdProgLine1."First Line" then begin
+                         ProdProgLine1."First Line" := false;
+                         ProdProgLine1.Modify();
+                         rec."First Line" := true;
+                     end;
+                 end;
+             end;
+         end else begin
+             Rec."Sequence No" := 1;
+             Rec."First Line" := True;
+             Rec."Last Line" := True;
+         end;
+
+     end;*/
+
 
     /*trigger OnInsert()
     var
