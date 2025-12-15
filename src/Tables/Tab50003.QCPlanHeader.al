@@ -50,6 +50,7 @@ table 50003 "QC Plan Header"
         field(6; "Room Temperature"; Text[80])
         {
             DataClassification = CustomerContent;
+            Caption = 'Degree C';
             trigger OnValidate()
             begin
                 TestField(Status, Status::Open);
@@ -76,6 +77,22 @@ table 50003 "QC Plan Header"
            Caption = 'Status';
            Editable = false;
            
+        }
+        field(10; "Drawing Number"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
+        }
+        field(11; "Water Temperature"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
     }
     keys

@@ -36,7 +36,15 @@ page 50003 "QC Plan Header"
                 }
                 field("Room Temperature"; Rec."Room Temperature")
                 {
-                    ToolTip = 'Specifies the value of the Room Temperature field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Degree C field.', Comment = '%';
+                }
+                 field("Water Temperature"; Rec."Water Temperature")
+                {
+                    ToolTip = 'Specifies the value of the Water Temperature field.', Comment = '%';
+                }
+                 field("Drawing Number"; Rec."Drawing Number")
+                {
+                    ToolTip = 'Specifies the value of the Drawing Number field.', Comment = '%';
                 }
                 field("IM Starwheel Code"; Rec."IM Starwheel Code")
                 {
