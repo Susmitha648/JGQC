@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-15T02:11:18.4108583Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-15T06:30:20.3418143Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -925,7 +925,7 @@
             </SortExpressions>
             <Left>0.00003in</Left>
             <Height>0.54861in</Height>
-            <Width>4.02498in</Width>
+            <Width>4.02501in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -3150,11 +3150,321 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox13">
+            <rd:DefaultName>Textbox13</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Special Requirements/Comments</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>Underline</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>5.64443cm</Top>
+            <Left>0.00285in</Left>
+            <Height>0.25in</Height>
+            <Width>4.02216in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+                <Width>0.5pt</Width>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>3pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox23">
+            <rd:DefaultName>Textbox23</rd:DefaultName>
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Note: - Thermal Shock failures shall be retested @ 42 ° Differential. </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>If no breakages, accept pallets. Record and inform </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>H/E of origin of breakage @ 55° differential.  </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Keep samples for QA/QC Day work decision on following day.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>For 'L' undersize follow Parnaby Gauge procedure.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>For Tuck Under Angle overmax all round use plastic cap. If plastic is not loose issue lehrtime + ½ hour and then reject. </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Change through bore plug to 20.10 at IM /SL. If below 20.05mm, do not use it. Measure plug every shift. Resp: Lab QC.Penetration of plug into bottle at SL agreed at 30mm.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Hot Blank at embossement : If ON/OFF manual rejection by sorter without </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>failed (reject on lehr). MNR at SL for 100% rejection. Capacity should be maintain and  under control  between 705ml to 709ml 29/9/25 (NM)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.47222in</Top>
+            <Left>0.02344in</Left>
+            <Height>2.76389in</Height>
+            <Width>4.00157in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+                <Width>0.5pt</Width>
+              </Border>
+              <PaddingLeft>3pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.19444in</Height>
+        <Height>5.25in</Height>
         <Style />
       </Body>
-      <Width>4.11739in</Width>
+      <Width>4.07184in</Width>
       <Page>
         <PageHeader>
           <Height>1.21527in</Height>
@@ -3787,10 +4097,10 @@
                   <Width>0.5pt</Width>
                 </Border>
                 <VerticalAlign>Top</VerticalAlign>
-                <PaddingLeft>1.5pt</PaddingLeft>
-                <PaddingRight>1.5pt</PaddingRight>
-                <PaddingTop>1.5pt</PaddingTop>
-                <PaddingBottom>1.5pt</PaddingBottom>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
             <Textbox Name="Textbox14">
@@ -3810,7 +4120,7 @@
                   </TextRuns>
                   <LeftIndent>3pt</LeftIndent>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
@@ -3824,22 +4134,6 @@
                   <Style>Solid</Style>
                   <Width>0.5pt</Width>
                 </Border>
-                <TopBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                </TopBorder>
-                <BottomBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                </BottomBorder>
-                <LeftBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                </LeftBorder>
-                <RightBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
-                </RightBorder>
                 <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
@@ -3855,7 +4149,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>Degree C</Value>
+                      <Value>=Degree C &amp; "°"</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3968,6 +4262,7 @@
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -4043,20 +4338,16 @@
                   <Width>0.5pt</Width>
                 </Border>
                 <TopBorder>
-                  <Color>Black</Color>
-                  <Style>Solid</Style>
+                  <Style>None</Style>
                 </TopBorder>
                 <BottomBorder>
                   <Color>Black</Color>
-                  <Style>Solid</Style>
                 </BottomBorder>
                 <LeftBorder>
                   <Color>Black</Color>
-                  <Style>Solid</Style>
                 </LeftBorder>
                 <RightBorder>
                   <Color>Black</Color>
-                  <Style>Solid</Style>
                 </RightBorder>
                 <VerticalAlign>Middle</VerticalAlign>
                 <PaddingLeft>2pt</PaddingLeft>
@@ -4177,111 +4468,12 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.30209in</Height>
+          <Height>0.51042in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Rectangle Name="Rectangle1">
               <ReportItems>
-                <Textbox Name="Textbox13">
-                  <rd:DefaultName>Textbox13</rd:DefaultName>
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>Special Requirements/Comments</Value>
-                          <Style>
-                            <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>8pt</FontSize>
-                            <FontWeight>Bold</FontWeight>
-                            <TextDecoration>Underline</TextDecoration>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <Left>0.00004in</Left>
-                  <Height>0.25in</Height>
-                  <Width>2.73611in</Width>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>0.5pt</Width>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>3pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox22">
-                  <rd:DefaultName>Textbox22</rd:DefaultName>
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style />
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <Left>2.74951in</Left>
-                  <Height>0.25in</Height>
-                  <Width>5.39417in</Width>
-                  <ZIndex>1</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                      <Width>0.5pt</Width>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox23">
-                  <rd:DefaultName>Textbox23</rd:DefaultName>
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style>
-                            <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>8pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>0.25in</Top>
-                  <Left>0.00005in</Left>
-                  <Height>0.70487in</Height>
-                  <Width>8.14363in</Width>
-                  <ZIndex>2</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                      <Width>0.5pt</Width>
-                    </Border>
-                    <PaddingLeft>3pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
                 <Textbox Name="Textbox32">
                   <rd:DefaultName>Textbox24</rd:DefaultName>
                   <CanGrow>true</CanGrow>
@@ -4290,7 +4482,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>=Fields!SystemModifiedAt.Value</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -4300,11 +4492,10 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
-                  <Left>7.51964in</Left>
+                  <Top>0.25348in</Top>
+                  <Left>7.0931in</Left>
                   <Height>0.25in</Height>
-                  <Width>0.62404in</Width>
-                  <ZIndex>3</ZIndex>
+                  <Width>1.05058in</Width>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4335,11 +4526,11 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
-                  <Left>6.90224in</Left>
+                  <Top>0.25348in</Top>
+                  <Left>6.65224in</Left>
                   <Height>0.25in</Height>
-                  <Width>0.61253in</Width>
-                  <ZIndex>4</ZIndex>
+                  <Width>0.44086in</Width>
+                  <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4360,7 +4551,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>Elayarajan Subramaniam</Value>
                           <Style>
                             <FontFamily>Segoe Script</FontFamily>
                             <FontSize>8pt</FontSize>
@@ -4368,15 +4559,15 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Center</TextAlign>
+                        <TextAlign>Left</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
-                  <Left>5.25001in</Left>
+                  <Top>0.25348in</Top>
+                  <Left>4.83103in</Left>
                   <Height>0.25in</Height>
-                  <Width>1.65223in</Width>
-                  <ZIndex>5</ZIndex>
+                  <Width>1.82121in</Width>
+                  <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4409,11 +4600,11 @@
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
-                  <Left>4.025in</Left>
+                  <Top>0.25348in</Top>
+                  <Left>3.95556in</Left>
                   <Height>0.25in</Height>
-                  <Width>1.23196in</Width>
-                  <ZIndex>6</ZIndex>
+                  <Width>0.87547in</Width>
+                  <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4434,7 +4625,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>=Fields!SystemModifiedAt.Value</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>9pt</FontSize>
@@ -4444,11 +4635,11 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
-                  <Left>3.35in</Left>
+                  <Top>0.25348in</Top>
+                  <Left>2.96806in</Left>
                   <Height>0.25in</Height>
-                  <Width>0.67501in</Width>
-                  <ZIndex>7</ZIndex>
+                  <Width>0.9875in</Width>
+                  <ZIndex>4</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4479,11 +4670,11 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
-                  <Left>2.7in</Left>
+                  <Top>0.25348in</Top>
+                  <Left>2.575in</Left>
                   <Height>0.25in</Height>
-                  <Width>0.65in</Width>
-                  <ZIndex>8</ZIndex>
+                  <Width>0.39306in</Width>
+                  <ZIndex>5</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4504,21 +4695,21 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>Elayarajan Subramaniam</Value>
                           <Style>
-                            <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>9pt</FontSize>
+                            <FontFamily>Segoe Script</FontFamily>
+                            <FontSize>8pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
-                  <Left>0.97917in</Left>
+                  <Top>0.25348in</Top>
+                  <Left>0.81945in</Left>
                   <Height>0.25in</Height>
-                  <Width>1.72083in</Width>
-                  <ZIndex>9</ZIndex>
+                  <Width>1.75555in</Width>
+                  <ZIndex>6</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4549,10 +4740,10 @@
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.00348in</Top>
+                  <Top>0.25348in</Top>
                   <Height>0.25in</Height>
-                  <Width>0.97917in</Width>
-                  <ZIndex>10</ZIndex>
+                  <Width>0.81945in</Width>
+                  <ZIndex>7</ZIndex>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
@@ -4568,7 +4759,7 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Left>0in</Left>
-              <Height>1.30209in</Height>
+              <Height>0.51042in</Height>
               <Width>8.14368in</Width>
               <Style>
                 <Border>
@@ -4671,6 +4862,9 @@ End Function
         </Field>
         <Field Name="CompanyLogo">
           <DataField>CompanyLogo</DataField>
+        </Field>
+        <Field Name="SystemModifiedAt">
+          <DataField>SystemModifiedAt</DataField>
         </Field>
         <Field Name="ParameterTyp_Code">
           <DataField>ParameterTyp_Code</DataField>

@@ -21,6 +21,7 @@ report 50016 "QC Plan Report Revised"
             column(Degree; "Room Temperature") { }
             column(Colour; Colour) { }
             column(CompanyLogo; CompanyInfo.Picture) { }
+            column(SystemModifiedAt; SystemCreatedBy) { }
             dataitem(ParameterType; "QC Parameters")
             {
                 column(ParameterTyp_Code; "Parameter Code") { }
