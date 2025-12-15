@@ -9,14 +9,14 @@ table 50003 "QC Plan Header"
         {
             Caption = 'Job No.';
             //TableRelation = Item where(Blocked = Const(False), Type = const(Inventory));
-           /* trigger OnValidate()
-            var
-            QCPlanLine : Record "QC Plan Lines";
-            begin
-              If Item.Get("Job No.") then
-                 Description := Item.Description;
-              
-            end;*/
+            /* trigger OnValidate()
+             var
+             QCPlanLine : Record "QC Plan Lines";
+             begin
+               If Item.Get("Job No.") then
+                  Description := Item.Description;
+
+             end;*/
         }
         field(2; Description; Text[80])
         {
@@ -45,7 +45,7 @@ table 50003 "QC Plan Header"
         {
             DataClassification = CustomerContent;
             Editable = false;
-            
+
         }
         field(6; "Room Temperature"; Text[80])
         {
@@ -72,11 +72,11 @@ table 50003 "QC Plan Header"
                 TestField(Status, Status::Open);
             end;
         }
-          field(9; Status; Enum "QC Status")
+        field(9; Status; Enum "QC Status")
         {
-           Caption = 'Status';
-           Editable = false;
-           
+            Caption = 'Status';
+            Editable = false;
+
         }
         field(10; "Drawing Number"; Text[80])
         {
@@ -104,20 +104,21 @@ table 50003 "QC Plan Header"
     }
     fieldgroups
     {
-        fieldgroup(DropDown; "Job No.", Description,"Customer Code","Customer Name")
+        fieldgroup(DropDown; "Job No.", Description, "Customer Code", "Customer Name")
         {
         }
     }
     var
         Customer: Record Customer;
-        Item : Record Item;
-         trigger OnDelete()
+        Item: Record Item;
+
+    trigger OnDelete()
     var
-        QCLines : Record "QC Plan Lines";
+        QCLines: Record "QC Plan Lines";
     begin
         TestField(Status, Status::Open);
         QCLines.Reset();
-        QCLines.SetRange("Job No.",Rec."Job No.");
+        QCLines.SetRange("Job No.", Rec."Job No.");
         QCLines.DeleteAll();
     end;
-}   
+}
