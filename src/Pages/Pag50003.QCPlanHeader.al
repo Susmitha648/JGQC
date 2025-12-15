@@ -137,6 +137,7 @@ page 50003 "QC Plan Header"
                              Report.RunModal(MyReportID, true, false, JobNo);
                      end;
                  }*/
+                /*
                 action("QC Plan Report New")
                 {
                     ApplicationArea = All;
@@ -153,11 +154,11 @@ page 50003 "QC Plan Header"
                         If JobNo.FindSet() then
                             Report.RunModal(MyReportID, true, false, JobNo);
                     end;
-                }
+                }*/
                 action("QC Plan Report Revised")
                 {
                     ApplicationArea = All;
-                    Caption = 'QC Plan Report Revised';
+                    Caption = 'QC Plan Report';
                     Image = Report; // Optional icon
                     trigger OnAction()
                     var
