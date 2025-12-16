@@ -27,7 +27,7 @@ page 50022 "Cold End Presort Detail Lines"
                 {
                     ToolTip = 'Specifies the value of the Front/Back field.', Comment = '%';
                 }
-                field("Time"; Rec."Time")
+                field("Time"; Rec."Frequency")
                 {
                     ToolTip = 'Specifies the value of the Frequency field.', Comment = '%';
                 }
@@ -56,7 +56,7 @@ page 50022 "Cold End Presort Detail Lines"
                     Image = List;
                     ToolTip = 'Weight Issued';
                     RunObject = Page "Weight Issued";
-                    RunPageLink = "Production Order No" = field("Released Prod Order No."),Time = field(Time);
+                    RunPageLink = "Production Order No" = field("Released Prod Order No."),Frequency = field(Frequency);
                 }
             }
         }

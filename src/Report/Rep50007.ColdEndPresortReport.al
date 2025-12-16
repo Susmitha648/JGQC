@@ -50,7 +50,7 @@ report 50007 "Cold End Presort Report"
                 column(Production_Order_Date_li; "Production Order Date")
                 {
                 }
-                column(Time; Time)
+                column(Time; Frequency)
                 {
                 }
                 column(Section_No_; "Section No.")
@@ -72,7 +72,7 @@ report 50007 "Cold End Presort Report"
 
                 trigger OnAfterGetRecord()
                 begin
-                    SectionGroupNo := Time.AsInteger() div 8;
+                    SectionGroupNo := Frequency.AsInteger() div 8;
                 end;
             }
         }

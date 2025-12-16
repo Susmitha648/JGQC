@@ -15,9 +15,9 @@ page 50363 "Weight Issued"
                 {
                     ToolTip = 'Specifies the value of the Production Order No field.', Comment = '%';
                 }
-                field("Time"; Rec."Time")
+                field("Time"; Rec."Frequency")
                 {
-                    ToolTip = 'Specifies the value of the Time field.', Comment = '%';
+                    ToolTip = 'Specifies the value of the Frequency field.', Comment = '%';
                 }
                 field(Front; Rec.Front)
                 {

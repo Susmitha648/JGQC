@@ -115,7 +115,7 @@ page 50048 "Inspection Challenge Sample Fi"
                                             else
                                                 InspectionLine."Line No." := 10000;
                                             Evaluate(InspectionLine."Inspection Type", Format(FrontBack));
-                                            Evaluate(InspectionLine.Time, Format(Enumtext));
+                                            Evaluate(InspectionLine.Frequency, Format(Enumtext));
                                             InspectionLine.Insert();
                                             Count += 1;
                                         end
@@ -128,8 +128,18 @@ page 50048 "Inspection Challenge Sample Fi"
                                 Message('No Lines created');
                         end;
                     end;
-
-
+                }
+                action(CCP)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'CCP';
+                    Image = List;
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = New;
+                    ToolTip = 'Create CCP lines';
+                    RunObject = Page CCP;
+                    RunPageLink = "Production Order No" = field("Released Prod Order No.");
                 }
             }
         }

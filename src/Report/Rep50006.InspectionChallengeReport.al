@@ -45,13 +45,13 @@ report 50006 "Inspection Challenge Report"
                 column(LineNo; "Line No.")
                 {
                 }
-                column(Time; Time)
+                column(Time; Frequency)
                 {
                 }
-                column(TimeAsInteger; Time.AsInteger())
+                column(TimeAsInteger; Frequency.AsInteger())
                 {
                 }
-                column(FrequencyText; Format(Time))
+                column(FrequencyText; Format(Frequency))
                 {
                 }
                 column(SectionGroup; SectionGroupNo)
@@ -82,7 +82,7 @@ report 50006 "Inspection Challenge Report"
                     end;
 
                     // Calculate section group (every 8 frequencies)
-                    SectionGroupNo := Time.AsInteger() div 8;
+                    SectionGroupNo := Frequency.AsInteger() div 8;
                 end;
             }
         }

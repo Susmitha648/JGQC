@@ -39,7 +39,7 @@ table 50014 "Cold End Presort Detail Lines"
             Caption = 'QC Defect Code';
             TableRelation = "Defect Code"."Defect Code";
         }
-        field(9; Time; Enum Time)
+        field(9; Frequency; Enum Time)
         {
             Caption = 'Frequency';
         }

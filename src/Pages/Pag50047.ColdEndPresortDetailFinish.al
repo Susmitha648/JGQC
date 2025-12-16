@@ -146,7 +146,7 @@ page 50047 "Cold End Presort Detail Finish"
                                         ColdEndLine.Insert();
                                         Evaluate(ColdEndLine."Section No.", Format(Enumtext));
                                         Evaluate(ColdEndLine."Front/Back", Format(FrontBack));
-                                        Evaluate(ColdEndLine.Time, Format(Time));
+                                        Evaluate(ColdEndLine.Frequency, Format(Time));
 
                                         UploadMouldNo.Reset();
                                         UploadMouldNo.SetRange("Work Order No.", Rec."Released Prod Order No.");

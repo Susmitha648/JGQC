@@ -95,7 +95,7 @@ page 50021 "Cold End Presort Detail"
             {
                 Caption = 'Create';
                 Image = Create;
-                action(Release)
+                action(GenerateLines)
                 {
                     ApplicationArea = Suite;
                     Caption = 'Generate Lines';
@@ -145,7 +145,7 @@ page 50021 "Cold End Presort Detail"
                                         ColdEndLine.Insert();
                                         Evaluate(ColdEndLine."Section No.", Format(Enumtext));
                                         Evaluate(ColdEndLine."Front/Back", Format(FrontBack));
-                                        Evaluate(ColdEndLine.Time, Format(Time));
+                                        Evaluate(ColdEndLine.Frequency, Format(Time));
 
                                         UploadMouldNo.Reset();
                                         UploadMouldNo.SetRange("Work Order No.", Rec."Released Prod Order No.");
@@ -169,6 +169,7 @@ page 50021 "Cold End Presort Detail"
                         end;
                     end;
                 }
+                
             }
 
             group(Action13)

@@ -25,7 +25,7 @@ page 50026 "Inspection Challenge Sample Li"
                 {
                     ToolTip = 'Specifies the value of the Inspection Type field.', Comment = '%';
                 }
-                field("Time"; Rec."Time")
+                field("Time"; Rec."Frequency")
                 {
                     ToolTip = 'Specifies the value of the Frequency field.', Comment = '%';
                 }
@@ -47,6 +47,25 @@ page 50026 "Inspection Challenge Sample Li"
                     MultiLine = True;
                 }
 
+            }
+        }
+    }
+     actions
+    {
+        area(Processing)
+        {
+            group(CreatePO)
+            {
+                Caption = 'MNR';
+                action(Create)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'MNR';
+                    Image = List;
+                    ToolTip = 'MNR';
+                    RunObject = Page MNR;
+                    RunPageLink = "Production Order No" = field("Released Prod Order No."),Frequency = field(Frequency);
+                }
             }
         }
     }

@@ -9,9 +9,9 @@ table 50029 "Weight Issued"
         {
             Caption = 'Production Order No';
         }
-        field(2; "Time"; Enum Time)
+        field(2; "Frequency"; Enum Time)
         {
-            Caption = 'Time';
+            Caption = 'Frequency';
         }
         field(3; Front; Integer)
         {
@@ -45,7 +45,7 @@ table 50029 "Weight Issued"
     }
     keys
     {
-        key(PK; "Production Order No","Time")
+        key(PK; "Production Order No","Frequency")
         {
             Clustered = true;
         }

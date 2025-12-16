@@ -35,7 +35,7 @@ table 50016 "Inspection Challenge Sample li"
             Caption = 'Reject %';
             DecimalPlaces = 0 : 2;
         }
-        field(9; Time; Enum Time)
+        field(9; Frequency; Enum Time)
         {
             Caption = 'Frequency';
         }
