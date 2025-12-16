@@ -132,6 +132,10 @@ table 50013 "Cold End Presort Detail Header"
                    "Shift 3 Foreman" := Employee."First Name" + ' ' + Employee."Last Name" + ' (' + Employee."No." + ')';
             end; 
         }
+        field(18; "Cold End Coating"; Enum "Cold End Coating")
+        {
+            Caption = 'Cold End Coating';
+        }
         
     }
     keys

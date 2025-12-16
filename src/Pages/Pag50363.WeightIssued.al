@@ -22,10 +22,12 @@ page 50363 "Weight Issued"
                 field(Front; Rec.Front)
                 {
                     ToolTip = 'Specifies the value of the Front field.', Comment = '%';
+                    BlankZero = True;
                 }
                 field(Back; Rec.Back)
                 {
                     ToolTip = 'Specifies the value of the Back field.', Comment = '%';
+                    BlankZero = True;
                 }
                 field(Gauged; Rec.Gauged)
                 {
@@ -34,15 +36,16 @@ page 50363 "Weight Issued"
                 field("Stones %"; Rec."Stones %")
                 {
                     ToolTip = 'Specifies the value of the Stones % field.', Comment = '%';
+                    BlankZero = True;
                 }
                 field("EFF %"; Rec."EFF %")
                 {
                     ToolTip = 'Specifies the value of the EFF % field.', Comment = '%';
+                    BlankZero = True;
                 }
                 field(Remarks; Rec.Remarks)
                 {
                     ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
-                    MultiLine = True;
                 }
                 field("Rub Test"; Rec."Rub Test")
                 {

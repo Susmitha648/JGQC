@@ -9,7 +9,7 @@ table 50029 "Weight Issued"
         {
             Caption = 'Production Order No';
         }
-        field(2; "Time"; Enum "ABS Blob Access Tier")
+        field(2; "Time"; Enum Time)
         {
             Caption = 'Time';
         }
@@ -41,10 +41,7 @@ table 50029 "Weight Issued"
         {
             Caption = 'Rub Test';
         }
-        field(18; "Cold End Coating"; Enum "Cold End Coating")
-        {
-            Caption = 'Cold End Coating';
-        }
+        
     }
     keys
     {
