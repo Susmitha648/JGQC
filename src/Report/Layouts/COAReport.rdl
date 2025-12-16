@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-15T03:04:10.3990246Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-16T03:10:23.9212342Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -159,19 +159,19 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.2in</Width>
+                  <Width>0.198in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.2in</Width>
+                  <Width>0.198in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.32in</Width>
+                  <Width>0.34in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.32in</Width>
+                  <Width>0.34in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.32in</Width>
+                  <Width>0.34in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -180,6 +180,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Result">
                           <rd:DefaultName>Result</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -191,7 +192,7 @@
                                   <Value>=Fields!Max_Result.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>8pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
                                     <Color>=IIF(
   IsNothing(Fields!Max_Result.Value)
@@ -220,11 +221,16 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <BottomBorder>
+                            <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
-                            </BottomBorder>
+                            </TopBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -498,11 +504,6 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -578,11 +579,6 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -1964,7 +1960,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.32in</Size>
+                        <Size>0.34in</Size>
                         <CellContents>
                           <Textbox Name="Water_Temp">
                             <rd:DefaultName>Water_Temp</rd:DefaultName>
@@ -2084,7 +2080,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.32in</Size>
+                        <Size>0.34in</Size>
                         <CellContents>
                           <Textbox Name="Textbox64">
                             <rd:DefaultName>Textbox64</rd:DefaultName>
@@ -2273,7 +2269,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.68315in</Size>
+                        <Size>0.70315in</Size>
                         <CellContents>
                           <Textbox Name="Water_Temp1">
                             <rd:DefaultName>Water_Temp1</rd:DefaultName>
@@ -2334,7 +2330,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>1.94215in</Size>
+                    <Size>1.96215in</Size>
                     <CellContents>
                       <Textbox Name="Textbox52">
                         <rd:DefaultName>Textbox52</rd:DefaultName>
@@ -2410,7 +2406,7 @@
               </Filter>
             </Filters>
             <Height>1.34692in</Height>
-            <Width>3.30215in</Width>
+            <Width>3.37815in</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -2444,16 +2440,16 @@
                   <Width>0.2in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.2in</Width>
+                  <Width>0.196in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.32in</Width>
+                  <Width>0.34in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.32in</Width>
+                  <Width>0.34in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.32in</Width>
+                  <Width>0.34in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2470,26 +2466,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Max_Result.Value</Value>
+                                  <Value>=Fields!Min_Result.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
-                                    <Color>=IIF(
-  IsNothing(Fields!Max_Result.Value)
-  OR IsNothing(Fields!Max.Value)
-  OR IsNothing(Fields!Min.Value)
-  OR Trim(CStr(Fields!Max_Result.Value)) = ""
-  OR Trim(CStr(Fields!Max.Value)) = ""
-  OR Trim(CStr(Fields!Min.Value)) = "",
-  "Black",
-  IIF(
-    Val(Fields!Max_Result.Value) &gt; Val(Fields!Max.Value)
-    OR Val(Fields!Max_Result.Value) &lt; Val(Fields!Min.Value),
-    "Red",
-    "Black"
-  )
-)</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2500,33 +2481,28 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <BackgroundColor>=IIF(
-  IsNothing(Fields!Max_Result.Value)
-  OR IsNothing(Fields!Max.Value)
-  OR IsNothing(Fields!Min.Value)
-  OR Trim(CStr(Fields!Max_Result.Value)) = ""
-  OR Trim(CStr(Fields!Max.Value)) = ""
-  OR Trim(CStr(Fields!Min.Value)) = "",
-  Nothing,
-  IIF(
-    Val(Fields!Max_Result.Value) &gt; Val(Fields!Max.Value)
-    OR Val(Fields!Max_Result.Value) &lt; Val(Fields!Min.Value),
-    "Yellow",
-    Nothing
-  )
-)</BackgroundColor>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>4pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2582,18 +2558,28 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>4pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2647,18 +2633,28 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>4pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2712,18 +2708,28 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
                             <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </TopBorder>
+                            <BottomBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </BottomBorder>
                             <LeftBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
+                            <RightBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </RightBorder>
                             <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>4pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2748,26 +2754,11 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!Max_Result.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
-                                    <Color>=IIF(
-  IsNothing(Fields!Max_Result.Value)
-  OR IsNothing(Fields!Max.Value)
-  OR IsNothing(Fields!Min.Value)
-  OR Trim(CStr(Fields!Max_Result.Value)) = ""
-  OR Trim(CStr(Fields!Max.Value)) = ""
-  OR Trim(CStr(Fields!Min.Value)) = "",
-  "Black",
-  IIF(
-    Val(Fields!Max_Result.Value) &gt; Val(Fields!Max.Value)
-    OR Val(Fields!Max_Result.Value) &lt; Val(Fields!Min.Value),
-    "Red",
-    "Black"
-  )
-)</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2778,8 +2769,13 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -2790,96 +2786,11 @@
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </LeftBorder>
-                            <BackgroundColor>=IIF(
-  IsNothing(Fields!Max_Result.Value)
-  OR IsNothing(Fields!Max.Value)
-  OR IsNothing(Fields!Min.Value)
-  OR Trim(CStr(Fields!Max_Result.Value)) = ""
-  OR Trim(CStr(Fields!Max.Value)) = ""
-  OR Trim(CStr(Fields!Min.Value)) = "",
-  Nothing,
-  IIF(
-    Val(Fields!Max_Result.Value) &gt; Val(Fields!Max.Value)
-    OR Val(Fields!Max_Result.Value) &lt; Val(Fields!Min.Value),
-    "Yellow",
-    Nothing
-  )
-)</BackgroundColor>
-                            <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox106">
-                          <rd:DefaultName>Textbox106</rd:DefaultName>
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value />
-                                  <Style>
-                                    <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
-                                    <Color>=IIF(
-  IsNothing(Fields!Max_Result.Value)
-  OR IsNothing(Fields!Max.Value)
-  OR IsNothing(Fields!Min.Value)
-  OR Trim(CStr(Fields!Max_Result.Value)) = ""
-  OR Trim(CStr(Fields!Max.Value)) = ""
-  OR Trim(CStr(Fields!Min.Value)) = "",
-  "Black",
-  IIF(
-    Val(Fields!Max_Result.Value) &gt; Val(Fields!Max.Value)
-    OR Val(Fields!Max_Result.Value) &lt; Val(Fields!Min.Value),
-    "Red",
-    "Black"
-  )
-)</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <BackgroundColor>=IIF(
-  IsNothing(Fields!Max_Result.Value)
-  OR IsNothing(Fields!Max.Value)
-  OR IsNothing(Fields!Min.Value)
-  OR Trim(CStr(Fields!Max_Result.Value)) = ""
-  OR Trim(CStr(Fields!Max.Value)) = ""
-  OR Trim(CStr(Fields!Min.Value)) = "",
-  Nothing,
-  IIF(
-    Val(Fields!Max_Result.Value) &gt; Val(Fields!Max.Value)
-    OR Val(Fields!Max_Result.Value) &lt; Val(Fields!Min.Value),
-    "Yellow",
-    Nothing
-  )
-)</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -2887,8 +2798,10 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <ColSpan>2</ColSpan>
                       </CellContents>
                     </TablixCell>
+                    <TablixCell />
                     <TablixCell>
                       <CellContents>
                         <Textbox Name="Textbox287">
@@ -2899,7 +2812,27 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=IIF(
+  Max(
+    IIF(
+      IsNothing(Fields!Min_Result.Value)
+      OR Trim(CStr(Fields!Min_Result.Value)) = "",
+      Nothing,
+      Val(Fields!Min_Result.Value)
+    )
+  ) Is Nothing,
+  "",
+  CStr(
+    Max(
+      IIF(
+        IsNothing(Fields!Min_Result.Value)
+        OR Trim(CStr(Fields!Min_Result.Value)) = "",
+        Nothing,
+        Val(Fields!Min_Result.Value)
+      )
+    )
+  )
+)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -2913,13 +2846,23 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -2936,18 +2879,38 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox289">
-                          <rd:DefaultName>Textbox289</rd:DefaultName>
+                        <Textbox Name="Textbox292">
+                          <rd:DefaultName>Textbox288</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=IIF(
+  Min(
+    IIF(
+      IsNothing(Fields!Min_Result.Value)
+      OR Trim(CStr(Fields!Min_Result.Value)) = "",
+      Nothing,
+      Val(Fields!Min_Result.Value)
+    )
+  ) Is Nothing,
+  "",
+  CStr(
+    Min(
+      IIF(
+        IsNothing(Fields!Min_Result.Value)
+        OR Trim(CStr(Fields!Min_Result.Value)) = "",
+        Nothing,
+        Val(Fields!Min_Result.Value)
+      )
+    )
+  )
+)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>6pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2958,20 +2921,30 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </RightBorder>
-                            <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>2pt</PaddingLeft>
+                            <VerticalAlign>Bottom</VerticalAlign>
+                            <PaddingLeft>4pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
@@ -2989,7 +2962,27 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=IIF(
+  Avg(
+    IIF(
+      IsNothing(Fields!Min_Result.Value)
+      OR Trim(CStr(Fields!Min_Result.Value)) = "",
+      Nothing,
+      Val(Fields!Min_Result.Value)
+    )
+  ) Is Nothing,
+  "",
+  CStr(
+    Avg(
+      IIF(
+        IsNothing(Fields!Min_Result.Value)
+        OR Trim(CStr(Fields!Min_Result.Value)) = "",
+        Nothing,
+        Val(Fields!Min_Result.Value)
+      )
+    )
+  )
+)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
@@ -3003,13 +2996,23 @@
                           </Paragraphs>
                           <Style>
                             <Border>
-                              <Style>None</Style>
+                              <Style>Solid</Style>
                             </Border>
+                            <TopBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -3147,7 +3150,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.32in</Size>
+                        <Size>0.34in</Size>
                         <CellContents>
                           <Textbox Name="Water_Temp2">
                             <rd:DefaultName>Water_Temp</rd:DefaultName>
@@ -3267,7 +3270,7 @@
                     </TablixMember>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.32in</Size>
+                        <Size>0.34in</Size>
                         <CellContents>
                           <Textbox Name="Textbox65">
                             <rd:DefaultName>Textbox64</rd:DefaultName>
@@ -3418,7 +3421,7 @@
             </Filters>
             <Top>1.34692in</Top>
             <Height>0.26in</Height>
-            <Width>3.30215in</Width>
+            <Width>3.37815in</Width>
             <ZIndex>1</ZIndex>
             <Visibility>
               <Hidden>=Count(
@@ -6464,6 +6467,9 @@ zGa4kjmSNUiaI/kMuWVlykqaceBnil7xj58tKfWKn2X0b0eH/ZJKr/hZLGnvK36WSHpJ0n65SjIvSjZ6
         </Field>
         <Field Name="Max_Result">
           <DataField>Max_Result</DataField>
+        </Field>
+        <Field Name="Min_Result">
+          <DataField>Min_Result</DataField>
         </Field>
         <Field Name="UserId">
           <DataField>UserId</DataField>
