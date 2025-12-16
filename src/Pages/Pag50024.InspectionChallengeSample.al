@@ -73,6 +73,7 @@ page 50024 "Inspection Challenge Sample"
                         InspectionLine2: Record "Inspection Challenge Sample li";
                         QCPlanLine: Record "QC Plan Lines";
                         UploadMouldNo: Record "Update Mould No";
+                        DefectCodeList: Record "Defect Code";
                         Enumtext: Integer;
                         FrontBack: Integer;
                         Proceed: Boolean;
@@ -87,48 +88,42 @@ page 50024 "Inspection Challenge Sample"
                         If InspectionLine.FindFirst() then
                             If not Confirm('It will delete the existing lines and create New. Do you want to Continue?') then
                                 Proceed := false;
+
                         If Proceed then begin
-                            InspectionLine.DeleteAll();
                             Clear(Count);
-                            InspectionLine.Reset();
-                            InspectionLine.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
-                            InspectionLine.SetRange("Production Order Date", Rec."Production Order Date");
-                            If InspectionLine.FindFirst() then
-                                If not Confirm('It will delete the existing lines and create New. Do you want to Continue?') then
-                                    Proceed := false;
-                            If Proceed then begin
-                                InspectionLine.DeleteAll();
-                                Clear(Count);
-                                foreach Enumtext in Enum::Time.Ordinals() do begin
-                                    foreach FrontBack in Enum::"Inspection Type".Ordinals() do begin
-                                        for i := 1 to 10 do begin
-                                            InspectionLine.Init();
-                                            InspectionLine."Released Prod Order No." := Rec."Released Prod Order No.";
-                                            InspectionLine."Production Order Date" := Rec."Production Order Date";
-                                            InspectionLine2.Reset();
-                                            InspectionLine2.SetAscending("Line No.", false);
-                                            InspectionLine2.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
-                                            InspectionLine2.SetRange("Production Order Date", Rec."Production Order Date");
-                                            If InspectionLine2.FindFirst() then
-                                                InspectionLine."Line No." := InspectionLine2."Line No." + 10000
-                                            else
-                                                InspectionLine."Line No." := 10000;
-                                            Evaluate(InspectionLine."Inspection Type", Format(FrontBack));
-                                            Evaluate(InspectionLine.Frequency, Format(Enumtext));
-                                            InspectionLine.Insert();
-                                            Count += 1;
-                                        end
-                                    end;
-                                end;
-                            end;
-                            If Count > 1 then
-                                Message('Lines created')
-                            else
-                                Message('No Lines created');
+                            InspectionLine.DeleteAll();
+                            If Page.RunModal(50000, DefectCodeList) = Action::LookupOK then
+                                If DefectCodeList.FindSet() then
+                                    repeat
+                                        foreach Enumtext in Enum::Time.Ordinals() do begin
+                                            foreach FrontBack in Enum::"Inspection Type".Ordinals() do begin
+                                                InspectionLine.Init();
+                                                InspectionLine."Released Prod Order No." := Rec."Released Prod Order No.";
+                                                InspectionLine."Production Order Date" := Rec."Production Order Date";
+                                                InspectionLine2.Reset();
+                                                InspectionLine2.SetAscending("Line No.", false);
+                                                InspectionLine2.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
+                                                InspectionLine2.SetRange("Production Order Date", Rec."Production Order Date");
+                                                If InspectionLine2.FindFirst() then
+                                                    InspectionLine."Line No." := InspectionLine2."Line No." + 10000
+                                                else
+                                                    InspectionLine."Line No." := 10000;
+                                                Evaluate(InspectionLine."Inspection Type", Format(FrontBack));
+                                                Evaluate(InspectionLine.Frequency, Format(Enumtext));
+                                                InspectionLine."QC Defect Code" := DefectCodeList."Defect Code";
+                                                InspectionLine.Insert();
+                                                Count += 1;
+                                            end;
+                                        end;
+                                    until DefectCodeList.Next() = 0;
                         end;
+                        If Count > 1 then
+                            Message('Lines created')
+                        else
+                            Message('No Lines created');
                     end;
                 }
-                 action(CCP)
+                action(CCP)
                 {
                     ApplicationArea = Suite;
                     Caption = 'CCP';

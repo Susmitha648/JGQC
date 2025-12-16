@@ -56,7 +56,7 @@ page 50022 "Cold End Presort Detail Lines"
                     Image = List;
                     ToolTip = 'Weight Issued';
                     RunObject = Page "Weight Issued";
-                    RunPageLink = "Production Order No" = field("Released Prod Order No."),Frequency = field(Frequency);
+                    RunPageLink = "Production Order No" = field("Released Prod Order No.");
                 }
             }
         }
