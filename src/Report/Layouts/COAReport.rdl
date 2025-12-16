@@ -308,11 +308,16 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <BottomBorder>
+                            <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
-                            </BottomBorder>
+                            </TopBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -374,11 +379,16 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <BottomBorder>
+                            <TopBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
-                            </BottomBorder>
+                            </TopBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -440,11 +450,20 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <BottomBorder>
+                            <TopBorder>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
-                            </BottomBorder>
+                              <Width>1pt</Width>
+                            </TopBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
+                              <Color>Black</Color>
                               <Style>Solid</Style>
+                              <Width>1pt</Width>
                             </RightBorder>
                             <VerticalAlign>Bottom</VerticalAlign>
                             <PaddingLeft>4pt</PaddingLeft>
@@ -637,16 +656,16 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -687,16 +706,16 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -737,16 +756,16 @@
                             <Border>
                               <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
                             <BottomBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
                               <Width>1pt</Width>
                             </BottomBorder>
+                            <LeftBorder>
+                              <Color>Black</Color>
+                              <Style>Solid</Style>
+                              <Width>1pt</Width>
+                            </LeftBorder>
                             <RightBorder>
                               <Color>Black</Color>
                               <Style>Solid</Style>
@@ -1061,12 +1080,12 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=IIF(
-  IsNothing(Fields!WeightEmpty.Value)
-  OR IsNothing(Fields!Water_Temp_Line.Value)
-  OR Trim(CStr(Fields!WeightEmpty.Value)) = ""
-  OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
-  Nothing,
-  Val(Fields!WeightEmpty.Value) + Val(Fields!Water_Temp_Line.Value)
+   IsNothing(Fields!Max_Result.Value) 
+   OR IsNothing(First(Fields!Water_Temp_Line.Value, "DataSet_Result")) 
+   OR Trim(CStr(Fields!Max_Result.Value)) = "" 
+   OR Trim(CStr(First(Fields!Water_Temp_Line.Value, "DataSet_Result"))) = "",
+   Nothing,
+   Val(Fields!Max_Result.Value) * Val(First(Fields!Water_Temp_Line.Value, "DataSet_Result")) + Val(Fields!WeightEmpty.Value)
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
@@ -1126,10 +1145,22 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Max(
+   IIF(
+      IsNothing(Fields!Max_Result.Value) 
+      OR IsNothing(Fields!Water_Temp_Line.Value) 
+      OR IsNothing(Fields!WeightEmpty.Value)
+      OR Trim(CStr(Fields!Max_Result.Value)) = "" 
+      OR Trim(CStr(Fields!Water_Temp_Line.Value)) = ""
+      OR Trim(CStr(Fields!WeightEmpty.Value)) = "",
+      Nothing,
+      Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value) + Val(Fields!WeightEmpty.Value)
+   )
+)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1181,10 +1212,22 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Min(
+   IIF(
+      IsNothing(Fields!Max_Result.Value) 
+      OR IsNothing(Fields!Water_Temp_Line.Value) 
+      OR IsNothing(Fields!WeightEmpty.Value)
+      OR Trim(CStr(Fields!Max_Result.Value)) = "" 
+      OR Trim(CStr(Fields!Water_Temp_Line.Value)) = ""
+      OR Trim(CStr(Fields!WeightEmpty.Value)) = "",
+      Nothing,
+      Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value) + Val(Fields!WeightEmpty.Value)
+   )
+)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1236,10 +1279,22 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Avg(
+   IIF(
+      IsNothing(Fields!Max_Result.Value) 
+      OR IsNothing(Fields!Water_Temp_Line.Value) 
+      OR IsNothing(Fields!WeightEmpty.Value)
+      OR Trim(CStr(Fields!Max_Result.Value)) = "" 
+      OR Trim(CStr(Fields!Water_Temp_Line.Value)) = ""
+      OR Trim(CStr(Fields!WeightEmpty.Value)) = "",
+      Nothing,
+      Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value) + Val(Fields!WeightEmpty.Value)
+   )
+)</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2252,7 +2307,6 @@
                       <TablixHeader>
                         <Size>0.70315in</Size>
                         <CellContents>
-                          <rd:Selected>true</rd:Selected>
                           <Textbox Name="Water_Temp1">
                             <rd:DefaultName>Water_Temp1</rd:DefaultName>
                             <CanGrow>true</CanGrow>
