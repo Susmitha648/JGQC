@@ -18,6 +18,10 @@ table 50000 "Defect Code"
         {
             DataClassification = CustomerContent;
         }
+        field(4; "Create Inspection Lines"; Boolean)
+        {
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

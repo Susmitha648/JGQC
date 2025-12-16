@@ -74,6 +74,8 @@ page 50024 "Inspection Challenge Sample"
                         QCPlanLine: Record "QC Plan Lines";
                         UploadMouldNo: Record "Update Mould No";
                         DefectCodeList: Record "Defect Code";
+                        DefectCodeList1: Record "Defect Code";
+                        DefectCodePage: Page "Defect Code List";
                         Enumtext: Integer;
                         FrontBack: Integer;
                         Proceed: Boolean;
@@ -91,8 +93,13 @@ page 50024 "Inspection Challenge Sample"
 
                         If Proceed then begin
                             Clear(Count);
-                            InspectionLine.DeleteAll();
-                            If Page.RunModal(50000, DefectCodeList) = Action::LookupOK then
+
+
+                            DefectCodePage.Editable(True);
+                            If DefectCodePage.RunModal() = Action::OK then begin
+
+                                InspectionLine.DeleteAll();
+                                DefectCodeList.SetRange("Create Inspection Lines", True);
                                 If DefectCodeList.FindSet() then
                                     repeat
                                         foreach Enumtext in Enum::Time.Ordinals() do begin
@@ -116,6 +123,11 @@ page 50024 "Inspection Challenge Sample"
                                             end;
                                         end;
                                     until DefectCodeList.Next() = 0;
+
+
+                            end;
+                            DefectCodeList1.SetRange("Create Inspection Lines", True);
+                            DefectCodeList.ModifyAll("Create Inspection Lines", false);
                         end;
                         If Count > 1 then
                             Message('Lines created')
