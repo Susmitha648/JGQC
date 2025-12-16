@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-09T05:53:22.6065055Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-16T01:34:41.6533993Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -339,7 +339,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Job">
                           <rd:DefaultName>Job</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -3780,17 +3779,21 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Switch(
-Fields!Forecast_Quantity_Base.Value &gt;= 1000000,
-Format(Fields!Forecast_Quantity_Base.Value / 1000000, "0.0") + "M",
-Fields!Forecast_Quantity_Base.Value &gt;= 1000,
-Format(Fields!Forecast_Quantity_Base.Value / 1000, "0.0") + "K",
-True,
-CStr(Fields!Forecast_Quantity_Base.Value)
+                                                    <Value>=IIf(
+    Fields!Total_Job_Forecast.Value = 0 OR IsNothing(Fields!Total_Job_Forecast.Value),
+    "",
+    Switch(
+        Fields!Total_Job_Forecast.Value &gt;= 1000000,
+        Format(Fields!Total_Job_Forecast.Value / 1000000, "0.0") + "M",
+        Fields!Total_Job_Forecast.Value &gt;= 1000,
+        Format(Fields!Total_Job_Forecast.Value / 1000, "0.0") + "K",
+        True,
+        CStr(Fields!Total_Job_Forecast.Value)
+    )
 )</Value>
                                                     <Style>
                                                       <FontStyle>Italic</FontStyle>
-                                                      <FontSize>7pt</FontSize>
+                                                      <FontSize>6pt</FontSize>
                                                       <Format>#,0;(#,0)</Format>
                                                     </Style>
                                                   </TextRun>
@@ -4494,6 +4497,12 @@ End Function
         </Field>
         <Field Name="IsFirstJobRow">
           <DataField>IsFirstJobRow</DataField>
+        </Field>
+        <Field Name="Total_Job_Forecast">
+          <DataField>Total_Job_Forecast</DataField>
+        </Field>
+        <Field Name="Total_Job_ForecastFormat">
+          <DataField>Total_Job_ForecastFormat</DataField>
         </Field>
         <Field Name="Forecast_Quantity_Base">
           <DataField>Forecast_Quantity_Base</DataField>
