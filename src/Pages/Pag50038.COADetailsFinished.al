@@ -1,6 +1,6 @@
 page 50038 "COA Details Finished"
 {
-     ApplicationArea = All;
+    ApplicationArea = All;
     Caption = 'COA Details';
     PageType = List;
     SourceTable = "COA Header";
@@ -55,7 +55,7 @@ page 50038 "COA Details Finished"
                     begin
                         MyReportID := Report::"COA Report";
                         JobNo.Reset();
-                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        JobNo.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
                         If JobNo.FindSet() then
                             Report.RunModal(MyReportID, true, false, JobNo);
                     end;
