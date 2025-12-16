@@ -111,6 +111,9 @@ report 50009 "Production Programme"
                         column(IsFirstJobRow; IsFirstJobRow)
                         {
                         }
+                        column(Total_Job_Forecast; TotalJobForecast)
+                        {
+                        }
 
                         dataitem(ProdForecastEntry; "Production Forecast Entry")
                         {
@@ -136,6 +139,8 @@ report 50009 "Production Programme"
                                 JobNo: Code[20];
                                 ForecastDateValue: Date;
                             begin
+                                // Reset the record to clear any previous filters
+                                Reset();
 
                                 // Get parent field values
                                 DemandForecastName := ProductionProgrammeHeader."Demand Forecast Name";
@@ -155,17 +160,9 @@ report 50009 "Production Programme"
                             PrevLine: Record "Production Programme Line";
 
                         begin
-                            IsFirstJobRow := false; // Default to true
+                            IsFirstJobRow := false;
 
                             // Check if there's a previous line with the same Job on an earlier date
-                            /*PrevLine.Reset();
-                            PrevLine.SetRange(Furnace,ProductionProgrammeLine.Furnace);
-                            PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
-                            PrevLine.SetRange(Job, ProductionProgrammeLine.Job);
-                            PrevLine.SetFilter(Date, '<%1', Date);
-                            if PrevLine.FindLast() then
-                                IsFirstJobRow := false;*/
-
                             PrevLine.Reset();
                             PrevLine.SetCurrentKey(Date);
                             PrevLine.SetAscending(Date, True);
@@ -176,25 +173,10 @@ report 50009 "Production Programme"
                                 If (PrevLine.Date = ProductionProgrammeLine.Date) then begin
                                     IsFirstJobRow := True;
                                 end;
-                            
+
                             If ProductionProgrammeLine."First Line" then
                                 IsFirstJobRow := True;
-                            
-                             /*PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
-                             PrevLine.SetRange(Job, ProductionProgrammeLine.Job);
-                             PrevLine.SetFilter(Date, '<%1', Date);
-                             if PrevLine.FindLast() then
-                                 IsFirstJobRow := false;
-                             // If still true, check if there's a previous line with same Job on same date
-                             if IsFirstJobRow then begin
-                                 PrevLine.Reset();
-                                 PrevLine.SetRange("No.", "No.");
-                                 PrevLine.SetRange(Job, Job);
-                                 PrevLine.SetRange(Date, Date);
-                                 PrevLine.SetFilter("No.", '<%1', "No.");
-                                 if PrevLine.FindLast() then
-                                     IsFirstJobRow := false;
-                             end;*/
+
                             if IsFirstJobRow then begin
                                 If Job = '' then
                                     IsFirstJobRow := false
@@ -208,10 +190,10 @@ report 50009 "Production Programme"
                                         If PrevLine.Date = ProductionProgrammeLine.Date then
                                             IsFirstJobRow := false;
                                 end;
-
                             end;
-                            // [THEN] Then
 
+                            // Calculate total forecast for this job across all dates
+                            CalculateTotalJobForecast();
                         end;
 
                         trigger OnPreDataItem()
@@ -339,4 +321,26 @@ report 50009 "Production Programme"
         MonthYearText: Text[50];
         IsFirstJobRow: Boolean;
         PrevJobNo: Code[20];
+        TotalJobForecast: Decimal;
+
+    local procedure CalculateTotalJobForecast()
+    var
+        ProdForecast: Record "Production Forecast Entry";
+    begin
+        TotalJobForecast := 0;
+
+        // Exit if no job specified
+        if ProductionProgrammeLine.Job = '' then
+            exit;
+
+        ProdForecast.Reset();
+        ProdForecast.SetRange("Production Forecast Name", ProductionProgrammeHeader."Demand Forecast Name");
+        ProdForecast.SetRange("Item No.", ProductionProgrammeLine.Job);
+        ProdForecast.SetRange("Component Forecast", false);
+
+        if ProdForecast.FindSet() then
+            repeat
+                TotalJobForecast += ProdForecast."Forecast Quantity (Base)";
+            until ProdForecast.Next() = 0;
+    end;
 }
