@@ -44,7 +44,6 @@ page 50026 "Inspection Challenge Sample Li"
                  field(Remarks; Rec.Remarks)
                 {
                     ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
-                    MultiLine = True;
                 }
 
             }

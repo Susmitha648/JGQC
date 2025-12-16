@@ -34,4 +34,5 @@ table 50027 MNR
             Clustered = true;
         }
     }
+   
 }
