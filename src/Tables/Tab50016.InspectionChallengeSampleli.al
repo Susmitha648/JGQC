@@ -39,6 +39,19 @@ table 50016 "Inspection Challenge Sample li"
         {
             Caption = 'Frequency';
         }
+        field(10; "Sampling Time"; Text[10])
+        {
+            Caption = 'Sampling Time';
+        }
+         field(11; Remarks; Text[100])
+        {
+            DataClassification = CustomerContent;
+        }
+        field(12; "Sample Quantity"; Decimal)
+        {
+            Caption = 'Sample Quantity';
+            BlankZero = True;
+        }
     }
     keys
     {

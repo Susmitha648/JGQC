@@ -2,7 +2,7 @@ table 50014 "Cold End Presort Detail Lines"
 {
     Caption = 'Cold End Presort Detail Lines';
     DataClassification = ToBeClassified;
-    
+
     fields
     {
         field(1; "Released Prod Order No."; Code[20])
@@ -20,7 +20,7 @@ table 50014 "Cold End Presort Detail Lines"
             Caption = 'Line No.';
             Editable = false;
         }
-         field(4; "Section No."; Enum "Section No.")
+        field(4; "Section No."; Enum "Section No.")
         {
             Caption = 'Section No.';
             Editable = false;
@@ -39,14 +39,18 @@ table 50014 "Cold End Presort Detail Lines"
             Caption = 'QC Defect Code';
             TableRelation = "Defect Code"."Defect Code";
         }
-         field(9; Time; Enum Time)
+        field(9; Time; Enum Time)
         {
             Caption = 'Frequency';
+        }
+        field(10; Category; Enum "Presort Category ")
+        {
+            Caption = 'Category';
         }
     }
     keys
     {
-        key(PK; "Released Prod Order No.","Production Order Date","Line No.")
+        key(PK; "Released Prod Order No.", "Production Order Date", "Line No.")
         {
             Clustered = true;
         }

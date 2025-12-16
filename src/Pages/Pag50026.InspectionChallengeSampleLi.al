@@ -37,6 +37,15 @@ page 50026 "Inspection Challenge Sample Li"
                 {
                     ToolTip = 'Specifies the value of the Reject % field.', Comment = '%';
                 }
+                 field("Sampling Time"; Rec."Sampling Time")
+                {
+                    ToolTip = 'Specifies the value of the Sampling Time field.', Comment = '%';
+                }
+                 field(Remarks; Rec.Remarks)
+                {
+                    ToolTip = 'Specifies the value of the Remarks field.', Comment = '%';
+                    MultiLine = True;
+                }
 
             }
         }

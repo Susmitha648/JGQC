@@ -27,7 +27,7 @@ page 50022 "Cold End Presort Detail Lines"
                 {
                     ToolTip = 'Specifies the value of the Front/Back field.', Comment = '%';
                 }
-                 field("Time"; Rec."Time")
+                field("Time"; Rec."Time")
                 {
                     ToolTip = 'Specifies the value of the Frequency field.', Comment = '%';
                 }
@@ -42,9 +42,28 @@ page 50022 "Cold End Presort Detail Lines"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            group(CreatePO)
+            {
+                Caption = 'Weight Issued';
+                action(Create)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Weight Issued';
+                    Image = List;
+                    ToolTip = 'Weight Issued';
+                    RunObject = Page "Weight Issued";
+                    RunPageLink = "Production Order No" = field("Released Prod Order No."),Time = field(Time);
+                }
+            }
+        }
+    }
     trigger OnNewRecord(BelowxRec: Boolean)
     var
-    ColdEndLine : Record "Cold End Presort Detail Lines";
+        ColdEndLine: Record "Cold End Presort Detail Lines";
     begin
         ColdEndLine.Reset();
         ColdEndLine.SetAscending("Line No.", false);
@@ -55,4 +74,5 @@ page 50022 "Cold End Presort Detail Lines"
         else
             Rec."Line No." := 10000;
     end;
+
 }

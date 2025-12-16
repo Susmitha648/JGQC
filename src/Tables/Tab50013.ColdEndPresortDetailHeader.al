@@ -56,6 +56,83 @@ table 50013 "Cold End Presort Detail Header"
         {
             DataClassification = CustomerContent;
         }
+        field(10; "Weight Issue Min"; Decimal)
+        {
+            DataClassification = CustomerContent;
+            BlankZero = True;
+        }
+        field(11; "Weight Issue Max"; Decimal)
+        {
+            DataClassification = CustomerContent;
+            BlankZero = True;
+        }
+         field(12; "Shift 1 Leading Hand"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnLookup()
+            var
+              Employee : Record Employee;
+            begin
+                 If Page.RunModal(5201,Employee) = Action::LookupOK then
+                   "Shift 1 Leading Hand" := Employee."First Name" + ' ' + Employee."Last Name" + ' (' + Employee."No." + ')';
+            end; 
+        }
+         field(13; "Shift 2 Leading Hand"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnLookup()
+            var
+              Employee : Record Employee;
+            begin
+                 If Page.RunModal(5201,Employee) = Action::LookupOK then
+                   "Shift 2 Leading Hand" := Employee."First Name" + ' ' + Employee."Last Name" + ' (' + Employee."No." + ')';
+            end; 
+        }
+         field(14; "Shift 3 Leading Hand"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnLookup()
+            var
+              Employee : Record Employee;
+            begin
+                 If Page.RunModal(5201,Employee) = Action::LookupOK then
+                   "Shift 3 Leading Hand" := Employee."First Name" + ' ' + Employee."Last Name" + ' (' + Employee."No." + ')';
+            end; 
+        }
+         field(15; "Shift 1 Foreman"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnLookup()
+            var
+              Employee : Record Employee;
+            begin
+                 If Page.RunModal(5201,Employee) = Action::LookupOK then
+                   "Shift 1 Foreman" := Employee."First Name" + ' ' + Employee."Last Name" + ' (' + Employee."No." + ')';
+            end; 
+        }
+         field(16; "Shift 2 Foreman"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnLookup()
+            var
+              Employee : Record Employee;
+            begin
+                 If Page.RunModal(5201,Employee) = Action::LookupOK then
+                   "Shift 2 Foreman" := Employee."First Name" + ' ' + Employee."Last Name" + ' (' + Employee."No." + ')';
+            end; 
+        }
+         field(17; "Shift 3 Foreman"; Text[80])
+        {
+            DataClassification = CustomerContent;
+            trigger OnLookup()
+            var
+              Employee : Record Employee;
+            begin
+                 If Page.RunModal(5201,Employee) = Action::LookupOK then
+                   "Shift 3 Foreman" := Employee."First Name" + ' ' + Employee."Last Name" + ' (' + Employee."No." + ')';
+            end; 
+        }
+        
     }
     keys
     {
