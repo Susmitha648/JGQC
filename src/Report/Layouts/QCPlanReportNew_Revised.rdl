@@ -4194,7 +4194,7 @@
                           <Value>=Fields!SystemModifiedAt.Value</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>9pt</FontSize>
+                            <FontSize>8pt</FontSize>
                             <Format>d MMM yyyy</Format>
                           </Style>
                         </TextRun>
@@ -4338,7 +4338,7 @@
                           <Value>=Fields!SystemModifiedAt.Value</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
-                            <FontSize>9pt</FontSize>
+                            <FontSize>8pt</FontSize>
                             <Format>dd MMM yyyy</Format>
                           </Style>
                         </TextRun>
