@@ -50,6 +50,34 @@ page 50047 "Cold End Presort Detail Finish"
                 {
                     ToolTip = 'Specifies the value of the Customer Name field.', Comment = '%';
                 }
+                 field("Shift 1 Leading Hand"; Rec."Shift 1 Leading Hand")
+                {
+                    ToolTip = 'Specifies the value of the Shift 1 Leading Hand field.', Comment = '%';
+                }
+                field("Shift 1 Foreman"; Rec."Shift 1 Foreman")
+                {
+                    ToolTip = 'Specifies the value of the Shift 1 Foreman field.', Comment = '%';
+                }
+                field("Shift 2 Leading Hand"; Rec."Shift 2 Leading Hand")
+                {
+                    ToolTip = 'Specifies the value of the Shift 2 Leading Hand field.', Comment = '%';
+                }
+                field("Shift 2 Foreman"; Rec."Shift 2 Foreman")
+                {
+                    ToolTip = 'Specifies the value of the Shift 2 Foreman field.', Comment = '%';
+                }
+                field("Shift 3 Leading Hand"; Rec."Shift 3 Leading Hand")
+                {
+                    ToolTip = 'Specifies the value of the Shift 3 Leading Hand field.', Comment = '%';
+                }
+                field("Shift 3 Foreman"; Rec."Shift 3 Foreman")
+                {
+                    ToolTip = 'Specifies the value of the Shift 3 Foreman field.', Comment = '%';
+                }
+                field("Cold End Coating"; Rec."Cold End Coating")
+                {
+                    ToolTip = 'Specifies the value of the Cold End Coating field.', Comment = '%';
+                }
             }
             part(ColdEndPresortDetailLines; "Cold End Presort Detail Lines")
             {
