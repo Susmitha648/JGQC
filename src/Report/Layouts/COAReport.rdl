@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-16T07:02:50.0450678Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-16T08:21:24.1975576Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -778,12 +778,12 @@
                                 <TextRun>
                                   <Value>=IIF(
   IsNothing(Fields!Max_Result.Value)
-  OR IsNothing(Fields!Water_Temp_Line.Value)
+  OR IsNothing(First(Fields!Water_Temp_Line.Value, "DataSet_Result"))
   OR Trim(CStr(Fields!Max_Result.Value)) = ""
-  OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
+  OR Trim(CStr(First(Fields!Water_Temp_Line.Value, "DataSet_Result"))) = "",
   Nothing,
-  Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
-)</Value>
+  Val(Fields!Max_Result.Value) * Val(First(Fields!Water_Temp_Line.Value, "DataSet_Result")
+))</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
@@ -844,11 +844,11 @@
       OR Trim(CStr(Fields!Max_Result.Value)) = ""
       OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
       Nothing,
-      Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
+      CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
     )
   ) Is Nothing,
   "",
-  CStr(
+  Format(
     Max(
       IIF(
         IsNothing(Fields!Max_Result.Value)
@@ -856,15 +856,15 @@
         OR Trim(CStr(Fields!Max_Result.Value)) = ""
         OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
         Nothing,
-        Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
+        CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
       )
-    )
+    ),
+    "#,0.00"
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -919,11 +919,11 @@
       OR Trim(CStr(Fields!Max_Result.Value)) = ""
       OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
       Nothing,
-      Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
+      CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
     )
   ) Is Nothing,
   "",
-  CStr(
+  Format(
     Min(
       IIF(
         IsNothing(Fields!Max_Result.Value)
@@ -931,15 +931,15 @@
         OR Trim(CStr(Fields!Max_Result.Value)) = ""
         OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
         Nothing,
-        Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
+        CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
       )
-    )
+    ),
+    "#,0.00"
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -994,11 +994,11 @@
       OR Trim(CStr(Fields!Max_Result.Value)) = ""
       OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
       Nothing,
-      Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
+      CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
     )
   ) Is Nothing,
   "",
-  CStr(
+  Format(
     Avg(
       IIF(
         IsNothing(Fields!Max_Result.Value)
@@ -1006,15 +1006,15 @@
         OR Trim(CStr(Fields!Max_Result.Value)) = ""
         OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
         Nothing,
-        Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
+        CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
       )
-    )
+    ),
+    "#,0.00"
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1052,7 +1052,6 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox55">
                           <rd:DefaultName>Textbox55</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -1466,6 +1465,7 @@
                                             <Style>
                                               <FontFamily>Segoe UI</FontFamily>
                                               <FontSize>6pt</FontSize>
+                                              <Format>#,0.00;(#,0.00)</Format>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
@@ -2252,6 +2252,7 @@
                       <TablixHeader>
                         <Size>0.70315in</Size>
                         <CellContents>
+                          <rd:Selected>true</rd:Selected>
                           <Textbox Name="Water_Temp1">
                             <rd:DefaultName>Water_Temp1</rd:DefaultName>
                             <CanGrow>true</CanGrow>
@@ -2260,7 +2261,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!Water_Temp.Value</Value>
+                                    <Value>=FormatNumber(CDbl(First(Fields!Water_Temp_Line.Value)), 2)</Value>
                                     <Style>
                                       <FontFamily>Segoe UI</FontFamily>
                                       <FontSize>6pt</FontSize>
