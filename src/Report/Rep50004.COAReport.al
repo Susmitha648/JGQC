@@ -10,6 +10,7 @@ report 50004 "COA Report"
     {
         dataitem(COAHeader; "COA Header")
         {
+            column(Released_Prod_Order_No_; "Released Prod Order No.") { }
             column(Job_No_; "Job No.") { }
             column(Description; Description) { }
             column(Send_To; "Send To") { }

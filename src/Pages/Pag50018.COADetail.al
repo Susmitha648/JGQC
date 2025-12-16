@@ -67,7 +67,7 @@ page 50018 "COA Detail"
             {
                 Caption = 'Create';
                 Image = Create;
-               
+
                 action(Release)
                 {
                     ApplicationArea = Suite;
@@ -165,7 +165,7 @@ page 50018 "COA Detail"
                     begin
                         MyReportID := Report::"COA Report";
                         JobNo.Reset();
-                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        JobNo.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
                         If JobNo.FindSet() then
                             Report.RunModal(MyReportID, true, false, JobNo);
                     end;
@@ -179,7 +179,7 @@ page 50018 "COA Detail"
     begin
         If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Released Prod Order No.") then
             If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
-                
+
                 Rec.Validate("Job No.", ReleaseProdOrder."Source No.");
             end;
     end;

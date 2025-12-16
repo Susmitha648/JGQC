@@ -57,7 +57,7 @@ page 50020 "COA Details"
                     begin
                         MyReportID := Report::"COA Report";
                         JobNo.Reset();
-                        JobNo.SetRange("Job No.", Rec."Job No.");
+                        JobNo.SetRange("Released Prod Order No.", Rec."Released Prod Order No.");
                         If JobNo.FindSet() then
                             Report.RunModal(MyReportID, true, false, JobNo);
                     end;
