@@ -75,7 +75,7 @@ page 50029 "Production Programme Subform"
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
-                /* field("Sequence No"; Rec."Sequence No")
+                field("Sequence No"; Rec."Sequence No")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
@@ -83,10 +83,10 @@ page 50029 "Production Programme Subform"
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
-                 field("Last Line"; Rec."Last Line")
+                field("Last Line"; Rec."Last Line")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
-                }*/
+                }
             }
         }
     }
@@ -112,7 +112,7 @@ page 50029 "Production Programme Subform"
                             repeat
                                 CreateProductionOrders(ProdProgLine);
                             until ProdProgLine.Next() = 0;
-                            Message('Production Orders Created');
+                        Message('Production Orders Created');
                     end;
                 }
                 action(F2DailyProduction)
@@ -128,8 +128,8 @@ page 50029 "Production Programme Subform"
                         //ProdProgHeader.Reset();
                         //ProdProgHeader.SetRange("No.",Rec."No.");
                         CurrPage.SetSelectionFilter(ProdProgHeader);
-                        ProdProgHeader.SetRange(Furnace,'');
-                        Report.RunModal(Report::"F2 Daily Production Report", true, false,ProdProgHeader);
+                        ProdProgHeader.SetRange(Furnace, '');
+                        Report.RunModal(Report::"F2 Daily Production Report", true, false, ProdProgHeader);
                     end;
                 }
             }
@@ -160,8 +160,8 @@ page 50029 "Production Programme Subform"
         ProductionHdr.Validate(Quantity, (8 * 60 * ProdProgramLine."Bottles Per Minute") * WorkShift.Count);
         ProductionHdr."Starting Date" := ProdProgramLine.Date;
         ProductionHdr."Ending Date" := 0D;
-        ProductionHdr."Ending Date-Time" := CreateDateTime(ProdProgramLine.Date,0T);
-         ProductionHdr."Starting Date-Time" := CreateDateTime(ProdProgramLine.Date,0T);
+        ProductionHdr."Ending Date-Time" := CreateDateTime(ProdProgramLine.Date, 0T);
+        ProductionHdr."Starting Date-Time" := CreateDateTime(ProdProgramLine.Date, 0T);
         ProductionHdr.Modify();
         If WorkShift.FindSet() then
             repeat
@@ -201,14 +201,14 @@ page 50029 "Production Programme Subform"
                 If ProdProgramLine.Day = 'SUNDAY' then
                     ShopCalender.SetRange(Day, ShopCalender.Day::Sunday);
                 If ShopCalender.FindFirst() then;
-               // ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Starting Time"));
+                // ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Starting Time"));
                 //ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, ShopCalender."Ending Time"));
                 ProductionLine."Work Shift" := WorkShift.Code;
                 ProductionLine."Work Center" := ProdProgramLine.Furnace;
                 ProductionLine."Starting Time WO" := WorkShift."Starting Time";
                 ProductionLine."Ending Time WO" := WorkShift."Ending Time";
-                ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date,0T));
-                ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date,0T));
+                ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, 0T));
+                ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, 0T));
                 ProductionLine."Ending Date" := 0D;
                 ProductionLine.Modify();
             until WorkShift.Next() = 0;
@@ -216,7 +216,7 @@ page 50029 "Production Programme Subform"
         ProdProgramLine."Production Order No." := ProductionHdr."No.";
         ProdProgramLine."Prod Order Created" := True;
         ProdProgramLine.Modify(false);
-        
+
     end;
 
     procedure CreateDimension(ProdProgramDim: Record "Production Programme Line"): Integer
@@ -245,7 +245,7 @@ page 50029 "Production Programme Subform"
             DimensionValue.Init();
             DimensionValue.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
             DimensionValue.Validate(Code, ProdProgramDim.Furnace);
-            DimensionValue.Validate(Name,'');
+            DimensionValue.Validate(Name, '');
             DimensionValue.Validate("Dimension Value Type", DimensionValue."Dimension Value Type"::Standard);
             DimensionValue.Insert();
         end;
@@ -288,5 +288,5 @@ page 50029 "Production Programme Subform"
         exit(DimSetID);
     end;
 
-   
+
 }

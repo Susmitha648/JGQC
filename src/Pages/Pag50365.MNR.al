@@ -26,10 +26,6 @@ page 50365 MNR
                 {
                     ToolTip = 'Specifies the value of the Cavity No field.', Comment = '%';
                 }
-                field("Line No"; Rec."Line No")
-                {
-                    ToolTip = 'Specifies the value of the Line No field.', Comment = '%';
-                }
             }
         }
     }

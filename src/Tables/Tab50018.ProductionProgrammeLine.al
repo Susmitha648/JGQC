@@ -33,10 +33,12 @@ table 50018 "Production Programme Line"
             trigger OnValidate()
             var
                 ProdProgLine2: Record "Production Programme Line";
+                ProdProgLine3: Record "Production Programme Line";
+                OldSequence: Boolean;
             begin
                 TestStatusOpen();
                 If Job <> '' then
-                    If Rec.Job <> xRec.Job then begin
+                    If (Rec.Job <> xRec.Job) then begin
                         ProdProgLine2.Reset();
                         ProdProgLine2.SetRange(Job, Rec.Job);
                         ProdProgLine2.SetRange("No.", Rec."No.");
@@ -45,31 +47,51 @@ table 50018 "Production Programme Line"
                             ProdProgLine2.SetRange(Date, CalcDate('<-1D>', Date));
                             If ProdProgLine2.FindFirst() then begin
                                 Rec."Sequence No" := ProdProgLine2."Sequence No";
+                                OldSequence := True;
                                 If ProdProgLine2."Last Line" then begin
                                     ProdProgLine2."Last Line" := false;
                                     ProdProgLine2.Modify();
                                     Rec."Last Line" := True;
-
                                     Rec."First Line" := false;
                                 End;
-
                             end Else begin
                                 ProdProgLine2.SetRange(Date, CalcDate('<+1D>', Date));
                                 If ProdProgLine2.FindFirst() then begin
+                                    OldSequence := True;
                                     Rec."Sequence No" := ProdProgLine2."Sequence No";
                                     If ProdProgLine2."First Line" then begin
                                         ProdProgLine2."First Line" := false;
                                         ProdProgLine2.Modify();
-                                        rec."First Line" := true;
+                                        Rec."First Line" := true;
                                         Rec."Last Line" := false;
                                         Rec."Record Slip No" := ProdProgLine2."Record Slip No";
                                     end;
+                                end;
+                            end;
+                            If not OldSequence then begin
+                                ProdProgLine2.SetRange(Date);
+                                If ProdProgLine2.FindLast() then begin
+                                    Rec."Sequence No" := ProdProgLine2."Sequence No" + 1;
+                                    Rec."First Line" := True;
+                                    Rec."Last Line" := True;
                                 end;
                             end;
                         end else begin
                             Rec."Sequence No" := 1;
                             Rec."First Line" := True;
                             Rec."Last Line" := True;
+                        end;
+                        If xRec.Job <> '' then begin
+                            ProdProgLine3.Reset();
+                            ProdProgLine3.SetRange(Job, xRec.Job);
+                            ProdProgLine3.SetRange(Furnace, xRec.Furnace);
+                            ProdProgLine3.SetRange("No.", xRec."No.");
+                            ProdProgLine3.SetRange("Sequence No", xRec."Sequence No");
+                            If ProdProgLine3.FindLast() then begin
+                                If ProdProgLine3.Date = CalcDate('<+1D>', Date) then
+                                    ProdProgLine3."Last Line" := True;
+                                ProdProgLine3.Modify();
+                            end;
                         end;
                     end;
             end;
