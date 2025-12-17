@@ -39,33 +39,38 @@ report 50007 "Cold End Presort Report"
                 column(Time; Frequency) { }
                 column(Section_No_; "Section No.") { }
 
+                // NEW: Integer value for sorting sections numerically (1, 2, 3... 10)
+                column(SectionSortIndex; "Section No.".AsInteger()) { }
+
                 // Sorting & Grouping Columns
                 column(SectionGroup; SectionGroupNo) { }
                 column(TimeSortIndex; TimeSortIndex) { }
+                column(TimeLabel; TimeLabel) { }
 
                 column(Front_Back; "Front/Back") { }
                 column(Cavity_No; "Cavity No") { }
                 column(QC_Defect_Code; "QC Defect Code") { }
 
+                // Weight Issued Columns
                 column(WI_Front; WeightIssuedRec.Front) { }
                 column(WI_Back; WeightIssuedRec.Back) { }
                 column(WI_Gauged; WeightIssuedRec.Gauged) { }
                 column(WI_Stones; WeightIssuedRec."Stones %") { }
                 column(WI_EFF; WeightIssuedRec."EFF %") { }
                 column(WI_Remarks; WeightIssuedRec.Remarks) { }
-                column(WI_RubTest; Format(WeightIssuedRec."Rub Test")) { } // Format Enum to Text
-
+                column(WI_RubTest; Format(WeightIssuedRec."Rub Test")) { }
 
                 trigger OnAfterGetRecord()
                 var
                     FreqText: Text;
                     SpacePos: Integer;
                     StartHour: Integer;
+                    EndHour: Integer;
+                    StartTime: Time;
+                    EndTime: Time;
                 begin
-                    // 1. Convert the Enum to Text (e.g., "7 to 8")
+                    // 1. Time Sorting Logic
                     FreqText := Format(Frequency);
-
-                    // 2. Extract the first number (the start hour) for sorting logic
                     SpacePos := StrPos(FreqText, ' ');
                     if SpacePos > 0 then begin
                         if not Evaluate(StartHour, CopyStr(FreqText, 1, SpacePos - 1)) then
@@ -75,18 +80,21 @@ report 50007 "Cold End Presort Report"
                             StartHour := 0;
                     end;
 
-                    // 3. Calculate Sorting (Start day at 7 AM)
                     if StartHour < 7 then
                         TimeSortIndex := StartHour + 24
                     else
                         TimeSortIndex := StartHour;
 
-                    // 4. Calculate Section Grouping
                     SectionGroupNo := (TimeSortIndex - 7) div 8;
 
-                    // 5. FETCH WEIGHT ISSUED DATA
-                    // We fetch the record matching the current Line's Prod Order and Frequency (Time)
-                    // If found, the variables are populated. If not, we initialize them.
+                    // 2. Time Label Logic
+                    StartTime := 000000T + (StartHour * 3600000);
+                    EndHour := StartHour + 1;
+                    if EndHour = 24 then EndHour := 0;
+                    EndTime := 000000T + (EndHour * 3600000);
+                    TimeLabel := Format(StartTime, 0, '<Hours24,2>.<Minutes,2>') + ' - ' + Format(EndTime, 0, '<Hours24,2>.<Minutes,2>');
+
+                    // 3. Weight Issued Logic
                     if not WeightIssuedRec.Get("Released Prod Order No.", Frequency) then
                         Clear(WeightIssuedRec);
                 end;
@@ -103,10 +111,15 @@ report 50007 "Cold End Presort Report"
                 group(GroupName) { }
             }
         }
+        actions
+        {
+            area(Processing) { }
+        }
     }
 
     var
         SectionGroupNo: Integer;
         TimeSortIndex: Integer;
+        TimeLabel: Text;
         WeightIssuedRec: Record "Weight Issued";
 }
