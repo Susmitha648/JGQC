@@ -1,14 +1,18 @@
 enum 50015 "Rub Test"
 { 
-    value(0; A)
+    value(0; "")
+    {
+        Caption = '';
+    }
+    value(1; A)
     {
         Caption = 'A';
     }
-    value(1; B)
+    value(2; B)
     {
         Caption = 'B';
     }
-    value(2; C)
+    value(3; C)
     {
         Caption = 'C';
     }

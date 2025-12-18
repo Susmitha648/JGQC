@@ -107,7 +107,7 @@ page 50018 "COA Detail"
                                     If QCParameter.Get(QCPlanLine."Parameter Code") then;
                                     If QCParameterType.Get(QCParameter."Parameter Type") then
                                         If QCParameterType."COA Needed" then begin
-                                            foreach Enumtext in Enum::"Section No.".Ordinals() do begin
+                                            for Enumtext := 1 to Enum::"Section No.".Ordinals().Count - 1  do begin
                                                 foreach FrontBack in Enum::"Front Back".Ordinals() do begin
                                                     COALine.Init();
                                                     COALine."Released Prod Order No." := Rec."Released Prod Order No.";

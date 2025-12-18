@@ -131,7 +131,15 @@ table 50010 "Machine/Section Stoppages"
         field(25; "Machine Number"; Code[20])
         {
             Caption = 'Machine Number';
-            Editable = false;
+            trigger OnLookup()
+            begin
+                GeneralLegderSetup.Get();
+                DimensionValue.Reset();
+                DimensionValue.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
+                If DimensionValue.FindSet() then;
+                if Page.RunModal(537, DimensionValue) = Action::LookupOK then
+                    "Machine Number" := DimensionValue.Code;
+            end;
         }
     }
     keys

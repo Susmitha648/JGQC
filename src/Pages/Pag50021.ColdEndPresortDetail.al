@@ -115,6 +115,7 @@ page 50021 "Cold End Presort Detail"
                     trigger OnAction()
                     var
                         ColdEndLine: Record "Cold End Presort Detail Lines";
+                        ColdEndLineBlankSection: Record "Cold End Presort Detail Lines";
                         ColdEndLineNo: Record "Cold End Presort Detail Lines";
                         QCParameter: Record "QC Parameters";
                         QCParameterType: Record "QC Parameter Type";
@@ -137,7 +138,7 @@ page 50021 "Cold End Presort Detail"
                             ColdEndLine.DeleteAll();
                             Clear(Count);
                             foreach Time in Enum::Time.Ordinals() do begin
-                                foreach Enumtext in Enum::"Section No.".Ordinals() do begin
+                                for Enumtext := 1 to Enum::"Section No.".Ordinals().Count - 1  do begin
                                     foreach FrontBack in Enum::"Front Back".Ordinals() do begin
                                         ColdEndLine.Init();
                                         ColdEndLine."Released Prod Order No." := Rec."Released Prod Order No.";
@@ -169,7 +170,7 @@ page 50021 "Cold End Presort Detail"
                                     end;
                                 end;
                             end;
-
+                            
                             If Count > 1 then
                                 Message('Lines created')
                             else
