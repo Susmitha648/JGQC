@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-18T03:37:51.3341676Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-18T09:12:27.9986995Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -92,6 +92,7 @@
                       </TablixCornerCell>
                       <TablixCornerCell>
                         <CellContents>
+                          <rd:Selected>true</rd:Selected>
                           <Textbox Name="Textbox342">
                             <rd:DefaultName>Textbox339</rd:DefaultName>
                             <KeepTogether>true</KeepTogether>
@@ -259,13 +260,13 @@
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>0.99cm</Width>
+                      <Width>1cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.4cm</Width>
+                      <Width>1.68222cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>0.925cm</Width>
+                      <Width>0.91cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -828,6 +829,9 @@
                               </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
+                          <Visibility>
+                            <Hidden>=Fields!MNR_DefectName.Value = "" OR Nothing</Hidden>
+                          </Visibility>
                         </TablixMember>
                       </TablixMembers>
                       <Visibility>
@@ -840,7 +844,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.98834cm</Size>
+                        <Size>0.99306cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox316">
                             <rd:DefaultName>Textbox316</rd:DefaultName>
@@ -910,7 +914,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>1.49298cm</Size>
+                                <Size>1.7cm</Size>
                                 <CellContents>
                                   <Textbox Name="FrequencyText">
                                     <rd:DefaultName>FrequencyText</rd:DefaultName>
@@ -991,7 +995,7 @@
                 <Top>0cm</Top>
                 <Left>0.04692cm</Left>
                 <Height>5.43593cm</Height>
-                <Width>5.79632cm</Width>
+                <Width>6.28528cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -3957,7 +3961,7 @@
                 </Filters>
                 <Top>5.43593cm</Top>
                 <Left>0.04198cm</Left>
-                <Height>2.48776cm</Height>
+                <Height>2.48778cm</Height>
                 <Width>28.658cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
@@ -3970,7 +3974,7 @@
             <KeepTogether>true</KeepTogether>
             <Top>0cm</Top>
             <Left>0cm</Left>
-            <Height>7.92369cm</Height>
+            <Height>7.92371cm</Height>
             <Width>28.69999cm</Width>
             <Style>
               <Border>
@@ -4209,13 +4213,13 @@
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>0.99cm</Width>
+                      <Width>1cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.4cm</Width>
+                      <Width>1.68222cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>0.925cm</Width>
+                      <Width>0.91cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -4778,6 +4782,9 @@
                               </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
+                          <Visibility>
+                            <Hidden>=Fields!MNR_DefectName.Value = "" OR Nothing</Hidden>
+                          </Visibility>
                         </TablixMember>
                       </TablixMembers>
                       <Visibility>
@@ -4790,7 +4797,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.98834cm</Size>
+                        <Size>0.99306cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox317">
                             <rd:DefaultName>Textbox316</rd:DefaultName>
@@ -4860,7 +4867,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>1.49298cm</Size>
+                                <Size>1.7cm</Size>
                                 <CellContents>
                                   <Textbox Name="FrequencyText2">
                                     <rd:DefaultName>FrequencyText</rd:DefaultName>
@@ -4940,8 +4947,8 @@
                 </Filters>
                 <Top>0cm</Top>
                 <Left>0.04198cm</Left>
-                <Height>5.4514cm</Height>
-                <Width>5.79632cm</Width>
+                <Height>5.45141cm</Height>
+                <Width>6.28528cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -8160,13 +8167,13 @@
                 <TablixBody>
                   <TablixColumns>
                     <TablixColumn>
-                      <Width>0.99cm</Width>
+                      <Width>1cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>1.4cm</Width>
+                      <Width>1.68222cm</Width>
                     </TablixColumn>
                     <TablixColumn>
-                      <Width>0.925cm</Width>
+                      <Width>0.91cm</Width>
                     </TablixColumn>
                   </TablixColumns>
                   <TablixRows>
@@ -8744,7 +8751,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>0.98834cm</Size>
+                        <Size>0.99306cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox318">
                             <rd:DefaultName>Textbox316</rd:DefaultName>
@@ -8814,7 +8821,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>1.49298cm</Size>
+                                <Size>1.7cm</Size>
                                 <CellContents>
                                   <Textbox Name="FrequencyText3">
                                     <rd:DefaultName>FrequencyText</rd:DefaultName>
@@ -8894,8 +8901,8 @@
                 </Filters>
                 <Top>0cm</Top>
                 <Left>0.03704cm</Left>
-                <Height>5.47995cm</Height>
-                <Width>5.79632cm</Width>
+                <Height>5.47993cm</Height>
+                <Width>6.28528cm</Width>
                 <Style>
                   <Border>
                     <Style>None</Style>
@@ -11861,7 +11868,7 @@
                 </Filters>
                 <Top>5.47995cm</Top>
                 <Left>0.0321cm</Left>
-                <Height>2.48775cm</Height>
+                <Height>2.48773cm</Height>
                 <Width>28.658cm</Width>
                 <ZIndex>1</ZIndex>
                 <Style>
@@ -13225,9 +13232,6 @@ j3/yPJ57/gVlR3/2Ao7Ko/k89s3/fye2iX2bZvo2bSjfppm+TTN9m5bk2zTTt2lJvk1L8m1akm/TTN+m
         </Field>
         <Field Name="MNR_Label">
           <DataField>MNR_Label</DataField>
-        </Field>
-        <Field Name="CCP_ProdOrderNo">
-          <DataField>CCP_ProdOrderNo</DataField>
         </Field>
         <Field Name="CCP_Type">
           <DataField>CCP_Type</DataField>

@@ -21,13 +21,18 @@ report 50006 "Inspection Challenge Report"
             column(FurnaceNo; "Furnace No.") { }
             column(MNR_Label; 'MNR') { }
 
-            column(CCP_ProdOrderNo; CCPRec."Production Order No") { }
-            column(CCP_Type; CCPRec."Type") { }
-            column(CCP_ResultObtained; CCPRec."Result Obtained") { }
-            column(CCP_Inspection1; CCPRec."Inspection 1") { }
-            column(CCP_Inspection2; CCPRec."Inspection 2") { }
-            column(CCP_Inspection3; CCPRec."Inspection 3") { }
-            column(CCP_WorkShift; CCPRec."Work Shift") { }
+            dataitem(CCP; CCP)
+            {
+                DataItemLink = "Production Order No" = field("Released Prod Order No.");
+                DataItemTableView = sorting("Production Order No", "Type", "Work Shift");
+
+                column(CCP_Type; "Type") { }
+                column(CCP_ResultObtained; "Result Obtained") { }
+                column(CCP_Inspection1; "Inspection 1") { }
+                column(CCP_Inspection2; "Inspection 2") { }
+                column(CCP_Inspection3; "Inspection 3") { }
+                column(CCP_WorkShift; "Work Shift") { }
+            }
 
 
             dataitem(Line; "Inspection Challenge Sample li")
