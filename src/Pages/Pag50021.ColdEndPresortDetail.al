@@ -77,6 +77,14 @@ page 50021 "Cold End Presort Detail"
                 {
                     ToolTip = 'Specifies the value of the Cold End Coating field.', Comment = '%';
                 }
+                field("Weight Issue Min"; Rec."Weight Issue Min")
+                {
+                    ToolTip = 'Specifies the value of the Weight Issue Min field.', Comment = '%';
+                }
+                 field("Weight Issue Max"; Rec."Weight Issue Max")
+                {
+                    ToolTip = 'Specifies the value of the Weight Issue Max field.', Comment = '%';
+                }
             }
             part(ColdEndPresortDetailLines; "Cold End Presort Detail Lines")
             {
