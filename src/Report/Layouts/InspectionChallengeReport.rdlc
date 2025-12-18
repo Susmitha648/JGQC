@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-18T09:12:27.9986995Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-18T09:37:44.7754116Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -92,7 +92,6 @@
                       </TablixCornerCell>
                       <TablixCornerCell>
                         <CellContents>
-                          <rd:Selected>true</rd:Selected>
                           <Textbox Name="Textbox342">
                             <rd:DefaultName>Textbox339</rd:DefaultName>
                             <KeepTogether>true</KeepTogether>
@@ -916,6 +915,7 @@
                               <TablixHeader>
                                 <Size>1.7cm</Size>
                                 <CellContents>
+                                  <rd:Selected>true</rd:Selected>
                                   <Textbox Name="FrequencyText">
                                     <rd:DefaultName>FrequencyText</rd:DefaultName>
                                     <CanGrow>true</CanGrow>
@@ -13257,11 +13257,11 @@ j3/yPJ57/gVlR3/2Ao7Ko/k89s3/fye2iX2bZvo2bSjfppm+TTN9m5bk2zTTt2lJvk1L8m1akm/TTN+m
         <Field Name="Time">
           <DataField>Time</DataField>
         </Field>
-        <Field Name="TimeAsInteger">
-          <DataField>TimeAsInteger</DataField>
-        </Field>
         <Field Name="FrequencyText">
           <DataField>FrequencyText</DataField>
+        </Field>
+        <Field Name="TimeAsInteger">
+          <DataField>TimeAsInteger</DataField>
         </Field>
         <Field Name="Inspection_Type">
           <DataField>Inspection_Type</DataField>
@@ -13281,11 +13281,8 @@ j3/yPJ57/gVlR3/2Ao7Ko/k89s3/fye2iX2bZvo2bSjfppm+TTN9m5bk2zTTt2lJvk1L8m1akm/TTN+m
         <Field Name="Reject_PercentFormat">
           <DataField>Reject_PercentFormat</DataField>
         </Field>
-        <Field Name="MNR_Frequency">
-          <DataField>MNR_Frequency</DataField>
-        </Field>
-        <Field Name="MNR_DefectCodeList">
-          <DataField>MNR_DefectCodeList</DataField>
+        <Field Name="MNR_DefectCode">
+          <DataField>MNR_DefectCode</DataField>
         </Field>
         <Field Name="MNR_CavityNo">
           <DataField>MNR_CavityNo</DataField>
