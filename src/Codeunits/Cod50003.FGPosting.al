@@ -1,21 +1,13 @@
 codeunit 50003 "FG Posting"
 {
+    TableNo = "Reservation Entry";
     trigger OnRun()
     begin
-        ReservationEntry.Reset();
-        ReservationEntry.SetRange("Recording Slip Printed", True);
-        ReservationEntry.SetRange("Output Posted", false);
-        If ReservationEntry.FindSet() then begin
-            repeat
-                /*ReservationEntry."Recording Slip Printed" := false;
-                ReservationEntry.Modify();
-            until ReservationEntry.Next() = 0;*/
-
                 Clear(LineNo);
                 Clear(TransferNo);
                 ProdOrderLine.Reset();
-                ProdOrderLine.SetRange("Prod. Order No.", ReservationEntry."Source ID");
-                ProdOrderLine.SetRange("Line No.", ReservationEntry."Source Prod. Order Line");
+                ProdOrderLine.SetRange("Prod. Order No.", Rec."Source ID");
+                ProdOrderLine.SetRange("Line No.", Rec."Source Prod. Order Line");
                 If ProdOrderLine.FindFirst() then begin
                     ItemJnlTemplate.Reset();
                     ItemJnlTemplate.SetRange("Page ID", Page::"Production Journal");
@@ -99,7 +91,7 @@ codeunit 50003 "FG Posting"
                     ItemJnlLine."Source Code" := ItemJnlTemplate."Source Code";
                     ItemJnlLine."Reason Code" := ItemJnlBatch."Reason Code";
                     ItemJnlLine."Posting No. Series" := ItemJnlBatch."Posting No. Series";
-                    ItemJnlLine."Serial No." := ReservationEntry."Serial No.";
+                    ItemJnlLine."Serial No." := Rec."Serial No.";
                     ItemJnlLine.Insert();
 
                     ReservationEntry1.Init();
@@ -111,7 +103,7 @@ codeunit 50003 "FG Posting"
                     ReservationEntry1.Validate("Planning Flexibility", ReservationEntry1."Planning Flexibility"::Unlimited);
                     ReservationEntry1.Validate("Item Tracking", ReservationEntry1."Item Tracking"::"Serial No.");
                     ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Prospect;
-                    ReservationEntry1.Validate("Serial No.", ReservationEntry."Serial No.");
+                    ReservationEntry1.Validate("Serial No.", Rec."Serial No.");
                     ReservationEntry1.Validate("Source ID", ItemJnlLine."Journal Template Name");
                     ReservationEntry1.Validate("Source Type", 83);
                     ReservationEntry1.Validate("Source Subtype", 6);
@@ -165,7 +157,7 @@ codeunit 50003 "FG Posting"
                         ReservationEntry1.Validate("Planning Flexibility", ReservationEntry1."Planning Flexibility"::Unlimited);
                         ReservationEntry1.Validate("Item Tracking", ReservationEntry1."Item Tracking"::"Serial No.");
                         ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Surplus;
-                        ReservationEntry1.Validate("Serial No.", ReservationEntry."Serial No.");
+                        ReservationEntry1.Validate("Serial No.", Rec."Serial No.");
                         ReservationEntry1.Validate("Source ID", TransferNo);
                         ReservationEntry1.Validate("Source Type", 5741);
                         ReservationEntry1.Validate("Source Subtype", 0);
@@ -187,7 +179,7 @@ codeunit 50003 "FG Posting"
                         ReservationEntry1.Validate("Planning Flexibility", ReservationEntry1."Planning Flexibility"::Unlimited);
                         ReservationEntry1.Validate("Item Tracking", ReservationEntry1."Item Tracking"::"Serial No.");
                         ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Surplus;
-                        ReservationEntry1.Validate("Serial No.", ReservationEntry."Serial No.");
+                        ReservationEntry1.Validate("Serial No.", Rec."Serial No.");
                         ReservationEntry1.Validate("Source ID", TransferNo);
                         ReservationEntry1.Validate("Source Type", 5741);
                         ReservationEntry1.Validate("Source Subtype", 1);
@@ -237,13 +229,9 @@ codeunit 50003 "FG Posting"
                     end;
 
                 end;
-            until ReservationEntry.Next() = 0;
-
-        end;
     end;
 
     var
-        ReservationEntry: Record "Reservation Entry";
         ReservationEntry1: Record "Reservation Entry";
         ProdOrderLine: Record "Prod. Order Line";
         ProdOrderRoutingLine: Record "Prod. Order Routing Line";
