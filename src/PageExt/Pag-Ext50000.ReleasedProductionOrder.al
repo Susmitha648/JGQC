@@ -59,9 +59,9 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
              action(QCUpdate)
             {
                 ApplicationArea = All;
-                Caption = 'QC Update Details';
+                Caption = 'CE Update Details';
                 Image = List;
-                ToolTip = 'QC Update Details';
+                ToolTip = 'CE Update Details';
                 RunObject = Page "QC Details";
                 RunPageLink = "Work Order No" = field("No.");
             }
