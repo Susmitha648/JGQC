@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-16T08:21:24.1975576Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-19T03:34:51.3566529Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -192,7 +192,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                     <Color>=IIF(
   IsNothing(Fields!Max_Result.Value)
   OR IsNothing(Fields!Max.Value)
@@ -263,39 +263,25 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox264">
-                          <rd:DefaultName>Textbox264</rd:DefaultName>
+                        <Textbox Name="Textbox43">
+                          <rd:DefaultName>Textbox43</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Max(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Max_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Max(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Max_Result.Value)
-      )
-    )
+                                  <Value>=Max(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -334,39 +320,25 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox272">
-                          <rd:DefaultName>Textbox272</rd:DefaultName>
+                        <Textbox Name="Textbox42">
+                          <rd:DefaultName>Textbox42</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Min(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Max_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Min(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Max_Result.Value)
-      )
-    )
+                                  <Value>=Min(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -405,39 +377,25 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox280">
-                          <rd:DefaultName>Textbox280</rd:DefaultName>
+                        <Textbox Name="Textbox41">
+                          <rd:DefaultName>Textbox41</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Avg(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Max_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Avg(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Max_Result.Value)
-      )
-    )
+                                  <Value>=Avg(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -806,7 +764,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -855,35 +813,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Max(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR IsNothing(Fields!Water_Temp_Line.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = ""
-      OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
-      Nothing,
-      CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
-    )
-  ) Is Nothing,
-  "",
-  Format(
-    Max(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR IsNothing(Fields!Water_Temp_Line.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = ""
-        OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
-        Nothing,
-        CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
-      )
-    ),
-    "#,0.00"
+                                  <Value>=Max(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR IsNothing(Fields!Water_Temp_Line.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "" OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -930,35 +870,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Min(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR IsNothing(Fields!Water_Temp_Line.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = ""
-      OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
-      Nothing,
-      CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
-    )
-  ) Is Nothing,
-  "",
-  Format(
-    Min(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR IsNothing(Fields!Water_Temp_Line.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = ""
-        OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
-        Nothing,
-        CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
-      )
-    ),
-    "#,0.00"
+                                  <Value>=Min(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR IsNothing(Fields!Water_Temp_Line.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "" OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1005,35 +927,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Avg(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR IsNothing(Fields!Water_Temp_Line.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = ""
-      OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
-      Nothing,
-      CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
-    )
-  ) Is Nothing,
-  "",
-  Format(
-    Avg(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR IsNothing(Fields!Water_Temp_Line.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = ""
-        OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
-        Nothing,
-        CDbl(Fields!Max_Result.Value) * CDbl(Fields!Water_Temp_Line.Value)
-      )
-    ),
-    "#,0.00"
+                                  <Value>=Avg(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR IsNothing(Fields!Water_Temp_Line.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "" OR Trim(CStr(Fields!Water_Temp_Line.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value) * Val(Fields!Water_Temp_Line.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1090,7 +994,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1160,7 +1064,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1227,7 +1131,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1294,7 +1198,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1898,7 +1802,7 @@
                                     <Style>
                                       <FontFamily>Segoe UI</FontFamily>
                                       <FontSize>6pt</FontSize>
-                                      <Format>#,0.00;(#,0.00)</Format>
+                                      <Format>N2</Format>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
@@ -2506,7 +2410,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2560,31 +2464,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Max(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Max_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Max(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Max_Result.Value)
-      )
-    )
+                                  <Value>=Max(
+  IIF(
+    IsNothing(Fields!Min_Result.Value) OR Trim(CStr(Fields!Min_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Min_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2628,7 +2518,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox288">
+                        <Textbox Name="Textbox299">
                           <rd:DefaultName>Textbox288</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2636,31 +2526,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Min(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Max_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Min(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Max_Result.Value)
-      )
-    )
+                                  <Value>=Min(
+  IIF(
+    IsNothing(Fields!Min_Result.Value) OR Trim(CStr(Fields!Min_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Min_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2704,39 +2580,25 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox290">
-                          <rd:DefaultName>Textbox290</rd:DefaultName>
+                        <Textbox Name="Textbox298">
+                          <rd:DefaultName>Textbox291</rd:DefaultName>
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Avg(
-    IIF(
-      IsNothing(Fields!Max_Result.Value)
-      OR Trim(CStr(Fields!Max_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Max_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Avg(
-      IIF(
-        IsNothing(Fields!Max_Result.Value)
-        OR Trim(CStr(Fields!Max_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Max_Result.Value)
-      )
-    )
+                                  <Value>=Avg(
+  IIF(
+    IsNothing(Fields!Min_Result.Value) OR Trim(CStr(Fields!Min_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Min_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
-                                    <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <FontSize>7pt</FontSize>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2749,8 +2611,8 @@
                             <Border>
                               <Style>Solid</Style>
                             </Border>
-                            <VerticalAlign>Bottom</VerticalAlign>
-                            <PaddingLeft>4pt</PaddingLeft>
+                            <VerticalAlign>Top</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
                             <PaddingBottom>2pt</PaddingBottom>
@@ -2831,31 +2693,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Max(
-    IIF(
-      IsNothing(Fields!Min_Result.Value)
-      OR Trim(CStr(Fields!Min_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Min_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Max(
-      IIF(
-        IsNothing(Fields!Min_Result.Value)
-        OR Trim(CStr(Fields!Min_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Min_Result.Value)
-      )
-    )
+                                  <Value>=Max(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2907,31 +2755,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Min(
-    IIF(
-      IsNothing(Fields!Min_Result.Value)
-      OR Trim(CStr(Fields!Min_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Min_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Min(
-      IIF(
-        IsNothing(Fields!Min_Result.Value)
-        OR Trim(CStr(Fields!Min_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Min_Result.Value)
-      )
-    )
+                                  <Value>=Min(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>6pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2983,31 +2817,17 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(
-  Avg(
-    IIF(
-      IsNothing(Fields!Min_Result.Value)
-      OR Trim(CStr(Fields!Min_Result.Value)) = "",
-      Nothing,
-      Val(Fields!Min_Result.Value)
-    )
-  ) Is Nothing,
-  "",
-  CStr(
-    Avg(
-      IIF(
-        IsNothing(Fields!Min_Result.Value)
-        OR Trim(CStr(Fields!Min_Result.Value)) = "",
-        Nothing,
-        Val(Fields!Min_Result.Value)
-      )
-    )
+                                  <Value>=Avg(
+  IIF(
+    IsNothing(Fields!Max_Result.Value) OR Trim(CStr(Fields!Max_Result.Value)) = "",
+    Nothing,
+    Val(Fields!Max_Result.Value)
   )
 )</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>7pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>N2</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -5898,7 +5718,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!Lot_No.Value, "DataSet_Result")</Value>
+                          <Value>=First(Fields!Batch_No.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -5908,7 +5728,7 @@
                       </TextRuns>
                       <LeftIndent>4pt</LeftIndent>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
@@ -6010,7 +5830,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>=First(Fields!Year_Code.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -6019,7 +5839,7 @@
                         </TextRun>
                       </TextRuns>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
@@ -6121,7 +5941,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>=First(Fields!Nominal_Weight.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -6129,9 +5949,8 @@
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <LeftIndent>4pt</LeftIndent>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
@@ -6233,7 +6052,7 @@
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value />
+                          <Value>=First(Fields!Nominal_Capacity.Value, "DataSet_Result")</Value>
                           <Style>
                             <FontFamily>Segoe UI</FontFamily>
                             <FontSize>7pt</FontSize>
@@ -6241,9 +6060,8 @@
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <LeftIndent>4pt</LeftIndent>
                       <Style>
-                        <TextAlign>Left</TextAlign>
+                        <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
@@ -6466,6 +6284,18 @@ zGa4kjmSNUiaI/kMuWVlykqaceBnil7xj58tKfWKn2X0b0eH/ZJKr/hZLGnvK36WSHpJ0n65SjIvSjZ6
         </Field>
         <Field Name="CompanyLogo">
           <DataField>CompanyLogo</DataField>
+        </Field>
+        <Field Name="Nominal_Capacity">
+          <DataField>Nominal_Capacity</DataField>
+        </Field>
+        <Field Name="Nominal_Weight">
+          <DataField>Nominal_Weight</DataField>
+        </Field>
+        <Field Name="Batch_No">
+          <DataField>Batch_No</DataField>
+        </Field>
+        <Field Name="Year_Code">
+          <DataField>Year_Code</DataField>
         </Field>
         <Field Name="Result">
           <DataField>Result</DataField>
