@@ -49,6 +49,22 @@ page 50039 "COA Detail Finished"
                 {
                     ToolTip = 'Specifies the value of the Send To field.', Comment = '%';
                 }
+                  field("Nominal Weight"; Rec."Nominal Weight")
+                {
+                    ToolTip = 'Specifies the value of the Nominal Weight field.', Comment = '%';
+                }
+                field("Nominal Capacity"; Rec."Nominal Capacity")
+                {
+                    ToolTip = 'Specifies the value of the Nominal Capacity field.', Comment = '%';
+                }
+                field("Batch No"; Rec."Batch No")
+                {
+                    ToolTip = 'Specifies the value of the Batch No field.', Comment = '%';
+                }
+                field("Year Code"; Rec."Year Code")
+                {
+                    ToolTip = 'Specifies the value of the Year Code field.', Comment = '%';
+                }
             }
             part(COALines; "COA Lines")
             {

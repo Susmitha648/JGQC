@@ -84,30 +84,11 @@ report 50005 RecordingSlipReport
             column(GTINQRCode; GTINQRCode) { }
             column(JobQRCode; JobQRCode) { }
             column(RecordingSlipNo; RecordingSlipNo) { }
-            /*dataitem(CopyLoop; "Integer")
+            dataitem("Reservation Entry";"Reservation Entry")
             {
-                DataItemTableView = sorting(Number);
-
-                dataitem(PageLoop; "Integer")
-                {
-                    DataItemTableView = sorting(Number) where(Number = const(1));
-                    column(OutputNo; OutputNo) { }
-                }
-                trigger OnAfterGetRecord()
-                begin
-                    OutputNo := OutputNo + 1;
-                    //ItemLabelBufferTemp := ItemLabelBufferTemp;
-                end;
-
-                trigger OnPreDataItem()
-                begin
-                    NoOfLoops := Round(Abs("Prod. Order Line".Quantity), 1);
-                    CopyText := '';
-                    SetRange(Number, 1, NoOfLoops);
-                    OutputNo := 0;
-
-                end;
-            }*/
+                DataItemLink = "Source ID" = field("Prod. Order No.");
+                RequestFilterFields = "Serial No.";
+            }
             trigger OnPreDataItem()
             var
                 CountryRegion: Record "Country/Region";

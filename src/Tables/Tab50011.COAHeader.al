@@ -67,6 +67,22 @@ table 50011 "COA Header"
         {
             Caption = 'Send To';
         }
+        field(10; "Nominal Weight"; Text[10])
+        {
+            Caption = 'Nominal Weight';
+        }
+        field(11; "Nominal Capacity"; Text[10])
+        {
+            Caption = 'Nominal Capacity';
+        }
+        field(12; "Batch No"; Text[30])
+        {
+            Caption = 'Batch No';
+        }
+         field(13; "Year Code"; Text[2])
+        {
+            Caption = 'Year Code';
+        }
     }
     keys
     {

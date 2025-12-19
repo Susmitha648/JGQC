@@ -44,6 +44,7 @@ table 50018 "Production Programme Line"
                 DayAfter1: Date;
                 LastDay1: Date;
                 Sequence1: Integer;
+                Handled: Boolean;
                 OldSequence: Boolean;
                 Sequence: Integer;
             begin
@@ -65,11 +66,8 @@ table 50018 "Production Programme Line"
                                     Rec."Last Line" := True;
                                     Rec."First Line" := false;
                                 End;
-                               
-                               
-                               
-                            end;
-                             ProdProgLine7.Reset();
+
+                                ProdProgLine7.Reset();
                                 ProdProgLine7.SetRange(Job, Rec.Job);
                                 ProdProgLine7.SetRange("No.", Rec."No.");
                                 ProdProgLine7.SetRange(Furnace, Rec.Furnace);
@@ -81,10 +79,10 @@ table 50018 "Production Programme Line"
                                     Rec."Sequence No" := ProdProgLine7."Sequence No";
                                     Sequence1 := ProdProgLine7."Sequence No";
                                     DayAfter1 := ProdProgLine7.Date;
-                                     ProdProgLine7.Modify();
-                                     OldSequence := True;
+                                    ProdProgLine7.Modify();
+                                    OldSequence := True;
                                 end;
-                                 ProdProgLine8.Reset();
+                                ProdProgLine8.Reset();
                                 ProdProgLine8.SetRange(Job, Rec.Job);
                                 ProdProgLine8.SetRange("No.", Rec."No.");
                                 ProdProgLine8.SetRange(Furnace, Rec.Furnace);
@@ -95,6 +93,36 @@ table 50018 "Production Programme Line"
                                         ProdProgLine8."Sequence No" := Rec."Sequence No";
                                         ProdProgLine8.Modify();
                                     until ProdProgLine8.Next() = 0;
+                                Handled := True;
+                            end;
+                            If not Handled then begin
+                                ProdProgLine7.Reset();
+                                ProdProgLine7.SetRange(Job, Rec.Job);
+                                ProdProgLine7.SetRange("No.", Rec."No.");
+                                ProdProgLine7.SetRange(Furnace, Rec.Furnace);
+                                ProdProgLine7.SetRange(Date, CalcDate('<+1D>', Date));
+                                If ProdProgLine7.FindFirst() then begin
+                                    ProdProgLine7."First Line" := false;
+                                    Rec."Last Line" := False;
+                                    Rec."First Line" := True;
+                                    Rec."Sequence No" := ProdProgLine7."Sequence No";
+                                    Sequence1 := ProdProgLine7."Sequence No";
+                                    DayAfter1 := ProdProgLine7.Date;
+                                    ProdProgLine7.Modify();
+                                    OldSequence := True;
+                                end;
+                                ProdProgLine8.Reset();
+                                ProdProgLine8.SetRange(Job, Rec.Job);
+                                ProdProgLine8.SetRange("No.", Rec."No.");
+                                ProdProgLine8.SetRange(Furnace, Rec.Furnace);
+                                ProdProgLine8.SetRange("Sequence No", Sequence1);
+                                If ProdProgLine8.FindSet() then
+                                    repeat
+                                        ProdProgLine8."First Line" := false;
+                                        ProdProgLine8."Sequence No" := Rec."Sequence No";
+                                        ProdProgLine8.Modify();
+                                    until ProdProgLine8.Next() = 0;
+                            end;
                             If not OldSequence then begin
                                 ProdProgLine2.SetRange(Date);
                                 If ProdProgLine2.FindLast() then begin
