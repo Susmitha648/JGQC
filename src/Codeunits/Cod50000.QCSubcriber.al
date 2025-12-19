@@ -37,7 +37,7 @@ codeunit 50000 "QC Subcriber"
             DATABASE::"Machine/Section Stoppages":
                 begin
                     RecRef.Open(DATABASE::"Machine/Section Stoppages");
-                    if MachineSectionStoppages.Get(DocumentAttachment."No.",DocumentAttachment."Line No.") then
+                    if MachineSectionStoppages.Get(DocumentAttachment."No.", DocumentAttachment."Line No.") then
                         RecRef.GetTable(MachineSectionStoppages);
                 end;
         end;
@@ -48,7 +48,7 @@ codeunit 50000 "QC Subcriber"
     var
         FieldRef: FieldRef;
         RecNo: Code[20];
-         LineNo : Integer;
+        LineNo: Integer;
     begin
         case RecRef.Number of
             DATABASE::"Customer Complaint Log":
@@ -92,7 +92,7 @@ codeunit 50000 "QC Subcriber"
     var
         FieldRef: FieldRef;
         RecNo: Code[20];
-        LineNo : Integer;
+        LineNo: Integer;
     begin
         case RecRef.Number of
             DATABASE::"Customer Complaint Log":
@@ -165,7 +165,19 @@ codeunit 50000 "QC Subcriber"
         Exit(ProductionOrder."No.");
     end;
 
+    procedure Set(var ProdOrderLine1: Record "Prod. Order Line")
+    begin
+
+        ProdOrderLine := ProdOrderLine1;
+    end;
+     procedure Get() : Code[20];
+    begin
+
+       Exit(ProdOrderLine."Prod. Order No.");
+    end;
+
     var
         ProductionOrder: Record "Production Order";
+        ProdOrderLine : Record "Prod. Order Line";
 }
 

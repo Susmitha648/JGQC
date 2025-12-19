@@ -46,9 +46,11 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     DocumentNo: Record "Prod. Order Line";
                     Count: Integer;
                     QtyToPrint: Integer;
+                    SingleInstance : Codeunit "QC Subcriber";
                 begin
                     MyReportID := Report::RecordingSlipReport;
                     CurrPage.SetSelectionFilter(DocumentNo);
+                    SingleInstance.Set(DocumentNo);
                     Report.Run(MyReportID, true, false, DocumentNo);
                 end;
             }

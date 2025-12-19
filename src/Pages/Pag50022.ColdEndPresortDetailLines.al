@@ -39,6 +39,10 @@ page 50022 "Cold End Presort Detail Lines"
                 {
                     ToolTip = 'Specifies the value of the QC Defect Code field.', Comment = '%';
                 }
+                 field("QC Defect Code 2"; Rec."QC Defect Code 2")
+                {
+                    ToolTip = 'Specifies the value of the QC Defect Code 2 field.', Comment = '%';
+                }
             }
         }
     }

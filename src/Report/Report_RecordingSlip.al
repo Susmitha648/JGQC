@@ -84,11 +84,6 @@ report 50005 RecordingSlipReport
             column(GTINQRCode; GTINQRCode) { }
             column(JobQRCode; JobQRCode) { }
             column(RecordingSlipNo; RecordingSlipNo) { }
-            dataitem("Reservation Entry";"Reservation Entry")
-            {
-                DataItemLink = "Source ID" = field("Prod. Order No.");
-                RequestFilterFields = "Serial No.";
-            }
             trigger OnPreDataItem()
             var
                 CountryRegion: Record "Country/Region";
@@ -119,8 +114,8 @@ report 50005 RecordingSlipReport
                 If Item.Get("Item No.") then
                     If PackSizeRec.Get(Item."Pack Size") then;
                 If QCPlanHeader.Get("Item No.") then;
-                
-               
+
+
                 ProductionProgram.Reset();
                 ProductionProgram.SetRange(Job, "Shortcut Dimension 2 Code");
                 ProductionProgram.SetRange(Date, "Due Date");
@@ -155,10 +150,10 @@ report 50005 RecordingSlipReport
                 if "Shortcut Dimension 2 Code" <> '' then begin
                     BarcodeString := Format("Shortcut Dimension 2 Code") + '-' + Format(Item."Pack Size") + '-' + Format("Due Date", 0, '<Day,2>/<Month,2>/<Year4>') + '-' + Format(RecordingSlipNo);
                     // Validate the input
-                    BarcodeString := DelChr(BarcodeString, '=', ' ');  
+                    BarcodeString := DelChr(BarcodeString, '=', ' ');
                     BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
                     JobCodeString := Format("Prod. Order Line"."Item No.");
-                    JobCodeString := DelChr(JobCodeString, '=', ' ');  
+                    JobCodeString := DelChr(JobCodeString, '=', ' ');
                     BarcodeFontProvider.ValidateInput(JobCodeString, BarcodeSymbology);
                     // Encode the data string to the barcode font
                     GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
@@ -168,25 +163,53 @@ report 50005 RecordingSlipReport
                 ReservationEntry.Init();
                 ReservationEntry."Entry No." := 0;
                 ReservationEntry.Validate("Item No.", "Prod. Order Line"."Item No.");
-                ReservationEntry.Validate("Source ID" , "Prod. Order Line"."Prod. Order No.");
+                ReservationEntry.Validate("Source ID", "Prod. Order Line"."Prod. Order No.");
                 ReservationEntry."Location Code" := "Prod. Order Line"."Location Code";
-                
+
                 ReservationEntry.Validate("Quantity (Base)", 1);
                 ReservationEntry.Positive := true;
                 ReservationEntry."Reservation Status" := ReservationEntry."Reservation Status"::Surplus;
                 ReservationEntry."Item Tracking" := ReservationEntry."Item Tracking"::"Serial No.";
                 ReservationEntry.Validate("Serial No.", BarcodeString);
-                
+
                 ReservationEntry."Source Type" := 5406;
                 ReservationEntry."Source Subtype" := 3;
                 ReservationEntry."Source Prod. Order Line" := "Prod. Order Line"."Line No.";
                 ReservationEntry."Expected Receipt Date" := "Prod. Order Line"."Due Date";
                 ReservationEntry."Planning Flexibility" := ReservationEntry."Planning Flexibility"::Unlimited;
-                ReservationEntry."Created By" :=  UserId;
+                ReservationEntry."Created By" := UserId;
                 ReservationEntry."Creation Date" := WorkDate();
                 ReservationEntry."Recording Slip Printed" := True;
                 ReservationEntry.Insert(True);
             end;
+        }
+    }
+    requestpage
+    {
+        layout
+        {
+            area(Content)
+            {
+                group(GroupName)
+                {
+                    field(SerialNo; SerialNo)
+                    {
+                        ApplicationArea = Suite;
+                        Caption = 'Serial No.';
+                        trigger OnLookup(var Text: Text): Boolean
+                        var
+                            ReservationEntry1 : Record "Reservation Entry";
+                        begin
+                            
+                             ReservationEntry1.Reset();
+                             ReservationEntry1.SetRange("Source ID",SingleInstance.Get());
+                              if Page.RunModal(50367, ReservationEntry1) = Action::LookupOK then
+                                SerialNo := ReservationEntry1."Serial No.";
+                        end;
+                        
+                    }
+                }
+            }
         }
     }
     trigger OnInitReport()
@@ -198,6 +221,8 @@ report 50005 RecordingSlipReport
         BarcodeSymbology := Enum::"Barcode Symbology"::Code128;
         BarcodeSymbology2D := Enum::"Barcode Symbology 2D"::"QR-Code";
     end;
+
+   
 
     var
         QCPlanHeader: Record "QC Plan Header";
@@ -235,5 +260,8 @@ report 50005 RecordingSlipReport
         BarcodeString: Text[500];
         JobCodeString: Text[20];
         JobQRCode: Text[200];
-        ProductionOrder : Record "Production Order";
+        ProductionOrder: Record "Production Order";
+        SerialNo: Code[50];
+        ProdOrderLine : Record "Prod. Order Line";
+        SingleInstance : Codeunit "QC Subcriber";
 }

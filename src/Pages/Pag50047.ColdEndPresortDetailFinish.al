@@ -50,7 +50,7 @@ page 50047 "Cold End Presort Detail Finish"
                 {
                     ToolTip = 'Specifies the value of the Customer Name field.', Comment = '%';
                 }
-                 field("Shift 1 Leading Hand"; Rec."Shift 1 Leading Hand")
+                field("Shift 1 Leading Hand"; Rec."Shift 1 Leading Hand")
                 {
                     ToolTip = 'Specifies the value of the Shift 1 Leading Hand field.', Comment = '%';
                 }
@@ -82,9 +82,13 @@ page 50047 "Cold End Presort Detail Finish"
                 {
                     ToolTip = 'Specifies the value of the Weight Issue Min field.', Comment = '%';
                 }
-                 field("Weight Issue Max"; Rec."Weight Issue Max")
+                field("Weight Issue Max"; Rec."Weight Issue Max")
                 {
                     ToolTip = 'Specifies the value of the Weight Issue Max field.', Comment = '%';
+                }
+                field("Category"; Rec.Category)
+                {
+                    ToolTip = 'Specifies the value of the Category field.', Comment = '%';
                 }
             }
             part(ColdEndPresortDetailLines; "Cold End Presort Detail Lines")

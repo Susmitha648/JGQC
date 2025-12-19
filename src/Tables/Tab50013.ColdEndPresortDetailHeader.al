@@ -136,6 +136,11 @@ table 50013 "Cold End Presort Detail Header"
         {
             Caption = 'Cold End Coating';
         }
+        field(19; "Category"; enum "Presort Category ")
+        {
+            Caption = 'Category';
+        }
+        
         
     }
     keys
