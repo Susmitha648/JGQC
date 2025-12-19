@@ -2,12 +2,13 @@ table 50027 MNR
 {
     Caption = 'MNR';
     DataClassification = CustomerContent;
-    
+
     fields
     {
         field(1; "Production Order No"; Code[20])
         {
             Caption = 'Production Order No';
+            TableRelation = "Production Order"."No."; // Added relation for better UX
         }
         field(2; Frequency; enum Time)
         {
@@ -25,14 +26,14 @@ table 50027 MNR
         field(5; "Line No"; Integer)
         {
             Caption = 'Line No';
+            Editable = false;
         }
     }
     keys
     {
-        key(PK; "Production Order No","Line No")
+        key(PK; "Production Order No", "Line No")
         {
             Clustered = true;
         }
     }
-   
 }

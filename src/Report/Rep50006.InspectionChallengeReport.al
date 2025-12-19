@@ -32,83 +32,107 @@ report 50006 "Inspection Challenge Report"
                 column(CCP_WorkShift; "Work Shift") { }
             }
 
-
-
-            dataitem(Line; "Inspection Challenge Sample li")
+            dataitem(TimeLoop; Integer)
             {
-                DataItemLink = "Released Prod Order No." = field("Released Prod Order No.");
-                DataItemTableView = sorting("Released Prod Order No.", "Line No.");
+                DataItemTableView = sorting(Number);
 
-                column(LineNo; "Line No.") { }
-                column(Time; Frequency) { }
-                column(FrequencyText; Format(Frequency)) { }
+                column(FrequencyText; FrequencyText) { }
                 column(TimeAsInteger; TimeAsInteger) { }
-                column(Inspection_Type; "Inspection Type") { }
-                column(QC_Defect_Code; "QC Defect Code") { }
-                column(QC_Defect_Name; DefectName) { }
                 column(SectionGroup; SectionGroupNo) { }
-                column(Reject_Percent; "Reject %") { }
-                column(MNR_Label; 'MNR') { }
 
-                dataitem(MNRData; MNR)
+                dataitem(Line; "Inspection Challenge Sample li")
                 {
-                    DataItemLink = "Production Order No" = field("Released Prod Order No."),
-                    Frequency = field(Frequency);
-                    DataItemTableView = sorting("Production Order No", "Line No");
 
-                    column(MNR_DefectCode; "Defect Code List") { }
-                    column(MNR_CavityNo; "Cavity No") { }
-                    column(MNR_DefectName; MNRDefectName) { }
+                    DataItemTableView = sorting("Released Prod Order No.", "Line No.");
+
+                    column(LineNo; "Line No.") { }
+                    column(Time; Frequency) { }
+                    column(Inspection_Type; "Inspection Type") { }
+                    column(QC_Defect_Code; "QC Defect Code") { }
+                    column(QC_Defect_Name; DefectName) { }
+                    column(Reject_Percent; "Reject %") { }
+
+                    trigger OnPreDataItem()
+                    begin
+                        SetRange("Released Prod Order No.", Header."Released Prod Order No.");
+                        SetRange(Frequency, CurrentFrequency);
+                    end;
 
                     trigger OnAfterGetRecord()
                     var
                         DefectCodeRec: Record "Defect Code";
                     begin
-                        MNRDefectName := '';
-                        if DefectCodeRec.Get("Defect Code List") then
-                            MNRDefectName := DefectCodeRec."Defect Name";
+                        DefectName := '';
+                        if DefectCodeRec.Get("QC Defect Code") then
+                            DefectName := DefectCodeRec."Defect Name";
                     end;
                 }
 
+                // 3. MNR DATA: Iterates through MASTER DEFECT CODES to ensure consistency
+                dataitem(MNR_DefectLoop; "Defect Code")
+                {
+                    column(MNR_Label; 'MNR') { }
+                    column(MNR_DefectCode; "Defect Code") { }
+                    column(MNR_DefectName; "Defect Name") { }
+                    column(MNR_CavityNo; CavityNoText) { }
+
+                    trigger OnAfterGetRecord()
+                    var
+                        MNR_Check: Record MNR;
+                        MNR_TransRec: Record MNR;
+                    begin
+
+                        MNR_Check.SetRange("Production Order No", Header."Released Prod Order No.");
+                        MNR_Check.SetRange("Defect Code List", "Defect Code");
+
+                        if MNR_Check.IsEmpty() then
+                            CurrReport.Skip();
+
+
+                        CavityNoText := '';
+
+                        MNR_TransRec.SetRange("Production Order No", Header."Released Prod Order No.");
+                        MNR_TransRec.SetRange(Frequency, CurrentFrequency);       // Filter by Current Time
+                        MNR_TransRec.SetRange("Defect Code List", "Defect Code"); // Match Defect
+
+                        if MNR_TransRec.FindFirst() then begin
+                            CavityNoText := MNR_TransRec."Cavity No";
+                        end;
+                    end;
+                }
+
+                trigger OnPreDataItem()
+                begin
+                    SetRange(Number, 0, 23);
+                end;
+
                 trigger OnAfterGetRecord()
                 var
-                    DefectCodeRec: Record "Defect Code";
                     StartHour: Integer;
                 begin
-                    // 1. Line Defect Name
-                    DefectName := '';
-                    if DefectCodeRec.Get("QC Defect Code") then
-                        DefectName := DefectCodeRec."Defect Name";
+                    CurrentFrequency := Enum::"Time".FromInteger(Number);
 
-                    // 2. Chronological Sorting Logic
-                    StartHour := Frequency.AsInteger();
+                    FrequencyText := Format(CurrentFrequency);
+
+                    StartHour := CurrentFrequency.AsInteger();
+
                     if StartHour < 6 then
                         TimeAsInteger := StartHour + 24
                     else
                         TimeAsInteger := StartHour;
 
-                    // 3. Section Grouping
                     SectionGroupNo := (TimeAsInteger - 6) div 8;
-
-                    // Remove all MNR fetching logic from here!
                 end;
             }
-            trigger OnAfterGetRecord()
-            begin
-                Clear(CCP);
-                CCP.SetRange("Production Order No", "Released Prod Order No.");
-                if not CCP.FindFirst() then Clear(CCP);
-            end;
         }
     }
 
     var
-
-    var
-
-    var
         DefectName: Text[80];
-        MNRDefectName: Text[80];  // Used in MNRData dataitem
+        MNRDefectName: Text[80];
         SectionGroupNo: Integer;
         TimeAsInteger: Integer;
+        CurrentFrequency: Enum "Time";
+        FrequencyText: Text;
+        CavityNoText: Code[20];
 }

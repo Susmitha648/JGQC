@@ -1,9 +1,13 @@
 page 50365 MNR
 {
     ApplicationArea = All;
-    Caption = 'MNR';
+    Caption = 'MNR List';
     PageType = List;
     SourceTable = MNR;
+    UsageCategory = Lists;
+    AutoSplitKey = true;
+    DelayedInsert = true;
+
     layout
     {
         area(Content)
@@ -12,34 +16,25 @@ page 50365 MNR
             {
                 field("Production Order No"; Rec."Production Order No")
                 {
-                    ToolTip = 'Specifies the value of the Production Order No field.', Comment = '%';
+                    ToolTip = 'Specifies the Production Order number.';
+                    ApplicationArea = All;
                 }
                 field(Frequency; Rec.Frequency)
                 {
-                    ToolTip = 'Specifies the value of the Frequency field.', Comment = '%';
+                    ToolTip = 'Specifies the frequency of the check.';
+                    ApplicationArea = All;
                 }
                 field("Defect Code List"; Rec."Defect Code List")
                 {
-                    ToolTip = 'Specifies the value of the Defect Code List field.', Comment = '%';
+                    ToolTip = 'Specifies the defect code.';
+                    ApplicationArea = All;
                 }
                 field("Cavity No"; Rec."Cavity No")
                 {
-                    ToolTip = 'Specifies the value of the Cavity No field.', Comment = '%';
+                    ToolTip = 'Specifies the cavity number.';
+                    ApplicationArea = All;
                 }
             }
         }
     }
-     trigger OnNewRecord(BelowxRec: Boolean)
-    var
-    MNR1 : Record MNR;
-    begin
-        MNR1.Reset();
-        MNR1.SetAscending("Line No", false);
-        MNR1.SetRange("Production Order No", Rec."Production Order No");
-        MNR1.SetRange(Frequency,Rec.Frequency);
-        If MNR1.FindFirst() then
-            Rec."Line No" := MNR1."Line No" + 10000
-        else
-            Rec."Line No" := 10000;
-    end;
 }
