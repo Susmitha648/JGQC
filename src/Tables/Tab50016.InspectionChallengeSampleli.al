@@ -52,6 +52,11 @@ table 50016 "Inspection Challenge Sample li"
             Caption = 'Sample Quantity';
             BlankZero = True;
         }
+        field(13; "Defect Reject %"; Decimal)
+        {
+            Caption = 'Defect Reject %';
+            DecimalPlaces = 0 : 2;
+        }
     }
     keys
     {

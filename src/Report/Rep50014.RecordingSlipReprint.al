@@ -1,7 +1,7 @@
-report 50005 RecordingSlipReport
+report 50014 "Recording Slip Reprint"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/RecordingSlipReport.rdl';
+    RDLCLayout = './src/Report/Layouts/RecordingSlipReprint.rdl';
     Caption = 'Recording Slip';
     ApplicationArea = Suite;
     UsageCategory = Documents;
@@ -107,6 +107,7 @@ report 50005 RecordingSlipReport
                 BarcodeFontProvider2D: Interface "Barcode Font Provider 2D";
                 MinDateDiff: Integer;
                 MaxDateDiff: Integer;
+                SingleInstance: Codeunit "QC Subcriber";
             begin
                 // Declare the barcode provider using the barcode provider interface and enum
                 BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
@@ -116,71 +117,21 @@ report 50005 RecordingSlipReport
                 If QCPlanHeader.Get("Item No.") then;
 
 
-                ProductionProgram.Reset();
-                ProductionProgram.SetRange(Job, "Shortcut Dimension 2 Code");
-                ProductionProgram.SetRange(Date, "Due Date");
-                If ProductionProgram.FindFirst() then begin
-                    ProductionProgramLine.Reset();
-                    ProductionProgramLine.SetAscending(Date, True);
-                    ProductionProgramLine.SetRange("No.", ProductionProgram."No.");
-                    ProductionProgramLine.SetRange(Job, "Shortcut Dimension 2 Code");
-                    ProductionProgramLine.SetRange("First Line", True);
-                    ProductionProgramLine.SetRange("Sequence No", ProductionProgram."Sequence No");
-                    If ProductionProgramLine.FindFirst() then begin
-                        RecordingSlipNo := ProductionProgramLine."Record Slip No" + 1;
-                        ProductionProgramLine."Record Slip No" := RecordingSlipNo;
-                        ProductionProgramLine.Modify();
-                    end;
 
-                end else begin
-                    ProductionProgram.SetRange(Date, CalcDate('<-1D>', "Due Date"));
-                    If ProductionProgram.FindFirst() then begin
-                        ProductionProgramLine.Reset();
-                        ProductionProgramLine.SetRange("No.", ProductionProgram."No.");
-                        ProductionProgramLine.SetRange(Job, "Shortcut Dimension 2 Code");
-                        ProductionProgramLine.SetRange("First Line", True);
-                        ProductionProgramLine.SetRange("Sequence No", ProductionProgram."Sequence No");
-                        If ProductionProgramLine.FindFirst() then begin
-                            RecordingSlipNo := ProductionProgramLine."Record Slip No" + 1;
-                            ProductionProgramLine."Record Slip No" := RecordingSlipNo;
-                            ProductionProgramLine.Modify();
-                        end;
-                    end
-                end;
-                if "Shortcut Dimension 2 Code" <> '' then begin
-                    BarcodeString := Format("Shortcut Dimension 2 Code") + '-' + Format(Item."Pack Size") + '-' + Format("Due Date", 0, '<Day,2>/<Month,2>/<Year4>') + '-' + Format(RecordingSlipNo);
-                    // Validate the input
-                    BarcodeString := DelChr(BarcodeString, '=', ' ');
-                    BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
-                    JobCodeString := Format("Prod. Order Line"."Item No.");
-                    JobCodeString := DelChr(JobCodeString, '=', ' ');
-                    BarcodeFontProvider.ValidateInput(JobCodeString, BarcodeSymbology);
-                    // Encode the data string to the barcode font
-                    GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
-                    GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
-                    JobQRCode := BarcodeFontProvider2D.EncodeFont(JobCodeString, BarcodeSymbology2D);
-                end;
-                ReservationEntry.Init();
-                ReservationEntry."Entry No." := 0;
-                ReservationEntry.Validate("Item No.", "Prod. Order Line"."Item No.");
-                ReservationEntry.Validate("Source ID", "Prod. Order Line"."Prod. Order No.");
-                ReservationEntry."Location Code" := "Prod. Order Line"."Location Code";
-
-                ReservationEntry.Validate("Quantity (Base)", 1);
-                ReservationEntry.Positive := true;
-                ReservationEntry."Reservation Status" := ReservationEntry."Reservation Status"::Surplus;
-                ReservationEntry."Item Tracking" := ReservationEntry."Item Tracking"::"Serial No.";
-                ReservationEntry.Validate("Serial No.", BarcodeString);
-
-                ReservationEntry."Source Type" := 5406;
-                ReservationEntry."Source Subtype" := 3;
-                ReservationEntry."Source Prod. Order Line" := "Prod. Order Line"."Line No.";
-                ReservationEntry."Expected Receipt Date" := "Prod. Order Line"."Due Date";
-                ReservationEntry."Planning Flexibility" := ReservationEntry."Planning Flexibility"::Unlimited;
-                ReservationEntry."Created By" := UserId;
-                ReservationEntry."Creation Date" := WorkDate();
-                ReservationEntry."Recording Slip Printed" := True;
-                ReservationEntry.Insert(True);
+                SingleInstance.Get();
+                BarcodeString := Format(SingleInstance.Get());
+                // Validate the input
+                BarcodeString := DelChr(BarcodeString, '=', ' ');
+                BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
+                JobCodeString := Format("Prod. Order Line"."Item No.");
+                JobCodeString := DelChr(JobCodeString, '=', ' ');
+                BarcodeFontProvider.ValidateInput(JobCodeString, BarcodeSymbology);
+                // Encode the data string to the barcode font
+                GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
+                GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
+                JobQRCode := BarcodeFontProvider2D.EncodeFont(JobCodeString, BarcodeSymbology2D);
+            
+                
             end;
         }
     }
@@ -195,7 +146,7 @@ report 50005 RecordingSlipReport
         BarcodeSymbology2D := Enum::"Barcode Symbology 2D"::"QR-Code";
     end;
 
-   
+
 
     var
         QCPlanHeader: Record "QC Plan Header";
@@ -235,6 +186,6 @@ report 50005 RecordingSlipReport
         JobQRCode: Text[200];
         ProductionOrder: Record "Production Order";
         SerialNo: Code[50];
-        ProdOrderLine : Record "Prod. Order Line";
-        SingleInstance : Codeunit "QC Subcriber";
+        ProdOrderLine: Record "Prod. Order Line";
+        SingleInstance: Codeunit "QC Subcriber";
 }

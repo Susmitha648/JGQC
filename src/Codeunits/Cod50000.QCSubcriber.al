@@ -165,19 +165,20 @@ codeunit 50000 "QC Subcriber"
         Exit(ProductionOrder."No.");
     end;
 
-    procedure Set(var ProdOrderLine1: Record "Prod. Order Line")
+    procedure Set(SerialNo : Code[50])
     begin
 
-        ProdOrderLine := ProdOrderLine1;
+        GSerialNo := SerialNo;
     end;
      procedure Get() : Code[20];
     begin
 
-       Exit(ProdOrderLine."Prod. Order No.");
+       Exit(GSerialNo);
     end;
 
     var
         ProductionOrder: Record "Production Order";
         ProdOrderLine : Record "Prod. Order Line";
+        GSerialNo : Code[50];
 }
 

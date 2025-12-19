@@ -37,6 +37,10 @@ page 50026 "Inspection Challenge Sample Li"
                 {
                     ToolTip = 'Specifies the value of the Reject % field.', Comment = '%';
                 }
+                field("Defect Reject %"; Rec."Defect Reject %")
+                {
+                    ToolTip = 'Specifies the value of the Defect Reject % field.', Comment = '%';
+                }
                  field("Sampling Time"; Rec."Sampling Time")
                 {
                     ToolTip = 'Specifies the value of the Sampling Time field.', Comment = '%';
