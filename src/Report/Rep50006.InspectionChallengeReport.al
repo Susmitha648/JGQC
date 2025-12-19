@@ -18,7 +18,6 @@ report 50006 "Inspection Challenge Report"
             column(Ring; Ring) { }
             column(MCNo; "MC No.") { }
             column(FurnaceNo; "Furnace No.") { }
-            column(MNR_Label; 'MNR') { }
 
             dataitem(CCP; CCP)
             {
@@ -43,17 +42,33 @@ report 50006 "Inspection Challenge Report"
                 column(LineNo; "Line No.") { }
                 column(Time; Frequency) { }
                 column(FrequencyText; Format(Frequency)) { }
-                column(TimeAsInteger; TimeAsInteger) { } // The critical sorting field
+                column(TimeAsInteger; TimeAsInteger) { }
                 column(Inspection_Type; "Inspection Type") { }
                 column(QC_Defect_Code; "QC Defect Code") { }
                 column(QC_Defect_Name; DefectName) { }
                 column(SectionGroup; SectionGroupNo) { }
                 column(Reject_Percent; "Reject %") { }
+                column(MNR_Label; 'MNR') { }
 
-                // MNR Columns (Fetched per Line based on Frequency)
-                column(MNR_DefectCode; MNRRec."Defect Code List") { }
-                column(MNR_CavityNo; MNRRec."Cavity No") { }
-                column(MNR_DefectName; MNRDefectName) { }
+                dataitem(MNRData; MNR)
+                {
+                    DataItemLink = "Production Order No" = field("Released Prod Order No."),
+                    Frequency = field(Frequency);
+                    DataItemTableView = sorting("Production Order No", "Line No");
+
+                    column(MNR_DefectCode; "Defect Code List") { }
+                    column(MNR_CavityNo; "Cavity No") { }
+                    column(MNR_DefectName; MNRDefectName) { }
+
+                    trigger OnAfterGetRecord()
+                    var
+                        DefectCodeRec: Record "Defect Code";
+                    begin
+                        MNRDefectName := '';
+                        if DefectCodeRec.Get("Defect Code List") then
+                            MNRDefectName := DefectCodeRec."Defect Name";
+                    end;
+                }
 
                 trigger OnAfterGetRecord()
                 var
@@ -65,26 +80,17 @@ report 50006 "Inspection Challenge Report"
                     if DefectCodeRec.Get("QC Defect Code") then
                         DefectName := DefectCodeRec."Defect Name";
 
-                    // 2. Chronological Sorting Logic (Starting at 7 AM)
-                    // Converts the Enum/Time to an index where 7 AM = 7, but 1 AM = 25
+                    // 2. Chronological Sorting Logic
                     StartHour := Frequency.AsInteger();
                     if StartHour < 6 then
                         TimeAsInteger := StartHour + 24
                     else
                         TimeAsInteger := StartHour;
 
-                    // 3. Section Grouping (Based on sorted index)
+                    // 3. Section Grouping
                     SectionGroupNo := (TimeAsInteger - 6) div 8;
 
-                    // 4. Fetch MNR by Frequency (Syncs MNR to the Time slot)
-                    Clear(MNRRec);
-                    MNRDefectName := '';
-                    MNRRec.SetRange("Production Order No", "Released Prod Order No.");
-                    MNRRec.SetRange(Frequency, Frequency);
-                    if MNRRec.FindFirst() then begin
-                        if DefectCodeRec.Get(MNRRec."Defect Code List") then
-                            MNRDefectName := DefectCodeRec."Defect Name";
-                    end;
+                    // Remove all MNR fetching logic from here!
                 end;
             }
             trigger OnAfterGetRecord()
@@ -97,9 +103,12 @@ report 50006 "Inspection Challenge Report"
     }
 
     var
-        MNRRec: Record MNR;
+
+    var
+
+    var
         DefectName: Text[80];
-        MNRDefectName: Text[80];
+        MNRDefectName: Text[80];  // Used in MNRData dataitem
         SectionGroupNo: Integer;
         TimeAsInteger: Integer;
 }

@@ -22,6 +22,10 @@ report 50004 "COA Report"
             column(Water_Temp; "Water Temp") { }
             column(Lot_No; '') { }
             column(CompanyLogo; CompanyInfo.Picture) { }
+            column(Nominal_Capacity; "Nominal Capacity") { }
+            column(Nominal_Weight; "Nominal Weight") { }
+            column(Batch_No; "Batch No") { }
+            column(Year_Code; "Year Code") { }
 
             dataitem(COALines; "COA Lines")
             {
