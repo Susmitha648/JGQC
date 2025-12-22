@@ -2,17 +2,18 @@ pageextension 50011 "Item Tracking Lines Ext" extends "Item Tracking Lines"
 {
     Actions
     {
-        addafter("Assign &Package No.")
+
+        addlast(FunctionsSupply)
         {
             action(RecordingSlipReport)
             {
-                ApplicationArea = Suite;
+                ApplicationArea = ItemTracking;
                 Caption = 'Print Recording Slip';
                 Image = Report;
                 Promoted = true;
                 PromotedIsBig = true;
-                PromotedCategory = Category5;
-                Visible = True;
+                PromotedCategory = Process;
+                Visible = PrintingSlipVisible;
                 trigger OnAction()
                 var
                     MyReportID: Integer;
@@ -23,7 +24,7 @@ pageextension 50011 "Item Tracking Lines Ext" extends "Item Tracking Lines"
                 begin
                     SingleInstance.Set(Rec."Serial No.");
                     MyReportID := Report::"Recording Slip Reprint";
-                    CurrPage.SetSelectionFilter(DocumentNo);
+                    // CurrPage.SetSelectionFilter(DocumentNo);
                     DocumentNo.Reset();
                     DocumentNo.SetRange("Prod. Order No.", Rec."Source ID");
                     DocumentNo.SetRange("Line No.", Rec."Source Prod. Order Line");
@@ -34,6 +35,13 @@ pageextension 50011 "Item Tracking Lines Ext" extends "Item Tracking Lines"
 
         }
     }
+    var
+        PrintingSlipVisible: Boolean;
 
+    trigger OnOpenPage()
+    begin
+         If (Rec."Source Type" = 5406) and (Rec."Source Subtype" = 3) then
+           PrintingSlipVisible := True;
+    end;
 
 }

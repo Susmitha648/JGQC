@@ -84,6 +84,7 @@ report 50005 RecordingSlipReport
             column(GTINQRCode; GTINQRCode) { }
             column(JobQRCode; JobQRCode) { }
             column(RecordingSlipNo; RecordingSlipNo) { }
+            column(MachineNo; "Location Code") { }
             trigger OnPreDataItem()
             var
                 CountryRegion: Record "Country/Region";

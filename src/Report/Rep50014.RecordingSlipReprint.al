@@ -109,6 +109,21 @@ report 50014 "Recording Slip Reprint"
                 MaxDateDiff: Integer;
                 SingleInstance: Codeunit "QC Subcriber";
             begin
+                If Rejected then begin
+                    TrackingSpecification.Reset();
+                    TrackingSpecification.SetRange("Source Subtype", 5406);
+                    TrackingSpecification.SetRange("Source Subtype", 3);
+                    TrackingSpecification.SetRange("Source ID", "Prod. Order Line"."Prod. Order No.");
+                    TrackingSpecification.SetRange("Source Prod. Order Line", "Prod. Order Line"."Line No.");
+                    TrackingSpecification.SetRange("Serial No.", SingleInstance.Get());
+                    TrackingSpecification.SetRange("Recording Slip Printed",false);
+                    If TrackingSpecification.FindFirst() then begin
+                        TrackingSpecification.Rejected := True;
+                        TrackingSpecification."Recording Slip Printed" := True;
+                        TrackingSpecification.Modify();
+                    end;
+                end;
+
                 // Declare the barcode provider using the barcode provider interface and enum
                 BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
                 BarcodeFontProvider2D := Enum::"Barcode Font Provider 2D"::IDAutomation2D;
@@ -120,6 +135,7 @@ report 50014 "Recording Slip Reprint"
 
                 SingleInstance.Get();
                 BarcodeString := Format(SingleInstance.Get());
+                RecordingSlipNo := GetTextAfterLastChar(BarcodeString, '-');
                 // Validate the input
                 BarcodeString := DelChr(BarcodeString, '=', ' ');
                 BarcodeFontProvider.ValidateInput(BarcodeString, BarcodeSymbology);
@@ -130,14 +146,30 @@ report 50014 "Recording Slip Reprint"
                 GTINBarCode := BarcodeFontProvider.EncodeFont(BarcodeString, BarcodeSymbology);
                 GTINQRCode := BarcodeFontProvider2D.EncodeFont(BarcodeString, BarcodeSymbology2D);
                 JobQRCode := BarcodeFontProvider2D.EncodeFont(JobCodeString, BarcodeSymbology2D);
-            
-                
             end;
+        }
+    }
+    requestpage
+    {
+        layout
+        {
+            area(Content)
+            {
+                group(GroupName)
+                {
+                    field(Rejected; Rejected)
+                    {
+                        ApplicationArea = Suite;
+                        Caption = 'Rejected';
+                    }
+                }
+            }
         }
     }
 
     trigger OnInitReport()
     begin
+        Rejected := False;
         CompanyInfo.SetAutoCalcFields(Picture);
         CompanyInfo.SetAutoCalcFields("Company Logo 1");
         CompanyInfo.SetAutoCalcFields("Company Logo 2");
@@ -156,6 +188,7 @@ report 50014 "Recording Slip Reprint"
         ProductionProgram: Record "Production Programme Line";
         ProductionProgramLine: Record "Production Programme Line";
         ReservationEntry: Record "Reservation Entry";
+        TrackingSpecification: Record "Tracking Specification";
         QtyPerPack: Text;
         QtyofCarton_TraysPerPallet: Text;
         QtyofPiecePerPack: Text;
@@ -166,6 +199,7 @@ report 50014 "Recording Slip Reprint"
         Finish: Text;
         CompanyCounty: Text;
         CompanyCountry: Text;
+        Rejected: Boolean;
         CompanyInfo: Record "Company Information";
         GLSetup: Record "General Ledger Setup";
         FormatAddr: Codeunit "Format Address";
@@ -176,7 +210,7 @@ report 50014 "Recording Slip Reprint"
         NoOfLoops: Integer;
         CopyText: Text[30];
         OutputNo: Integer;
-        RecordingSlipNo: Integer;
+        RecordingSlipNo: Text[40];
         BarcodeSymbology: Enum "Barcode Symbology";
         BarcodeSymbology2D: Enum "Barcode Symbology 2D";
         GTINBarCode: Text[500];
@@ -188,4 +222,25 @@ report 50014 "Recording Slip Reprint"
         SerialNo: Code[50];
         ProdOrderLine: Record "Prod. Order Line";
         SingleInstance: Codeunit "QC Subcriber";
+
+    procedure ReverseString(Value: Text): Text
+    var
+        i: Integer;
+        ResultTxt: Text;
+    begin
+        for i := StrLen(Value) downto 1 do
+            ResultTxt += CopyStr(Value, i, 1);
+        exit(ResultTxt);
+    end;
+
+    procedure GetTextAfterLastChar(SourceTxt: Text; Separator: Text): Text
+    var
+        Pos: Integer;
+    begin
+        Pos := StrPos(ReverseString(SourceTxt), Separator);
+        if Pos = 0 then
+            exit('');
+
+        exit(CopyStr(SourceTxt, StrLen(SourceTxt) - Pos + 2));
+    end;
 }

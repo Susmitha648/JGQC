@@ -46,12 +46,21 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     DocumentNo: Record "Prod. Order Line";
                     Count: Integer;
                     QtyToPrint: Integer;
-                    SingleInstance : Codeunit "QC Subcriber";
+                    SingleInstance: Codeunit "QC Subcriber";
+                    ProductionProgram: Record "Production Programme Line";
+                    ProductionProgramLine: Record "Production Programme Line";
                 begin
                     MyReportID := Report::RecordingSlipReport;
                     CurrPage.SetSelectionFilter(DocumentNo);
-                   
-                    Report.Run(MyReportID, true, false, DocumentNo);
+                    ProductionProgram.Reset();
+                    ProductionProgram.SetRange(Job, Rec."Shortcut Dimension 2 Code");
+                    ProductionProgram.SetRange(Date, Rec."Due Date");
+                    If not ProductionProgram.FindFirst() then begin
+                        ProductionProgram.SetRange(Date, CalcDate('<-1D>', Rec."Due Date"));
+                        If not ProductionProgram.FindFirst() then
+                            Error('Date is not with in the production run for this job..You can print recording slip from Item Tracking Lines. Have to manually enter the serial no');
+                    end;
+                        Report.Run(MyReportID, true, false, DocumentNo);
                 end;
             }
         }

@@ -24,97 +24,6 @@
       <rd:DataSourceID>8828306c-90a0-45c3-a57c-fe0ec1e90f39</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ReleasedProdOrderNo">
-          <DataField>ReleasedProdOrderNo</DataField>
-        </Field>
-        <Field Name="ProductionOrderDate">
-          <DataField>ProductionOrderDate</DataField>
-        </Field>
-        <Field Name="JobNo">
-          <DataField>JobNo</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Ring">
-          <DataField>Ring</DataField>
-        </Field>
-        <Field Name="MCNo">
-          <DataField>MCNo</DataField>
-        </Field>
-        <Field Name="FurnaceNo">
-          <DataField>FurnaceNo</DataField>
-        </Field>
-        <Field Name="MNR_Label">
-          <DataField>MNR_Label</DataField>
-        </Field>
-        <Field Name="CCP_Type">
-          <DataField>CCP_Type</DataField>
-        </Field>
-        <Field Name="CCP_ResultObtained">
-          <DataField>CCP_ResultObtained</DataField>
-        </Field>
-        <Field Name="CCP_Inspection1">
-          <DataField>CCP_Inspection1</DataField>
-        </Field>
-        <Field Name="CCP_Inspection2">
-          <DataField>CCP_Inspection2</DataField>
-        </Field>
-        <Field Name="CCP_Inspection3">
-          <DataField>CCP_Inspection3</DataField>
-        </Field>
-        <Field Name="CCP_WorkShift">
-          <DataField>CCP_WorkShift</DataField>
-        </Field>
-        <Field Name="LineNo">
-          <DataField>LineNo</DataField>
-        </Field>
-        <Field Name="Time">
-          <DataField>Time</DataField>
-        </Field>
-        <Field Name="FrequencyText">
-          <DataField>FrequencyText</DataField>
-        </Field>
-        <Field Name="TimeAsInteger">
-          <DataField>TimeAsInteger</DataField>
-        </Field>
-        <Field Name="Inspection_Type">
-          <DataField>Inspection_Type</DataField>
-        </Field>
-        <Field Name="QC_Defect_Code">
-          <DataField>QC_Defect_Code</DataField>
-        </Field>
-        <Field Name="QC_Defect_Name">
-          <DataField>QC_Defect_Name</DataField>
-        </Field>
-        <Field Name="SectionGroup">
-          <DataField>SectionGroup</DataField>
-        </Field>
-        <Field Name="Reject_Percent">
-          <DataField>Reject_Percent</DataField>
-        </Field>
-        <Field Name="Reject_PercentFormat">
-          <DataField>Reject_PercentFormat</DataField>
-        </Field>
-        <Field Name="MNR_DefectCode">
-          <DataField>MNR_DefectCode</DataField>
-        </Field>
-        <Field Name="MNR_CavityNo">
-          <DataField>MNR_CavityNo</DataField>
-        </Field>
-        <Field Name="MNR_DefectName">
-          <DataField>MNR_DefectName</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -12806,12 +12715,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -13070,4 +12973,98 @@ j3/yPJ57/gVlR3/2Ao7Ko/k89s3/fye2iX2bZvo2bSjfppm+TTN9m5bk2zTTt2lJvk1L8m1akm/TTN+m
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ReleasedProdOrderNo">
+          <DataField>ReleasedProdOrderNo</DataField>
+        </Field>
+        <Field Name="ProductionOrderDate">
+          <DataField>ProductionOrderDate</DataField>
+        </Field>
+        <Field Name="JobNo">
+          <DataField>JobNo</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Ring">
+          <DataField>Ring</DataField>
+        </Field>
+        <Field Name="MCNo">
+          <DataField>MCNo</DataField>
+        </Field>
+        <Field Name="FurnaceNo">
+          <DataField>FurnaceNo</DataField>
+        </Field>
+        <Field Name="PageNo">
+          <DataField>PageNo</DataField>
+        </Field>
+        <Field Name="CCP_Type">
+          <DataField>CCP_Type</DataField>
+        </Field>
+        <Field Name="CCP_ResultObtained">
+          <DataField>CCP_ResultObtained</DataField>
+        </Field>
+        <Field Name="CCP_Inspection1">
+          <DataField>CCP_Inspection1</DataField>
+        </Field>
+        <Field Name="CCP_Inspection2">
+          <DataField>CCP_Inspection2</DataField>
+        </Field>
+        <Field Name="CCP_Inspection3">
+          <DataField>CCP_Inspection3</DataField>
+        </Field>
+        <Field Name="CCP_WorkShift">
+          <DataField>CCP_WorkShift</DataField>
+        </Field>
+        <Field Name="FrequencyText">
+          <DataField>FrequencyText</DataField>
+        </Field>
+        <Field Name="TimeAsInteger">
+          <DataField>TimeAsInteger</DataField>
+        </Field>
+        <Field Name="SectionGroup">
+          <DataField>SectionGroup</DataField>
+        </Field>
+        <Field Name="LineNo">
+          <DataField>LineNo</DataField>
+        </Field>
+        <Field Name="Time">
+          <DataField>Time</DataField>
+        </Field>
+        <Field Name="Inspection_Type">
+          <DataField>Inspection_Type</DataField>
+        </Field>
+        <Field Name="QC_Defect_Code">
+          <DataField>QC_Defect_Code</DataField>
+        </Field>
+        <Field Name="QC_Defect_Name">
+          <DataField>QC_Defect_Name</DataField>
+        </Field>
+        <Field Name="Reject_Percent">
+          <DataField>Reject_Percent</DataField>
+        </Field>
+        <Field Name="Reject_PercentFormat">
+          <DataField>Reject_PercentFormat</DataField>
+        </Field>
+        <Field Name="MNR_Label">
+          <DataField>MNR_Label</DataField>
+        </Field>
+        <Field Name="MNR_DefectCode">
+          <DataField>MNR_DefectCode</DataField>
+        </Field>
+        <Field Name="MNR_DefectName">
+          <DataField>MNR_DefectName</DataField>
+        </Field>
+        <Field Name="MNR_CavityNo">
+          <DataField>MNR_CavityNo</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

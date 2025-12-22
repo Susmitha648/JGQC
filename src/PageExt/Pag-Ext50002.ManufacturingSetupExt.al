@@ -18,6 +18,18 @@ pageextension 50002 "Manufacturing Setup Ext" extends "Manufacturing Setup"
             {
                 ApplicationArea = All;
             }
+            field("FG Passed Move To Location"; Rec."FG Passed Move To Location")
+            {
+                ApplicationArea = All;
+            }
+            field("FG Rejected Move To Location"; Rec."FG Rejected Move To Location")
+            {
+                ApplicationArea = All;
+            }
+            field("Work Shift Hours"; Rec."Work Shift Hours")
+            {
+                ApplicationArea = All;
+            }
         }
     }
 }

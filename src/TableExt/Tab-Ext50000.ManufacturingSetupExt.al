@@ -20,5 +20,22 @@ tableextension 50000 "Manufacturing Setup Ext" extends "Manufacturing Setup"
             DataClassification = CustomerContent;
             TableRelation = Location.Code;
         }
+        field(50003; "FG Passed Move To Location"; Code[20] )
+        {
+            Caption = 'FG Passed Move To Location';
+            DataClassification = CustomerContent;
+            TableRelation = Location.Code;
+        }
+        field(50004; "FG Rejected Move To Location"; Code[20] )
+        {
+            Caption = 'FG Rejected Move To Location';
+            DataClassification = CustomerContent;
+            TableRelation = Location.Code;
+        }
+         field(50005; "Work Shift Hours"; Integer )
+        {
+            Caption = 'Work Shift Hours';
+            DataClassification = CustomerContent;
+        }
     }
 }

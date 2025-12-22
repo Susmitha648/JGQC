@@ -170,7 +170,7 @@ codeunit 50000 "QC Subcriber"
 
         GSerialNo := SerialNo;
     end;
-     procedure Get() : Code[20];
+     procedure Get() : Code[50];
     begin
 
        Exit(GSerialNo);

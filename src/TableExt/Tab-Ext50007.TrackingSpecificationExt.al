@@ -1,8 +1,8 @@
-tableextension 50006 "Reservation Entry Ext" extends "Reservation Entry"
+tableextension 50007 "Tracking Specification Ext" extends "Tracking Specification"
 {
     fields
     {
-        field(50000; "Recording Slip Printed"; Boolean)
+         field(50000; "Recording Slip Printed"; Boolean)
         {
             Caption = 'Recording Slip Printed';
             DataClassification = CustomerContent;
