@@ -62,6 +62,7 @@ report 50006 "Inspection Challenge Report"
                         column(QC_Defect_Code; "QC Defect Code") { }
                         column(QC_Defect_Name; DefectName) { }
                         column(Reject_Percent; "Reject %") { }
+                        column(Defect_Reject__; "Defect Reject %") { }
 
                         trigger OnPreDataItem()
                         begin
@@ -186,7 +187,6 @@ report 50006 "Inspection Challenge Report"
 
                 if QCCount = 0 then QCMaxPage := 1 else QCMaxPage := ((QCCount - 1) div 8) + 1;
                 if MNRCount = 0 then MNRMaxPage := 1 else MNRMaxPage := ((MNRCount - 1) div 5) + 1;
-
                 if QCMaxPage > MNRMaxPage then
                     TotalPages := QCMaxPage
                 else

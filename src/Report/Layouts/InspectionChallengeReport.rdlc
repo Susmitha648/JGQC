@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-19T02:30:21.8401814Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-22T06:15:55.7634109Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -24,6 +24,106 @@
       <rd:DataSourceID>8828306c-90a0-45c3-a57c-fe0ec1e90f39</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="ReleasedProdOrderNo">
+          <DataField>ReleasedProdOrderNo</DataField>
+        </Field>
+        <Field Name="ProductionOrderDate">
+          <DataField>ProductionOrderDate</DataField>
+        </Field>
+        <Field Name="JobNo">
+          <DataField>JobNo</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Ring">
+          <DataField>Ring</DataField>
+        </Field>
+        <Field Name="MCNo">
+          <DataField>MCNo</DataField>
+        </Field>
+        <Field Name="FurnaceNo">
+          <DataField>FurnaceNo</DataField>
+        </Field>
+        <Field Name="PageNo">
+          <DataField>PageNo</DataField>
+        </Field>
+        <Field Name="CCP_Type">
+          <DataField>CCP_Type</DataField>
+        </Field>
+        <Field Name="CCP_ResultObtained">
+          <DataField>CCP_ResultObtained</DataField>
+        </Field>
+        <Field Name="CCP_Inspection1">
+          <DataField>CCP_Inspection1</DataField>
+        </Field>
+        <Field Name="CCP_Inspection2">
+          <DataField>CCP_Inspection2</DataField>
+        </Field>
+        <Field Name="CCP_Inspection3">
+          <DataField>CCP_Inspection3</DataField>
+        </Field>
+        <Field Name="CCP_WorkShift">
+          <DataField>CCP_WorkShift</DataField>
+        </Field>
+        <Field Name="FrequencyText">
+          <DataField>FrequencyText</DataField>
+        </Field>
+        <Field Name="TimeAsInteger">
+          <DataField>TimeAsInteger</DataField>
+        </Field>
+        <Field Name="SectionGroup">
+          <DataField>SectionGroup</DataField>
+        </Field>
+        <Field Name="LineNo">
+          <DataField>LineNo</DataField>
+        </Field>
+        <Field Name="Time">
+          <DataField>Time</DataField>
+        </Field>
+        <Field Name="Inspection_Type">
+          <DataField>Inspection_Type</DataField>
+        </Field>
+        <Field Name="QC_Defect_Code">
+          <DataField>QC_Defect_Code</DataField>
+        </Field>
+        <Field Name="QC_Defect_Name">
+          <DataField>QC_Defect_Name</DataField>
+        </Field>
+        <Field Name="Reject_Percent">
+          <DataField>Reject_Percent</DataField>
+        </Field>
+        <Field Name="Reject_PercentFormat">
+          <DataField>Reject_PercentFormat</DataField>
+        </Field>
+        <Field Name="Defect_Reject__">
+          <DataField>Defect_Reject__</DataField>
+        </Field>
+        <Field Name="Defect_Reject__Format">
+          <DataField>Defect_Reject__Format</DataField>
+        </Field>
+        <Field Name="MNR_Label">
+          <DataField>MNR_Label</DataField>
+        </Field>
+        <Field Name="MNR_DefectCode">
+          <DataField>MNR_DefectCode</DataField>
+        </Field>
+        <Field Name="MNR_DefectName">
+          <DataField>MNR_DefectName</DataField>
+        </Field>
+        <Field Name="MNR_CavityNo">
+          <DataField>MNR_CavityNo</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -32,12 +132,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>28.69999cm</Width>
+                  <Width>28.7cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>14.58503cm</Height>
+                  <Height>14.59612cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -73,18 +173,13 @@
                                               </Paragraphs>
                                               <Style>
                                                 <Border>
-                                                  <Style>Solid</Style>
+                                                  <Style>None</Style>
                                                 </Border>
                                                 <TopBorder>
                                                   <Color>Black</Color>
                                                   <Style>Solid</Style>
                                                   <Width>1pt</Width>
                                                 </TopBorder>
-                                                <BottomBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </BottomBorder>
                                                 <LeftBorder>
                                                   <Color>Black</Color>
                                                   <Style>Solid</Style>
@@ -171,8 +266,8 @@
                                       <TablixCornerRow>
                                         <TablixCornerCell>
                                           <CellContents>
-                                            <Textbox Name="Textbox202">
-                                              <rd:DefaultName>Textbox15</rd:DefaultName>
+                                            <Textbox Name="Textbox131">
+                                              <rd:DefaultName>Textbox131</rd:DefaultName>
                                               <CanGrow>true</CanGrow>
                                               <KeepTogether>true</KeepTogether>
                                               <Paragraphs>
@@ -181,7 +276,7 @@
                                                     <TextRun>
                                                       <Value />
                                                       <Style>
-                                                        <FontSize>8pt</FontSize>
+                                                        <FontSize>7pt</FontSize>
                                                         <FontWeight>Bold</FontWeight>
                                                       </Style>
                                                     </TextRun>
@@ -195,6 +290,11 @@
                                                 <Border>
                                                   <Style>None</Style>
                                                 </Border>
+                                                <BottomBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>1pt</Width>
+                                                </BottomBorder>
                                                 <LeftBorder>
                                                   <Color>Black</Color>
                                                   <Style>Solid</Style>
@@ -279,7 +379,10 @@
                                         <Width>1cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.8cm</Width>
+                                        <Width>1cm</Width>
+                                      </TablixColumn>
+                                      <TablixColumn>
+                                        <Width>1.6cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>0.91cm</Width>
@@ -287,7 +390,7 @@
                                     </TablixColumns>
                                     <TablixRows>
                                       <TablixRow>
-                                        <Height>0.61891cm</Height>
+                                        <Height>0.64942cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -347,23 +450,73 @@
                                           </TablixCell>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="Reject__6">
-                                                <rd:DefaultName>Reject__</rd:DefaultName>
+                                              <Textbox Name="Defect_Reject__1">
+                                                <rd:DefaultName>Defect_Reject__1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Fields!Reject_Percent.Value</Value>
+                                                        <Value>=Fields!Defect_Reject__.Value</Value>
                                                         <Style>
+                                                          <FontFamily />
                                                           <FontSize>7pt</FontSize>
                                                           <FontWeight>Bold</FontWeight>
                                                         </Style>
                                                       </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                            </CellContents>
+                                          </TablixCell>
+                                          <TablixCell>
+                                            <CellContents>
+                                              <Textbox Name="Textbox83">
+                                                <rd:DefaultName>Textbox83</rd:DefaultName>
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
                                                       <TextRun>
-                                                        <Value>=" %"</Value>
+                                                        <Value>=SUM(Fields!Defect_Reject__.Value)</Value>
                                                         <Style>
+                                                          <FontFamily />
                                                           <FontSize>7pt</FontSize>
                                                           <FontWeight>Bold</FontWeight>
                                                         </Style>
@@ -481,7 +634,7 @@
                                           </SortExpression>
                                         </SortExpressions>
                                         <TablixHeader>
-                                          <Size>0.51754cm</Size>
+                                          <Size>0.31976cm</Size>
                                           <CellContents>
                                             <Textbox Name="Inspection_Type6">
                                               <rd:DefaultName>Inspection_Type</rd:DefaultName>
@@ -493,7 +646,7 @@
                                                     <TextRun>
                                                       <Value>=Fields!Inspection_Type.Value</Value>
                                                       <Style>
-                                                        <FontSize>6pt</FontSize>
+                                                        <FontSize>7pt</FontSize>
                                                         <FontWeight>Bold</FontWeight>
                                                       </Style>
                                                     </TextRun>
@@ -551,7 +704,7 @@
                                             <TablixMembers>
                                               <TablixMember>
                                                 <TablixHeader>
-                                                  <Size>4.34348cm</Size>
+                                                  <Size>4.4045cm</Size>
                                                   <CellContents>
                                                     <Textbox Name="QC_Defect_Name6">
                                                       <rd:DefaultName>QC_Defect_Name</rd:DefaultName>
@@ -612,10 +765,65 @@
                                           </TablixMember>
                                           <TablixMember>
                                             <TablixHeader>
-                                              <Size>4.34348cm</Size>
+                                              <Size>4.4045cm</Size>
                                               <CellContents>
-                                                <Textbox Name="Textbox438">
-                                                  <rd:DefaultName>Textbox433</rd:DefaultName>
+                                                <Textbox Name="Defect_Reject__">
+                                                  <rd:DefaultName>Defect_Reject__</rd:DefaultName>
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>Defect Reject (%)</Value>
+                                                          <Style>
+                                                            <FontSize>7pt</FontSize>
+                                                            <FontWeight>Bold</FontWeight>
+                                                          </Style>
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <Style>
+                                                    <Border>
+                                                      <Style>None</Style>
+                                                    </Border>
+                                                    <BottomBorder>
+                                                      <Color>Black</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Color>Black</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Color>Black</Color>
+                                                      <Style>Solid</Style>
+                                                      <Width>1pt</Width>
+                                                    </RightBorder>
+                                                    <VerticalAlign>Middle</VerticalAlign>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                    <PaddingTop>2pt</PaddingTop>
+                                                    <PaddingBottom>2pt</PaddingBottom>
+                                                    <WritingMode>Rotate270</WritingMode>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixHeader>
+                                          </TablixMember>
+                                          <TablixMember>
+                                            <TablixHeader>
+                                              <Size>4.4045cm</Size>
+                                              <CellContents>
+                                                <Textbox Name="Textbox81">
+                                                  <rd:DefaultName>Textbox81</rd:DefaultName>
+                                                  <CanGrow>true</CanGrow>
                                                   <KeepTogether>true</KeepTogether>
                                                   <Paragraphs>
                                                     <Paragraph>
@@ -664,6 +872,9 @@
                                             </TablixHeader>
                                           </TablixMember>
                                         </TablixMembers>
+                                        <Visibility>
+                                          <Hidden>=IsNothing(Fields!Inspection_Type.Value) Or Fields!Inspection_Type.Value = ""</Hidden>
+                                        </Visibility>
                                       </TablixMember>
                                       <TablixMember>
                                         <Group Name="MNR_Defect_Name6">
@@ -677,7 +888,7 @@
                                           </SortExpression>
                                         </SortExpressions>
                                         <TablixHeader>
-                                          <Size>0.51754cm</Size>
+                                          <Size>0.31976cm</Size>
                                           <CellContents>
                                             <Textbox Name="MNR_Label6">
                                               <rd:DefaultName>MNR_Label</rd:DefaultName>
@@ -747,7 +958,7 @@
                                             <TablixMembers>
                                               <TablixMember>
                                                 <TablixHeader>
-                                                  <Size>3.86041cm</Size>
+                                                  <Size>3.89092cm</Size>
                                                   <CellContents>
                                                     <Textbox Name="MNR_DefectName6">
                                                       <rd:DefaultName>MNR_DefectName</rd:DefaultName>
@@ -795,7 +1006,7 @@
                                                 <TablixMembers>
                                                   <TablixMember>
                                                     <TablixHeader>
-                                                      <Size>0.48307cm</Size>
+                                                      <Size>0.51358cm</Size>
                                                       <CellContents>
                                                         <Textbox Name="Textbox110">
                                                           <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -1009,9 +1220,9 @@
                                     </Filter>
                                   </Filters>
                                   <Top>0cm</Top>
-                                  <Left>0.03704cm</Left>
-                                  <Height>5.47993cm</Height>
-                                  <Width>6.41cm</Width>
+                                  <Left>0.041cm</Left>
+                                  <Height>5.37368cm</Height>
+                                  <Width>7.21cm</Width>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -1025,31 +1236,31 @@
                                         <Width>5.71001cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.5cm</Width>
+                                        <Width>2.49731cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>2.12958cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>4.56375cm</Width>
+                                        <Width>4.56106cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>2.5cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.63569cm</Width>
+                                        <Width>1.633cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>3.84117cm</Width>
+                                        <Width>3.84431cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.52184cm</Width>
-                                      </TablixColumn>
-                                      <TablixColumn>
-                                        <Width>1.08532cm</Width>
+                                        <Width>2.51915cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>1.08532cm</Width>
+                                      </TablixColumn>
+                                      <TablixColumn>
+                                        <Width>1.08263cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>1.08532cm</Width>
@@ -1057,7 +1268,7 @@
                                     </TablixColumns>
                                     <TablixRows>
                                       <TablixRow>
-                                        <Height>0.49829cm</Height>
+                                        <Height>0.51649cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -1552,7 +1763,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.49736cm</Height>
+                                        <Height>0.51556cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -2124,7 +2335,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.49736cm</Height>
+                                        <Height>0.51556cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -2726,7 +2937,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.49736cm</Height>
+                                        <Height>0.51556cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -3326,7 +3537,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.49736cm</Height>
+                                        <Height>0.51556cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -3975,10 +4186,10 @@
                                       </FilterValues>
                                     </Filter>
                                   </Filters>
-                                  <Top>5.47995cm</Top>
-                                  <Left>0.0321cm</Left>
-                                  <Height>2.48773cm</Height>
-                                  <Width>28.658cm</Width>
+                                  <Top>5.37368cm</Top>
+                                  <Left>0.04692cm</Left>
+                                  <Height>2.57873cm</Height>
+                                  <Width>28.64769cm</Width>
                                   <ZIndex>1</ZIndex>
                                   <Style>
                                     <Border>
@@ -3990,8 +4201,8 @@
                               <KeepTogether>true</KeepTogether>
                               <Top>0cm</Top>
                               <Left>0cm</Left>
-                              <Height>7.96768cm</Height>
-                              <Width>28.69999cm</Width>
+                              <Height>7.95242cm</Height>
+                              <Width>28.7cm</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -4000,827 +4211,6 @@
                             </Rectangle>
                             <Rectangle Name="Rectangle7">
                               <ReportItems>
-                                <Tablix Name="Tablix21">
-                                  <TablixCorner>
-                                    <TablixCornerRows>
-                                      <TablixCornerRow>
-                                        <TablixCornerCell>
-                                          <CellContents>
-                                            <Textbox Name="Textbox343">
-                                              <rd:DefaultName>Textbox339</rd:DefaultName>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value>Samplng Time</Value>
-                                                      <Style>
-                                                        <FontSize>7pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                        <Color>White</Color>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <Style>
-                                                <Border>
-                                                  <Style>None</Style>
-                                                </Border>
-                                                <TopBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </TopBorder>
-                                                <LeftBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </LeftBorder>
-                                                <RightBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </RightBorder>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                                <WritingMode>Rotate270</WritingMode>
-                                              </Style>
-                                            </Textbox>
-                                            <RowSpan>2</RowSpan>
-                                          </CellContents>
-                                        </TablixCornerCell>
-                                        <TablixCornerCell>
-                                          <CellContents>
-                                            <Textbox Name="Textbox349">
-                                              <rd:DefaultName>Textbox339</rd:DefaultName>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value>Sample / Defects</Value>
-                                                      <Style>
-                                                        <FontSize>7pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                        <Color>White</Color>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <Style>
-                                                <Border>
-                                                  <Style>None</Style>
-                                                </Border>
-                                                <TopBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </TopBorder>
-                                                <LeftBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </LeftBorder>
-                                                <RightBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </RightBorder>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                                <WritingMode>Rotate270</WritingMode>
-                                              </Style>
-                                            </Textbox>
-                                            <RowSpan>2</RowSpan>
-                                          </CellContents>
-                                        </TablixCornerCell>
-                                      </TablixCornerRow>
-                                      <TablixCornerRow>
-                                        <TablixCornerCell />
-                                        <TablixCornerCell />
-                                      </TablixCornerRow>
-                                    </TablixCornerRows>
-                                  </TablixCorner>
-                                  <TablixBody>
-                                    <TablixColumns>
-                                      <TablixColumn>
-                                        <Width>1cm</Width>
-                                      </TablixColumn>
-                                      <TablixColumn>
-                                        <Width>1.8cm</Width>
-                                      </TablixColumn>
-                                      <TablixColumn>
-                                        <Width>0.91cm</Width>
-                                      </TablixColumn>
-                                    </TablixColumns>
-                                    <TablixRows>
-                                      <TablixRow>
-                                        <Height>0.57901cm</Height>
-                                        <TablixCells>
-                                          <TablixCell>
-                                            <CellContents>
-                                              <Textbox Name="QC_Defect_Code7">
-                                                <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>=IIF(IsNothing(Fields!QC_Defect_Code.Value), "", Chr(252))</Value>
-                                                        <Style>
-                                                          <FontFamily>Wingdings</FontFamily>
-                                                          <FontSize>7pt</FontSize>
-                                                          <FontWeight>Bold</FontWeight>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style>
-                                                      <TextAlign>Center</TextAlign>
-                                                    </Style>
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <Style>
-                                                  <Border>
-                                                    <Style>None</Style>
-                                                  </Border>
-                                                  <BottomBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </BottomBorder>
-                                                  <LeftBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </LeftBorder>
-                                                  <RightBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </RightBorder>
-                                                  <VerticalAlign>Middle</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                            </CellContents>
-                                          </TablixCell>
-                                          <TablixCell>
-                                            <CellContents>
-                                              <Textbox Name="Reject__7">
-                                                <rd:DefaultName>Reject__</rd:DefaultName>
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>=Fields!Reject_Percent.Value</Value>
-                                                        <Style>
-                                                          <FontSize>7pt</FontSize>
-                                                          <FontWeight>Bold</FontWeight>
-                                                        </Style>
-                                                      </TextRun>
-                                                      <TextRun>
-                                                        <Value>=" %"</Value>
-                                                        <Style>
-                                                          <FontSize>7pt</FontSize>
-                                                          <FontWeight>Bold</FontWeight>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style>
-                                                      <TextAlign>Center</TextAlign>
-                                                    </Style>
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <Style>
-                                                  <Border>
-                                                    <Style>None</Style>
-                                                  </Border>
-                                                  <BottomBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </BottomBorder>
-                                                  <RightBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </RightBorder>
-                                                  <VerticalAlign>Middle</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                            </CellContents>
-                                          </TablixCell>
-                                          <TablixCell>
-                                            <CellContents>
-                                              <Textbox Name="MNR_CavityNo7">
-                                                <rd:DefaultName>MNR_CavityNo</rd:DefaultName>
-                                                <CanGrow>true</CanGrow>
-                                                <KeepTogether>true</KeepTogether>
-                                                <Paragraphs>
-                                                  <Paragraph>
-                                                    <TextRuns>
-                                                      <TextRun>
-                                                        <Value>=IIF(IsNothing(Fields!MNR_DefectCode.Value), "", Chr(252))</Value>
-                                                        <Style>
-                                                          <FontFamily>Wingdings</FontFamily>
-                                                          <FontSize>7pt</FontSize>
-                                                          <FontWeight>Bold</FontWeight>
-                                                        </Style>
-                                                      </TextRun>
-                                                    </TextRuns>
-                                                    <Style>
-                                                      <TextAlign>Center</TextAlign>
-                                                    </Style>
-                                                  </Paragraph>
-                                                </Paragraphs>
-                                                <Style>
-                                                  <Border>
-                                                    <Style>None</Style>
-                                                  </Border>
-                                                  <BottomBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </BottomBorder>
-                                                  <LeftBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </LeftBorder>
-                                                  <RightBorder>
-                                                    <Color>Black</Color>
-                                                    <Style>Solid</Style>
-                                                    <Width>1pt</Width>
-                                                  </RightBorder>
-                                                  <VerticalAlign>Middle</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>2pt</PaddingRight>
-                                                  <PaddingTop>2pt</PaddingTop>
-                                                  <PaddingBottom>2pt</PaddingBottom>
-                                                </Style>
-                                              </Textbox>
-                                            </CellContents>
-                                          </TablixCell>
-                                        </TablixCells>
-                                      </TablixRow>
-                                    </TablixRows>
-                                  </TablixBody>
-                                  <TablixColumnHierarchy>
-                                    <TablixMembers>
-                                      <TablixMember>
-                                        <Group Name="Inspection_Type7">
-                                          <GroupExpressions>
-                                            <GroupExpression>=Fields!Inspection_Type.Value</GroupExpression>
-                                          </GroupExpressions>
-                                        </Group>
-                                        <SortExpressions>
-                                          <SortExpression>
-                                            <Value>=Fields!Inspection_Type.Value</Value>
-                                          </SortExpression>
-                                        </SortExpressions>
-                                        <TablixMembers>
-                                          <TablixMember>
-                                            <TablixHeader>
-                                              <Size>0.07938cm</Size>
-                                              <CellContents>
-                                                <Textbox Name="Inspection_Type7">
-                                                  <rd:DefaultName>Inspection_Type</rd:DefaultName>
-                                                  <KeepTogether>true</KeepTogether>
-                                                  <Paragraphs>
-                                                    <Paragraph>
-                                                      <TextRuns>
-                                                        <TextRun>
-                                                          <Value>=Fields!Inspection_Type.Value</Value>
-                                                          <Style>
-                                                            <FontSize>7pt</FontSize>
-                                                            <FontWeight>Bold</FontWeight>
-                                                            <Color>White</Color>
-                                                          </Style>
-                                                        </TextRun>
-                                                      </TextRuns>
-                                                      <Style>
-                                                        <TextAlign>Center</TextAlign>
-                                                      </Style>
-                                                    </Paragraph>
-                                                  </Paragraphs>
-                                                  <Style>
-                                                    <Border>
-                                                      <Style>None</Style>
-                                                    </Border>
-                                                    <TopBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </TopBorder>
-                                                    <LeftBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </LeftBorder>
-                                                    <RightBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </RightBorder>
-                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                    <PaddingRight>2pt</PaddingRight>
-                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                  </Style>
-                                                </Textbox>
-                                              </CellContents>
-                                            </TablixHeader>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <Group Name="QC_Defect_Code7">
-                                                  <GroupExpressions>
-                                                    <GroupExpression>=Fields!QC_Defect_Code.Value</GroupExpression>
-                                                  </GroupExpressions>
-                                                </Group>
-                                                <SortExpressions>
-                                                  <SortExpression>
-                                                    <Value>=Fields!QC_Defect_Code.Value</Value>
-                                                  </SortExpression>
-                                                </SortExpressions>
-                                                <TablixMembers>
-                                                  <TablixMember>
-                                                    <TablixHeader>
-                                                      <Size>0.07938cm</Size>
-                                                      <CellContents>
-                                                        <Textbox Name="QC_Defect_Name7">
-                                                          <rd:DefaultName>QC_Defect_Name</rd:DefaultName>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value>=Fields!QC_Defect_Name.Value</Value>
-                                                                  <Style>
-                                                                    <FontSize>7pt</FontSize>
-                                                                    <FontWeight>Bold</FontWeight>
-                                                                    <Color>White</Color>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style>
-                                                                <TextAlign>Center</TextAlign>
-                                                              </Style>
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <Style>
-                                                            <Border>
-                                                              <Style>None</Style>
-                                                            </Border>
-                                                            <LeftBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                              <Width>1pt</Width>
-                                                            </LeftBorder>
-                                                            <RightBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                              <Width>1pt</Width>
-                                                            </RightBorder>
-                                                            <VerticalAlign>Middle</VerticalAlign>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                            <WritingMode>Rotate270</WritingMode>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixHeader>
-                                                    <TablixMembers>
-                                                      <TablixMember />
-                                                    </TablixMembers>
-                                                  </TablixMember>
-                                                </TablixMembers>
-                                                <Visibility>
-                                                  <Hidden>=IsNothing(Fields!QC_Defect_Code.Value) Or Fields!QC_Defect_Code.Value = ""</Hidden>
-                                                </Visibility>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                          </TablixMember>
-                                          <TablixMember>
-                                            <TablixHeader>
-                                              <Size>0.07938cm</Size>
-                                              <CellContents>
-                                                <Textbox Name="Textbox791">
-                                                  <rd:DefaultName>Textbox791</rd:DefaultName>
-                                                  <KeepTogether>true</KeepTogether>
-                                                  <Paragraphs>
-                                                    <Paragraph>
-                                                      <TextRuns>
-                                                        <TextRun>
-                                                          <Value />
-                                                          <Style>
-                                                            <FontSize>7pt</FontSize>
-                                                            <FontWeight>Bold</FontWeight>
-                                                            <Color>White</Color>
-                                                          </Style>
-                                                        </TextRun>
-                                                      </TextRuns>
-                                                      <Style>
-                                                        <TextAlign>Center</TextAlign>
-                                                      </Style>
-                                                    </Paragraph>
-                                                  </Paragraphs>
-                                                  <Style>
-                                                    <Border>
-                                                      <Style>None</Style>
-                                                    </Border>
-                                                    <TopBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </TopBorder>
-                                                    <LeftBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </LeftBorder>
-                                                    <RightBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </RightBorder>
-                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                    <PaddingRight>2pt</PaddingRight>
-                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                  </Style>
-                                                </Textbox>
-                                              </CellContents>
-                                            </TablixHeader>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>0.07938cm</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox439">
-                                                      <rd:DefaultName>Textbox433</rd:DefaultName>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>Reject (%)</Value>
-                                                              <Style>
-                                                                <FontSize>7pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                                <Color>White</Color>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>None</Style>
-                                                        </Border>
-                                                        <LeftBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </LeftBorder>
-                                                        <RightBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </RightBorder>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                        <WritingMode>Rotate270</WritingMode>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                          </TablixMember>
-                                        </TablixMembers>
-                                      </TablixMember>
-                                      <TablixMember>
-                                        <Group Name="MNR_Defect_Name7">
-                                          <GroupExpressions>
-                                            <GroupExpression>=Fields!MNR_Label.Value</GroupExpression>
-                                          </GroupExpressions>
-                                        </Group>
-                                        <SortExpressions>
-                                          <SortExpression>
-                                            <Value>=Fields!MNR_DefectName.Value</Value>
-                                          </SortExpression>
-                                        </SortExpressions>
-                                        <TablixHeader>
-                                          <Size>0.07938cm</Size>
-                                          <CellContents>
-                                            <Textbox Name="MNR_Label7">
-                                              <rd:DefaultName>MNR_Label</rd:DefaultName>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value>=Fields!MNR_Label.Value</Value>
-                                                      <Style>
-                                                        <FontSize>7pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                        <Color>White</Color>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <Style>
-                                                <Border>
-                                                  <Style>None</Style>
-                                                </Border>
-                                                <TopBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </TopBorder>
-                                                <LeftBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </LeftBorder>
-                                                <RightBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </RightBorder>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                              </Style>
-                                            </Textbox>
-                                          </CellContents>
-                                        </TablixHeader>
-                                        <TablixMembers>
-                                          <TablixMember>
-                                            <Group Name="MNR_DefectName7">
-                                              <GroupExpressions>
-                                                <GroupExpression>=Fields!MNR_DefectName.Value</GroupExpression>
-                                              </GroupExpressions>
-                                            </Group>
-                                            <SortExpressions>
-                                              <SortExpression>
-                                                <Value>=Fields!MNR_DefectName.Value</Value>
-                                              </SortExpression>
-                                            </SortExpressions>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>0.07938cm</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="MNR_DefectName7">
-                                                      <rd:DefaultName>MNR_DefectName</rd:DefaultName>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>=Fields!MNR_DefectName.Value</Value>
-                                                              <Style>
-                                                                <FontSize>7pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                                <Color>White</Color>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>None</Style>
-                                                        </Border>
-                                                        <LeftBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </LeftBorder>
-                                                        <RightBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </RightBorder>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                        <WritingMode>Rotate270</WritingMode>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                                <TablixMembers>
-                                                  <TablixMember />
-                                                </TablixMembers>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                            <Visibility>
-                                              <Hidden>=Fields!MNR_DefectName.Value = "" Or Nothing</Hidden>
-                                            </Visibility>
-                                          </TablixMember>
-                                        </TablixMembers>
-                                        <Visibility>
-                                          <Hidden>=Fields!MNR_DefectName.Value = "" Or Nothing</Hidden>
-                                        </Visibility>
-                                      </TablixMember>
-                                    </TablixMembers>
-                                  </TablixColumnHierarchy>
-                                  <TablixRowHierarchy>
-                                    <TablixMembers>
-                                      <TablixMember>
-                                        <TablixHeader>
-                                          <Size>1cm</Size>
-                                          <CellContents>
-                                            <Textbox Name="Textbox339">
-                                              <rd:DefaultName>Textbox316</rd:DefaultName>
-                                              <CanGrow>true</CanGrow>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value />
-                                                      <Style>
-                                                        <FontSize>8pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <Style>
-                                                <Border>
-                                                  <Style>None</Style>
-                                                </Border>
-                                                <BottomBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </BottomBorder>
-                                                <LeftBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </LeftBorder>
-                                                <RightBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </RightBorder>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingTop>2pt</PaddingTop>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                              </Style>
-                                            </Textbox>
-                                          </CellContents>
-                                        </TablixHeader>
-                                        <TablixMembers>
-                                          <TablixMember>
-                                            <Group Name="Time7">
-                                              <GroupExpressions>
-                                                <GroupExpression>=Fields!FrequencyText.Value</GroupExpression>
-                                              </GroupExpressions>
-                                            </Group>
-                                            <SortExpressions>
-                                              <SortExpression>
-                                                <Value>=Fields!TimeAsInteger.Value</Value>
-                                              </SortExpression>
-                                            </SortExpressions>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>1.7cm</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="FrequencyText7">
-                                                      <rd:DefaultName>FrequencyText</rd:DefaultName>
-                                                      <CanGrow>true</CanGrow>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>=Fields!Time.Value</Value>
-                                                              <Style>
-                                                                <FontSize>7pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>None</Style>
-                                                        </Border>
-                                                        <BottomBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </BottomBorder>
-                                                        <RightBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </RightBorder>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingTop>2pt</PaddingTop>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                                <TablixMembers>
-                                                  <TablixMember />
-                                                </TablixMembers>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                          </TablixMember>
-                                        </TablixMembers>
-                                        <Visibility>
-                                          <Hidden>=IsNothing(Fields!QC_Defect_Code.Value) Or Fields!QC_Defect_Code.Value = ""</Hidden>
-                                        </Visibility>
-                                      </TablixMember>
-                                    </TablixMembers>
-                                  </TablixRowHierarchy>
-                                  <DataSetName>DataSet_Result</DataSetName>
-                                  <Filters>
-                                    <Filter>
-                                      <FilterExpression>=Fields!SectionGroup.Value</FilterExpression>
-                                      <Operator>Equal</Operator>
-                                      <FilterValues>
-                                        <FilterValue DataType="Integer">1</FilterValue>
-                                      </FilterValues>
-                                    </Filter>
-                                  </Filters>
-                                  <Top>0cm</Top>
-                                  <Left>0.03704cm</Left>
-                                  <Height>0.73777cm</Height>
-                                  <Width>6.41cm</Width>
-                                  <Style>
-                                    <Border>
-                                      <Style>None</Style>
-                                    </Border>
-                                    <LeftBorder>
-                                      <Color>Black</Color>
-                                      <Style>Solid</Style>
-                                      <Width>1pt</Width>
-                                    </LeftBorder>
-                                    <RightBorder>
-                                      <Color>Black</Color>
-                                      <Style>Solid</Style>
-                                      <Width>1pt</Width>
-                                    </RightBorder>
-                                  </Style>
-                                </Tablix>
                                 <Tablix Name="Tablix9">
                                   <TablixBody>
                                     <TablixColumns>
@@ -4828,31 +4218,31 @@
                                         <Width>5.71001cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.5cm</Width>
+                                        <Width>2.49731cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>2.12958cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>4.56375cm</Width>
+                                        <Width>4.56106cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>2.5cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.63569cm</Width>
+                                        <Width>1.633cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>3.84117cm</Width>
+                                        <Width>3.84431cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.52184cm</Width>
-                                      </TablixColumn>
-                                      <TablixColumn>
-                                        <Width>1.08532cm</Width>
+                                        <Width>2.51915cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>1.08532cm</Width>
+                                      </TablixColumn>
+                                      <TablixColumn>
+                                        <Width>1.08263cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
                                         <Width>1.08532cm</Width>
@@ -4860,7 +4250,7 @@
                                     </TablixColumns>
                                     <TablixRows>
                                       <TablixRow>
-                                        <Height>0.54166cm</Height>
+                                        <Height>0.53183cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -5355,7 +4745,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.54073cm</Height>
+                                        <Height>0.5309cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -5927,7 +5317,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.54073cm</Height>
+                                        <Height>0.5309cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -6529,7 +5919,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.54073cm</Height>
+                                        <Height>0.5309cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -7129,7 +6519,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.54073cm</Height>
+                                        <Height>0.5309cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -7778,10 +7168,496 @@
                                       </FilterValues>
                                     </Filter>
                                   </Filters>
-                                  <Top>0.73776cm</Top>
-                                  <Left>0.0321cm</Left>
-                                  <Height>2.70458cm</Height>
-                                  <Width>28.658cm</Width>
+                                  <Top>0.62964cm</Top>
+                                  <Left>0.04692cm</Left>
+                                  <Height>2.65543cm</Height>
+                                  <Width>28.64769cm</Width>
+                                  <Style>
+                                    <Border>
+                                      <Style>None</Style>
+                                    </Border>
+                                  </Style>
+                                </Tablix>
+                                <Tablix Name="Tablix23">
+                                  <TablixBody>
+                                    <TablixColumns>
+                                      <TablixColumn>
+                                        <Width>1cm</Width>
+                                      </TablixColumn>
+                                      <TablixColumn>
+                                        <Width>1cm</Width>
+                                      </TablixColumn>
+                                      <TablixColumn>
+                                        <Width>1.6cm</Width>
+                                      </TablixColumn>
+                                      <TablixColumn>
+                                        <Width>0.91cm</Width>
+                                      </TablixColumn>
+                                    </TablixColumns>
+                                    <TablixRows>
+                                      <TablixRow>
+                                        <Height>0.62964cm</Height>
+                                        <TablixCells>
+                                          <TablixCell>
+                                            <CellContents>
+                                              <Textbox Name="QC_Defect_Code12">
+                                                <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=IIF(IsNothing(Fields!QC_Defect_Code.Value), "", Chr(252))</Value>
+                                                        <Style>
+                                                          <FontFamily>Wingdings</FontFamily>
+                                                          <FontSize>7pt</FontSize>
+                                                          <FontWeight>Bold</FontWeight>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                            </CellContents>
+                                          </TablixCell>
+                                          <TablixCell>
+                                            <CellContents>
+                                              <Textbox Name="Defect_Reject__3">
+                                                <rd:DefaultName>Defect_Reject__1</rd:DefaultName>
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=Fields!Defect_Reject__.Value</Value>
+                                                        <Style>
+                                                          <FontFamily />
+                                                          <FontSize>7pt</FontSize>
+                                                          <FontWeight>Bold</FontWeight>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                            </CellContents>
+                                          </TablixCell>
+                                          <TablixCell>
+                                            <CellContents>
+                                              <Textbox Name="Textbox84">
+                                                <rd:DefaultName>Textbox83</rd:DefaultName>
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=Sum(Fields!Defect_Reject__.Value)</Value>
+                                                        <Style>
+                                                          <FontFamily />
+                                                          <FontSize>7pt</FontSize>
+                                                          <FontWeight>Bold</FontWeight>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                            </CellContents>
+                                          </TablixCell>
+                                          <TablixCell>
+                                            <CellContents>
+                                              <Textbox Name="QC_Defect_Code13">
+                                                <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=IIF(IsNothing(Fields!MNR_DefectCode.Value), "", Chr(252))</Value>
+                                                        <Style>
+                                                          <FontFamily>Wingdings</FontFamily>
+                                                          <FontSize>7pt</FontSize>
+                                                          <FontWeight>Bold</FontWeight>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                            </CellContents>
+                                          </TablixCell>
+                                        </TablixCells>
+                                      </TablixRow>
+                                    </TablixRows>
+                                  </TablixBody>
+                                  <TablixColumnHierarchy>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <Group Name="Inspection_Type9">
+                                          <GroupExpressions>
+                                            <GroupExpression>=Fields!Inspection_Type.Value</GroupExpression>
+                                          </GroupExpressions>
+                                        </Group>
+                                        <SortExpressions>
+                                          <SortExpression>
+                                            <Value>=Fields!Inspection_Type.Value</Value>
+                                          </SortExpression>
+                                        </SortExpressions>
+                                        <TablixMembers>
+                                          <TablixMember>
+                                            <Group Name="QC_Defect_Code9">
+                                              <GroupExpressions>
+                                                <GroupExpression>=Fields!QC_Defect_Code.Value</GroupExpression>
+                                              </GroupExpressions>
+                                            </Group>
+                                            <SortExpressions>
+                                              <SortExpression>
+                                                <Value>=Fields!QC_Defect_Code.Value</Value>
+                                              </SortExpression>
+                                            </SortExpressions>
+                                            <TablixMembers>
+                                              <TablixMember />
+                                            </TablixMembers>
+                                            <Visibility>
+                                              <Hidden>=IsNothing(Fields!QC_Defect_Code.Value) Or Fields!QC_Defect_Code.Value = ""</Hidden>
+                                            </Visibility>
+                                          </TablixMember>
+                                          <TablixMember />
+                                          <TablixMember />
+                                        </TablixMembers>
+                                        <Visibility>
+                                          <Hidden>=IsNothing(Fields!Inspection_Type.Value) Or Fields!Inspection_Type.Value = ""</Hidden>
+                                        </Visibility>
+                                      </TablixMember>
+                                      <TablixMember>
+                                        <Group Name="MNR_Defect_Name9">
+                                          <GroupExpressions>
+                                            <GroupExpression>=Fields!MNR_Label.Value</GroupExpression>
+                                          </GroupExpressions>
+                                        </Group>
+                                        <SortExpressions>
+                                          <SortExpression>
+                                            <Value>=Fields!MNR_DefectName.Value</Value>
+                                          </SortExpression>
+                                        </SortExpressions>
+                                        <TablixMembers>
+                                          <TablixMember>
+                                            <Group Name="MNR_DefectName9">
+                                              <GroupExpressions>
+                                                <GroupExpression>=Fields!MNR_DefectName.Value</GroupExpression>
+                                              </GroupExpressions>
+                                            </Group>
+                                            <SortExpressions>
+                                              <SortExpression>
+                                                <Value>=Fields!MNR_DefectName.Value</Value>
+                                              </SortExpression>
+                                            </SortExpressions>
+                                            <TablixMembers>
+                                              <TablixMember />
+                                            </TablixMembers>
+                                            <Visibility>
+                                              <Hidden>=Fields!MNR_DefectName.Value = "" Or Nothing</Hidden>
+                                            </Visibility>
+                                          </TablixMember>
+                                        </TablixMembers>
+                                        <Visibility>
+                                          <Hidden>=Fields!MNR_DefectName.Value = "" Or Nothing</Hidden>
+                                        </Visibility>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixColumnHierarchy>
+                                  <TablixRowHierarchy>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>1cm</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox349">
+                                              <rd:DefaultName>Textbox316</rd:DefaultName>
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value />
+                                                      <Style>
+                                                        <FontSize>8pt</FontSize>
+                                                        <FontWeight>Bold</FontWeight>
+                                                      </Style>
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Center</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                </Border>
+                                                <TopBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>1pt</Width>
+                                                </TopBorder>
+                                                <BottomBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>1pt</Width>
+                                                </BottomBorder>
+                                                <LeftBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>1pt</Width>
+                                                </LeftBorder>
+                                                <RightBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>1pt</Width>
+                                                </RightBorder>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                                <PaddingTop>2pt</PaddingTop>
+                                                <PaddingBottom>2pt</PaddingBottom>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                        <TablixMembers>
+                                          <TablixMember>
+                                            <Group Name="Time9">
+                                              <GroupExpressions>
+                                                <GroupExpression>=Fields!FrequencyText.Value</GroupExpression>
+                                              </GroupExpressions>
+                                            </Group>
+                                            <SortExpressions>
+                                              <SortExpression>
+                                                <Value>=Fields!TimeAsInteger.Value</Value>
+                                              </SortExpression>
+                                            </SortExpressions>
+                                            <TablixMembers>
+                                              <TablixMember>
+                                                <TablixHeader>
+                                                  <Size>1.7cm</Size>
+                                                  <CellContents>
+                                                    <Textbox Name="FrequencyText9">
+                                                      <rd:DefaultName>FrequencyText</rd:DefaultName>
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value>=Fields!Time.Value</Value>
+                                                              <Style>
+                                                                <FontSize>7pt</FontSize>
+                                                                <FontWeight>Bold</FontWeight>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <Style>
+                                                        <Border>
+                                                          <Style>Solid</Style>
+                                                        </Border>
+                                                        <TopBorder>
+                                                          <Color>Black</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>1pt</Width>
+                                                        </TopBorder>
+                                                        <BottomBorder>
+                                                          <Color>Black</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>1pt</Width>
+                                                        </BottomBorder>
+                                                        <LeftBorder>
+                                                          <Color>Black</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>1pt</Width>
+                                                        </LeftBorder>
+                                                        <RightBorder>
+                                                          <Color>Black</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>1pt</Width>
+                                                        </RightBorder>
+                                                        <VerticalAlign>Middle</VerticalAlign>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                        <PaddingTop>2pt</PaddingTop>
+                                                        <PaddingBottom>2pt</PaddingBottom>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixHeader>
+                                                <TablixMembers>
+                                                  <TablixMember />
+                                                </TablixMembers>
+                                              </TablixMember>
+                                            </TablixMembers>
+                                          </TablixMember>
+                                        </TablixMembers>
+                                        <Visibility>
+                                          <Hidden>=IsNothing(Fields!QC_Defect_Code.Value) Or Fields!QC_Defect_Code.Value = ""</Hidden>
+                                        </Visibility>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixRowHierarchy>
+                                  <DataSetName>DataSet_Result</DataSetName>
+                                  <Filters>
+                                    <Filter>
+                                      <FilterExpression>=Fields!SectionGroup.Value</FilterExpression>
+                                      <Operator>Equal</Operator>
+                                      <FilterValues>
+                                        <FilterValue DataType="Integer">1</FilterValue>
+                                      </FilterValues>
+                                    </Filter>
+                                  </Filters>
+                                  <Top>0cm</Top>
+                                  <Left>0.05829cm</Left>
+                                  <Height>0.62964cm</Height>
+                                  <Width>7.21cm</Width>
                                   <ZIndex>1</ZIndex>
                                   <Style>
                                     <Border>
@@ -7791,10 +7667,10 @@
                                 </Tablix>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>7.96768cm</Top>
+                              <Top>7.95242cm</Top>
                               <Left>0cm</Left>
-                              <Height>3.44235cm</Height>
-                              <Width>28.69999cm</Width>
+                              <Height>3.28507cm</Height>
+                              <Width>28.7cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -7808,42 +7684,42 @@
                                   <TablixBody>
                                     <TablixColumns>
                                       <TablixColumn>
-                                        <Width>5.71001cm</Width>
+                                        <Width>5.71136cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.49731cm</Width>
+                                        <Width>2.49866cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.12958cm</Width>
+                                        <Width>2.13093cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>4.56106cm</Width>
+                                        <Width>4.56241cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.5cm</Width>
+                                        <Width>2.50135cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.633cm</Width>
+                                        <Width>1.63435cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>3.84117cm</Width>
+                                        <Width>3.83619cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>2.51915cm</Width>
+                                        <Width>2.5205cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.08532cm</Width>
+                                        <Width>1.08667cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.08263cm</Width>
+                                        <Width>1.08398cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.08532cm</Width>
+                                        <Width>1.08667cm</Width>
                                       </TablixColumn>
                                     </TablixColumns>
                                     <TablixRows>
                                       <TablixRow>
-                                        <Height>0.47855cm</Height>
+                                        <Height>0.51897cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -8338,7 +8214,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.47762cm</Height>
+                                        <Height>0.51804cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -8910,7 +8786,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.47762cm</Height>
+                                        <Height>0.51804cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -9512,7 +9388,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.47762cm</Height>
+                                        <Height>0.51804cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -10112,7 +9988,7 @@
                                         </TablixCells>
                                       </TablixRow>
                                       <TablixRow>
-                                        <Height>0.47762cm</Height>
+                                        <Height>0.51804cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
@@ -10761,148 +10637,39 @@
                                       </FilterValues>
                                     </Filter>
                                   </Filters>
-                                  <Top>0.78597cm</Top>
-                                  <Left>0.04692cm</Left>
-                                  <Height>2.38903cm</Height>
-                                  <Width>28.64455cm</Width>
+                                  <Top>0.62964cm</Top>
+                                  <Left>0.04693cm</Left>
+                                  <Height>2.59113cm</Height>
+                                  <Width>28.65307cm</Width>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
                                     </Border>
                                   </Style>
                                 </Tablix>
-                                <Tablix Name="Tablix22">
-                                  <TablixCorner>
-                                    <TablixCornerRows>
-                                      <TablixCornerRow>
-                                        <TablixCornerCell>
-                                          <CellContents>
-                                            <Textbox Name="Textbox353">
-                                              <rd:DefaultName>Textbox339</rd:DefaultName>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value>Samplng Time</Value>
-                                                      <Style>
-                                                        <FontSize>7pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                        <Color>White</Color>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <Style>
-                                                <Border>
-                                                  <Style>None</Style>
-                                                </Border>
-                                                <TopBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </TopBorder>
-                                                <LeftBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </LeftBorder>
-                                                <RightBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </RightBorder>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                                <WritingMode>Rotate270</WritingMode>
-                                              </Style>
-                                            </Textbox>
-                                            <RowSpan>2</RowSpan>
-                                          </CellContents>
-                                        </TablixCornerCell>
-                                        <TablixCornerCell>
-                                          <CellContents>
-                                            <Textbox Name="Textbox354">
-                                              <rd:DefaultName>Textbox339</rd:DefaultName>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value>Sample / Defects</Value>
-                                                      <Style>
-                                                        <FontSize>7pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                        <Color>White</Color>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <Style>
-                                                <Border>
-                                                  <Style>None</Style>
-                                                </Border>
-                                                <TopBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </TopBorder>
-                                                <LeftBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </LeftBorder>
-                                                <RightBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </RightBorder>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                                <WritingMode>Rotate270</WritingMode>
-                                              </Style>
-                                            </Textbox>
-                                            <RowSpan>2</RowSpan>
-                                          </CellContents>
-                                        </TablixCornerCell>
-                                      </TablixCornerRow>
-                                      <TablixCornerRow>
-                                        <TablixCornerCell />
-                                        <TablixCornerCell />
-                                      </TablixCornerRow>
-                                    </TablixCornerRows>
-                                  </TablixCorner>
+                                <Tablix Name="Tablix24">
                                   <TablixBody>
                                     <TablixColumns>
                                       <TablixColumn>
                                         <Width>1cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>1.8cm</Width>
+                                        <Width>1cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>0.90704cm</Width>
+                                        <Width>1.6cm</Width>
+                                      </TablixColumn>
+                                      <TablixColumn>
+                                        <Width>0.91cm</Width>
                                       </TablixColumn>
                                     </TablixColumns>
                                     <TablixRows>
                                       <TablixRow>
-                                        <Height>0.60596cm</Height>
+                                        <Height>0.62964cm</Height>
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="QC_Defect_Code8">
+                                              <Textbox Name="QC_Defect_Code14">
                                                 <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
@@ -10925,8 +10692,13 @@
                                                 </Paragraphs>
                                                 <Style>
                                                   <Border>
-                                                    <Style>None</Style>
+                                                    <Style>Solid</Style>
                                                   </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
                                                   <BottomBorder>
                                                     <Color>Black</Color>
                                                     <Style>Solid</Style>
@@ -10953,23 +10725,17 @@
                                           </TablixCell>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="Reject__8">
-                                                <rd:DefaultName>Reject__</rd:DefaultName>
+                                              <Textbox Name="Defect_Reject__4">
+                                                <rd:DefaultName>Defect_Reject__1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=Fields!Reject_Percent.Value</Value>
+                                                        <Value>=Fields!Defect_Reject__.Value</Value>
                                                         <Style>
-                                                          <FontSize>7pt</FontSize>
-                                                          <FontWeight>Bold</FontWeight>
-                                                        </Style>
-                                                      </TextRun>
-                                                      <TextRun>
-                                                        <Value>=" %"</Value>
-                                                        <Style>
+                                                          <FontFamily />
                                                           <FontSize>7pt</FontSize>
                                                           <FontWeight>Bold</FontWeight>
                                                         </Style>
@@ -10982,8 +10748,13 @@
                                                 </Paragraphs>
                                                 <Style>
                                                   <Border>
-                                                    <Style>None</Style>
+                                                    <Style>Solid</Style>
                                                   </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
                                                   <BottomBorder>
                                                     <Color>Black</Color>
                                                     <Style>Solid</Style>
@@ -11010,8 +10781,65 @@
                                           </TablixCell>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="MNR_CavityNo8">
-                                                <rd:DefaultName>MNR_CavityNo</rd:DefaultName>
+                                              <rd:Selected>true</rd:Selected>
+                                              <Textbox Name="Textbox85">
+                                                <rd:DefaultName>Textbox83</rd:DefaultName>
+                                                <CanGrow>true</CanGrow>
+                                                <KeepTogether>true</KeepTogether>
+                                                <Paragraphs>
+                                                  <Paragraph>
+                                                    <TextRuns>
+                                                      <TextRun>
+                                                        <Value>=Sum(Fields!Defect_Reject__.Value)</Value>
+                                                        <Style>
+                                                          <FontFamily />
+                                                          <FontSize>7pt</FontSize>
+                                                          <FontWeight>Bold</FontWeight>
+                                                        </Style>
+                                                      </TextRun>
+                                                    </TextRuns>
+                                                    <Style>
+                                                      <TextAlign>Center</TextAlign>
+                                                    </Style>
+                                                  </Paragraph>
+                                                </Paragraphs>
+                                                <Style>
+                                                  <Border>
+                                                    <Style>Solid</Style>
+                                                  </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
+                                                  <BottomBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </BottomBorder>
+                                                  <LeftBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </LeftBorder>
+                                                  <RightBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </RightBorder>
+                                                  <VerticalAlign>Middle</VerticalAlign>
+                                                  <PaddingLeft>2pt</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
+                                                  <PaddingTop>2pt</PaddingTop>
+                                                  <PaddingBottom>2pt</PaddingBottom>
+                                                </Style>
+                                              </Textbox>
+                                            </CellContents>
+                                          </TablixCell>
+                                          <TablixCell>
+                                            <CellContents>
+                                              <Textbox Name="QC_Defect_Code15">
+                                                <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
@@ -11033,8 +10861,13 @@
                                                 </Paragraphs>
                                                 <Style>
                                                   <Border>
-                                                    <Style>None</Style>
+                                                    <Style>Solid</Style>
                                                   </Border>
+                                                  <TopBorder>
+                                                    <Color>Black</Color>
+                                                    <Style>Solid</Style>
+                                                    <Width>1pt</Width>
+                                                  </TopBorder>
                                                   <BottomBorder>
                                                     <Color>Black</Color>
                                                     <Style>Solid</Style>
@@ -11066,7 +10899,7 @@
                                   <TablixColumnHierarchy>
                                     <TablixMembers>
                                       <TablixMember>
-                                        <Group Name="Inspection_Type8">
+                                        <Group Name="Inspection_Type10">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!Inspection_Type.Value</GroupExpression>
                                           </GroupExpressions>
@@ -11078,233 +10911,32 @@
                                         </SortExpressions>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <TablixHeader>
-                                              <Size>0.07938cm</Size>
-                                              <CellContents>
-                                                <Textbox Name="Inspection_Type8">
-                                                  <rd:DefaultName>Inspection_Type</rd:DefaultName>
-                                                  <KeepTogether>true</KeepTogether>
-                                                  <Paragraphs>
-                                                    <Paragraph>
-                                                      <TextRuns>
-                                                        <TextRun>
-                                                          <Value>=Fields!Inspection_Type.Value</Value>
-                                                          <Style>
-                                                            <FontSize>7pt</FontSize>
-                                                            <FontWeight>Bold</FontWeight>
-                                                            <Color>White</Color>
-                                                          </Style>
-                                                        </TextRun>
-                                                      </TextRuns>
-                                                      <Style>
-                                                        <TextAlign>Center</TextAlign>
-                                                      </Style>
-                                                    </Paragraph>
-                                                  </Paragraphs>
-                                                  <Style>
-                                                    <Border>
-                                                      <Style>None</Style>
-                                                    </Border>
-                                                    <TopBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </TopBorder>
-                                                    <LeftBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </LeftBorder>
-                                                    <RightBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </RightBorder>
-                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                    <PaddingRight>2pt</PaddingRight>
-                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                  </Style>
-                                                </Textbox>
-                                              </CellContents>
-                                            </TablixHeader>
+                                            <Group Name="QC_Defect_Code10">
+                                              <GroupExpressions>
+                                                <GroupExpression>=Fields!QC_Defect_Code.Value</GroupExpression>
+                                              </GroupExpressions>
+                                            </Group>
+                                            <SortExpressions>
+                                              <SortExpression>
+                                                <Value>=Fields!QC_Defect_Code.Value</Value>
+                                              </SortExpression>
+                                            </SortExpressions>
                                             <TablixMembers>
-                                              <TablixMember>
-                                                <Group Name="QC_Defect_Code8">
-                                                  <GroupExpressions>
-                                                    <GroupExpression>=Fields!QC_Defect_Code.Value</GroupExpression>
-                                                  </GroupExpressions>
-                                                </Group>
-                                                <SortExpressions>
-                                                  <SortExpression>
-                                                    <Value>=Fields!QC_Defect_Code.Value</Value>
-                                                  </SortExpression>
-                                                </SortExpressions>
-                                                <TablixMembers>
-                                                  <TablixMember>
-                                                    <TablixHeader>
-                                                      <Size>0.10063cm</Size>
-                                                      <CellContents>
-                                                        <Textbox Name="QC_Defect_Name8">
-                                                          <rd:DefaultName>QC_Defect_Name</rd:DefaultName>
-                                                          <KeepTogether>true</KeepTogether>
-                                                          <Paragraphs>
-                                                            <Paragraph>
-                                                              <TextRuns>
-                                                                <TextRun>
-                                                                  <Value>=Fields!QC_Defect_Name.Value</Value>
-                                                                  <Style>
-                                                                    <FontSize>7pt</FontSize>
-                                                                    <FontWeight>Bold</FontWeight>
-                                                                    <Color>White</Color>
-                                                                  </Style>
-                                                                </TextRun>
-                                                              </TextRuns>
-                                                              <Style>
-                                                                <TextAlign>Center</TextAlign>
-                                                              </Style>
-                                                            </Paragraph>
-                                                          </Paragraphs>
-                                                          <Style>
-                                                            <Border>
-                                                              <Style>None</Style>
-                                                            </Border>
-                                                            <LeftBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                              <Width>1pt</Width>
-                                                            </LeftBorder>
-                                                            <RightBorder>
-                                                              <Color>Black</Color>
-                                                              <Style>Solid</Style>
-                                                              <Width>1pt</Width>
-                                                            </RightBorder>
-                                                            <VerticalAlign>Middle</VerticalAlign>
-                                                            <PaddingLeft>2pt</PaddingLeft>
-                                                            <PaddingRight>2pt</PaddingRight>
-                                                            <PaddingBottom>2pt</PaddingBottom>
-                                                            <WritingMode>Rotate270</WritingMode>
-                                                          </Style>
-                                                        </Textbox>
-                                                      </CellContents>
-                                                    </TablixHeader>
-                                                    <TablixMembers>
-                                                      <TablixMember />
-                                                    </TablixMembers>
-                                                  </TablixMember>
-                                                </TablixMembers>
-                                                <Visibility>
-                                                  <Hidden>=IsNothing(Fields!QC_Defect_Code.Value) Or Fields!QC_Defect_Code.Value = ""</Hidden>
-                                                </Visibility>
-                                              </TablixMember>
+                                              <TablixMember />
                                             </TablixMembers>
+                                            <Visibility>
+                                              <Hidden>=IsNothing(Fields!QC_Defect_Code.Value) Or Fields!QC_Defect_Code.Value = ""</Hidden>
+                                            </Visibility>
                                           </TablixMember>
-                                          <TablixMember>
-                                            <TablixHeader>
-                                              <Size>0.07938cm</Size>
-                                              <CellContents>
-                                                <Textbox Name="Textbox792">
-                                                  <rd:DefaultName>Textbox791</rd:DefaultName>
-                                                  <KeepTogether>true</KeepTogether>
-                                                  <Paragraphs>
-                                                    <Paragraph>
-                                                      <TextRuns>
-                                                        <TextRun>
-                                                          <Value />
-                                                          <Style>
-                                                            <FontSize>7pt</FontSize>
-                                                            <FontWeight>Bold</FontWeight>
-                                                            <Color>White</Color>
-                                                          </Style>
-                                                        </TextRun>
-                                                      </TextRuns>
-                                                      <Style>
-                                                        <TextAlign>Center</TextAlign>
-                                                      </Style>
-                                                    </Paragraph>
-                                                  </Paragraphs>
-                                                  <Style>
-                                                    <Border>
-                                                      <Style>None</Style>
-                                                    </Border>
-                                                    <TopBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </TopBorder>
-                                                    <LeftBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </LeftBorder>
-                                                    <RightBorder>
-                                                      <Color>Black</Color>
-                                                      <Style>Solid</Style>
-                                                      <Width>1pt</Width>
-                                                    </RightBorder>
-                                                    <VerticalAlign>Middle</VerticalAlign>
-                                                    <PaddingLeft>2pt</PaddingLeft>
-                                                    <PaddingRight>2pt</PaddingRight>
-                                                    <PaddingBottom>2pt</PaddingBottom>
-                                                  </Style>
-                                                </Textbox>
-                                              </CellContents>
-                                            </TablixHeader>
-                                            <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>0.10063cm</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="Textbox440">
-                                                      <rd:DefaultName>Textbox433</rd:DefaultName>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>Reject (%)</Value>
-                                                              <Style>
-                                                                <FontSize>7pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                                <Color>White</Color>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>None</Style>
-                                                        </Border>
-                                                        <LeftBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </LeftBorder>
-                                                        <RightBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </RightBorder>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                        <WritingMode>Rotate270</WritingMode>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                              </TablixMember>
-                                            </TablixMembers>
-                                          </TablixMember>
+                                          <TablixMember />
+                                          <TablixMember />
                                         </TablixMembers>
+                                        <Visibility>
+                                          <Hidden>=IsNothing(Fields!Inspection_Type.Value) Or Fields!Inspection_Type.Value = ""</Hidden>
+                                        </Visibility>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Group Name="MNR_Defect_Name8">
+                                        <Group Name="MNR_Defect_Name10">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!MNR_Label.Value</GroupExpression>
                                           </GroupExpressions>
@@ -11314,59 +10946,9 @@
                                             <Value>=Fields!MNR_DefectName.Value</Value>
                                           </SortExpression>
                                         </SortExpressions>
-                                        <TablixHeader>
-                                          <Size>0.07938cm</Size>
-                                          <CellContents>
-                                            <Textbox Name="MNR_Label8">
-                                              <rd:DefaultName>MNR_Label</rd:DefaultName>
-                                              <KeepTogether>true</KeepTogether>
-                                              <Paragraphs>
-                                                <Paragraph>
-                                                  <TextRuns>
-                                                    <TextRun>
-                                                      <Value>=Fields!MNR_Label.Value</Value>
-                                                      <Style>
-                                                        <FontSize>7pt</FontSize>
-                                                        <FontWeight>Bold</FontWeight>
-                                                        <Color>White</Color>
-                                                      </Style>
-                                                    </TextRun>
-                                                  </TextRuns>
-                                                  <Style>
-                                                    <TextAlign>Center</TextAlign>
-                                                  </Style>
-                                                </Paragraph>
-                                              </Paragraphs>
-                                              <Style>
-                                                <Border>
-                                                  <Style>None</Style>
-                                                </Border>
-                                                <TopBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </TopBorder>
-                                                <LeftBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </LeftBorder>
-                                                <RightBorder>
-                                                  <Color>Black</Color>
-                                                  <Style>Solid</Style>
-                                                  <Width>1pt</Width>
-                                                </RightBorder>
-                                                <VerticalAlign>Middle</VerticalAlign>
-                                                <PaddingLeft>2pt</PaddingLeft>
-                                                <PaddingRight>2pt</PaddingRight>
-                                                <PaddingBottom>2pt</PaddingBottom>
-                                              </Style>
-                                            </Textbox>
-                                          </CellContents>
-                                        </TablixHeader>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="MNR_DefectName8">
+                                            <Group Name="MNR_DefectName10">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!MNR_DefectName.Value</GroupExpression>
                                               </GroupExpressions>
@@ -11377,57 +10959,7 @@
                                               </SortExpression>
                                             </SortExpressions>
                                             <TablixMembers>
-                                              <TablixMember>
-                                                <TablixHeader>
-                                                  <Size>0.10063cm</Size>
-                                                  <CellContents>
-                                                    <Textbox Name="MNR_DefectName8">
-                                                      <rd:DefaultName>MNR_DefectName</rd:DefaultName>
-                                                      <KeepTogether>true</KeepTogether>
-                                                      <Paragraphs>
-                                                        <Paragraph>
-                                                          <TextRuns>
-                                                            <TextRun>
-                                                              <Value>=Fields!MNR_DefectName.Value</Value>
-                                                              <Style>
-                                                                <FontSize>7pt</FontSize>
-                                                                <FontWeight>Bold</FontWeight>
-                                                                <Color>White</Color>
-                                                              </Style>
-                                                            </TextRun>
-                                                          </TextRuns>
-                                                          <Style>
-                                                            <TextAlign>Center</TextAlign>
-                                                          </Style>
-                                                        </Paragraph>
-                                                      </Paragraphs>
-                                                      <Style>
-                                                        <Border>
-                                                          <Style>None</Style>
-                                                        </Border>
-                                                        <LeftBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </LeftBorder>
-                                                        <RightBorder>
-                                                          <Color>Black</Color>
-                                                          <Style>Solid</Style>
-                                                          <Width>1pt</Width>
-                                                        </RightBorder>
-                                                        <VerticalAlign>Middle</VerticalAlign>
-                                                        <PaddingLeft>2pt</PaddingLeft>
-                                                        <PaddingRight>2pt</PaddingRight>
-                                                        <PaddingBottom>2pt</PaddingBottom>
-                                                        <WritingMode>Rotate270</WritingMode>
-                                                      </Style>
-                                                    </Textbox>
-                                                  </CellContents>
-                                                </TablixHeader>
-                                                <TablixMembers>
-                                                  <TablixMember />
-                                                </TablixMembers>
-                                              </TablixMember>
+                                              <TablixMember />
                                             </TablixMembers>
                                             <Visibility>
                                               <Hidden>=Fields!MNR_DefectName.Value = "" Or Nothing</Hidden>
@@ -11468,8 +11000,13 @@
                                               </Paragraphs>
                                               <Style>
                                                 <Border>
-                                                  <Style>None</Style>
+                                                  <Style>Solid</Style>
                                                 </Border>
+                                                <TopBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>1pt</Width>
+                                                </TopBorder>
                                                 <BottomBorder>
                                                   <Color>Black</Color>
                                                   <Style>Solid</Style>
@@ -11496,7 +11033,7 @@
                                         </TablixHeader>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="Time8">
+                                            <Group Name="Time10">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!FrequencyText.Value</GroupExpression>
                                               </GroupExpressions>
@@ -11509,9 +11046,9 @@
                                             <TablixMembers>
                                               <TablixMember>
                                                 <TablixHeader>
-                                                  <Size>1.69704cm</Size>
+                                                  <Size>1.7cm</Size>
                                                   <CellContents>
-                                                    <Textbox Name="FrequencyText8">
+                                                    <Textbox Name="FrequencyText10">
                                                       <rd:DefaultName>FrequencyText</rd:DefaultName>
                                                       <CanGrow>true</CanGrow>
                                                       <KeepTogether>true</KeepTogether>
@@ -11533,8 +11070,13 @@
                                                       </Paragraphs>
                                                       <Style>
                                                         <Border>
-                                                          <Style>None</Style>
+                                                          <Style>Solid</Style>
                                                         </Border>
+                                                        <TopBorder>
+                                                          <Color>Black</Color>
+                                                          <Style>Solid</Style>
+                                                          <Width>1pt</Width>
+                                                        </TopBorder>
                                                         <BottomBorder>
                                                           <Color>Black</Color>
                                                           <Style>Solid</Style>
@@ -11582,33 +11124,23 @@
                                       </FilterValues>
                                     </Filter>
                                   </Filters>
-                                  <Top>0cm</Top>
-                                  <Left>0.04692cm</Left>
-                                  <Height>0.78597cm</Height>
-                                  <Width>6.40408cm</Width>
+                                  <Top>0.00002cm</Top>
+                                  <Left>0.05829cm</Left>
+                                  <Height>0.62964cm</Height>
+                                  <Width>7.21cm</Width>
                                   <ZIndex>1</ZIndex>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
                                     </Border>
-                                    <LeftBorder>
-                                      <Color>Black</Color>
-                                      <Style>Solid</Style>
-                                      <Width>1pt</Width>
-                                    </LeftBorder>
-                                    <RightBorder>
-                                      <Color>Black</Color>
-                                      <Style>Solid</Style>
-                                      <Width>1pt</Width>
-                                    </RightBorder>
                                   </Style>
                                 </Tablix>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>11.41003cm</Top>
+                              <Top>11.23747cm</Top>
                               <Left>0cm</Left>
-                              <Height>3.175cm</Height>
-                              <Width>28.69999cm</Width>
+                              <Height>3.22077cm</Height>
+                              <Width>28.7cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -11649,8 +11181,8 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0cm</Top>
             <Left>0cm</Left>
-            <Height>14.58503cm</Height>
-            <Width>28.69999cm</Width>
+            <Height>14.59612cm</Height>
+            <Width>28.7cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -11658,7 +11190,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>14.58503cm</Height>
+        <Height>14.98418cm</Height>
         <Style />
       </Body>
       <Width>28.7cm</Width>
@@ -12715,6 +12247,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -12973,98 +12511,4 @@ j3/yPJ57/gVlR3/2Ao7Ko/k89s3/fye2iX2bZvo2bSjfppm+TTN9m5bk2zTTt2lJvk1L8m1akm/TTN+m
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="ReleasedProdOrderNo">
-          <DataField>ReleasedProdOrderNo</DataField>
-        </Field>
-        <Field Name="ProductionOrderDate">
-          <DataField>ProductionOrderDate</DataField>
-        </Field>
-        <Field Name="JobNo">
-          <DataField>JobNo</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Ring">
-          <DataField>Ring</DataField>
-        </Field>
-        <Field Name="MCNo">
-          <DataField>MCNo</DataField>
-        </Field>
-        <Field Name="FurnaceNo">
-          <DataField>FurnaceNo</DataField>
-        </Field>
-        <Field Name="PageNo">
-          <DataField>PageNo</DataField>
-        </Field>
-        <Field Name="CCP_Type">
-          <DataField>CCP_Type</DataField>
-        </Field>
-        <Field Name="CCP_ResultObtained">
-          <DataField>CCP_ResultObtained</DataField>
-        </Field>
-        <Field Name="CCP_Inspection1">
-          <DataField>CCP_Inspection1</DataField>
-        </Field>
-        <Field Name="CCP_Inspection2">
-          <DataField>CCP_Inspection2</DataField>
-        </Field>
-        <Field Name="CCP_Inspection3">
-          <DataField>CCP_Inspection3</DataField>
-        </Field>
-        <Field Name="CCP_WorkShift">
-          <DataField>CCP_WorkShift</DataField>
-        </Field>
-        <Field Name="FrequencyText">
-          <DataField>FrequencyText</DataField>
-        </Field>
-        <Field Name="TimeAsInteger">
-          <DataField>TimeAsInteger</DataField>
-        </Field>
-        <Field Name="SectionGroup">
-          <DataField>SectionGroup</DataField>
-        </Field>
-        <Field Name="LineNo">
-          <DataField>LineNo</DataField>
-        </Field>
-        <Field Name="Time">
-          <DataField>Time</DataField>
-        </Field>
-        <Field Name="Inspection_Type">
-          <DataField>Inspection_Type</DataField>
-        </Field>
-        <Field Name="QC_Defect_Code">
-          <DataField>QC_Defect_Code</DataField>
-        </Field>
-        <Field Name="QC_Defect_Name">
-          <DataField>QC_Defect_Name</DataField>
-        </Field>
-        <Field Name="Reject_Percent">
-          <DataField>Reject_Percent</DataField>
-        </Field>
-        <Field Name="Reject_PercentFormat">
-          <DataField>Reject_PercentFormat</DataField>
-        </Field>
-        <Field Name="MNR_Label">
-          <DataField>MNR_Label</DataField>
-        </Field>
-        <Field Name="MNR_DefectCode">
-          <DataField>MNR_DefectCode</DataField>
-        </Field>
-        <Field Name="MNR_DefectName">
-          <DataField>MNR_DefectName</DataField>
-        </Field>
-        <Field Name="MNR_CavityNo">
-          <DataField>MNR_CavityNo</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>
