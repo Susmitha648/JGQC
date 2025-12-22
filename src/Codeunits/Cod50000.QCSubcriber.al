@@ -161,7 +161,12 @@ codeunit 50000 "QC Subcriber"
         ReservEntry1: Record "Reservation Entry";
     begin
         If TrackingSpecification.Rejected then begin
-            If ReservEntry1.Get(ReservEntry."Entry No.") then begin
+            ReservEntry1.Reset();
+            ReservEntry1.SetRange("Source Type", 5406);
+            ReservEntry1.SetRange("Source Subtype", 3);
+            ReservEntry1.SetRange("Source ID", ReservEntry."Source ID");
+            ReservEntry1.SetRange("Source Prod. Order Line", ReservEntry."Source Prod. Order Line");
+            If ReservEntry1.FindFirst() then begin
                 ReservEntry1."Recording Slip Printed" := True;
                 ReservEntry1.Rejected := True;
                 ReservEntry1.Modify();
@@ -176,7 +181,12 @@ codeunit 50000 "QC Subcriber"
         ReservEntry: Record "Reservation Entry";
     begin
         If NewTrackingSpecification.Rejected then begin
-           If ReservEntry.Get(ReservEntry1."Entry No.") then begin
+            ReservEntry.Reset();
+            ReservEntry.SetRange("Source Type", 5406);
+            ReservEntry.SetRange("Source Subtype", 3);
+            ReservEntry.SetRange("Source ID", ReservEntry1."Source ID");
+            ReservEntry.SetRange("Source Prod. Order Line", ReservEntry1."Source Prod. Order Line");
+            If ReservEntry.FindFirst() then begin
                 ReservEntry."Recording Slip Printed" := True;
                 ReservEntry.Rejected := True;
                 ReservEntry.Modify();
