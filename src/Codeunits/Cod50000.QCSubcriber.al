@@ -154,6 +154,17 @@ codeunit 50000 "QC Subcriber"
             until ProdOrderLine.Next() = 0;
 
     end;
+     [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnWriteToDataOnBeforeCommit', '', false, false)]
+    local procedure UpdateRejected(var TrackingSpecification: Record "Tracking Specification"; var TempReservEntry: Record "Reservation Entry")
+    var
+        ProdOrderLine: Record "Prod. Order Line";
+    begin
+        If TrackingSpecification.Rejected then begin
+            TempReservEntry.Rejected := True;
+            TempReservEntry."Recording Slip Printed" := True;
+        end;
+
+    end;
 
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin
@@ -175,10 +186,20 @@ codeunit 50000 "QC Subcriber"
 
        Exit(GSerialNo);
     end;
+     procedure SetRejected()
+    begin
+        SetRejectedVar := True;
+    end;
+    procedure GetRejected() : Boolean
+    begin
+        Exit(SetRejectedVar);
+    end;
+
 
     var
         ProductionOrder: Record "Production Order";
         ProdOrderLine : Record "Prod. Order Line";
         GSerialNo : Code[50];
+        SetRejectedVar : Boolean;
 }
 

@@ -30,6 +30,11 @@ pageextension 50011 "Item Tracking Lines Ext" extends "Item Tracking Lines"
                     DocumentNo.SetRange("Line No.", Rec."Source Prod. Order Line");
                     If DocumentNo.FindFirst() then
                         Report.Run(MyReportID, true, false, DocumentNo);
+                    If SingleInstance.GetRejected() then begin
+                        Rec.Rejected := True;
+                        Rec."Recording Slip Printed" := True;
+                    end;
+                    CurrPage.Update();
                 end;
             }
 
@@ -39,6 +44,11 @@ pageextension 50011 "Item Tracking Lines Ext" extends "Item Tracking Lines"
         PrintingSlipVisible: Boolean;
 
     trigger OnOpenPage()
+    begin
+         If (Rec."Source Type" = 5406) and (Rec."Source Subtype" = 3) then
+           PrintingSlipVisible := True;
+    end;
+     trigger OnAfterGetRecord()
     begin
          If (Rec."Source Type" = 5406) and (Rec."Source Subtype" = 3) then
            PrintingSlipVisible := True;

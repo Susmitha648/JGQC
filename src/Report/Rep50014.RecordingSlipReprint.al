@@ -110,18 +110,7 @@ report 50014 "Recording Slip Reprint"
                 SingleInstance: Codeunit "QC Subcriber";
             begin
                 If Rejected then begin
-                    TrackingSpecification.Reset();
-                    TrackingSpecification.SetRange("Source Subtype", 5406);
-                    TrackingSpecification.SetRange("Source Subtype", 3);
-                    TrackingSpecification.SetRange("Source ID", "Prod. Order Line"."Prod. Order No.");
-                    TrackingSpecification.SetRange("Source Prod. Order Line", "Prod. Order Line"."Line No.");
-                    TrackingSpecification.SetRange("Serial No.", SingleInstance.Get());
-                    TrackingSpecification.SetRange("Recording Slip Printed",false);
-                    If TrackingSpecification.FindFirst() then begin
-                        TrackingSpecification.Rejected := True;
-                        TrackingSpecification."Recording Slip Printed" := True;
-                        TrackingSpecification.Modify();
-                    end;
+                    SingleInstance.SetRejected();
                 end;
 
                 // Declare the barcode provider using the barcode provider interface and enum
@@ -200,6 +189,7 @@ report 50014 "Recording Slip Reprint"
         CompanyCounty: Text;
         CompanyCountry: Text;
         Rejected: Boolean;
+        SetRejectedVar: Boolean;
         CompanyInfo: Record "Company Information";
         GLSetup: Record "General Ledger Setup";
         FormatAddr: Codeunit "Format Address";
@@ -243,4 +233,5 @@ report 50014 "Recording Slip Reprint"
 
         exit(CopyStr(SourceTxt, StrLen(SourceTxt) - Pos + 2));
     end;
+   
 }
