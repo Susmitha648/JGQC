@@ -24,106 +24,6 @@
       <rd:DataSourceID>8828306c-90a0-45c3-a57c-fe0ec1e90f39</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="ReleasedProdOrderNo">
-          <DataField>ReleasedProdOrderNo</DataField>
-        </Field>
-        <Field Name="ProductionOrderDate">
-          <DataField>ProductionOrderDate</DataField>
-        </Field>
-        <Field Name="JobNo">
-          <DataField>JobNo</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Ring">
-          <DataField>Ring</DataField>
-        </Field>
-        <Field Name="MCNo">
-          <DataField>MCNo</DataField>
-        </Field>
-        <Field Name="FurnaceNo">
-          <DataField>FurnaceNo</DataField>
-        </Field>
-        <Field Name="PageNo">
-          <DataField>PageNo</DataField>
-        </Field>
-        <Field Name="CCP_Type">
-          <DataField>CCP_Type</DataField>
-        </Field>
-        <Field Name="CCP_ResultObtained">
-          <DataField>CCP_ResultObtained</DataField>
-        </Field>
-        <Field Name="CCP_Inspection1">
-          <DataField>CCP_Inspection1</DataField>
-        </Field>
-        <Field Name="CCP_Inspection2">
-          <DataField>CCP_Inspection2</DataField>
-        </Field>
-        <Field Name="CCP_Inspection3">
-          <DataField>CCP_Inspection3</DataField>
-        </Field>
-        <Field Name="CCP_WorkShift">
-          <DataField>CCP_WorkShift</DataField>
-        </Field>
-        <Field Name="FrequencyText">
-          <DataField>FrequencyText</DataField>
-        </Field>
-        <Field Name="TimeAsInteger">
-          <DataField>TimeAsInteger</DataField>
-        </Field>
-        <Field Name="SectionGroup">
-          <DataField>SectionGroup</DataField>
-        </Field>
-        <Field Name="LineNo">
-          <DataField>LineNo</DataField>
-        </Field>
-        <Field Name="Time">
-          <DataField>Time</DataField>
-        </Field>
-        <Field Name="Inspection_Type">
-          <DataField>Inspection_Type</DataField>
-        </Field>
-        <Field Name="QC_Defect_Code">
-          <DataField>QC_Defect_Code</DataField>
-        </Field>
-        <Field Name="QC_Defect_Name">
-          <DataField>QC_Defect_Name</DataField>
-        </Field>
-        <Field Name="Reject_Percent">
-          <DataField>Reject_Percent</DataField>
-        </Field>
-        <Field Name="Reject_PercentFormat">
-          <DataField>Reject_PercentFormat</DataField>
-        </Field>
-        <Field Name="Defect_Reject__">
-          <DataField>Defect_Reject__</DataField>
-        </Field>
-        <Field Name="Defect_Reject__Format">
-          <DataField>Defect_Reject__Format</DataField>
-        </Field>
-        <Field Name="MNR_Label">
-          <DataField>MNR_Label</DataField>
-        </Field>
-        <Field Name="MNR_DefectCode">
-          <DataField>MNR_DefectCode</DataField>
-        </Field>
-        <Field Name="MNR_DefectName">
-          <DataField>MNR_DefectName</DataField>
-        </Field>
-        <Field Name="MNR_CavityNo">
-          <DataField>MNR_CavityNo</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -137,7 +37,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>14.59612cm</Height>
+                  <Height>14.45824cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -385,7 +285,7 @@
                                         <Width>1.6cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>0.91cm</Width>
+                                        <Width>0.95cm</Width>
                                       </TablixColumn>
                                     </TablixColumns>
                                     <TablixRows>
@@ -1222,7 +1122,7 @@
                                   <Top>0cm</Top>
                                   <Left>0.041cm</Left>
                                   <Height>5.37368cm</Height>
-                                  <Width>7.21cm</Width>
+                                  <Width>7.25cm</Width>
                                   <Style>
                                     <Border>
                                       <Style>None</Style>
@@ -7178,7 +7078,7 @@
                                     </Border>
                                   </Style>
                                 </Tablix>
-                                <Tablix Name="Tablix23">
+                                <Tablix Name="Tablix21">
                                   <TablixBody>
                                     <TablixColumns>
                                       <TablixColumn>
@@ -7191,7 +7091,7 @@
                                         <Width>1.6cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>0.91cm</Width>
+                                        <Width>0.95cm</Width>
                                       </TablixColumn>
                                     </TablixColumns>
                                     <TablixRows>
@@ -7200,7 +7100,7 @@
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="QC_Defect_Code12">
+                                              <Textbox Name="QC_Defect_Code7">
                                                 <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
@@ -7368,7 +7268,7 @@
                                           </TablixCell>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="QC_Defect_Code13">
+                                              <Textbox Name="QC_Defect_Code10">
                                                 <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
@@ -7429,7 +7329,7 @@
                                   <TablixColumnHierarchy>
                                     <TablixMembers>
                                       <TablixMember>
-                                        <Group Name="Inspection_Type9">
+                                        <Group Name="Inspection_Type7">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!Inspection_Type.Value</GroupExpression>
                                           </GroupExpressions>
@@ -7441,7 +7341,7 @@
                                         </SortExpressions>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="QC_Defect_Code9">
+                                            <Group Name="QC_Defect_Code7">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!QC_Defect_Code.Value</GroupExpression>
                                               </GroupExpressions>
@@ -7466,7 +7366,7 @@
                                         </Visibility>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Group Name="MNR_Defect_Name9">
+                                        <Group Name="MNR_Defect_Name7">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!MNR_Label.Value</GroupExpression>
                                           </GroupExpressions>
@@ -7478,7 +7378,7 @@
                                         </SortExpressions>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="MNR_DefectName9">
+                                            <Group Name="MNR_DefectName7">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!MNR_DefectName.Value</GroupExpression>
                                               </GroupExpressions>
@@ -7508,7 +7408,7 @@
                                         <TablixHeader>
                                           <Size>1cm</Size>
                                           <CellContents>
-                                            <Textbox Name="Textbox349">
+                                            <Textbox Name="Textbox339">
                                               <rd:DefaultName>Textbox316</rd:DefaultName>
                                               <CanGrow>true</CanGrow>
                                               <KeepTogether>true</KeepTogether>
@@ -7563,7 +7463,7 @@
                                         </TablixHeader>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="Time9">
+                                            <Group Name="Time7">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!FrequencyText.Value</GroupExpression>
                                               </GroupExpressions>
@@ -7578,7 +7478,7 @@
                                                 <TablixHeader>
                                                   <Size>1.7cm</Size>
                                                   <CellContents>
-                                                    <Textbox Name="FrequencyText9">
+                                                    <Textbox Name="FrequencyText7">
                                                       <rd:DefaultName>FrequencyText</rd:DefaultName>
                                                       <CanGrow>true</CanGrow>
                                                       <KeepTogether>true</KeepTogether>
@@ -7655,9 +7555,9 @@
                                     </Filter>
                                   </Filters>
                                   <Top>0cm</Top>
-                                  <Left>0.05829cm</Left>
+                                  <Left>0.04693cm</Left>
                                   <Height>0.62964cm</Height>
-                                  <Width>7.21cm</Width>
+                                  <Width>7.25cm</Width>
                                   <ZIndex>1</ZIndex>
                                   <Style>
                                     <Border>
@@ -10647,7 +10547,7 @@
                                     </Border>
                                   </Style>
                                 </Tablix>
-                                <Tablix Name="Tablix24">
+                                <Tablix Name="Tablix22">
                                   <TablixBody>
                                     <TablixColumns>
                                       <TablixColumn>
@@ -10660,7 +10560,7 @@
                                         <Width>1.6cm</Width>
                                       </TablixColumn>
                                       <TablixColumn>
-                                        <Width>0.91cm</Width>
+                                        <Width>0.95cm</Width>
                                       </TablixColumn>
                                     </TablixColumns>
                                     <TablixRows>
@@ -10669,7 +10569,7 @@
                                         <TablixCells>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="QC_Defect_Code14">
+                                              <Textbox Name="QC_Defect_Code8">
                                                 <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
@@ -10781,7 +10681,6 @@
                                           </TablixCell>
                                           <TablixCell>
                                             <CellContents>
-                                              <rd:Selected>true</rd:Selected>
                                               <Textbox Name="Textbox85">
                                                 <rd:DefaultName>Textbox83</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
@@ -10838,7 +10737,7 @@
                                           </TablixCell>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="QC_Defect_Code15">
+                                              <Textbox Name="QC_Defect_Code11">
                                                 <rd:DefaultName>QC_Defect_Code1</rd:DefaultName>
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
@@ -10899,7 +10798,7 @@
                                   <TablixColumnHierarchy>
                                     <TablixMembers>
                                       <TablixMember>
-                                        <Group Name="Inspection_Type10">
+                                        <Group Name="Inspection_Type8">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!Inspection_Type.Value</GroupExpression>
                                           </GroupExpressions>
@@ -10911,7 +10810,7 @@
                                         </SortExpressions>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="QC_Defect_Code10">
+                                            <Group Name="QC_Defect_Code8">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!QC_Defect_Code.Value</GroupExpression>
                                               </GroupExpressions>
@@ -10936,7 +10835,7 @@
                                         </Visibility>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Group Name="MNR_Defect_Name10">
+                                        <Group Name="MNR_Defect_Name8">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!MNR_Label.Value</GroupExpression>
                                           </GroupExpressions>
@@ -10948,7 +10847,7 @@
                                         </SortExpressions>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="MNR_DefectName10">
+                                            <Group Name="MNR_DefectName8">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!MNR_DefectName.Value</GroupExpression>
                                               </GroupExpressions>
@@ -10978,7 +10877,7 @@
                                         <TablixHeader>
                                           <Size>1cm</Size>
                                           <CellContents>
-                                            <Textbox Name="Textbox352">
+                                            <Textbox Name="Textbox343">
                                               <rd:DefaultName>Textbox316</rd:DefaultName>
                                               <CanGrow>true</CanGrow>
                                               <KeepTogether>true</KeepTogether>
@@ -11033,7 +10932,7 @@
                                         </TablixHeader>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="Time10">
+                                            <Group Name="Time8">
                                               <GroupExpressions>
                                                 <GroupExpression>=Fields!FrequencyText.Value</GroupExpression>
                                               </GroupExpressions>
@@ -11048,7 +10947,7 @@
                                                 <TablixHeader>
                                                   <Size>1.7cm</Size>
                                                   <CellContents>
-                                                    <Textbox Name="FrequencyText10">
+                                                    <Textbox Name="FrequencyText8">
                                                       <rd:DefaultName>FrequencyText</rd:DefaultName>
                                                       <CanGrow>true</CanGrow>
                                                       <KeepTogether>true</KeepTogether>
@@ -11125,9 +11024,9 @@
                                     </Filter>
                                   </Filters>
                                   <Top>0.00002cm</Top>
-                                  <Left>0.05829cm</Left>
-                                  <Height>0.62964cm</Height>
-                                  <Width>7.21cm</Width>
+                                  <Left>0.04693cm</Left>
+                                  <Height>0.62962cm</Height>
+                                  <Width>7.25cm</Width>
                                   <ZIndex>1</ZIndex>
                                   <Style>
                                     <Border>
@@ -11181,7 +11080,7 @@
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0cm</Top>
             <Left>0cm</Left>
-            <Height>14.59612cm</Height>
+            <Height>14.45824cm</Height>
             <Width>28.7cm</Width>
             <Style>
               <Border>
@@ -11190,7 +11089,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>14.98418cm</Height>
+        <Height>15.09324cm</Height>
         <Style />
       </Body>
       <Width>28.7cm</Width>
@@ -12247,12 +12146,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -12511,4 +12404,104 @@ j3/yPJ57/gVlR3/2Ao7Ko/k89s3/fye2iX2bZvo2bSjfppm+TTN9m5bk2zTTt2lJvk1L8m1akm/TTN+m
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="ReleasedProdOrderNo">
+          <DataField>ReleasedProdOrderNo</DataField>
+        </Field>
+        <Field Name="ProductionOrderDate">
+          <DataField>ProductionOrderDate</DataField>
+        </Field>
+        <Field Name="JobNo">
+          <DataField>JobNo</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Ring">
+          <DataField>Ring</DataField>
+        </Field>
+        <Field Name="MCNo">
+          <DataField>MCNo</DataField>
+        </Field>
+        <Field Name="FurnaceNo">
+          <DataField>FurnaceNo</DataField>
+        </Field>
+        <Field Name="PageNo">
+          <DataField>PageNo</DataField>
+        </Field>
+        <Field Name="CCP_Type">
+          <DataField>CCP_Type</DataField>
+        </Field>
+        <Field Name="CCP_ResultObtained">
+          <DataField>CCP_ResultObtained</DataField>
+        </Field>
+        <Field Name="CCP_Inspection1">
+          <DataField>CCP_Inspection1</DataField>
+        </Field>
+        <Field Name="CCP_Inspection2">
+          <DataField>CCP_Inspection2</DataField>
+        </Field>
+        <Field Name="CCP_Inspection3">
+          <DataField>CCP_Inspection3</DataField>
+        </Field>
+        <Field Name="CCP_WorkShift">
+          <DataField>CCP_WorkShift</DataField>
+        </Field>
+        <Field Name="FrequencyText">
+          <DataField>FrequencyText</DataField>
+        </Field>
+        <Field Name="TimeAsInteger">
+          <DataField>TimeAsInteger</DataField>
+        </Field>
+        <Field Name="SectionGroup">
+          <DataField>SectionGroup</DataField>
+        </Field>
+        <Field Name="LineNo">
+          <DataField>LineNo</DataField>
+        </Field>
+        <Field Name="Time">
+          <DataField>Time</DataField>
+        </Field>
+        <Field Name="Inspection_Type">
+          <DataField>Inspection_Type</DataField>
+        </Field>
+        <Field Name="QC_Defect_Code">
+          <DataField>QC_Defect_Code</DataField>
+        </Field>
+        <Field Name="QC_Defect_Name">
+          <DataField>QC_Defect_Name</DataField>
+        </Field>
+        <Field Name="Reject_Percent">
+          <DataField>Reject_Percent</DataField>
+        </Field>
+        <Field Name="Reject_PercentFormat">
+          <DataField>Reject_PercentFormat</DataField>
+        </Field>
+        <Field Name="Defect_Reject__">
+          <DataField>Defect_Reject__</DataField>
+        </Field>
+        <Field Name="Defect_Reject__Format">
+          <DataField>Defect_Reject__Format</DataField>
+        </Field>
+        <Field Name="MNR_Label">
+          <DataField>MNR_Label</DataField>
+        </Field>
+        <Field Name="MNR_DefectCode">
+          <DataField>MNR_DefectCode</DataField>
+        </Field>
+        <Field Name="MNR_DefectName">
+          <DataField>MNR_DefectName</DataField>
+        </Field>
+        <Field Name="MNR_CavityNo">
+          <DataField>MNR_CavityNo</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
