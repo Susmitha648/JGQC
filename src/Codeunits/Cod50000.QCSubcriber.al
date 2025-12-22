@@ -154,16 +154,34 @@ codeunit 50000 "QC Subcriber"
             until ProdOrderLine.Next() = 0;
 
     end;
-     [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnWriteToDataOnBeforeCommit', '', false, false)]
-    local procedure UpdateRejected(var TrackingSpecification: Record "Tracking Specification"; var TempReservEntry: Record "Reservation Entry")
+
+    [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnRegisterChangeOnAfterCreateReservEntry', '', false, false)]
+    local procedure UpdateRejected(var ReservEntry: Record "Reservation Entry"; TrackingSpecification: Record "Tracking Specification"; OldTrackingSpecification: Record "Tracking Specification"; CurrentRunMode: Enum "Item Tracking Run Mode"; CurrentSourceType: Integer; TempReservEntry: Record "Reservation Entry" temporary)
     var
-        ProdOrderLine: Record "Prod. Order Line";
+        ReservEntry1: Record "Reservation Entry";
     begin
         If TrackingSpecification.Rejected then begin
-            TempReservEntry.Rejected := True;
-            TempReservEntry."Recording Slip Printed" := True;
+            If ReservEntry1.Get(ReservEntry."Entry No.") then begin
+                ReservEntry1."Recording Slip Printed" := True;
+                ReservEntry1.Rejected := True;
+                ReservEntry1.Modify();
+            end;
         end;
 
+    end;
+
+    [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnRegisterChangeOnChangeTypeModifyOnBeforeCheckEntriesAreIdentical', '', false, false)]
+    local procedure UpdateRejectedModify(var ReservEntry1: Record "Reservation Entry"; var ReservEntry2: Record "Reservation Entry"; var OldTrackingSpecification: Record "Tracking Specification"; var NewTrackingSpecification: Record "Tracking Specification"; var IdenticalArray: array[2] of Boolean)
+    var
+        ReservEntry: Record "Reservation Entry";
+    begin
+        If NewTrackingSpecification.Rejected then begin
+           If ReservEntry.Get(ReservEntry1."Entry No.") then begin
+                ReservEntry."Recording Slip Printed" := True;
+                ReservEntry.Rejected := True;
+                ReservEntry.Modify();
+            end;
+        end;
     end;
 
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
@@ -176,21 +194,24 @@ codeunit 50000 "QC Subcriber"
         Exit(ProductionOrder."No.");
     end;
 
-    procedure Set(SerialNo : Code[50])
+    procedure Set(SerialNo: Code[50])
     begin
 
         GSerialNo := SerialNo;
     end;
-     procedure Get() : Code[50];
+
+    procedure Get(): Code[50];
     begin
 
-       Exit(GSerialNo);
+        Exit(GSerialNo);
     end;
-     procedure SetRejected()
+
+    procedure SetRejected()
     begin
         SetRejectedVar := True;
     end;
-    procedure GetRejected() : Boolean
+
+    procedure GetRejected(): Boolean
     begin
         Exit(SetRejectedVar);
     end;
@@ -198,8 +219,8 @@ codeunit 50000 "QC Subcriber"
 
     var
         ProductionOrder: Record "Production Order";
-        ProdOrderLine : Record "Prod. Order Line";
-        GSerialNo : Code[50];
-        SetRejectedVar : Boolean;
+        ProdOrderLine: Record "Prod. Order Line";
+        GSerialNo: Code[50];
+        SetRejectedVar: Boolean;
 }
 
