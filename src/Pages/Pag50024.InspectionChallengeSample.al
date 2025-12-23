@@ -103,7 +103,7 @@ page 50024 "Inspection Challenge Sample"
                                 If DefectCodeList.FindSet() then
                                     repeat
                                         foreach Enumtext in Enum::Time.Ordinals() do begin
-                                            foreach FrontBack in Enum::"Inspection Type".Ordinals() do begin
+                                           
                                                 InspectionLine.Init();
                                                 InspectionLine."Released Prod Order No." := Rec."Released Prod Order No.";
                                                 InspectionLine."Production Order Date" := Rec."Production Order Date";
@@ -115,12 +115,15 @@ page 50024 "Inspection Challenge Sample"
                                                     InspectionLine."Line No." := InspectionLine2."Line No." + 10000
                                                 else
                                                     InspectionLine."Line No." := 10000;
-                                                Evaluate(InspectionLine."Inspection Type", Format(FrontBack));
+                                                If DefectCodeList."Inspection Type" = DefectCodeList."Inspection Type"::"Mechanical Inspection Machine" then
+                                                    InspectionLine."Inspection Type" := InspectionLine."Inspection Type"::"Mechanical Inspection Machine";
+                                                If DefectCodeList."Inspection Type" = DefectCodeList."Inspection Type"::"Visual Inspection Machine" then
+                                                    InspectionLine."Inspection Type" := InspectionLine."Inspection Type"::"Visual Inspection Machine";  
                                                 Evaluate(InspectionLine.Frequency, Format(Enumtext));
                                                 InspectionLine."QC Defect Code" := DefectCodeList."Defect Code";
                                                 InspectionLine.Insert();
                                                 Count += 1;
-                                            end;
+                                           
                                         end;
                                     until DefectCodeList.Next() = 0;
 
@@ -133,6 +136,27 @@ page 50024 "Inspection Challenge Sample"
                             Message('Lines created')
                         else
                             Message('No Lines created');
+                    end;
+                }
+                action(CopyDoc)
+                {
+                    ApplicationArea = Suite;
+                    Caption = 'Copy Document';
+                    Image = Copy;
+                    Promoted = True;
+                    PromotedIsBig = True;
+                    PromotedCategory = New;
+                    ToolTip = 'Copy Inspection Challenge Lines';
+                    trigger OnAction()
+                    var
+                    CopyReport : Report "Copy Inspection Challenge";
+                    begin
+                        CopyReport.Set(Rec);
+                        CopyReport.RunModal();
+                       
+                        //if Rec.Get(Rec."Production Order No.",Rec."Line No.") then;
+                        
+                        CurrPage.Update();
                     end;
                 }
                 action(CCP)

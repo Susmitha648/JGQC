@@ -6,6 +6,7 @@ page 50025 "Inspection Challenge Samples"
     SourceTable = "Inspection Challenge Sample He";
     CardPageId = "Inspection Challenge Sample";
     Editable = false;
+    UsageCategory = Lists;
     layout
     {
         area(Content)

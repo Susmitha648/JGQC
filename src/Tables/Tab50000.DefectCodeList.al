@@ -22,6 +22,10 @@ table 50000 "Defect Code"
         {
             DataClassification = CustomerContent;
         }
+         field(5; "Inspection Type"; enum "Inspection Type")
+        {
+            DataClassification = CustomerContent;
+        }
     }
     keys
     {

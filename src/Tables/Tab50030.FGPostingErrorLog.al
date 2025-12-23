@@ -17,6 +17,14 @@ table 50030 "FG Posting Error Log"
         {
             Caption = 'Error';
         }
+          field(4; "Serial No."; Code[50])
+        {
+            Caption = 'Error';
+        }
+        field(5; "Created Date"; DateTime)
+        {
+            Caption = 'Created Date';
+        }
     }
     keys
     {

@@ -5,7 +5,7 @@ page 50366 "FG Posting Error Log"
     PageType = List;
     SourceTable = "FG Posting Error Log";
     UsageCategory = Lists;
-    Editable = false;
+
     layout
     {
         area(Content)
@@ -19,6 +19,14 @@ page 50366 "FG Posting Error Log"
                 field("Document No"; Rec."Document No")
                 {
                     ToolTip = 'Specifies the value of the Document No field.', Comment = '%';
+                }
+                field("Serial No."; Rec."Serial No.")
+                {
+                    ToolTip = 'Specifies the value of the Serial No. field.', Comment = '%';
+                }
+                field("Created Date"; Rec."Created Date")
+                {
+                    ToolTip = 'Specifies the value of the Created Date field.', Comment = '%';
                 }
                 field(Error; Rec.Error)
                 {

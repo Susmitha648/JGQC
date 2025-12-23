@@ -1,7 +1,7 @@
 page 50043 "QC Details Finished"
 {
     ApplicationArea = All;
-    Caption = 'QC Details';
+    Caption = 'CE Update Details';
     PageType = List;
     SourceTable = "QC Details";
     Editable = false;

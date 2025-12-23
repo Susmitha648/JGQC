@@ -1,7 +1,7 @@
 page 50042 "QC Detail Finished"
 {
     ApplicationArea = All;
-    Caption = 'QC Detail';
+    Caption = 'CE Update Detail';
     PageType = Card;
     SourceTable = "QC Details";
     Editable = false;

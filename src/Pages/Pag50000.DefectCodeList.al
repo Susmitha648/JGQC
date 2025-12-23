@@ -30,6 +30,10 @@ page 50000 "Defect Code List"
                 {
                     ToolTip = 'Specifies the value of the Create Inspection Lines field.', Comment = '%';
                 }
+                 field("Inspection Type"; Rec."Inspection Type")
+                {
+                    ToolTip = 'Specifies the value of the Create Inspection Lines field.', Comment = '%';
+                }
             }
         }
     }

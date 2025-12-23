@@ -1,7 +1,7 @@
 page 50041 "QC Detail"
 {
     ApplicationArea = All;
-    Caption = 'QC Detail';
+    Caption = 'CE Update Detail';
     PageType = Card;
     SourceTable = "QC Details";
     

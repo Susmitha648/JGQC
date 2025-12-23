@@ -123,8 +123,9 @@ codeunit 50003 "FG Posting"
             ItemJnlLinePost.SetRange("Order No.", ProdOrderLine."Prod. Order No.");
             ItemJnlLinePost.SetRange("Entry Type", ItemJnlLinePost."Entry Type"::Output);
             ItemJnlLinePost.SetRange("Line No.", LineNo);
-            If ItemJnlLinePost.FindFirst() then
-                ItemJnlPostBatch.Run(ItemJnlLinePost);
+            If ItemJnlLinePost.FindFirst() then;
+            ItemJnlPostBatch.SetSuppressCommit(true);
+            ItemJnlPostBatch.Run(ItemJnlLinePost);
 
             TransferOrder.Init();
             TransferOrder.Insert(True);
@@ -174,6 +175,7 @@ codeunit 50003 "FG Posting"
                 ReservationEntry1."Created By" := UserId;
                 ReservationEntry1."Creation Date" := WorkDate();
                 ReservationEntry1.Insert(True);
+
                 ReservationEntry1.Init();
                 ReservationEntry1."Entry No." := 0;
                 ReservationEntry1.Validate("Item No.", TransferLine."Item No.");
@@ -197,13 +199,13 @@ codeunit 50003 "FG Posting"
                 ReservationEntry1."Creation Date" := WorkDate();
                 ReservationEntry1.Insert();
             End;
-            If TransferOrderPost.Get(TransferNo) then
-                TransferOrderPostShipment.Run(TransferOrderPost);
+            If TransferOrderPost.Get(TransferNo) then;
+            TransferOrderPostShipment.SetSuppressCommit(True);
+            TransferOrderPostShipment.Run(TransferOrderPost);
 
-            if TransferOrderPost.Status <> TransferOrderPost.Status::Released then begin
-                CODEUNIT.Run(CODEUNIT::"Release Transfer Document", TransferOrderPost);
-                Commit();
-            end;
+
+            CODEUNIT.Run(CODEUNIT::"Release Transfer Document", TransferOrderPost);
+
             TransferOrderPost.TestField(Status, TransferOrderPost.Status::Released);
             WarehouseRequest.SetRange(Type, WarehouseRequest.Type::Inbound);
             WarehouseRequest.SetRange("Source Type", Database::"Transfer Line");
@@ -212,25 +214,25 @@ codeunit 50003 "FG Posting"
             WarehouseRequest.SetRange("Document Status", WarehouseRequest."Document Status"::Released);
             GetSourceDocInbound.GetRequireReceiveRqst(WarehouseRequest);
 
-            if not WarehouseRequest.IsEmpty() then begin
 
 
-                Clear(GetSourceDocuments);
-                GetSourceDocuments.UseRequestPage(false);
-                GetSourceDocuments.SetTableView(WarehouseRequest);
-                GetSourceDocuments.SetHideDialog(true);
-                GetSourceDocuments.RunModal();
 
-                GetSourceDocuments.GetLastReceiptHeader(WarehouseReceiptHeader);
-                If WarehouseReceiptHeader1.Get(WarehouseReceiptHeader."No.") then begin
-                    WarehouseReceiptHeader1.Status := WarehouseReceiptHeader1.Status::Released;
-                    WarehouseReceiptHeader1.Modify();
-                    WhseReceiptLine.Reset();
-                    WhseReceiptLine.SetRange("No.", WarehouseReceiptHeader1."No.");
-                    If WhseReceiptLine.FindFirst() then;
-                    WhsePostReceipt.Run(WhseReceiptLine);
-                end;
-            end;
+            Clear(GetSourceDocuments);
+            GetSourceDocuments.UseRequestPage(false);
+            GetSourceDocuments.SetTableView(WarehouseRequest);
+            GetSourceDocuments.SetHideDialog(true);
+            GetSourceDocuments.RunModal();
+
+            GetSourceDocuments.GetLastReceiptHeader(WarehouseReceiptHeader);
+            WarehouseReceiptHeader1.Get(WarehouseReceiptHeader."No.");
+            WarehouseReceiptHeader1.Status := WarehouseReceiptHeader1.Status::Released;
+            WarehouseReceiptHeader1.Modify();
+            WhseReceiptLine.Reset();
+            WhseReceiptLine.SetRange("No.", WarehouseReceiptHeader1."No.");
+            If WhseReceiptLine.FindFirst() then;
+            WhsePostReceipt.SetSuppressCommit(true);
+            WhsePostReceipt.Run(WhseReceiptLine);
+
 
         end;
     end;
