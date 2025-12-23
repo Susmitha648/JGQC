@@ -2,7 +2,8 @@ report 50017 "Copy Inspection Challenge"
 {
     Caption = 'Copy Inspection Challenge';
     ProcessingOnly = true;
-
+    ApplicationArea = All;
+    
     requestpage
     {
         layout
@@ -11,7 +12,7 @@ report 50017 "Copy Inspection Challenge"
             {
                 group(GroupName)
                 {
-                    field(JobNo; JobNo)
+                    field(WorkOrderNo; WorkOrderNo)
                     {
                         ApplicationArea = Suite;
                         Caption = 'Work Order';
@@ -22,8 +23,8 @@ report 50017 "Copy Inspection Challenge"
                         begin
                             InspectionChallenge1.Reset();
                             InspectionChallenge1.SetRange("Job No.", InspectionChallengeSample."Job No.");
-                            if Page.RunModal(0, InspectionChallenge1) = Action::LookupOK then
-                                JobNo := InspectionChallenge1."Released Prod Order No.";
+                            if Page.RunModal(50025, InspectionChallenge1) = Action::LookupOK then
+                                WorkOrderNo := InspectionChallenge1."Released Prod Order No.";
                         end;
                     }
                 }
@@ -37,23 +38,21 @@ report 50017 "Copy Inspection Challenge"
     end;
 
     var
-        JobNo: Code[20];
+        WorkOrderNo: Code[20];
         InspectionChallengeSample: Record "Inspection Challenge Sample He";
 
     trigger OnPreReport()
     var
-        InspectionChallenge: Record "Inspection Challenge Sample He";
+        InspectionChallengeLine2: Record "Inspection Challenge Sample li";
         InspectionChallengeLine: Record "Inspection Challenge Sample li";
         InspectionChallengeLine1: Record "Inspection Challenge Sample li";
     begin
-        InspectionChallenge.Reset();
-        InspectionChallenge.SetRange("Released Prod Order No.", JobNo);
-        If InspectionChallenge.FindFirst() then;
-        If InspectionChallenge.IsEmpty then
-            Error('Inspection Challenge does not exist')
-        else begin
+        InspectionChallengeLine2.Reset();
+        InspectionChallengeLine2.SetRange("Released Prod Order No.", InspectionChallengeSample."Released Prod Order No.");
+        InspectionChallengeLine2.DeleteAll();
+       
             InspectionChallengeLine.Reset();
-            InspectionChallengeLine.SetRange("Released Prod Order No.", JobNo);
+            InspectionChallengeLine.SetRange("Released Prod Order No.", WorkOrderNo);
             If InspectionChallengeLine.FindSet() then
                 repeat
                     InspectionChallengeLine1.Init();
@@ -70,6 +69,6 @@ report 50017 "Copy Inspection Challenge"
                     InspectionChallengeLine1.Insert();
                 until InspectionChallengeLine.Next() = 0;
 
-        end;
+        
     end;
 }

@@ -155,7 +155,7 @@ codeunit 50000 "QC Subcriber"
 
     end;
 
-    [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnRegisterChangeOnAfterCreateReservEntry', '', false, false)]
+   /* [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnRegisterChangeOnAfterCreateReservEntry', '', false, false)]
     local procedure UpdateRejected(var ReservEntry: Record "Reservation Entry"; TrackingSpecification: Record "Tracking Specification"; OldTrackingSpecification: Record "Tracking Specification"; CurrentRunMode: Enum "Item Tracking Run Mode"; CurrentSourceType: Integer; TempReservEntry: Record "Reservation Entry" temporary)
     var
         ReservEntry1: Record "Reservation Entry";
@@ -192,7 +192,7 @@ codeunit 50000 "QC Subcriber"
                 ReservEntry.Modify();
             end;
         end;
-    end;
+    end;*/
 
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin

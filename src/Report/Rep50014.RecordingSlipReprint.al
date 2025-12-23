@@ -109,9 +109,7 @@ report 50014 "Recording Slip Reprint"
                 MaxDateDiff: Integer;
                 SingleInstance: Codeunit "QC Subcriber";
             begin
-                If Rejected then begin
-                    SingleInstance.SetRejected();
-                end;
+               
 
                 // Declare the barcode provider using the barcode provider interface and enum
                 BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
@@ -138,23 +136,7 @@ report 50014 "Recording Slip Reprint"
             end;
         }
     }
-    requestpage
-    {
-        layout
-        {
-            area(Content)
-            {
-                group(GroupName)
-                {
-                    field(Rejected; Rejected)
-                    {
-                        ApplicationArea = Suite;
-                        Caption = 'Rejected';
-                    }
-                }
-            }
-        }
-    }
+    
 
     trigger OnInitReport()
     begin

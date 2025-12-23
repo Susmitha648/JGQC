@@ -181,8 +181,27 @@ report 50005 RecordingSlipReport
                 ReservationEntry."Created By" := UserId;
                 ReservationEntry."Creation Date" := WorkDate();
                 ReservationEntry."Recording Slip Printed" := True;
+                If Rejected then
+                ReservationEntry.Rejected := True;
                 ReservationEntry.Insert(True);
             end;
+        }
+    }
+    requestpage
+    {
+        layout
+        {
+            area(Content)
+            {
+                group(GroupName)
+                {
+                    field(Rejected; Rejected)
+                    {
+                        ApplicationArea = Suite;
+                        Caption = 'Rejected';
+                    }
+                }
+            }
         }
     }
 
@@ -225,6 +244,7 @@ report 50005 RecordingSlipReport
         ItemQuantity: Integer;
         NoOfLoops: Integer;
         CopyText: Text[30];
+        Rejected: Boolean;
         OutputNo: Integer;
         RecordingSlipNo: Integer;
         BarcodeSymbology: Enum "Barcode Symbology";
