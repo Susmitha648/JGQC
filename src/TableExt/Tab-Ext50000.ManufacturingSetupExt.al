@@ -37,5 +37,10 @@ tableextension 50000 "Manufacturing Setup Ext" extends "Manufacturing Setup"
             Caption = 'Work Shift Hours';
             DataClassification = CustomerContent;
         }
+        field(50006; "Machine Draining Item"; Code[20] )
+        {
+            Caption = 'Machine Draining Item';
+            DataClassification = CustomerContent;
+        }
     }
 }

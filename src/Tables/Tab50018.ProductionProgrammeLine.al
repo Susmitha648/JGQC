@@ -318,6 +318,23 @@ table 50018 "Production Programme Line"
         {
             Caption = 'Sequence No';
         }
+        field(19; "Line No"; Integer)
+        {
+            Caption = 'Line No';
+        }
+        field(20; "Work Shift"; Code[10])
+        {
+            Caption = 'Work Shift';
+        }
+        field(21; "Quantity"; Decimal)
+        {
+            Caption = 'Quantity';
+        }
+        field(22; "Ton Per Line"; Decimal)
+        {
+            Caption = 'Ton Per Line';
+        }
+
 
     }
     keys
@@ -370,19 +387,19 @@ table 50018 "Production Programme Line"
                 ProdProg3.SetRange("Last Line", True);
                 If ProdProg3.FindLast() then
                     LastDate := ProdProg3.Date;
-                 ProdProg4.Reset();
+                ProdProg4.Reset();
                 ProdProg4.SetRange(Job, Rec.Job);
                 ProdProg4.SetRange("No.", Rec."No.");
                 ProdProg4.SetRange(Furnace, Rec.Furnace);
                 If ProdProg4.FindLast() then
-                      SeqBefore := ProdProg4."Sequence No";
+                    SeqBefore := ProdProg4."Sequence No";
                 ProdProg5.Reset();
                 ProdProg5.SetRange(Job, Rec.Job);
                 ProdProg5.SetRange("No.", Rec."No.");
                 ProdProg5.SetRange(Furnace, Rec.Furnace);
                 ProdProg5.SetRange("Sequence No", Rec."Sequence No");
-                ProdProg5.SetFilter(Date,'%1..%2',FirstDate,LastDate);
-                If ProdProg5.FindSet() then 
+                ProdProg5.SetFilter(Date, '%1..%2', FirstDate, LastDate);
+                If ProdProg5.FindSet() then
                     repeat
                         ProdProg5."Sequence No" := SeqBefore + 1;
                         ProdProg5.Modify();

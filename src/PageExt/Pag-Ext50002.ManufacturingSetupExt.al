@@ -30,6 +30,10 @@ pageextension 50002 "Manufacturing Setup Ext" extends "Manufacturing Setup"
             {
                 ApplicationArea = All;
             }
+             field("Machine Draining Item"; Rec."Machine Draining Item")
+            {
+                ApplicationArea = All;
+            }
         }
     }
 }
