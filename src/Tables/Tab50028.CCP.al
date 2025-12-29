@@ -33,6 +33,20 @@ table 50028 CCP
         {
             Caption = 'Work Shift';
             TableRelation = "Work Shift".Code;
+            trigger OnValidate()
+            var
+            WorkShift : Record "Work Shift";
+            begin
+                WorkShift.Reset();
+                WorkShift.SetRange(Code,"Work Shift");
+                If WorkShift.FindFirst() then 
+                    "Work Shift Description" := WorkShift.Description;
+            end;
+        }
+          field(8; "Work Shift Description"; Text[20])
+        {
+            Caption = 'Work Shift Description';
+            Editable = false;
         }
     }
     keys

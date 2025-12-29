@@ -22,6 +22,10 @@ page 50364 CCP
                 {
                     ToolTip = 'Specifies the value of the Work Shift field.', Comment = '%';
                 }
+                 field("Work Shift Description"; Rec."Work Shift Description")
+                {
+                    ToolTip = 'Specifies the value of the Work Shift Description field.', Comment = '%';
+                }
                 field("Result Obtained"; Rec."Result Obtained")
                 {
                     ToolTip = 'Specifies the value of the Result Obtained field.', Comment = '%';
