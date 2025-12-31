@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-16T01:34:41.6533993Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-12-31T07:36:36.7096799Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -24,6 +24,115 @@
       <rd:DataSourceID>39930317-ade4-4410-956c-de23f06c3535</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="No">
+          <DataField>No</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="No_of_Archived_Versions">
+          <DataField>No_of_Archived_Versions</DataField>
+        </Field>
+        <Field Name="Created_Date">
+          <DataField>Created_Date</DataField>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+        </Field>
+        <Field Name="Demand_Forecast_Name">
+          <DataField>Demand_Forecast_Name</DataField>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+        </Field>
+        <Field Name="MonthYear">
+          <DataField>MonthYear</DataField>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+        </Field>
+        <Field Name="Day">
+          <DataField>Day</DataField>
+        </Field>
+        <Field Name="IsHoliday">
+          <DataField>IsHoliday</DataField>
+        </Field>
+        <Field Name="No_">
+          <DataField>No_</DataField>
+        </Field>
+        <Field Name="Item_No_PPL">
+          <DataField>Item_No_PPL</DataField>
+        </Field>
+        <Field Name="Furnace">
+          <DataField>Furnace</DataField>
+        </Field>
+        <Field Name="Job">
+          <DataField>Job</DataField>
+        </Field>
+        <Field Name="WT">
+          <DataField>WT</DataField>
+        </Field>
+        <Field Name="WTFormat">
+          <DataField>WTFormat</DataField>
+        </Field>
+        <Field Name="Ton">
+          <DataField>Ton</DataField>
+        </Field>
+        <Field Name="TonFormat">
+          <DataField>TonFormat</DataField>
+        </Field>
+        <Field Name="Tray">
+          <DataField>Tray</DataField>
+        </Field>
+        <Field Name="Pallet">
+          <DataField>Pallet</DataField>
+        </Field>
+        <Field Name="Speed">
+          <DataField>Speed</DataField>
+        </Field>
+        <Field Name="Bottles_Per_Minute">
+          <DataField>Bottles_Per_Minute</DataField>
+        </Field>
+        <Field Name="IsFirstJobRow">
+          <DataField>IsFirstJobRow</DataField>
+        </Field>
+        <Field Name="Total_Job_Forecast">
+          <DataField>Total_Job_Forecast</DataField>
+        </Field>
+        <Field Name="Total_Job_ForecastFormat">
+          <DataField>Total_Job_ForecastFormat</DataField>
+        </Field>
+        <Field Name="Forecast_Quantity_Base">
+          <DataField>Forecast_Quantity_Base</DataField>
+        </Field>
+        <Field Name="Forecast_Quantity_BaseFormat">
+          <DataField>Forecast_Quantity_BaseFormat</DataField>
+        </Field>
+        <Field Name="Forecast_Quantity">
+          <DataField>Forecast_Quantity</DataField>
+        </Field>
+        <Field Name="Forecast_QuantityFormat">
+          <DataField>Forecast_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Unit_of_Measure_Code">
+          <DataField>Unit_of_Measure_Code</DataField>
+        </Field>
+        <Field Name="Location_Code">
+          <DataField>Location_Code</DataField>
+        </Field>
+        <Field Name="Variant_Code">
+          <DataField>Variant_Code</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -4055,7 +4164,7 @@
                       </Style>
                     </TextRun>
                     <TextRun>
-                      <Value>=First(Fields!Created_Date.Value, "DataSet_Result")</Value>
+                      <Value>=Format(First(Fields!Created_Date.Value, "DataSet_Result"), "MM/dd/yy")</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -4109,7 +4218,7 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Center</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
@@ -4386,6 +4495,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4423,113 +4538,4 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="No">
-          <DataField>No</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="No_of_Archived_Versions">
-          <DataField>No_of_Archived_Versions</DataField>
-        </Field>
-        <Field Name="Created_Date">
-          <DataField>Created_Date</DataField>
-        </Field>
-        <Field Name="Remarks">
-          <DataField>Remarks</DataField>
-        </Field>
-        <Field Name="Demand_Forecast_Name">
-          <DataField>Demand_Forecast_Name</DataField>
-        </Field>
-        <Field Name="Status">
-          <DataField>Status</DataField>
-        </Field>
-        <Field Name="MonthYear">
-          <DataField>MonthYear</DataField>
-        </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
-        </Field>
-        <Field Name="Day">
-          <DataField>Day</DataField>
-        </Field>
-        <Field Name="IsHoliday">
-          <DataField>IsHoliday</DataField>
-        </Field>
-        <Field Name="No_">
-          <DataField>No_</DataField>
-        </Field>
-        <Field Name="Item_No_PPL">
-          <DataField>Item_No_PPL</DataField>
-        </Field>
-        <Field Name="Furnace">
-          <DataField>Furnace</DataField>
-        </Field>
-        <Field Name="Job">
-          <DataField>Job</DataField>
-        </Field>
-        <Field Name="WT">
-          <DataField>WT</DataField>
-        </Field>
-        <Field Name="WTFormat">
-          <DataField>WTFormat</DataField>
-        </Field>
-        <Field Name="Ton">
-          <DataField>Ton</DataField>
-        </Field>
-        <Field Name="TonFormat">
-          <DataField>TonFormat</DataField>
-        </Field>
-        <Field Name="Tray">
-          <DataField>Tray</DataField>
-        </Field>
-        <Field Name="Pallet">
-          <DataField>Pallet</DataField>
-        </Field>
-        <Field Name="Speed">
-          <DataField>Speed</DataField>
-        </Field>
-        <Field Name="Bottles_Per_Minute">
-          <DataField>Bottles_Per_Minute</DataField>
-        </Field>
-        <Field Name="IsFirstJobRow">
-          <DataField>IsFirstJobRow</DataField>
-        </Field>
-        <Field Name="Total_Job_Forecast">
-          <DataField>Total_Job_Forecast</DataField>
-        </Field>
-        <Field Name="Total_Job_ForecastFormat">
-          <DataField>Total_Job_ForecastFormat</DataField>
-        </Field>
-        <Field Name="Forecast_Quantity_Base">
-          <DataField>Forecast_Quantity_Base</DataField>
-        </Field>
-        <Field Name="Forecast_Quantity_BaseFormat">
-          <DataField>Forecast_Quantity_BaseFormat</DataField>
-        </Field>
-        <Field Name="Forecast_Quantity">
-          <DataField>Forecast_Quantity</DataField>
-        </Field>
-        <Field Name="Forecast_QuantityFormat">
-          <DataField>Forecast_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Unit_of_Measure_Code">
-          <DataField>Unit_of_Measure_Code</DataField>
-        </Field>
-        <Field Name="Location_Code">
-          <DataField>Location_Code</DataField>
-        </Field>
-        <Field Name="Variant_Code">
-          <DataField>Variant_Code</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>
