@@ -49,8 +49,10 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     SingleInstance: Codeunit "QC Subcriber";
                     ProductionProgram: Record "Production Programme Line";
                     ProductionProgramLine: Record "Production Programme Line";
-                    ProdOrder : Record "Production Order";
-                    ReservationEntry : Record "Reservation Entry";
+                    ProdOrder: Record "Production Order";
+                    ReservationEntry: Record "Reservation Entry";
+                    ItemLedgerEntry : Record "Item Ledger Entry";
+                    CountQty : Decimal;
                 begin
                     MyReportID := Report::RecordingSlipReport;
                     CurrPage.SetSelectionFilter(DocumentNo);
@@ -63,20 +65,27 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                             Error('Date is not with in the production run for this job..You can print recording slip from Item Tracking Lines. Have to manually enter the serial no');
                     end;
                     ProdOrder.Reset();
-                    ProdOrder.SetRange("No.",Rec."Prod. Order No.");
+                    ProdOrder.SetRange("No.", Rec."Prod. Order No.");
                     If ProdOrder.FindFirst() then
-                      If ProdOrder."Location Code" = '' then
-                        Error('Location Code should not be blank in Production Order');
-                    
+                        If ProdOrder."Location Code" = '' then
+                            Error('Location Code should not be blank in Production Order');
+                    ItemLedgerEntry.Reset();
+                    ItemLedgerEntry.SetCurrentKey("Order Type", "Order No.", "Order Line No.", "Entry Type");
+                    ItemLedgerEntry.SetRange("Order Type", ItemLedgerEntry."Order Type"::Production);
+                    ItemLedgerEntry.SetRange("Order No.", Rec."Prod. Order No.");
+                    ItemLedgerEntry.SetRange("Order Line No.", Rec."Line No.");
+                    ItemLedgerEntry.SetRange("Entry Type", ItemLedgerEntry."Entry Type"::Output);
+                    CountQty := ItemLedgerEntry.Count;
                     ReservationEntry.Reset();
-                    ReservationEntry.SetRange("Source Type",5406);
-                    ReservationEntry.SetRange("Source Subtype",3);
-                    ReservationEntry.SetRange("Source ID",Rec."Prod. Order No.");
-                    ReservationEntry.SetRange("Source Prod. Order Line",Rec."Line No.");
-                    If ReservationEntry.Count < Rec.Quantity then
+                    ReservationEntry.SetRange("Source Type", 5406);
+                    ReservationEntry.SetRange("Source Subtype", 3);
+                    ReservationEntry.SetRange("Source ID", Rec."Prod. Order No.");
+                    ReservationEntry.SetRange("Source Prod. Order Line", Rec."Line No.");
+                    CountQty += ReservationEntry.Count;
+                    If CountQty < Rec.Quantity then
                         Report.Run(MyReportID, true, false, DocumentNo)
                     else
-                       Error('Recording slips exceeded the quantity...can reprint from Item Tracking Lines');
+                        Error('Recording slips exceeded the quantity...can reprint from Item Tracking Lines');
                 end;
             }
         }
