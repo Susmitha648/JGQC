@@ -229,7 +229,9 @@ codeunit 50003 "FG Posting"
             WarehouseReceiptHeader1.Modify();
             WhseReceiptLine.Reset();
             WhseReceiptLine.SetRange("No.", WarehouseReceiptHeader1."No.");
-            If WhseReceiptLine.FindFirst() then;
+            If not WhseReceiptLine.FindFirst() then
+              Error('Warehouse Receipt Line does not exist');
+            
             WhsePostReceipt.SetSuppressCommit(true);
             WhsePostReceipt.Run(WhseReceiptLine);
 
