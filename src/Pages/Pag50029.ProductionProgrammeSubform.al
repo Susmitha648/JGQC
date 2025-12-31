@@ -31,7 +31,7 @@ page 50029 "Production Programme Subform"
                 field(Furnace; Rec.Furnace)
                 {
                     ToolTip = 'Specifies the value of the Furnace field.', Comment = '%';
-
+                   
                 }
                 field(Job; Rec.Job)
                 {
@@ -75,7 +75,7 @@ page 50029 "Production Programme Subform"
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
-                field("Sequence No"; Rec."Sequence No")
+                /*field("Sequence No"; Rec."Sequence No")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
@@ -86,7 +86,7 @@ page 50029 "Production Programme Subform"
                 field("Last Line"; Rec."Last Line")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
-                }
+                }*/
             }
         }
     }

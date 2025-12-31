@@ -14,7 +14,7 @@ report 50008 "Generate Production Programme"
                 Item: Record Item;
                 FirstLineDate: Date;
                 WorkShift: Record "Work Shift";
-                Sequence : Integer;
+                Sequence: Integer;
             begin
                 Clear(Sequence);
                 ProductionProgramLineSequence.Reset();
@@ -24,7 +24,7 @@ report 50008 "Generate Production Programme"
                 If ProductionProgramLineSequence.FindLast() then
                     Sequence := ProductionProgramLineSequence."Sequence No" + 1
                 else
-                    Sequence :=  1;
+                    Sequence := 1;
 
                 If Item.Get(JobNo) then;
                 If WorkShift.FindSet() then;
@@ -45,10 +45,13 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.Pallet := Pallet;
                     ProductionProgramLine.Tray := Tray;
                     ProductionProgramLine."Bottles Per Minute" := BottlesPerMinute;
-                    ProductionProgramLine.WT := Item."Net Weight";
+                    If WT = 0 then
+                        ProductionProgramLine.WT := Item."Net Weight"
+                    else
+                        ProductionProgramLine.WT := WT;
                     ProductionProgramLine.Job := JobNo;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
-                    ProductionProgramLine.Ton := (BottlesPerMinute * 8 * 60 * WorkShift.Count * Item."Net Weight") / 1000000;
+                    ProductionProgramLine.Ton := (BottlesPerMinute * 8 * 60 * WorkShift.Count * ProductionProgramLine.WT) / 1000000;
                     If ProductionProgramLine.Date = ToDate then
                         ProductionProgramLine."Last Line" := True;
                     If ProductionProgramLine.Date = FirstLineDate then
@@ -104,6 +107,20 @@ report 50008 "Generate Production Programme"
                         Caption = 'Job No.';
                         ToolTip = 'Specifies To Date.';
                         TableRelation = Item."No.";
+                        trigger OnValidate()
+                        var
+                            ItemNo: Record Item;
+                        begin
+                            If ItemNo.Get(JobNo) then
+                                WT := ItemNo."Net Weight";
+                        end;
+                    }
+                    field(WT; WT)
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Weight';
+                        ToolTip = 'Specifies Weight.';
+                        BlankZero = True;
                     }
                     field(Speed; Speed)
                     {
@@ -143,6 +160,7 @@ report 50008 "Generate Production Programme"
         Tray: Text[50];
         Pallet: Text[50];
         Speed: Enum Speed;
+        WT: Decimal;
         BottlesPerMinute: Integer;
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
