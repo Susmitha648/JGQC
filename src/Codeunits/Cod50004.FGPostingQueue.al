@@ -7,7 +7,9 @@ codeunit 50004 "FG Posting Queue"
         ReservationEntry.SetRange("Output Posted", false);
         If ReservationEntry.FindSet() then begin
             repeat
-                 Commit();
+                Commit();
+                 RESourceID := ReservationEntry."Source ID";
+                 RESerialNo := ReservationEntry."Serial No.";
                 If not Codeunit.Run(CodeUnit::"FG Posting", ReservationEntry) then begin
                     FGPostingError2.Reset();
                     FGPostingError2.SetRange("Document No", ReservationEntry."Source ID");
@@ -28,6 +30,12 @@ codeunit 50004 "FG Posting Queue"
                         FGPostingError2.Error := GetLastErrorText();
                         FGPostingError2.Modify();
                     end;
+                end else begin
+                    FGPostingError2.Reset();
+                    FGPostingError2.SetRange("Document No", RESourceID);
+                    FGPostingError2.SetRange("Serial No.",RESerialNo);
+                    If FGPostingError2.FindFirst() then
+                      FGPostingError2.Delete();
                 end;
                  
             until ReservationEntry.Next() = 0;
@@ -39,4 +47,6 @@ codeunit 50004 "FG Posting Queue"
         FGPostingError: Record "FG Posting Error Log";
         FGPostingError1: Record "FG Posting Error Log";
         FGPostingError2: Record "FG Posting Error Log";
+        RESourceID : Code[20];
+        RESerialNo : Code[50];
 }

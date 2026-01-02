@@ -4,7 +4,7 @@ report 50013 "F2 Daily Production Report"
     Caption = 'F2 - Daily Production Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/DailyProductionReportF2.rdl';
+    RDLCLayout = './src/Report/Layouts/DailyProductionReportF2.rdlc';
     dataset
     {
         dataitem(ProductionProgrammeLine; "Prod Prog Temp")

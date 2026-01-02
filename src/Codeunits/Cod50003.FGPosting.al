@@ -17,8 +17,8 @@ codeunit 50003 "FG Posting"
             if not ItemJnlTemplate.FindFirst() then begin
                 ItemJnlTemplate.Init();
                 ItemJnlTemplate.Recurring := false;
-                ItemJnlTemplate.Validate(Type, PageTemplate);
-                ItemJnlTemplate.Validate("Page ID");
+                ItemJnlTemplate.Validate(Type, PageTemplate::"Prod. Order");
+                ItemJnlTemplate.Validate("Page ID",Page::"Production Journal");
 
                 ItemJnlTemplate.Name := Format(ItemJnlTemplate.Type, MaxStrLen(ItemJnlTemplate.Name));
                 ItemJnlTemplate.Description := StrSubstNo(Text000, ItemJnlTemplate.Type);
@@ -213,8 +213,6 @@ codeunit 50003 "FG Posting"
             WarehouseRequest.SetRange("Source No.", TransferOrderPost."No.");
             WarehouseRequest.SetRange("Document Status", WarehouseRequest."Document Status"::Released);
             GetSourceDocInbound.GetRequireReceiveRqst(WarehouseRequest);
-
-
 
 
             Clear(GetSourceDocuments);

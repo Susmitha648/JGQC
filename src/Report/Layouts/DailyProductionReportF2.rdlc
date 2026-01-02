@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-26T08:19:50.2241027Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-02T08:45:08.6304236Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -2778,7 +2778,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=If(Fields!ActPackQty.Value = 0,"",Avg(Fields!ActPackQty.Value) &amp; " %")</Value>
+                                  <Value>=If(Fields!ActPackQty.Value = 0,"",Avg(FORMAT(Fields!ActPackQty.Value, 0, '&lt;Precision,2:2&gt;&lt;Standard Format,0&gt;')) &amp; " %")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -3106,7 +3106,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=If(Fields!NetPackPerc.Value = 0,"",Avg(Fields!NetPackPerc.Value) &amp; " %")</Value>
+                                  <Value>=If(Fields!NetPackPerc.Value = 0,"",Avg(FORMAT(Fields!NetPackPerc.Value, 0, '&lt;Precision,2:2&gt;&lt;Standard Format,0&gt;')) &amp; " %")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -3605,7 +3605,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Avg(Fields!ActPackQty.Value) &amp; " %"</Value>
+                                  <Value>=Avg(FORMAT(Fields!ActPackQty.Value, 0, '&lt;Precision,2:2&gt;&lt;Standard Format,0&gt;')) &amp; " %"</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -3938,7 +3938,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Avg(Fields!NetPackPerc.Value) &amp; " %"</Value>
+                                  <Value>=Avg(FORMAT(Fields!NetPackPerc.Value, 0, '&lt;Precision,2:2&gt;&lt;Standard Format,0&gt;')) &amp; " %"</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <Format>#,0.00;(#,0.00)</Format>
@@ -3959,6 +3959,7 @@
                             <VerticalAlign>Middle</VerticalAlign>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>

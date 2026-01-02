@@ -114,8 +114,7 @@ report 50005 RecordingSlipReport
                 BarcodeFontProvider2D := Enum::"Barcode Font Provider 2D"::IDAutomation2D;
                 If Item.Get("Item No.") then
                     If PackSizeRec.Get(Item."Pack Size") then;
-                If QCPlanHeader.Get("Item No.") then;
-
+                If QCPlanHeader.Get("Shortcut Dimension 2 Code") then;
 
                 ProductionProgram.Reset();
                 ProductionProgram.SetRange(Job, "Shortcut Dimension 2 Code");

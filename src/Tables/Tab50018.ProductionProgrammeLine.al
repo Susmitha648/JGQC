@@ -47,6 +47,8 @@ table 50018 "Production Programme Line"
             trigger OnValidate()
             begin
                 TestStatusOpen();
+                If Rec."Record Slip No" > 0 then
+                    Error('Recording slip generated for this job cannot change the job');
                 If Job <> '' then
                     If (Rec.Job <> xRec.Job) then begin
                         ProdProgLine2.Reset();
@@ -240,6 +242,8 @@ table 50018 "Production Programme Line"
                 SequencFurn2: Integer;
             begin
                 TestStatusOpen();
+                 If Rec."Record Slip No" > 0 then
+                    Error('Recording slip generated for this job cannot change the Furnace');
                 If (Rec.Furnace <> xRec.Furnace) and (xRec.Furnace <> '') and (Rec.Job <> '') then begin
 
                     ProdProgramFurn1.Reset();
@@ -561,6 +565,8 @@ table 50018 "Production Programme Line"
         FirstDate: Date;
     begin
         TestStatusOpen();
+        If Rec."Record Slip No" > 0 then
+            Error('Recording slip generated for this job cannot delete the line');
         ProdProg1.Reset();
         ProdProg1.SetRange(Job, Rec.Job);
         ProdProg1.SetRange("No.", Rec."No.");
