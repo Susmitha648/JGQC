@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-02T07:27:51.2580572Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-02T11:29:02.1585310Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -43,7 +43,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>27.2931cm</Height>
+                  <Height>26.71163cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -454,7 +454,7 @@
                                       <Value>=Fields!Job_Code.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>30pt</FontSize>
+                                        <FontSize>34pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -549,7 +549,7 @@
                               <Top>6.36592cm</Top>
                               <Left>6.44219cm</Left>
                               <Height>71.85384pt</Height>
-                              <Width>6.34862cm</Width>
+                              <Width>6.33098cm</Width>
                               <ZIndex>12</ZIndex>
                               <Style>
                                 <Border>
@@ -638,7 +638,7 @@
                                       <Value>=First(Fields!Finish.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>30pt</FontSize>
+                                        <FontSize>34pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -649,9 +649,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>6.36592cm</Top>
-                              <Left>12.79081cm</Left>
+                              <Left>12.77317cm</Left>
                               <Height>71.85384pt</Height>
-                              <Width>6.20919cm</Width>
+                              <Width>6.22683cm</Width>
                               <ZIndex>14</ZIndex>
                               <Style>
                                 <Border>
@@ -1099,6 +1099,7 @@
                                       <Value>VARIATION DESC:</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
+                                        <FontFamily />
                                         <FontSize>22pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
@@ -1152,6 +1153,7 @@
                                       <Value>=Fields!PackSize.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
+                                        <FontFamily />
                                         <FontSize>22pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
@@ -2000,7 +2002,7 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Height>27.2931cm</Height>
+            <Height>26.71163cm</Height>
             <Width>19cm</Width>
             <Style>
               <Border>
@@ -2029,7 +2031,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>27.2931cm</Height>
+        <Height>26.71163cm</Height>
         <Style />
       </Body>
       <Width>19cm</Width>
