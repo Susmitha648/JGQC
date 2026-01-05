@@ -52,6 +52,7 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     ProdOrder: Record "Production Order";
                     ReservationEntry: Record "Reservation Entry";
                     ItemLedgerEntry : Record "Item Ledger Entry";
+                    ItemRec : Record Item;
                     CountQty : Decimal;
                 begin
                     MyReportID := Report::RecordingSlipReport;
@@ -69,6 +70,9 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     If ProdOrder.FindFirst() then
                         If ProdOrder."Location Code" = '' then
                             Error('Location Code should not be blank in Production Order');
+                    If ItemRec.Get(Rec."Item No.") then
+                        If ItemRec."Pack Size" = '' then
+                           Error('No packsize available for this Item');
                     ItemLedgerEntry.Reset();
                     ItemLedgerEntry.SetCurrentKey("Order Type", "Order No.", "Order Line No.", "Entry Type");
                     ItemLedgerEntry.SetRange("Order Type", ItemLedgerEntry."Order Type"::Production);

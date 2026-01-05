@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-04T09:39:47.9136918Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-05T09:50:12.0386253Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -22,136 +22,6 @@
       <rd:DataSourceID>3f1f0eb4-9fd3-47b9-ac59-0b5b15b1672c</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="PrintName">
-          <DataField>PrintName</DataField>
-        </Field>
-        <Field Name="CompanyAddress">
-          <DataField>CompanyAddress</DataField>
-        </Field>
-        <Field Name="CompanyPostcode">
-          <DataField>CompanyPostcode</DataField>
-        </Field>
-        <Field Name="CompanyCity">
-          <DataField>CompanyCity</DataField>
-        </Field>
-        <Field Name="CompanyState">
-          <DataField>CompanyState</DataField>
-        </Field>
-        <Field Name="CompanyCountry">
-          <DataField>CompanyCountry</DataField>
-        </Field>
-        <Field Name="CompanyInfoName">
-          <DataField>CompanyInfoName</DataField>
-        </Field>
-        <Field Name="CompanyInfoFax">
-          <DataField>CompanyInfoFax</DataField>
-        </Field>
-        <Field Name="CompanyInfoPhoneNo">
-          <DataField>CompanyInfoPhoneNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoEmail">
-          <DataField>CompanyInfoEmail</DataField>
-        </Field>
-        <Field Name="CompanyInfoHomePage">
-          <DataField>CompanyInfoHomePage</DataField>
-        </Field>
-        <Field Name="CompanyInfoBusinessRegistrationNo">
-          <DataField>CompanyInfoBusinessRegistrationNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoGiroNo">
-          <DataField>CompanyInfoGiroNo</DataField>
-        </Field>
-        <Field Name="CompanyInfoBankName">
-          <DataField>CompanyInfoBankName</DataField>
-        </Field>
-        <Field Name="CompanyInfoBankAccountNo">
-          <DataField>CompanyInfoBankAccountNo</DataField>
-        </Field>
-        <Field Name="CompanyLogo">
-          <DataField>CompanyLogo</DataField>
-        </Field>
-        <Field Name="CompanyPicture1">
-          <DataField>CompanyPicture1</DataField>
-        </Field>
-        <Field Name="CompanyPicture2">
-          <DataField>CompanyPicture2</DataField>
-        </Field>
-        <Field Name="CompanyPicture3">
-          <DataField>CompanyPicture3</DataField>
-        </Field>
-        <Field Name="Last_Date_Modified">
-          <DataField>Last_Date_Modified</DataField>
-        </Field>
-        <Field Name="Job_Code">
-          <DataField>Job_Code</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Finish">
-          <DataField>Finish</DataField>
-        </Field>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
-        </Field>
-        <Field Name="WorkShiftCode">
-          <DataField>WorkShiftCode</DataField>
-        </Field>
-        <Field Name="Color">
-          <DataField>Color</DataField>
-        </Field>
-        <Field Name="PackSize">
-          <DataField>PackSize</DataField>
-        </Field>
-        <Field Name="QtyofPiecePerPack">
-          <DataField>QtyofPiecePerPack</DataField>
-        </Field>
-        <Field Name="QtyofPiecePerPackFormat">
-          <DataField>QtyofPiecePerPackFormat</DataField>
-        </Field>
-        <Field Name="QtyofCarton_TraysPerPallet">
-          <DataField>QtyofCarton_TraysPerPallet</DataField>
-        </Field>
-        <Field Name="QtyofCarton_TraysPerPalletFormat">
-          <DataField>QtyofCarton_TraysPerPalletFormat</DataField>
-        </Field>
-        <Field Name="QtyPerPack">
-          <DataField>QtyPerPack</DataField>
-        </Field>
-        <Field Name="QtyPerPackFormat">
-          <DataField>QtyPerPackFormat</DataField>
-        </Field>
-        <Field Name="SlipNo">
-          <DataField>SlipNo</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
-        </Field>
-        <Field Name="GTINQRCode">
-          <DataField>GTINQRCode</DataField>
-        </Field>
-        <Field Name="JobQRCode">
-          <DataField>JobQRCode</DataField>
-        </Field>
-        <Field Name="RecordingSlipNo">
-          <DataField>RecordingSlipNo</DataField>
-        </Field>
-        <Field Name="MachineNo">
-          <DataField>MachineNo</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -196,7 +66,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.10475cm</Top>
+                              <Top>2.91425cm</Top>
                               <Left>4.11126cm</Left>
                               <Height>56pt</Height>
                               <Width>5.72385cm</Width>
@@ -248,7 +118,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.67674cm</Top>
+                              <Top>0.70849cm</Top>
                               <Left>15.04795cm</Left>
                               <Height>17pt</Height>
                               <Width>3.94809cm</Width>
@@ -281,7 +151,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.10475cm</Top>
+                              <Top>2.91425cm</Top>
                               <Left>0cm</Left>
                               <Height>56pt</Height>
                               <Width>4.11126cm</Width>
@@ -334,7 +204,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>0.01389in</Top>
+                              <Top>0.02639in</Top>
                               <Left>15.04795cm</Left>
                               <Height>18.18306pt</Height>
                               <Width>3.94809cm</Width>
@@ -368,10 +238,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>1.23758cm</Top>
-                              <Left>3.51245cm</Left>
+                              <Top>1.01533cm</Top>
+                              <Left>2.7822cm</Left>
                               <Height>1.1cm</Height>
-                              <Width>14.76984cm</Width>
+                              <Width>15.80505cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -387,8 +257,8 @@
                               <Value>=First(Fields!CompanyLogo.Value, "DataSet_Result")</Value>
                               <MIMEType>image/jpeg</MIMEType>
                               <Sizing>FitProportional</Sizing>
-                              <Top>1.35298cm</Top>
-                              <Left>2.22426cm</Left>
+                              <Top>1.13073cm</Top>
+                              <Left>1.52576cm</Left>
                               <Height>1.2cm</Height>
                               <Width>1.2cm</Width>
                               <ZIndex>5</ZIndex>
@@ -417,10 +287,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>2.34837cm</Top>
+                              <Top>2.18962cm</Top>
                               <Left>0.02847cm</Left>
                               <Height>18.3pt</Height>
-                              <Width>18.97153cm</Width>
+                              <Width>19.65946cm</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
@@ -449,7 +319,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.10475cm</Top>
+                              <Top>2.91425cm</Top>
                               <Left>9.83511cm</Left>
                               <Height>56pt</Height>
                               <Width>3.84674cm</Width>
@@ -502,7 +372,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.10475cm</Top>
+                              <Top>2.91425cm</Top>
                               <Left>13.68185cm</Left>
                               <Height>56pt</Height>
                               <Width>6.03cm</Width>
@@ -540,7 +410,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>5.05751cm</Top>
+                              <Top>4.86701cm</Top>
                               <Left>0cm</Left>
                               <Height>37.08857pt</Height>
                               <Width>6.42455cm</Width>
@@ -591,9 +461,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>6.36592cm</Top>
+                              <Top>6.17542cm</Top>
                               <Left>0.01764cm</Left>
-                              <Height>80.15357pt</Height>
+                              <Height>82.5357pt</Height>
                               <Width>6.42455cm</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
@@ -634,7 +504,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>5.05751cm</Top>
+                              <Top>4.86701cm</Top>
                               <Left>6.42455cm</Left>
                               <Height>37.08857pt</Height>
                               <Width>7.01537cm</Width>
@@ -686,9 +556,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>6.36592cm</Top>
+                              <Top>6.17542cm</Top>
                               <Left>6.44219cm</Left>
-                              <Height>80.15357pt</Height>
+                              <Height>82.5357pt</Height>
                               <Width>6.99773cm</Width>
                               <ZIndex>12</ZIndex>
                               <Style>
@@ -737,7 +607,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>5.05751cm</Top>
+                              <Top>4.86701cm</Top>
                               <Left>13.43992cm</Left>
                               <Height>37.08857pt</Height>
                               <Width>6.25923cm</Width>
@@ -788,9 +658,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>6.36592cm</Top>
+                              <Top>6.17542cm</Top>
                               <Left>13.43992cm</Left>
-                              <Height>80.15357pt</Height>
+                              <Height>82.5357pt</Height>
                               <Width>6.26cm</Width>
                               <ZIndex>14</ZIndex>
                               <Style>
@@ -843,7 +713,7 @@
                               <Top>9.19356cm</Top>
                               <Left>0cm</Left>
                               <Height>47.5pt</Height>
-                              <Width>8.53045cm</Width>
+                              <Width>6.42455cm</Width>
                               <ZIndex>15</ZIndex>
                               <Style>
                                 <Border>
@@ -882,7 +752,7 @@
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>26pt</FontSize>
+                                        <FontSize>24pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -893,34 +763,15 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>9.19356cm</Top>
-                              <Left>8.52358cm</Left>
+                              <Left>6.42455cm</Left>
                               <Height>47.5pt</Height>
-                              <Width>11.17cm</Width>
+                              <Width>13.26903cm</Width>
                               <ZIndex>16</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
+                                  <Width>0.3pt</Width>
                                 </Border>
-                                <TopBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.3pt</Width>
-                                </TopBorder>
-                                <BottomBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.3pt</Width>
-                                </BottomBorder>
-                                <LeftBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.3pt</Width>
-                                </LeftBorder>
-                                <RightBorder>
-                                  <Color>Black</Color>
-                                  <Style>Solid</Style>
-                                  <Width>0.3pt</Width>
-                                </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
                             </Textbox>
@@ -1085,10 +936,10 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value EvaluationMode="Constant" />
+                                      <Value>=Fields!MachineNo.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>20pt</FontSize>
+                                        <FontSize>22pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1863,7 +1714,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>24.57352cm</Top>
+                              <Top>24.31952cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15pt</Height>
                               <Width>19.66342cm</Width>
@@ -1894,7 +1745,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>25.10268cm</Top>
+                              <Top>24.84868cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15pt</Height>
                               <Width>19.66342cm</Width>
@@ -1925,7 +1776,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>25.66713cm</Top>
+                              <Top>25.41313cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15pt</Height>
                               <Width>19.66342cm</Width>
@@ -1956,7 +1807,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>26.19629cm</Top>
+                              <Top>25.94229cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15.5pt</Height>
                               <Width>19.66342cm</Width>
@@ -1987,7 +1838,7 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>26.81718cm</Top>
+                              <Top>26.56318cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15.60815pt</Height>
                               <Width>19.66342cm</Width>
@@ -2170,7 +2021,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>27.47363cm</Height>
+        <Height>27.43835cm</Height>
         <Style />
       </Body>
       <Width>19.71185cm</Width>
@@ -2194,12 +2045,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""

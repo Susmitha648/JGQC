@@ -84,6 +84,7 @@ report 50014 "Recording Slip Reprint"
             column(GTINQRCode; GTINQRCode) { }
             column(JobQRCode; JobQRCode) { }
             column(RecordingSlipNo; RecordingSlipNo) { }
+            column(MachineNo; MachineNo) { }
             trigger OnPreDataItem()
             var
                 CountryRegion: Record "Country/Region";
@@ -190,6 +191,7 @@ report 50014 "Recording Slip Reprint"
                 MaxDateDiff: Integer;
                 SingleInstance: Codeunit "QC Subcriber";
             begin
+                Clear(MachineNo);
                 // Declare the barcode provider using the barcode provider interface and enum
                 BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
                 BarcodeFontProvider2D := Enum::"Barcode Font Provider 2D"::IDAutomation2D;
@@ -197,6 +199,13 @@ report 50014 "Recording Slip Reprint"
                 If Item.Get("Item No.") then
                     If PackSizeRec.Get(Item."Pack Size") then;
                 If QCPlanHeader.Get("Shortcut Dimension 2 Code") then;
+
+                GeneralLedgerSetup.Get();
+                DimensionSetEntry.Reset();
+                DimensionSetEntry.SetRange("Dimension Set ID","Prod. Order Line"."Dimension Set ID");
+                DimensionSetEntry.SetRange("Dimension Code",GeneralLedgerSetup."Shortcut Dimension 8 Code");
+                If DimensionSetEntry.FindFirst() then
+                   MachineNo := DimensionSetEntry."Dimension Value Code";
 
                 SingleInstance.Get();
                 RecordingSlipNo := GetTextAfterLastChar(Format(SingleInstance.Get()), '-');
@@ -248,6 +257,9 @@ report 50014 "Recording Slip Reprint"
         ProductionProgramLine: Record "Production Programme Line";
         ReservationEntry: Record "Reservation Entry";
         TrackingSpecification: Record "Tracking Specification";
+        DimensionSetEntry : Record "Dimension Set Entry";
+        GeneralLedgerSetup : Record "General Ledger Setup";
+        MachineNo : Text[20];
         QtyPerPack: Text;
         QtyofCarton_TraysPerPallet: Text;
         QtyofPiecePerPack: Text;
