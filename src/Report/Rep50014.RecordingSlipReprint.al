@@ -196,7 +196,7 @@ report 50014 "Recording Slip Reprint"
 
                 If Item.Get("Item No.") then
                     If PackSizeRec.Get(Item."Pack Size") then;
-                If QCPlanHeader.Get("Item No.") then;
+                If QCPlanHeader.Get("Shortcut Dimension 2 Code") then;
 
                 SingleInstance.Get();
                 RecordingSlipNo := GetTextAfterLastChar(Format(SingleInstance.Get()), '-');

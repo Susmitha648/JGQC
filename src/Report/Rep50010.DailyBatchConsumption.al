@@ -163,7 +163,7 @@ report 50010 "Daily Batch Consumption"
                 column(Component_Description; Description)
                 {
                 }
-                column(Component_Expected_Quantity; "Expected Quantity")
+                column(Component_Expected_Quantity; ExpectedQuantity)
                 {
                 }
                 column(Component_Total_Consumption; TotalConsumptionKG)
@@ -191,8 +191,11 @@ report 50010 "Daily Batch Consumption"
                         YieldPercent := 100
                     else
                         YieldPercent := 82.5;
-
-                    ComponentGlassYield := Round("Expected Quantity" * (YieldPercent / 100), 0.01);
+                    If "Unit of Measure Code" = 'GM' then
+                        ExpectedQuantity := "Expected Quantity" / 1000
+                    Else
+                        ExpectedQuantity := "Expected Quantity";
+                    ComponentGlassYield := Round(ExpectedQuantity * (YieldPercent / 100), 0.01);
                     ProdOrderComp1.Reset();
                     ProdOrderComp1.SetRange("Prod. Order No.", ProdOrderComponent."Prod. Order No.");
                     ProdOrderComp1.SetRange("Item No.", ProdOrderComponent."Item No.");
@@ -201,7 +204,7 @@ report 50010 "Daily Batch Consumption"
                         ProdOrderComp1 := ProdOrderComponent;
                         ProdOrderComp1.Insert();
 
-                        TotalComponentGlassYield += Round("Expected Quantity" * (YieldPercent / 100), 0.01);
+                        TotalComponentGlassYield += Round(ExpectedQuantity * (YieldPercent / 100), 0.01);
                     end;
                 end;
 
@@ -314,6 +317,7 @@ report 50010 "Daily Batch Consumption"
         ComponentYieldPercent: Decimal;
         ComponentGlassYield: Decimal;
         TotalComponentGlassYield: Decimal;
+        ExpectedQuantity: Decimal;
         ReportTitleText: Text;
         TotalBatchingText: Text;
         SilicaSandLabel: Text;

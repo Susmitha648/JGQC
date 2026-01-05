@@ -10,22 +10,19 @@ report 50008 "Generate Production Programme"
             trigger OnAfterGetRecord()
             var
                 ProductionProgramLine: Record "Production Programme Line";
+                ProductionProgramLine1: Record "Production Programme Line";
+                ProductionProgramLine2: Record "Production Programme Line";
+                ProductionProgramLine3: Record "Production Programme Line";
+                ProductionProgramLine4: Record "Production Programme Line";
                 ProductionProgramLineSequence: Record "Production Programme Line";
+                LastDate: Date;
                 Item: Record Item;
                 FirstLineDate: Date;
                 WorkShift: Record "Work Shift";
                 Sequence: Integer;
+                OldSequence: Integer;
+                SameSequence: Boolean;
             begin
-                Clear(Sequence);
-                ProductionProgramLineSequence.Reset();
-                ProductionProgramLineSequence.SetAscending(Date, true);
-                ProductionProgramLineSequence.SetRange("No.", ProductionProgrammeHeader."No.");
-                ProductionProgramLineSequence.SetRange(Job, JobNo);
-                If ProductionProgramLineSequence.FindLast() then
-                    Sequence := ProductionProgramLineSequence."Sequence No" + 1
-                else
-                    Sequence := 1;
-
                 If Item.Get(JobNo) then;
                 If WorkShift.FindSet() then;
                 FirstLineDate := FromDate;
@@ -52,14 +49,75 @@ report 50008 "Generate Production Programme"
                     ProductionProgramLine.Job := JobNo;
                     ProductionProgramLine.Day := Format(FromDate, 0, '<Weekday Text>');
                     ProductionProgramLine.Ton := (BottlesPerMinute * 8 * 60 * WorkShift.Count * ProductionProgramLine.WT) / 1000000;
-                    If ProductionProgramLine.Date = ToDate then
-                        ProductionProgramLine."Last Line" := True;
-                    If ProductionProgramLine.Date = FirstLineDate then
-                        ProductionProgramLine."First Line" := True;
-                    ProductionProgramLine."Sequence No" := Sequence;
+                    ProductionProgramLine1.Reset();
+                    ProductionProgramLine1.SetRange("No.", "No.");
+                    ProductionProgramLine1.SetRange(Job, JobNo);
+                    ProductionProgramLine1.SetRange(Furnace, Furnace);
+                    If ProductionProgramLine1.Count > 0 then begin
+                        ProductionProgramLine1.SetRange(Date, CalcDate('<-1D>', ProductionProgramLine.Date));
+                        If ProductionProgramLine1.FindFirst() then begin
+                            ProductionProgramLine1."Last Line" := false;
+                            ProductionProgramLine1.Modify();
+                            ProductionProgramLine."Sequence No" := ProductionProgramLine1."Sequence No";
+                            If ProductionProgramLine.Date = ToDate then
+                                ProductionProgramLine."Last Line" := True;
+                            ProductionProgramLine3.Reset();
+                            ProductionProgramLine3.SetRange("No.", "No.");
+                            ProductionProgramLine3.SetRange(Job, JobNo);
+                            ProductionProgramLine3.SetRange(Furnace, Furnace);
+                            ProductionProgramLine3.SetRange(Date, CalcDate('<+1D>', ProductionProgramLine.Date));
+                            If ProductionProgramLine3.FindFirst() then begin
+                                ProductionProgramLine."Last Line" := False;
+                                ProductionProgramLine3."First Line" := false;
+                                ProductionProgramLine3.Modify();
+                                ProductionProgramLine4.Reset();
+                                ProductionProgramLine4.SetRange("No.", "No.");
+                                ProductionProgramLine4.SetRange(Job, JobNo);
+                                ProductionProgramLine4.SetRange(Furnace, Furnace);
+                                ProductionProgramLine4.SetRange("Sequence No",ProductionProgramLine3."Sequence No");
+                                If ProductionProgramLine4.FindSet() then 
+                                    repeat
+                                        ProductionProgramLine4."Sequence No" := ProductionProgramLine."Sequence No";
+                                        ProductionProgramLine4.Modify();
+                                    until ProductionProgramLine4.Next() = 0;
+                            end;
+                        end else begin
+                            ProductionProgramLine2.Reset();
+                            ProductionProgramLine2.SetRange("No.", "No.");
+                            ProductionProgramLine2.SetRange(Job, JobNo);
+                            ProductionProgramLine2.SetRange(Furnace, Furnace);
+                            ProductionProgramLine2.SetRange(Date, CalcDate('<+1D>', ToDate));
+                            If ProductionProgramLine2.FindFirst() then begin
+                                If ProductionProgramLine2."First Line" then begin
+                                    ProductionProgramLine2."First Line" := false;
+                                    ProductionProgramLine2.Modify();
+                                end;
+                                ProductionProgramLine."Sequence No" := ProductionProgramLine2."Sequence No";
+                                if ProductionProgramLine.Date = FirstLineDate then
+                                    ProductionProgramLine."First Line" := True;
+                            end else begin
+                                ProductionProgramLine1.SetRange(Date);
+                                If ProductionProgramLine1.FindLast() then begin
+                                    If ProductionProgramLine.Date = FirstLineDate then
+                                        ProductionProgramLine."First Line" := True;
+                                    If ProductionProgramLine.Date = ToDate then
+                                        ProductionProgramLine."Last Line" := True;
+                                    ProductionProgramLine."Sequence No" := ProductionProgramLine1."Sequence No" + 1;
+                                end;
+                            end;
+                        end;
+                    end else begin
+                        If ProductionProgramLine.Date = FirstLineDate then
+                            ProductionProgramLine."First Line" := True;
+                        If ProductionProgramLine.Date = ToDate then
+                            ProductionProgramLine."Last Line" := True;
+                        ProductionProgramLine."Sequence No" := 1;
+                    end;
+
                     ProductionProgramLine.Modify(false);
                     FromDate := FromDate + 1;
                 end;
+
             end;
         }
     }

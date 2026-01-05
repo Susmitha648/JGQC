@@ -75,10 +75,10 @@ page 50029 "Production Programme Subform"
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
-                /* field("Record Slip No"; Rec."Record Slip No")
+                 /*field("Record Slip No"; Rec."Record Slip No")
                 {
                     ToolTip = 'Specifies the value of the Record Slip No field.', Comment = '%';
-                }
+                }*/
                 field("Sequence No"; Rec."Sequence No")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
@@ -90,7 +90,7 @@ page 50029 "Production Programme Subform"
                 field("Last Line"; Rec."Last Line")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
-                }*/
+                }
             }
         }
     }
@@ -100,7 +100,7 @@ page 50029 "Production Programme Subform"
         {
             group(CreatePO)
             {
-                Caption = 'Create Work Order & Print';
+                Caption = 'Create Work Order';
                 action(Create)
                 {
                     ApplicationArea = Suite;
@@ -117,23 +117,6 @@ page 50029 "Production Programme Subform"
                                 CreateProductionOrders(ProdProgLine);
                             until ProdProgLine.Next() = 0;
                         Message('Production Orders Created');
-                    end;
-                }
-                action(F2DailyProduction)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'F2 - Daily Production Report';
-                    Image = Print;
-                    ToolTip = 'Print the F2 - Daily Production Report.';
-                    trigger OnAction()
-                    var
-                        ProdProgHeader: Record "Production Programme Line";
-                    begin
-                        //ProdProgHeader.Reset();
-                        //ProdProgHeader.SetRange("No.",Rec."No.");
-                        CurrPage.SetSelectionFilter(ProdProgHeader);
-                        ProdProgHeader.SetRange(Furnace, '');
-                        Report.RunModal(Report::"F2 Daily Production Report", true, false, ProdProgHeader);
                     end;
                 }
             }
@@ -213,7 +196,6 @@ page 50029 "Production Programme Subform"
                 ProductionLine."Ending Time WO" := WorkShift."Ending Time";
                 ProductionLine.Validate("Starting Date-Time", CreateDateTime(ProdProgramLine.Date, 0T));
                 ProductionLine.Validate("Ending Date-Time", CreateDateTime(ProdProgramLine.Date, 0T));
-                ProductionLine."Ending Date" := 0D;
                 ProductionLine.Modify();
             until WorkShift.Next() = 0;
 

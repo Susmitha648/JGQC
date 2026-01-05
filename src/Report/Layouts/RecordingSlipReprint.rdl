@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>b717bad0-0854-4d81-a0b2-005cf04cd18a</rd:ReportID>
   <am:AuthoringMetadata>
     <am:CreatedBy>
       <am:Name>MSRB</am:Name>
@@ -9,18 +7,18 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>MSRB</am:Name>
-      <am:Version>15.1.30001.02</am:Version>
+      <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-02T09:06:51.8049196Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-04T09:40:27.4485195Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSource">
-      <rd:SecurityType>None</rd:SecurityType>
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>3f1f0eb4-9fd3-47b9-ac59-0b5b15b1672c</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -32,18 +30,18 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>6.31752cm</Width>
+                  <Width>6.54683cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.31752cm</Width>
+                  <Width>6.54683cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.36496cm</Width>
+                  <Width>6.61819cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>26.71163cm</Height>
+                  <Height>27.43835cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -58,7 +56,7 @@
                                       <Value>=Fields!RecordingSlipNo.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>34pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -68,9 +66,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.29362cm</Top>
+                              <Top>3.10475cm</Top>
                               <Left>4.11126cm</Left>
-                              <Height>48pt</Height>
+                              <Height>56pt</Height>
                               <Width>5.72385cm</Width>
                               <Style>
                                 <Border>
@@ -79,25 +77,24 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>3pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox24">
@@ -153,9 +150,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.29362cm</Top>
+                              <Top>3.10475cm</Top>
                               <Left>0cm</Left>
-                              <Height>48pt</Height>
+                              <Height>56pt</Height>
                               <Width>4.11126cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
@@ -165,22 +162,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -220,7 +217,6 @@
                               </Style>
                             </Textbox>
                             <Textbox Name="Textbox1">
-                              <rd:DefaultName>Textbox1</rd:DefaultName>
                               <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
@@ -240,20 +236,19 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
+                              <rd:DefaultName>Textbox1</rd:DefaultName>
                               <Top>1.23758cm</Top>
-                              <Left>2.16484cm</Left>
-                              <Height>1.20604cm</Height>
-                              <Width>16.2515cm</Width>
+                              <Left>3.51245cm</Left>
+                              <Height>1.1cm</Height>
+                              <Width>14.76984cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
                                 </Border>
-                                <VerticalAlign>Top</VerticalAlign>
+                                <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
                             <Image Name="Image1">
@@ -261,8 +256,8 @@
                               <Value>=First(Fields!CompanyLogo.Value, "DataSet_Result")</Value>
                               <MIMEType>image/jpeg</MIMEType>
                               <Sizing>FitProportional</Sizing>
-                              <Top>1.38473cm</Top>
-                              <Left>0.85901cm</Left>
+                              <Top>1.35298cm</Top>
+                              <Left>2.22426cm</Left>
                               <Height>1.2cm</Height>
                               <Width>1.2cm</Width>
                               <ZIndex>5</ZIndex>
@@ -282,7 +277,7 @@
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontFamily>Segoe UI</FontFamily>
-                                        <FontSize>15pt</FontSize>
+                                        <FontSize>12pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -291,9 +286,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>2.44362cm</Top>
+                              <Top>2.34837cm</Top>
                               <Left>0.02847cm</Left>
-                              <Height>19.09457pt</Height>
+                              <Height>18.3pt</Height>
                               <Width>18.97153cm</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
@@ -322,9 +317,9 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.29362cm</Top>
+                              <Top>3.10475cm</Top>
                               <Left>9.83511cm</Left>
-                              <Height>48pt</Height>
+                              <Height>56pt</Height>
                               <Width>3.84674cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
@@ -334,22 +329,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -364,7 +359,7 @@
                                       <Value>=First(Fields!Last_Date_Modified.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>22pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                         <Format>dd/MM/yyyy</Format>
                                       </Style>
@@ -375,20 +370,20 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>3.29362cm</Top>
+                              <Top>3.10475cm</Top>
                               <Left>13.68185cm</Left>
-                              <Height>48pt</Height>
-                              <Width>5.29655cm</Width>
+                              <Height>56pt</Height>
+                              <Width>6.03cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
                                 </Border>
                                 <TopBorder>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -403,7 +398,7 @@
                                       <Value>JOB No</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>20pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -425,22 +420,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -454,7 +449,7 @@
                                       <Value>=Fields!Job_Code.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>30pt</FontSize>
+                                        <FontSize>41pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -466,13 +461,25 @@
                               </Paragraphs>
                               <Top>6.36592cm</Top>
                               <Left>0.01764cm</Left>
-                              <Height>71.85384pt</Height>
+                              <Height>80.15357pt</Height>
                               <Width>6.42455cm</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>Solid</Style>
                                 </Border>
+                                <TopBorder>
+                                  <Width>0.3pt</Width>
+                                </TopBorder>
+                                <BottomBorder>
+                                  <Width>0.3pt</Width>
+                                </BottomBorder>
+                                <LeftBorder>
+                                  <Width>0.3pt</Width>
+                                </LeftBorder>
+                                <RightBorder>
+                                  <Width>0.3pt</Width>
+                                </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
                             </Textbox>
@@ -485,7 +492,7 @@
                                       <Value>DESCRIPTION</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>20pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -498,7 +505,7 @@
                               <Top>5.05751cm</Top>
                               <Left>6.42455cm</Left>
                               <Height>37.08857pt</Height>
-                              <Width>6.34862cm</Width>
+                              <Width>7.01537cm</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
                                 <Border>
@@ -507,22 +514,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -548,8 +555,8 @@
                               </Paragraphs>
                               <Top>6.36592cm</Top>
                               <Left>6.44219cm</Left>
-                              <Height>71.85384pt</Height>
-                              <Width>6.34862cm</Width>
+                              <Height>80.15357pt</Height>
+                              <Width>6.99773cm</Width>
                               <ZIndex>12</ZIndex>
                               <Style>
                                 <Border>
@@ -558,22 +565,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -587,7 +594,7 @@
                                       <Value>FINISH</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>20pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -598,9 +605,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>5.05751cm</Top>
-                              <Left>12.77317cm</Left>
+                              <Left>13.43992cm</Left>
                               <Height>37.08857pt</Height>
-                              <Width>6.20523cm</Width>
+                              <Width>6.25923cm</Width>
                               <ZIndex>13</ZIndex>
                               <Style>
                                 <Border>
@@ -609,22 +616,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -638,7 +645,7 @@
                                       <Value>=First(Fields!Finish.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>30pt</FontSize>
+                                        <FontSize>24pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -649,9 +656,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>6.36592cm</Top>
-                              <Left>12.79081cm</Left>
-                              <Height>71.85384pt</Height>
-                              <Width>6.20919cm</Width>
+                              <Left>13.43992cm</Left>
+                              <Height>80.15357pt</Height>
+                              <Width>6.26cm</Width>
                               <ZIndex>14</ZIndex>
                               <Style>
                                 <Border>
@@ -660,22 +667,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -699,10 +706,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.97131cm</Top>
-                              <Left>0.02451cm</Left>
+                              <Top>9.19356cm</Top>
+                              <Left>0cm</Left>
                               <Height>47.5pt</Height>
-                              <Width>8.50594cm</Width>
+                              <Width>8.53045cm</Width>
                               <ZIndex>15</ZIndex>
                               <Style>
                                 <Border>
@@ -711,22 +718,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -750,10 +757,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>8.97131cm</Top>
+                              <Top>9.19356cm</Top>
                               <Left>8.52358cm</Left>
                               <Height>47.5pt</Height>
-                              <Width>10.47246cm</Width>
+                              <Width>11.17cm</Width>
                               <ZIndex>16</ZIndex>
                               <Style>
                                 <Border>
@@ -762,22 +769,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -791,7 +798,7 @@
                                       <Value>SHIFT</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>22pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -801,10 +808,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.71756cm</Top>
-                              <Left>0.01764cm</Left>
-                              <Height>47.22822pt</Height>
-                              <Width>3.51154cm</Width>
+                              <Top>10.87631cm</Top>
+                              <Left>0cm</Left>
+                              <Height>50pt</Height>
+                              <Width>3.35279cm</Width>
                               <ZIndex>17</ZIndex>
                               <Style>
                                 <Border>
@@ -843,7 +850,7 @@
                                       <Value>=Fields!WorkShiftCode.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>22pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -852,10 +859,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.71756cm</Top>
-                              <Left>3.52918cm</Left>
-                              <Height>47.22822pt</Height>
-                              <Width>3.35563cm</Width>
+                              <Top>10.87631cm</Top>
+                              <Left>3.35279cm</Left>
+                              <Height>50pt</Height>
+                              <Width>3.0894cm</Width>
                               <ZIndex>18</ZIndex>
                               <Style>
                                 <Border>
@@ -894,7 +901,7 @@
                                       <Value>MC/ NO</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>22pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -904,10 +911,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.71756cm</Top>
-                              <Left>6.88481cm</Left>
-                              <Height>47.22822pt</Height>
-                              <Width>2.90222cm</Width>
+                              <Top>10.87631cm</Top>
+                              <Left>6.42455cm</Left>
+                              <Height>50pt</Height>
+                              <Width>3.36248cm</Width>
                               <ZIndex>19</ZIndex>
                               <Style>
                                 <Border>
@@ -916,22 +923,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -946,7 +953,7 @@
                                       <Value EvaluationMode="Constant" />
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>20pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -955,10 +962,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.71756cm</Top>
+                              <Top>10.87631cm</Top>
                               <Left>9.78703cm</Left>
-                              <Height>47.22822pt</Height>
-                              <Width>3.00378cm</Width>
+                              <Height>50pt</Height>
+                              <Width>2.72156cm</Width>
                               <ZIndex>20</ZIndex>
                               <Style>
                                 <Border>
@@ -967,22 +974,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                               </Style>
@@ -996,7 +1003,7 @@
                                       <Value>COLOUR</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>22pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1006,10 +1013,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.71756cm</Top>
-                              <Left>12.79081cm</Left>
-                              <Height>47.22822pt</Height>
-                              <Width>3.29618cm</Width>
+                              <Top>10.87631cm</Top>
+                              <Left>12.50859cm</Left>
+                              <Height>50pt</Height>
+                              <Width>3.5784cm</Width>
                               <ZIndex>21</ZIndex>
                               <Style>
                                 <Border>
@@ -1018,22 +1025,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -1048,7 +1055,7 @@
                                       <Value>=Fields!Color.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>22pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1057,10 +1064,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>10.71756cm</Top>
+                              <Top>10.87631cm</Top>
                               <Left>16.08699cm</Left>
-                              <Height>47.22822pt</Height>
-                              <Width>2.90905cm</Width>
+                              <Height>50pt</Height>
+                              <Width>3.62cm</Width>
                               <ZIndex>22</ZIndex>
                               <Style>
                                 <Border>
@@ -1069,22 +1076,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -1110,10 +1117,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>12.45423cm</Top>
-                              <Left>0.01764cm</Left>
-                              <Height>42pt</Height>
-                              <Width>9.72332cm</Width>
+                              <Top>12.70875cm</Top>
+                              <Left>0cm</Left>
+                              <Height>56pt</Height>
+                              <Width>9.75175cm</Width>
                               <ZIndex>23</ZIndex>
                               <Style>
                                 <Border>
@@ -1122,22 +1129,22 @@
                                 <TopBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>0.5pt</Width>
+                                  <Width>0.3pt</Width>
                                 </TopBorder>
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -1152,7 +1159,7 @@
                                       <Value>=Fields!PackSize.Value</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>22pt</FontSize>
+                                        <FontSize>34pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1162,10 +1169,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>12.45423cm</Top>
-                              <Left>9.74096cm</Left>
-                              <Height>42pt</Height>
-                              <Width>9.25508cm</Width>
+                              <Top>12.70875cm</Top>
+                              <Left>9.75175cm</Left>
+                              <Height>56pt</Height>
+                              <Width>9.95628cm</Width>
                               <ZIndex>24</ZIndex>
                               <Style>
                                 <Border>
@@ -1174,17 +1181,17 @@
                                 <BottomBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </BottomBorder>
                                 <LeftBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </LeftBorder>
                                 <RightBorder>
                                   <Color>Black</Color>
                                   <Style>Solid</Style>
-                                  <Width>1pt</Width>
+                                  <Width>0.3pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>3pt</PaddingLeft>
@@ -1199,7 +1206,7 @@
                                       <Value>QTY OF PIECES PER PACK</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>19.5pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1209,10 +1216,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>13.93904cm</Top>
-                              <Left>0.01764cm</Left>
-                              <Height>46pt</Height>
-                              <Width>12.62916cm</Width>
+                              <Top>14.68575cm</Top>
+                              <Left>0cm</Left>
+                              <Height>48pt</Height>
+                              <Width>13.2818cm</Width>
                               <ZIndex>25</ZIndex>
                               <Style>
                                 <Border>
@@ -1239,7 +1246,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>3pt</PaddingLeft>
+                                <PaddingLeft>2pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox47">
@@ -1251,7 +1258,7 @@
                                       <Value>=Code.BlankZero(Fields!QtyofPiecePerPack.Value)</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>24pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1261,10 +1268,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>13.93904cm</Top>
-                              <Left>12.6468cm</Left>
-                              <Height>46pt</Height>
-                              <Width>6.34924cm</Width>
+                              <Top>14.68575cm</Top>
+                              <Left>13.2818cm</Left>
+                              <Height>48pt</Height>
+                              <Width>6.41924cm</Width>
                               <ZIndex>26</ZIndex>
                               <Style>
                                 <Border>
@@ -1303,7 +1310,7 @@
                                       <Value>QTY OF CARTONS/TRAYS PER PALLET</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>19.5pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1313,10 +1320,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>15.56358cm</Top>
-                              <Left>0.01764cm</Left>
-                              <Height>46pt</Height>
-                              <Width>12.62916cm</Width>
+                              <Top>16.38575cm</Top>
+                              <Left>0cm</Left>
+                              <Height>48pt</Height>
+                              <Width>13.2818cm</Width>
                               <ZIndex>27</ZIndex>
                               <Style>
                                 <Border>
@@ -1343,7 +1350,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>3pt</PaddingLeft>
+                                <PaddingLeft>2pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox49">
@@ -1355,7 +1362,7 @@
                                       <Value>=First(Fields!QtyofCarton_TraysPerPallet.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>24pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1365,10 +1372,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>15.56358cm</Top>
-                              <Left>12.6468cm</Left>
-                              <Height>46pt</Height>
-                              <Width>6.3532cm</Width>
+                              <Top>16.38575cm</Top>
+                              <Left>13.2818cm</Left>
+                              <Height>48pt</Height>
+                              <Width>6.41924cm</Width>
                               <ZIndex>28</ZIndex>
                               <Style>
                                 <Border>
@@ -1407,7 +1414,7 @@
                                       <Value>TOTAL UNITS PER PALLET</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>19.5pt</FontSize>
                                       </Style>
                                     </TextRun>
                                   </TextRuns>
@@ -1417,10 +1424,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>17.18283cm</Top>
-                              <Left>0.01764cm</Left>
-                              <Height>46pt</Height>
-                              <Width>12.62916cm</Width>
+                              <Top>18.08575cm</Top>
+                              <Left>0cm</Left>
+                              <Height>48pt</Height>
+                              <Width>13.2818cm</Width>
                               <ZIndex>29</ZIndex>
                               <Style>
                                 <Border>
@@ -1447,7 +1454,7 @@
                                   <Width>1pt</Width>
                                 </RightBorder>
                                 <VerticalAlign>Middle</VerticalAlign>
-                                <PaddingLeft>3pt</PaddingLeft>
+                                <PaddingLeft>2pt</PaddingLeft>
                               </Style>
                             </Textbox>
                             <Textbox Name="ExecutionTimeTextBox51">
@@ -1459,7 +1466,7 @@
                                       <Value>=First(Fields!QtyPerPack.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>18pt</FontSize>
+                                        <FontSize>24pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1469,10 +1476,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>17.18283cm</Top>
-                              <Left>12.6468cm</Left>
-                              <Height>46pt</Height>
-                              <Width>6.34924cm</Width>
+                              <Top>18.08575cm</Top>
+                              <Left>13.2818cm</Left>
+                              <Height>48pt</Height>
+                              <Width>6.41924cm</Width>
                               <ZIndex>30</ZIndex>
                               <Style>
                                 <Border>
@@ -1670,8 +1677,8 @@
                                 </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>19.1325cm</Top>
-                              <Left>4.5184cm</Left>
+                              <Top>20.1485cm</Top>
+                              <Left>4.9629cm</Left>
                               <Height>4cm</Height>
                               <Width>9.83598cm</Width>
                               <ZIndex>31</ZIndex>
@@ -1720,10 +1727,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>23.62102cm</Top>
+                              <Top>24.57352cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15pt</Height>
-                              <Width>18.97153cm</Width>
+                              <Width>19.66342cm</Width>
                               <ZIndex>32</ZIndex>
                               <Style>
                                 <Border>
@@ -1751,10 +1758,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>24.15018cm</Top>
+                              <Top>25.10268cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15pt</Height>
-                              <Width>18.97153cm</Width>
+                              <Width>19.66342cm</Width>
                               <ZIndex>33</ZIndex>
                               <Style>
                                 <Border>
@@ -1782,10 +1789,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>24.71463cm</Top>
+                              <Top>25.66713cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15pt</Height>
-                              <Width>18.97153cm</Width>
+                              <Width>19.66342cm</Width>
                               <ZIndex>34</ZIndex>
                               <Style>
                                 <Border>
@@ -1813,10 +1820,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>25.24379cm</Top>
+                              <Top>26.19629cm</Top>
                               <Left>0.02451cm</Left>
                               <Height>15.5pt</Height>
-                              <Width>18.97153cm</Width>
+                              <Width>19.66342cm</Width>
                               <ZIndex>35</ZIndex>
                               <Style>
                                 <Border>
@@ -1844,10 +1851,10 @@
                                   </Style>
                                 </Paragraph>
                               </Paragraphs>
-                              <Top>25.89643cm</Top>
+                              <Top>26.81718cm</Top>
                               <Left>0.02451cm</Left>
-                              <Height>23.10815pt</Height>
-                              <Width>18.97153cm</Width>
+                              <Height>15.60815pt</Height>
+                              <Width>19.66342cm</Width>
                               <ZIndex>36</ZIndex>
                               <Style>
                                 <Border>
@@ -1857,42 +1864,11 @@
                               </Style>
                             </Textbox>
                             <Rectangle Name="Rectangle2">
-                              <ReportItems>
-                                <Textbox Name="GTINQRCode2">
-                                  <rd:DefaultName>GTINQRCode</rd:DefaultName>
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>=Fields!JobQRCode.Value</Value>
-                                          <Style>
-                                            <FontFamily>IDAutomation2D</FontFamily>
-                                            <FontSize>15pt</FontSize>
-                                            <FontWeight>Bold</FontWeight>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style>
-                                        <TextAlign>Center</TextAlign>
-                                      </Style>
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <Top>0cm</Top>
-                                  <Left>0cm</Left>
-                                  <Height>4cm</Height>
-                                  <Width>4cm</Width>
-                                  <Style>
-                                    <Border />
-                                    <VerticalAlign>Bottom</VerticalAlign>
-                                  </Style>
-                                </Textbox>
-                              </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>19.1325cm</Top>
+                              <Top>20.1485cm</Top>
                               <Left>0.34201cm</Left>
-                              <Height>4cm</Height>
-                              <Width>4cm</Width>
+                              <Height>4.00458cm</Height>
+                              <Width>4.4445cm</Width>
                               <ZIndex>37</ZIndex>
                               <Style>
                                 <Border>
@@ -1901,43 +1877,11 @@
                               </Style>
                             </Rectangle>
                             <Rectangle Name="Rectangle4">
-                              <ReportItems>
-                                <Textbox Name="GTINQRCode">
-                                  <rd:DefaultName>GTINQRCode</rd:DefaultName>
-                                  <CanGrow>true</CanGrow>
-                                  <KeepTogether>true</KeepTogether>
-                                  <Paragraphs>
-                                    <Paragraph>
-                                      <TextRuns>
-                                        <TextRun>
-                                          <Value>=Fields!GTINQRCode.Value</Value>
-                                          <Style>
-                                            <FontFamily>IDAutomation2D</FontFamily>
-                                            <FontSize>13pt</FontSize>
-                                            <FontWeight>Bold</FontWeight>
-                                          </Style>
-                                        </TextRun>
-                                      </TextRuns>
-                                      <Style>
-                                        <TextAlign>Center</TextAlign>
-                                      </Style>
-                                    </Paragraph>
-                                  </Paragraphs>
-                                  <Top>0cm</Top>
-                                  <Left>0cm</Left>
-                                  <Height>4cm</Height>
-                                  <Width>4cm</Width>
-                                  <Style>
-                                    <Border />
-                                    <VerticalAlign>Bottom</VerticalAlign>
-                                  </Style>
-                                </Textbox>
-                              </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>19.1325cm</Top>
-                              <Left>14.67854cm</Left>
+                              <Top>20.1485cm</Top>
+                              <Left>15.04795cm</Left>
                               <Height>4cm</Height>
-                              <Width>4cm</Width>
+                              <Width>4.39259cm</Width>
                               <ZIndex>38</ZIndex>
                               <Style>
                                 <Border>
@@ -1945,6 +1889,67 @@
                                 </Border>
                               </Style>
                             </Rectangle>
+                            <Textbox Name="GTINQRCode2">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!JobQRCode.Value</Value>
+                                      <Style>
+                                        <FontFamily>IDAutomation2D</FontFamily>
+                                        <FontSize>18pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>GTINQRCode</rd:DefaultName>
+                              <Top>20.09558cm</Top>
+                              <Left>0.34201cm</Left>
+                              <Height>4.0575cm</Height>
+                              <Width>4.40922cm</Width>
+                              <ZIndex>39</ZIndex>
+                              <Style>
+                                <Border />
+                                <VerticalAlign>Bottom</VerticalAlign>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="GTINQRCode">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!GTINQRCode.Value</Value>
+                                      <Style>
+                                        <FontFamily>IDAutomation2D</FontFamily>
+                                        <FontSize>16pt</FontSize>
+                                        <FontWeight>Bold</FontWeight>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style>
+                                    <TextAlign>Center</TextAlign>
+                                  </Style>
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>GTINQRCode</rd:DefaultName>
+                              <Top>20.09558cm</Top>
+                              <Left>15.04795cm</Left>
+                              <Height>4.05292cm</Height>
+                              <Width>4.39259cm</Width>
+                              <ZIndex>40</ZIndex>
+                              <Style>
+                                <Border />
+                                <VerticalAlign>Bottom</VerticalAlign>
+                              </Style>
+                            </Textbox>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <Style>
@@ -2000,9 +2005,8 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Top>0in</Top>
-            <Height>26.71163cm</Height>
-            <Width>19cm</Width>
+            <Height>27.43835cm</Height>
+            <Width>19.71185cm</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -2030,10 +2034,10 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>26.71163cm</Height>
+        <Height>27.47363cm</Height>
         <Style />
       </Body>
-      <Width>19cm</Width>
+      <Width>19.71185cm</Width>
       <Page>
         <PageHeader>
           <Height>0.02646cm</Height>
@@ -2041,24 +2045,14 @@
           <PrintOnLastPage>true</PrintOnLastPage>
           <Style />
         </PageHeader>
-        <PageFooter>
-          <Height>0.02646cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
         <InteractiveHeight>11in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
-        <LeftMargin>1cm</LeftMargin>
+        <LeftMargin>0.6cm</LeftMargin>
         <RightMargin>0cm</RightMargin>
-        <TopMargin>0.5cm</TopMargin>
-        <BottomMargin>0.5cm</BottomMargin>
+        <TopMargin>0.6cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
@@ -2163,6 +2157,8 @@ ohhNZOMp2UrqoTkcOfwTbdukMGnSBG697Q7sNttxtvIJHQ+333oTz/Xsdn5Z1OWU8zeZMWsOb703jJ5P
   </EmbeddedImages>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>b717bad0-0854-4d81-a0b2-005cf04cd18a</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
