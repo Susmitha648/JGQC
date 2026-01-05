@@ -22,6 +22,136 @@
       <rd:DataSourceID>3f1f0eb4-9fd3-47b9-ac59-0b5b15b1672c</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="PrintName">
+          <DataField>PrintName</DataField>
+        </Field>
+        <Field Name="CompanyAddress">
+          <DataField>CompanyAddress</DataField>
+        </Field>
+        <Field Name="CompanyPostcode">
+          <DataField>CompanyPostcode</DataField>
+        </Field>
+        <Field Name="CompanyCity">
+          <DataField>CompanyCity</DataField>
+        </Field>
+        <Field Name="CompanyState">
+          <DataField>CompanyState</DataField>
+        </Field>
+        <Field Name="CompanyCountry">
+          <DataField>CompanyCountry</DataField>
+        </Field>
+        <Field Name="CompanyInfoName">
+          <DataField>CompanyInfoName</DataField>
+        </Field>
+        <Field Name="CompanyInfoFax">
+          <DataField>CompanyInfoFax</DataField>
+        </Field>
+        <Field Name="CompanyInfoPhoneNo">
+          <DataField>CompanyInfoPhoneNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoEmail">
+          <DataField>CompanyInfoEmail</DataField>
+        </Field>
+        <Field Name="CompanyInfoHomePage">
+          <DataField>CompanyInfoHomePage</DataField>
+        </Field>
+        <Field Name="CompanyInfoBusinessRegistrationNo">
+          <DataField>CompanyInfoBusinessRegistrationNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoGiroNo">
+          <DataField>CompanyInfoGiroNo</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankName">
+          <DataField>CompanyInfoBankName</DataField>
+        </Field>
+        <Field Name="CompanyInfoBankAccountNo">
+          <DataField>CompanyInfoBankAccountNo</DataField>
+        </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
+        </Field>
+        <Field Name="CompanyPicture1">
+          <DataField>CompanyPicture1</DataField>
+        </Field>
+        <Field Name="CompanyPicture2">
+          <DataField>CompanyPicture2</DataField>
+        </Field>
+        <Field Name="CompanyPicture3">
+          <DataField>CompanyPicture3</DataField>
+        </Field>
+        <Field Name="Last_Date_Modified">
+          <DataField>Last_Date_Modified</DataField>
+        </Field>
+        <Field Name="Job_Code">
+          <DataField>Job_Code</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Finish">
+          <DataField>Finish</DataField>
+        </Field>
+        <Field Name="CustomerName">
+          <DataField>CustomerName</DataField>
+        </Field>
+        <Field Name="WorkShiftCode">
+          <DataField>WorkShiftCode</DataField>
+        </Field>
+        <Field Name="Color">
+          <DataField>Color</DataField>
+        </Field>
+        <Field Name="PackSize">
+          <DataField>PackSize</DataField>
+        </Field>
+        <Field Name="QtyofPiecePerPack">
+          <DataField>QtyofPiecePerPack</DataField>
+        </Field>
+        <Field Name="QtyofPiecePerPackFormat">
+          <DataField>QtyofPiecePerPackFormat</DataField>
+        </Field>
+        <Field Name="QtyofCarton_TraysPerPallet">
+          <DataField>QtyofCarton_TraysPerPallet</DataField>
+        </Field>
+        <Field Name="QtyofCarton_TraysPerPalletFormat">
+          <DataField>QtyofCarton_TraysPerPalletFormat</DataField>
+        </Field>
+        <Field Name="QtyPerPack">
+          <DataField>QtyPerPack</DataField>
+        </Field>
+        <Field Name="QtyPerPackFormat">
+          <DataField>QtyPerPackFormat</DataField>
+        </Field>
+        <Field Name="SlipNo">
+          <DataField>SlipNo</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="GTINQRCode">
+          <DataField>GTINQRCode</DataField>
+        </Field>
+        <Field Name="JobQRCode">
+          <DataField>JobQRCode</DataField>
+        </Field>
+        <Field Name="RecordingSlipNo">
+          <DataField>RecordingSlipNo</DataField>
+        </Field>
+        <Field Name="MachineNo">
+          <DataField>MachineNo</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -140,6 +270,7 @@
                                       <Value>SLIP NO:-</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
+                                        <FontFamily>Segoe UI</FontFamily>
                                         <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
@@ -307,6 +438,7 @@
                                       <Value>DATE:-</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
+                                        <FontFamily>Segoe UI</FontFamily>
                                         <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
@@ -543,6 +675,7 @@
                                       <Value>=Ucase(First(Fields!Description.Value, "DataSet_Result"))</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
+                                        <FontFamily>Segoe UI</FontFamily>
                                         <FontSize>18pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
@@ -696,7 +829,8 @@
                                       <Value>CUSTOMER</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>22pt</FontSize>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>26pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -747,7 +881,8 @@
                                       <Value>=First(Fields!CustomerName.Value, "DataSet_Result")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>22pt</FontSize>
+                                        <FontFamily>Segoe UI</FontFamily>
+                                        <FontSize>26pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -1106,7 +1241,8 @@
                                       <Value>VARIATION DESC:</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
-                                        <FontSize>22pt</FontSize>
+                                        <FontFamily>Times New Roman</FontFamily>
+                                        <FontSize>24pt</FontSize>
                                         <FontWeight>Bold</FontWeight>
                                       </Style>
                                     </TextRun>
@@ -2058,6 +2194,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
