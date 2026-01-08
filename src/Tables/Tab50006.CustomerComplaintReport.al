@@ -152,6 +152,46 @@ table 50006 "Customer Complaint Report"
             Caption = 'Sales Return Order';
             TableRelation = "Sales Header"."No." where("Document Type" = filter("Return Order"));
         }
+        field(18; Remarks; Text[200])
+        {
+            Caption = 'Remarks';
+        }
+        field(19; "Manufacture Date"; Date)
+        {
+            Caption = 'Manufacture Date';
+        }
+        field(20; "Slip No"; Text[100])
+        {
+            Caption = 'Slip No';
+        }
+        field(21; "Specific Mould Numbers"; Text[100])
+        {
+            Caption = 'Specific Mould Numbers';
+        }
+        field(22; "Samples Available"; Boolean)
+        {
+            Caption = 'Samples Available';
+        }
+        field(23; "Give to Who"; Text[100])
+        {
+            Caption = 'Give to Who';
+        }
+        field(24; "Visit Required"; Boolean)
+        {
+            Caption = 'Visit Required';
+        }
+        field(25; "Customer Requirement"; enum "Customer Requirements")
+        {
+            Caption = 'Customer Requirement';
+        }
+         field(26; "Where Found"; Text[100])
+        {
+            Caption = 'Where Found';
+        }
+         field(27; "Quality Involved"; Text[100])
+        {
+            Caption = 'Quality Involved';
+        }
 
     }
     keys

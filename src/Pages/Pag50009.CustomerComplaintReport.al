@@ -84,7 +84,47 @@ page 50009 "Customer Complaint Report"
                 {
                     ToolTip = 'Specifies the value of the Sales Return Order by field.', Comment = '%';
                 }
-
+                field("Remarks"; Rec.Remarks)
+                {
+                    ToolTip = 'Specifies the value of the Remarks by field.', Comment = '%';
+                    MultiLine = True;
+                }
+                field("Manufacture Date"; Rec."Manufacture Date")
+                {
+                    ToolTip = 'Specifies the value of the Manufacture Date field.', Comment = '%';
+                }
+                field("Slip No"; Rec."Slip No")
+                {
+                    ToolTip = 'Specifies the value of the Slip No field.', Comment = '%';
+                }
+                field("Specific Mould Numbers"; Rec."Specific Mould Numbers")
+                {
+                    ToolTip = 'Specifies the value of the Specific Mould Numbers field.', Comment = '%';
+                }
+                field("Samples Available"; Rec."Samples Available")
+                {
+                    ToolTip = 'Specifies the value of the Samples Available field.', Comment = '%';
+                }
+                field("Give to Who"; Rec."Give to Who")
+                {
+                    ToolTip = 'Specifies the value of the Give to Who field.', Comment = '%';
+                }
+                field("Visit Required"; Rec."Visit Required")
+                {
+                    ToolTip = 'Specifies the value of the Visit Required field.', Comment = '%';
+                }
+                field("Customer Requirement"; Rec."Customer Requirement")
+                {
+                    ToolTip = 'Specifies the value of the Customer Requirement field.', Comment = '%';
+                }
+                field("Where Found"; Rec."Where Found")
+                {
+                    ToolTip = 'Specifies the value of the Where Found field.', Comment = '%';
+                }
+                field("Quality Involved"; Rec."Quality Involved")
+                {
+                    ToolTip = 'Specifies the value of the Quality Involved field.', Comment = '%';
+                }
             }
         }
         area(factboxes)

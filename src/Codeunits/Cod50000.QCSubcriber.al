@@ -154,45 +154,41 @@ codeunit 50000 "QC Subcriber"
             until ProdOrderLine.Next() = 0;
 
     end;
-
-   /* [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnRegisterChangeOnAfterCreateReservEntry', '', false, false)]
-    local procedure UpdateRejected(var ReservEntry: Record "Reservation Entry"; TrackingSpecification: Record "Tracking Specification"; OldTrackingSpecification: Record "Tracking Specification"; CurrentRunMode: Enum "Item Tracking Run Mode"; CurrentSourceType: Integer; TempReservEntry: Record "Reservation Entry" temporary)
+    [EventSubscriber(ObjectType:: Codeunit, Codeunit::"Whse.-Post Receipt", 'OnAfterCreatePutAwayDoc', '', false, false)]
+    local procedure UpdateSerialNo(var WarehouseReceiptHeader: Record "Warehouse Receipt Header"; var CounterPutAways: Integer; var WhseActivHeader: Record "Warehouse Activity Header")
     var
-        ReservEntry1: Record "Reservation Entry";
+        WarehouseActivityH: Record "Warehouse Activity Header";
+        WareActivityLine : Record "Warehouse Activity Line";
     begin
-        If TrackingSpecification.Rejected then begin
-            ReservEntry1.Reset();
-            ReservEntry1.SetRange("Source Type", 5406);
-            ReservEntry1.SetRange("Source Subtype", 3);
-            ReservEntry1.SetRange("Source ID", ReservEntry."Source ID");
-            ReservEntry1.SetRange("Source Prod. Order Line", ReservEntry."Source Prod. Order Line");
-            If ReservEntry1.FindFirst() then begin
-                ReservEntry1."Recording Slip Printed" := True;
-                ReservEntry1.Rejected := True;
-                ReservEntry1.Modify();
-            end;
-        end;
-
+        
+             WareActivityLine.Reset();
+             WareActivityLine.SetRange("Activity Type",WareActivityLine."Activity Type"::"Put-away");
+             WareActivityLine.SetRange("No.",WhseActivHeader."No.");
+             WareActivityLine.Setfilter("Serial No.",'<>%1','');
+             If WareActivityLine.FindFirst() then begin
+                WarehouseActivityH.Reset();
+                WarehouseActivityH.SetRange(Type,WarehouseActivityH.Type::"Put-away");
+                WarehouseActivityH.SetRange("No.",WareActivityLine."No.");
+                If WarehouseActivityH.FindFirst() then begin
+                    WarehouseActivityH."External Document No.2" := WareActivityLine."Serial No.";
+                    WarehouseActivityH.Modify();
+                end;
+                
+             end;
+    end;
+    [EventSubscriber(ObjectType:: Codeunit, Codeunit::"Whse.-Activity-Register", 'OnAfterRegisterWhseActivity', '', false, false)]
+    local procedure UpdateRegisterMarked(var WarehouseActivityHeader: Record "Warehouse Activity Header")
+    var
+       PutAway : Record "Put Away";
+    begin
+          PutAway.Reset();
+          PutAway.SetRange("Serial No",WarehouseActivityHeader."External Document No.2"); 
+          If PutAway.FindFirst() then begin
+            PutAway.Registered := True;
+            PutAway.Modify();
+          end;
     end;
 
-    [EventSubscriber(ObjectType::Page, Page::"Item Tracking Lines", 'OnRegisterChangeOnChangeTypeModifyOnBeforeCheckEntriesAreIdentical', '', false, false)]
-    local procedure UpdateRejectedModify(var ReservEntry1: Record "Reservation Entry"; var ReservEntry2: Record "Reservation Entry"; var OldTrackingSpecification: Record "Tracking Specification"; var NewTrackingSpecification: Record "Tracking Specification"; var IdenticalArray: array[2] of Boolean)
-    var
-        ReservEntry: Record "Reservation Entry";
-    begin
-        If NewTrackingSpecification.Rejected then begin
-            ReservEntry.Reset();
-            ReservEntry.SetRange("Source Type", 5406);
-            ReservEntry.SetRange("Source Subtype", 3);
-            ReservEntry.SetRange("Source ID", ReservEntry1."Source ID");
-            ReservEntry.SetRange("Source Prod. Order Line", ReservEntry1."Source Prod. Order Line");
-            If ReservEntry.FindFirst() then begin
-                ReservEntry."Recording Slip Printed" := True;
-                ReservEntry.Rejected := True;
-                ReservEntry.Modify();
-            end;
-        end;
-    end;*/
 
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin

@@ -27,7 +27,16 @@ report 50000 "CCR Report (DEV)"
             column(Complaint_Category; "Complaint Category ") { }
             column(Complaint_Category_Remarks; "Complaint Category Remarks") { }
             column(Status; Status) { }
-
+            column(Remarks; Remarks) { }
+            column(ManufactureDate; "Manufacture Date") { }
+            column(SlipNo; "Slip No") { }
+            column(SpecificMouldNumbers; "Specific Mould Numbers") { }
+            column(SamplesAvailable; "Samples Available") { }
+            column(GivetoWho; "Give to Who") { }
+            column(VisitRequired; "Visit Required") { }
+            column(CustomerRequirement; "Customer Requirement") { }
+            column(WhereFound; "Where Found") { }
+            column(QualityInvolved; "Quality Involved") { }
             dataitem(DefaultDimension; "Default Dimension")
             {
                 DataItemLink = "No." = field("Job No");
