@@ -22,39 +22,53 @@ report 50016 "QC Plan Report Revised"
             column(Colour; Colour) { }
             column(CompanyLogo; CompanyInfo.Picture) { }
             column(SystemModifiedAt; Format(SystemModifiedAt)) { }
-            dataitem(QCPlanLine; "QC Plan Lines")
+            dataitem(ParameterType; "QC Parameters")
             {
-                DataItemLink = "Job No." = field("Job No.");
-                DataItemTableView = sorting("Parameter Code");
                 column(ParameterTyp_Code; "Parameter Code") { }
                 column(ParameterTyp_Name; "Parameter Name") { }
-                column(ParameterTyp_Type; ParameterTyp_Type) { }
+                column(ParameterTyp_Type; "Parameter Type") { }
                 column(Sequence; Sequence) { }
-                column(Line_Job_No_; "Job No.") { }
-                column(Line_Description; Description) { }
+                column(Line_Job_No_; Line_Job_No_) { }
+                column(Line_Description; Line_Description) { }
                 column(Parameter_Code; "Parameter Code") { }
                 column(Parameter_Name; "Parameter Name") { }
                 column(Frequency; Frequency) { }
                 column(Min; Min) { }
                 column(Max; Max) { }
                 column(Nom; Nom) { }
-                column(Required_for_CE; "Required for CE") { }
-                column(Required_for_HE; "Required for HE") { }
+                column(Required_for_CE; Required_for_CE) { }
+                column(Required_for_HE; Required_for_HE) { }
                 trigger OnAfterGetRecord()
                 var
-                    QCParameter: Record "QC Parameters";
+                    QCPlanLine: Record "QC Plan Lines";
                 begin
-                    // Clear variables first to avoid stale data
-                    Clear(ParameterTyp_Type);
-                    Clear(Sequence);
+                    // Clear all variables first to prevent repeating values
+                    Clear(Line_Job_No_);
+                    Clear(Line_Description);
+                    Clear(Parameter_Code);
+                    Clear(Parameter_Name);
+                    Clear(Frequency);
+                    Clear(Min);
+                    Clear(Max);
+                    Clear(Nom);
+                    Clear(Required_for_CE);
+                    Clear(Required_for_HE);
 
-                    // Look up the Parameter Type and Sequence from the master QC Parameters table
-                    QCParameter.Reset();
-                    QCParameter.SetRange("Parameter Code", QCPlanLine."Parameter Code");
-                    if QCParameter.FindFirst() then begin
-                        ParameterTyp_Type := QCParameter."Parameter Type";
-                        Sequence := QCParameter.Sequence;
-                    end;
+                    QCPlanLine.Reset();
+                    QCPlanLine.SetRange("Job No.", QCPlanHeader."Job No.");
+                    QCPlanLine.SetRange("Parameter Code", ParameterType."Parameter Code");
+                    IF QCPlanLine.FindFirst() then BEGIN
+                        Line_Job_No_ := QCPlanLine."Job No.";
+                        Line_Description := QCPlanLine."Description";
+                        Parameter_Code := QCPlanLine."Parameter Code";
+                        Parameter_Name := QCPlanLine."Parameter Name";
+                        Frequency := QCPlanLine."Frequency";
+                        Min := QCPlanLine."Min";
+                        Max := QCPlanLine."Max";
+                        Nom := QCPlanLine."Nom";
+                        Required_for_CE := QCPlanLine."Required for CE";
+                        Required_for_HE := QCPlanLine."Required for HE";
+                    END;
                 end;
             }
         }
@@ -86,7 +100,16 @@ report 50016 "QC Plan Report Revised"
 
     var
         CompanyInfo: Record "Company Information";
-        ParameterTyp_Type: Text;
-        Sequence: Integer;
+        JobNo: Text;
+        Line_Job_No_: Text;
+        Line_Description: Text;
+        Parameter_Code: Text;
+        Parameter_Name: Text;
+        Frequency: Text;
+        Min: Text;
+        Max: Text;
+        Nom: Text;
+        Required_for_CE: Boolean;
+        Required_for_HE: Boolean;
 
 }
