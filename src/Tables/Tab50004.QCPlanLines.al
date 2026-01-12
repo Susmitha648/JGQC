@@ -109,7 +109,6 @@ table 50004 "QC Plan Lines"
         field(11; "COA Needed"; Boolean)
         {
             DataClassification = CustomerContent;
-            Editable = false;
         }
     }
     keys

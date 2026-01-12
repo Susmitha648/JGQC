@@ -49,10 +49,7 @@ page 50021 "Cold End Presort Detail"
                 {
                     ToolTip = 'Specifies the value of the Customer Name field.', Comment = '%';
                 }
-                 field("Category"; Rec.Category)
-                {
-                    ToolTip = 'Specifies the value of the Category field.', Comment = '%';
-                }
+                
                  field("Shift 1 Leading Hand"; Rec."Shift 1 Leading Hand")
                 {
                     ToolTip = 'Specifies the value of the Shift 1 Leading Hand field.', Comment = '%';

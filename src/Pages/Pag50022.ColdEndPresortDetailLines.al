@@ -43,6 +43,10 @@ page 50022 "Cold End Presort Detail Lines"
                 {
                     ToolTip = 'Specifies the value of the QC Defect Code 2 field.', Comment = '%';
                 }
+                 field("Category"; Rec.Category)
+                {
+                    ToolTip = 'Specifies the value of the Category field.', Comment = '%';
+                }
             }
         }
     }

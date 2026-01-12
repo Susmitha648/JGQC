@@ -73,7 +73,7 @@ report 50014 "Recording Slip Reprint"
             column(Description; Description) { }
             column(Finish; QCPlanHeader.Finish) { }
             column(CustomerName; QCPlanHeader."Customer Name") { }
-            column(WorkShiftCode; "Work Shift") { }
+            column(WorkShiftCode; WorkShiftCode) { }
             column(Color; QCPlanHeader.Colour) { }
             column(PackSize; Item."Pack Size") { }
             column(QtyofPiecePerPack; PackSizeRec."Qty of Pieces Per Pack") { }
@@ -192,6 +192,7 @@ report 50014 "Recording Slip Reprint"
                 SingleInstance: Codeunit "QC Subcriber";
             begin
                 Clear(MachineNo);
+                Clear(WorkShiftCode);
                 // Declare the barcode provider using the barcode provider interface and enum
                 BarcodeFontProvider := Enum::"Barcode Font Provider"::IDAutomation1D;
                 BarcodeFontProvider2D := Enum::"Barcode Font Provider 2D"::IDAutomation2D;
@@ -199,6 +200,11 @@ report 50014 "Recording Slip Reprint"
                 If Item.Get("Item No.") then
                     If PackSizeRec.Get(Item."Pack Size") then;
                 If QCPlanHeader.Get("Shortcut Dimension 2 Code") then;
+                
+                 WorkShift.Reset();
+                WorkShift.SetRange(Code,"Prod. Order Line"."Work Shift");
+                If WorkShift.FindFirst() then
+                   WorkShiftCode := WorkShift.Description;
 
                 GeneralLedgerSetup.Get();
                 DimensionSetEntry.Reset();
@@ -266,6 +272,7 @@ report 50014 "Recording Slip Reprint"
         PackSize: Text;
         Color: Text;
         WorkShiftCode: Text;
+        WorkShift : Record "Work Shift";
         CustomerName: Text;
         Finish: Text;
         CompanyCounty: Text;

@@ -143,6 +143,7 @@ page 50029 "Production Programme Subform"
         ProductionHdr.Validate("Source Type", ProductionHdr."Source Type"::Item);
         ProductionHdr.Validate("Source No.", ProdProgramLine.Job);
         ProductionHdr.Validate("Due Date", ProdProgramLine.Date);
+        ProductionHdr."Production Programme" := ProdProgramLine."No.";
         ProductionHdr."Dimension Set ID" := CreateDimension(ProdProgramLine);
         ProductionHdr.Validate(Quantity, (8 * 60 * ProdProgramLine."Bottles Per Minute") * WorkShift.Count);
         ProductionHdr."Starting Date" := ProdProgramLine.Date;

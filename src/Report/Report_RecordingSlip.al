@@ -194,7 +194,7 @@ report 50005 RecordingSlipReport
                 ReservationEntry."Recording Slip Printed" := True;
                 If Rejected then
                 ReservationEntry.Rejected := True;
-                ReservationEntry.Insert(True);
+                ReservationEntry.Insert();
             end;
         }
     }

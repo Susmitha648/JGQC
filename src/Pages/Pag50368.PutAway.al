@@ -20,7 +20,7 @@ page 50368 "MNExt Put Away"
                 {
                     ApplicationArea = All;
                 }
-                 field("Put Away"; '')
+                field("Put Away"; '')
                 {
                     ApplicationArea = All;
                     Caption = 'Whse Put Away';
@@ -31,27 +31,23 @@ page 50368 "MNExt Put Away"
 
     trigger OnOpenPage()
     var
-        PutAway : Record "Put Away";
-        PutAway1 : Record "Put Away";
+        PutAway: Record "Put Away";
+        PutAway1: Record "Put Away";
+        WareHeader: Record "Warehouse Activity Header";
     begin
-        PutAway1.Reset();
-        PutAway1.SetRange(Registered,True);
-        If PutAway1.FindFirst() then begin
-           PutAway1."Serial No" := '';
-           PutAway1.Modify();
-        end;
-        
+       
         PutAway.Reset();
         If PutAway.IsEmpty then begin
             Rec.Init();
-            Rec."Entry No":= 1000;
+            Rec."Entry No" := 1000;
             Rec.Insert();
         end;
     end;
+    
     trigger OnAfterGetCurrRecord()
     begin
         If rec.FindFirst() then;
     end;
 
-    
+
 }

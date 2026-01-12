@@ -1,5 +1,6 @@
 tableextension 50005 "Released PH Ext" extends "Production Order"
 {
+    DataCaptionFields = "No.","Source No.",Description;
     fields
     {
         field(50000; "Production Programme"; Code[20])
