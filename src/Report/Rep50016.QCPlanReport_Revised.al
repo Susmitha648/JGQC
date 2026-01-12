@@ -22,43 +22,39 @@ report 50016 "QC Plan Report Revised"
             column(Colour; Colour) { }
             column(CompanyLogo; CompanyInfo.Picture) { }
             column(SystemModifiedAt; Format(SystemModifiedAt)) { }
-            dataitem(ParameterType; "QC Parameters")
+            dataitem(QCPlanLine; "QC Plan Lines")
             {
+                DataItemLink = "Job No." = field("Job No.");
+                DataItemTableView = sorting("Parameter Code");
                 column(ParameterTyp_Code; "Parameter Code") { }
                 column(ParameterTyp_Name; "Parameter Name") { }
-                column(ParameterTyp_Type; "Parameter Type") { }
+                column(ParameterTyp_Type; ParameterTyp_Type) { }
                 column(Sequence; Sequence) { }
-                column(Line_Job_No_; Line_Job_No_) { }
-                column(Line_Description; Line_Description) { }
+                column(Line_Job_No_; "Job No.") { }
+                column(Line_Description; Description) { }
                 column(Parameter_Code; "Parameter Code") { }
                 column(Parameter_Name; "Parameter Name") { }
                 column(Frequency; Frequency) { }
                 column(Min; Min) { }
                 column(Max; Max) { }
                 column(Nom; Nom) { }
-                column(Required_for_CE; Required_for_CE) { }
-                column(Required_for_HE; Required_for_HE) { }
+                column(Required_for_CE; "Required for CE") { }
+                column(Required_for_HE; "Required for HE") { }
                 trigger OnAfterGetRecord()
                 var
-                    QCPlanLine: Record "QC Plan Lines";
+                    QCParameter: Record "QC Parameters";
                 begin
-                    QCPlanLine.Reset();
-                    QCPlanLine.SetRange("Job No.", QCPlanHeader."Job No.");
-                    QCPlanLine.SetRange("Parameter Code", ParameterType."Parameter Code");
-                    //QCPlanLine.SetRange("Parameter Name", "Parameter Name");
-                    //QCPlanLine.SetRange("Parameter Type", "Parameter Type");
-                    IF QCPlanLine.FindFirst() then BEGIN
-                        Line_Job_No_ := QCPlanLine."Job No.";
-                        Line_Description := QCPlanLine."Description";
-                        Parameter_Code := QCPlanLine."Parameter Code";
-                        Parameter_Name := QCPlanLine."Parameter Name";
-                        Frequency := QCPlanLine."Frequency";
-                        Min := QCPlanLine."Min";
-                        Max := QCPlanLine."Max";
-                        Nom := QCPlanLine."Nom";
-                        Required_for_CE := QCPlanLine."Required for CE";
-                        Required_for_HE := QCPlanLine."Required for HE";
-                    END;
+                    // Clear variables first to avoid stale data
+                    Clear(ParameterTyp_Type);
+                    Clear(Sequence);
+
+                    // Look up the Parameter Type and Sequence from the master QC Parameters table
+                    QCParameter.Reset();
+                    QCParameter.SetRange("Parameter Code", QCPlanLine."Parameter Code");
+                    if QCParameter.FindFirst() then begin
+                        ParameterTyp_Type := QCParameter."Parameter Type";
+                        Sequence := QCParameter.Sequence;
+                    end;
                 end;
             }
         }
@@ -90,16 +86,7 @@ report 50016 "QC Plan Report Revised"
 
     var
         CompanyInfo: Record "Company Information";
-        JobNo: Text;
-        Line_Job_No_: Text;
-        Line_Description: Text;
-        Parameter_Code: Text;
-        Parameter_Name: Text;
-        Frequency: Text;
-        Min: Text;
-        Max: Text;
-        Nom: Text;
-        Required_for_CE: Boolean;
-        Required_for_HE: Boolean;
+        ParameterTyp_Type: Text;
+        Sequence: Integer;
 
 }
