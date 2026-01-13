@@ -39,6 +39,7 @@ codeunit 50006 "FG PutAway Queue"
                     FGPostingTracking1.Modify();
                 end else begin
                     FGPostingTracking1.Status := FGPostingTracking1.Status::Sucess;
+                    FGPostingTracking1."Error Text" := '';
                     FGPostingTracking1.Modify();
                 end;
             until FGPostingTracking1.Next() = 0;
@@ -53,9 +54,9 @@ codeunit 50006 "FG PutAway Queue"
         RESerialNo: Code[50];
         FGPostingTracking: Record "FG Posting Tracking";
         FGPostingTracking1: Record "FG Posting Tracking";
-         FGPostingTrack: Record "FG Posting Tracking";
-         WhseReceiptLine1: Record "Warehouse Receipt Line";
-         WhsePostReceipt1: Codeunit "Whse.-Post Receipt";
+        FGPostingTrack: Record "FG Posting Tracking";
+        WhseReceiptLine1: Record "Warehouse Receipt Line";
+        WhsePostReceipt1: Codeunit "Whse.-Post Receipt";
 
     procedure PostWareReceipts()
     begin
@@ -70,6 +71,10 @@ codeunit 50006 "FG PutAway Queue"
                 WhseReceiptLine1.SetRange("No.", FGPostingTrack."Warehouse Receipt No");
                 If WhseReceiptLine1.FindFirst() then
                     WhsePostReceipt1.Run(WhseReceiptLine1);
+                FGPostingTrack."Transfer Receipt Posted" := True;
+                FGPostingTrack.Status := FGPostingTrack.Status::Sucess;
+                FGPostingTrack."Error Text" := '';
+                FGPostingTrack.Modify();
             until FGPostingTrack.Next() = 0;
     end;
 }
