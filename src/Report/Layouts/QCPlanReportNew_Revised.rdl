@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-16T01:33:17.8525078Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-12T03:34:27.5165138Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1603,7 +1603,6 @@
               </Filter>
             </Filters>
             <Top>0.54861in</Top>
-            <Left>0in</Left>
             <Height>0.54861in</Height>
             <Width>4.02501in</Width>
             <ZIndex>1</ZIndex>
@@ -4470,7 +4469,6 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>0cm</Top>
-              <Left>0in</Left>
               <Height>0.25348in</Height>
               <Width>8.14368in</Width>
               <Style>
@@ -4489,10 +4487,6 @@
         </PageFooter>
         <PageHeight>11.69in</PageHeight>
         <PageWidth>8.27in</PageWidth>
-        <LeftMargin>0in</LeftMargin>
-        <RightMargin>0in</RightMargin>
-        <TopMargin>0in</TopMargin>
-        <BottomMargin>0in</BottomMargin>
         <Columns>2</Columns>
         <ColumnSpacing>0in</ColumnSpacing>
         <Style />

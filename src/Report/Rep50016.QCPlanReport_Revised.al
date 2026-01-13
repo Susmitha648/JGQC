@@ -42,11 +42,21 @@ report 50016 "QC Plan Report Revised"
                 var
                     QCPlanLine: Record "QC Plan Lines";
                 begin
+                    // Clear all variables first to prevent repeating values
+                    Clear(Line_Job_No_);
+                    Clear(Line_Description);
+                    Clear(Parameter_Code);
+                    Clear(Parameter_Name);
+                    Clear(Frequency);
+                    Clear(Min);
+                    Clear(Max);
+                    Clear(Nom);
+                    Clear(Required_for_CE);
+                    Clear(Required_for_HE);
+
                     QCPlanLine.Reset();
                     QCPlanLine.SetRange("Job No.", QCPlanHeader."Job No.");
                     QCPlanLine.SetRange("Parameter Code", ParameterType."Parameter Code");
-                    //QCPlanLine.SetRange("Parameter Name", "Parameter Name");
-                    //QCPlanLine.SetRange("Parameter Type", "Parameter Type");
                     IF QCPlanLine.FindFirst() then BEGIN
                         Line_Job_No_ := QCPlanLine."Job No.";
                         Line_Description := QCPlanLine."Description";
