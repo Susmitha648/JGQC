@@ -2,7 +2,7 @@ report 50003 "QC Plan Report New"
 {
     ApplicationArea = All;
     Caption = 'QC Plan Report New';
-    UsageCategory = ReportsAndAnalysis;
+    //UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
     RDLCLayout = './src/Report/Layouts/QCPlanReportNew.rdl';
     dataset

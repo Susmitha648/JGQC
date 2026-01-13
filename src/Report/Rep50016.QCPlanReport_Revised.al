@@ -1,7 +1,7 @@
 report 50016 "QC Plan Report Revised"
 {
     ApplicationArea = All;
-    Caption = 'QC Plan Report Revised';
+    Caption = 'QC Plan Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
     RDLCLayout = './src/Report/Layouts/QCPlanReportNew_Revised.rdl';
