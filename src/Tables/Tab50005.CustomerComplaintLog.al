@@ -142,6 +142,38 @@ table 50005 "Customer Complaint Log"
            Editable = false;
            
         }
+        field(18; Investigation; Text[100])
+        {
+           Caption = 'Investigation';
+           trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
+        }
+         field(19; "Root Cause"; Text[100])
+        {
+           Caption = 'Root Cause';
+           trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
+        }
+         field(20; "Corrective Action"; Text[100])
+        {
+           Caption = 'Corrective Action';
+           trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
+        }
+         field(21; "Preventive Action"; Text[100])
+        {
+           Caption = 'Preventive Action';
+           trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
+        }
     }
     keys
     {

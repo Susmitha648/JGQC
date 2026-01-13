@@ -22,7 +22,7 @@ table 50026 "Item Reclass Posting"
         field(4; "Item Weight"; Decimal)
         {
             Caption = 'Item Weight';
-            DecimalPlaces = 0 : 2;
+            DecimalPlaces = 0 : 3;
             BlankZero = true;
         }
         field(5; "Line No"; Integer)

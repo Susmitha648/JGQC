@@ -6,17 +6,17 @@ table 50033 "FG Posting Tracking"
     {
         field(1; "Source ID"; Code[20])
         {
-            Caption = 'Entry No.';
+            Caption = 'Source ID';
         }
         field(2; "Item No."; Code[20])
         {
             Caption = 'Item No.';
             TableRelation = Item;
         }
-        
+
         field(3; "Creation Date"; Date)
         {
-            Caption = 'Creation Date';
+            Caption = 'Last Modified';
         }
         field(4; "Transferred from Entry No."; Integer)
         {
@@ -35,33 +35,37 @@ table 50033 "FG Posting Tracking"
         {
             Caption = 'Rejected';
         }
-         field(9; "Status"; enum "FG Track Status")
+        field(9; "Status"; enum "FG Track Status")
         {
             Caption = 'Status';
         }
         field(10; "Error Text"; Text[2048])
         {
-            Caption = 'Status';
+            Caption = 'Error Text';
         }
-          field(11; "Output Posted"; Boolean)
+        field(11; "Output Posted"; Boolean)
         {
-            Caption = 'Status';
+            Caption = 'Output Posted';
         }
-         field(12; "Transfer Order Created"; Boolean)
+        field(12; "Transfer Order Created"; Boolean)
         {
             Caption = 'Transfer Order Created';
         }
         field(13; "Transfer Shipment Posted"; Boolean)
         {
-            Caption = 'Transfer Order Posted';
+            Caption = 'Transfer Shipment Posted';
         }
         field(14; "Transfer Receipt Posted"; Boolean)
         {
             Caption = 'Transfer Receipt Posted';
         }
-         field(15; "Transfer Order No"; Code[20])
+        field(15; "Transfer Order No"; Code[20])
         {
-            Caption = 'Transfer Receipt Posted';
+            Caption = 'Transfer Order No';
+        }
+        field(16; "Warehouse Receipt No"; Code[20])
+        {
+            Caption = 'Warehouse Receipt No';
         }
     }
 
@@ -71,6 +75,6 @@ table 50033 "FG Posting Tracking"
         {
             Clustered = true;
         }
-       
+
     }
 }

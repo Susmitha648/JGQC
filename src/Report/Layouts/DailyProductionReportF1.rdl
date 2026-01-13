@@ -8236,6 +8236,9 @@ End Function
         <Field Name="TotalPackQty">
           <DataField>TotalPackQty</DataField>
         </Field>
+        <Field Name="TotalPackQtyFormat">
+          <DataField>TotalPackQtyFormat</DataField>
+        </Field>
         <Field Name="TonPerLineTot">
           <DataField>TonPerLineTot</DataField>
         </Field>

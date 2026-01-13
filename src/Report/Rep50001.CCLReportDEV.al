@@ -20,7 +20,10 @@ report 50001 "CCI Report (DEV)"
             column(Description; Description) { }
             column(CustomerContact; CustomerContact) { }
             column(Picture; Compinfo.Picture) { }
-
+            column(Investigation; Investigation) { }
+            column(RootCause; "Root Cause") { }
+            column(CorrectiveAction; "Corrective Action") { }
+            column(PreventiveAction; "Preventive Action") { }
             dataitem(CustomerComplaintReport; "Customer Complaint Report")
             {
                 DataItemLink = "No." = field("No.");

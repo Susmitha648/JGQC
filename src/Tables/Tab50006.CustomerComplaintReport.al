@@ -155,42 +155,82 @@ table 50006 "Customer Complaint Report"
         field(18; Remarks; Text[200])
         {
             Caption = 'Remarks';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
         field(19; "Manufacture Date"; Date)
         {
             Caption = 'Manufacture Date';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
         field(20; "Slip No"; Text[100])
         {
             Caption = 'Slip No';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
         field(21; "Specific Mould Numbers"; Text[100])
         {
             Caption = 'Specific Mould Numbers';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
         field(22; "Samples Available"; Boolean)
         {
             Caption = 'Samples Available';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
         field(23; "Give to Who"; Text[100])
         {
             Caption = 'Give to Who';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
         field(24; "Visit Required"; Boolean)
         {
             Caption = 'Visit Required';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
         field(25; "Customer Requirement"; enum "Customer Requirements")
         {
             Caption = 'Customer Requirement';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
          field(26; "Where Found"; Text[100])
         {
             Caption = 'Where Found';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
          field(27; "Quality Involved"; Text[100])
         {
             Caption = 'Quality Involved';
+             trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
         }
 
     }

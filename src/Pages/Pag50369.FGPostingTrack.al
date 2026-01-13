@@ -52,10 +52,6 @@ page 50369 "FG Posting Track"
                 {
                     ToolTip = 'Specifies the value of the Status field.', Comment = '%';
                 }
-                field("Transfer Order Created"; Rec."Transfer Order Created")
-                {
-                    ToolTip = 'Specifies the value of the Transfer Order Created field.', Comment = '%';
-                }
                 field("Transfer Shipment Posted"; Rec."Transfer Shipment Posted")
                 {
                     ToolTip = 'Specifies the value of the Transfer Order Posted field.', Comment = '%';

@@ -124,9 +124,9 @@ codeunit 50005 "FG Putaway"
             ItemJnlLinePost.SetRange("Entry Type", ItemJnlLinePost."Entry Type"::Output);
             ItemJnlLinePost.SetRange("Line No.", LineNo);
             If ItemJnlLinePost.FindFirst() then;
-           // ItemJnlPostBatch.SetSuppressCommit(true);
+            // ItemJnlPostBatch.SetSuppressCommit(true);
             ItemJnlPostBatch.Run(ItemJnlLinePost);
-            
+
             Rec."Output Posted" := True;
             Rec.Modify();
             Commit();
@@ -160,8 +160,6 @@ codeunit 50005 "FG Putaway"
                 ReservationEntry1."Entry No." := 0;
                 ReservationEntry1.Validate("Item No.", TransferLine1."Item No.");
                 ReservationEntry1."Location Code" := TransferLine1."Transfer-from Code";
-
-
                 ReservationEntry1.Validate("Planning Flexibility", ReservationEntry1."Planning Flexibility"::Unlimited);
                 ReservationEntry1.Validate("Item Tracking", ReservationEntry1."Item Tracking"::"Serial No.");
                 ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Surplus;
@@ -172,7 +170,6 @@ codeunit 50005 "FG Putaway"
                 ReservationEntry1.Validate("Source Batch Name", '');
                 ReservationEntry1.Validate(Positive, false);
                 ReservationEntry1.Validate("Quantity (Base)", -1);
-
                 ReservationEntry1.Validate("Source Ref. No.", TransferLine1."Line No.");
                 ReservationEntry1.Validate("Shipment Date", WorkDate());
                 ReservationEntry1."Created By" := UserId;
@@ -206,6 +203,7 @@ codeunit 50005 "FG Putaway"
             //TransferOrderPostShipment.SetSuppressCommit(True);
             TransferOrderPostShipment.Run(TransferOrderPost);
             Rec."Transfer Shipment Posted" := True;
+            Rec."Transfer Order No" := TransferNo;
             Rec.Modify();
             Commit();
 
@@ -228,6 +226,8 @@ codeunit 50005 "FG Putaway"
             GetSourceDocuments.RunModal();
 
             GetSourceDocuments.GetLastReceiptHeader(WarehouseReceiptHeader);
+            Rec."Warehouse Receipt No" := WarehouseReceiptHeader."No.";
+            Rec.Modify();
             WarehouseReceiptHeader1.Get(WarehouseReceiptHeader."No.");
             WarehouseReceiptHeader1.Status := WarehouseReceiptHeader1.Status::Released;
             WarehouseReceiptHeader1.Modify();
@@ -241,11 +241,13 @@ codeunit 50005 "FG Putaway"
 
             Rec."Transfer Receipt Posted" := True;
             Rec.Modify();
-
+            Commit();
         end;
     end;
 
    
+
+
     var
         ReservationEntry1: Record "Reservation Entry";
         ProdOrderLine: Record "Prod. Order Line";
@@ -254,6 +256,7 @@ codeunit 50005 "FG Putaway"
         ItemJnlLine1: Record "Item Journal Line";
         ItemJnlLinePost: Record "Item Journal Line";
         TransferOrderPost: Record "Transfer Header";
+       
         TransferNo: Code[20];
         ItemJnlTemplate: Record "Item Journal Template";
         ItemTrackingMgt: Codeunit "Item Tracking Management";
@@ -268,8 +271,10 @@ codeunit 50005 "FG Putaway"
         WarehouseReceiptHeader: Record "Warehouse Receipt Header";
         WarehouseReceiptHeader1: Record "Warehouse Receipt Header";
         WhsePostReceipt: Codeunit "Whse.-Post Receipt";
+        
         Location: Record Location;
         WhseReceiptLine: Record "Warehouse Receipt Line";
+        WhseReceiptLine1: Record "Warehouse Receipt Line";
         ManufacturingSetup: Record "Manufacturing Setup";
         LineNo: Integer;
         TransferOrderPostShipment: Codeunit "TransferOrder-Post Shipment";

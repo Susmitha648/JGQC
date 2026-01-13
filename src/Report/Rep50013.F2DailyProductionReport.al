@@ -384,7 +384,7 @@ report 50013 "F2 Daily Production Report"
         DefectCode: Record "Defect Code";
         ActPackQty: Decimal;
         NetPackPerc: Decimal;
-        TotalPackQty: Integer;
+        TotalPackQty: Decimal;
         DailyProdReport: Date;
         DefectTxt: Text[300];
         ProductioProgLineMTD: Record "Production Programme Line";
