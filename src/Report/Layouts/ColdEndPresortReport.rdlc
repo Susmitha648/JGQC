@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.30001.02</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-12-19T06:20:28.1427244Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-19T01:56:06.5130089Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -210,6 +210,7 @@
                                   <Style>Solid</Style>
                                   <Width>0.5pt</Width>
                                 </RightBorder>
+                                <BackgroundColor>=IIF(Fields!Category.Value = "100% Reject", "Red", "Transparent")</BackgroundColor>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
@@ -2597,6 +2598,7 @@
                                   <Style>Solid</Style>
                                   <Width>0.5pt</Width>
                                 </RightBorder>
+                                <BackgroundColor>=IIF(Fields!Category.Value = "100% Reject", "Red", "Transparent")</BackgroundColor>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
@@ -4984,6 +4986,7 @@
                                   <Style>Solid</Style>
                                   <Width>0.5pt</Width>
                                 </RightBorder>
+                                <BackgroundColor>=IIF(Fields!Category.Value = "100% Reject", "Red", "Transparent")</BackgroundColor>
                                 <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
@@ -8675,6 +8678,9 @@ Hd6IcKpafQ9O62eLRagBAGcOBQgAAFBlz1Hdqj2SyNcu2Ft/9FcuCNSPGqg9tldFJ6WRNlMgtFS527Ne
         </Field>
         <Field Name="QC_Defect_Code">
           <DataField>QC_Defect_Code</DataField>
+        </Field>
+        <Field Name="Category">
+          <DataField>Category</DataField>
         </Field>
         <Field Name="WI_Front">
           <DataField>WI_Front</DataField>

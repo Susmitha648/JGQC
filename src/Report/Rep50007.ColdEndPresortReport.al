@@ -50,6 +50,7 @@ report 50007 "Cold End Presort Report"
                 column(Front_Back; "Front/Back") { }
                 column(Cavity_No; "Cavity No") { }
                 column(QC_Defect_Code; "QC Defect Code") { }
+                column(Category; Category) { }
 
                 // Weight Issued Columns
                 column(WI_Front; WeightIssuedRec.Front) { }
