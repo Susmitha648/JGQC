@@ -49,7 +49,7 @@ table 50014 "Cold End Presort Detail Lines"
         }
         field(11; "QC Defect Code 2"; Code[20])
         {
-            Caption = 'QC Defect Code';
+            Caption = 'QC Defect Code 2';
             TableRelation = "Defect Code"."Defect Code";
         }
     }

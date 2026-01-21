@@ -51,12 +51,13 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     ProductionProgramLine: Record "Production Programme Line";
                     ProdOrder: Record "Production Order";
                     ReservationEntry: Record "Reservation Entry";
-                    ItemLedgerEntry : Record "Item Ledger Entry";
-                    ItemRec : Record Item;
-                    CountQty : Decimal;
+                    ItemLedgerEntry: Record "Item Ledger Entry";
+                    ItemRec: Record Item;
+                    CountQty: Decimal;
                 begin
                     MyReportID := Report::RecordingSlipReport;
                     CurrPage.SetSelectionFilter(DocumentNo);
+                    CheckItemVariants(Rec);
                     ProductionProgram.Reset();
                     ProductionProgram.SetRange(Job, Rec."Shortcut Dimension 2 Code");
                     ProductionProgram.SetRange(Date, Rec."Due Date");
@@ -72,7 +73,7 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                             Error('Location Code should not be blank in Production Order');
                     If ItemRec.Get(Rec."Item No.") then
                         If ItemRec."Pack Size" = '' then
-                           Error('No packsize available for this Item');
+                            Error('No packsize available for this Item');
                     ItemLedgerEntry.Reset();
                     ItemLedgerEntry.SetCurrentKey("Order Type", "Order No.", "Order Line No.", "Entry Type");
                     ItemLedgerEntry.SetRange("Order Type", ItemLedgerEntry."Order Type"::Production);
@@ -94,4 +95,15 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
             }
         }
     }
+    procedure CheckItemVariants(var ProductionLine: Record "Prod. Order Line")
+    var
+        ProdOrder: Record "Production Order";
+    begin
+        ProdOrder.Reset();
+        ProdOrder.SetRange("No.", ProductionLine."Prod. Order No.");
+        If ProdOrder.FindFirst() then 
+            If ProdOrder."Source No." <> ProductionLine."Item No." then
+              Error('Source No. in the header is different from Production Line item No');
+        
+    end;
 }

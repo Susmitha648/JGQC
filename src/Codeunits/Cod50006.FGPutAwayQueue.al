@@ -2,7 +2,37 @@ codeunit 50006 "FG PutAway Queue"
 {
     trigger OnRun()
     begin
-        PostWareReceipts();
+
+       FGPostingTrackShip.Reset();
+        FGPostingTrackShip.SetRange("Output Posted", True);
+        FGPostingTrackShip.SetRange("Transfer Shipment Posted", false);
+        FGPostingTrackShip.SetRange("Transfer Receipt Posted", false);
+        //FGPostingTrack.SetFilter("Warehouse Receipt No", '<>%1', '');
+        If FGPostingTrackShip.FindSet() then
+            repeat
+                Commit();
+                If not Codeunit.Run(CodeUnit::"Post Shipment Receipts", FGPostingTrackShip) then begin
+                    FGPostingTrackShip."Error Text" := GetLastErrorText();
+                    FGPostingTrackShip.Modify();
+                end ;
+            until FGPostingTrackShip.Next() = 0;
+
+        FGPostingTrack.Reset();
+        FGPostingTrack.SetRange("Output Posted", True);
+        FGPostingTrack.SetRange("Transfer Shipment Posted", True);
+        FGPostingTrack.SetRange("Transfer Receipt Posted", false);
+        //FGPostingTrack.SetFilter("Warehouse Receipt No", '<>%1', '');
+        If FGPostingTrack.FindSet() then
+            repeat
+                Commit();
+                If not Codeunit.Run(CodeUnit::"Ware Receipts Posting", FGPostingTrack) then begin
+                    FGPostingTrack."Error Text" := GetLastErrorText();
+                    FGPostingTrack.Modify();
+                end ;
+            until FGPostingTrack.Next() = 0;
+
+
+        //staging preparation
         ReservationEntry.Reset();
         ReservationEntry.SetRange("Recording Slip Printed", True);
         ReservationEntry.SetRange("Output Posted", false);
@@ -26,6 +56,7 @@ codeunit 50006 "FG PutAway Queue"
                 FGPostingTracking.Modify();
             until ReservationEntry.Next() = 0;
         end;
+
         FGPostingTracking1.Reset();
         FGPostingTracking1.SetFilter(Status, '%1|%2', FGPostingTracking1.Status::Inserted, FGPostingTracking1.Status::Error);
         FGPostingTracking1.SetRange("Output Posted", false);
@@ -37,11 +68,7 @@ codeunit 50006 "FG PutAway Queue"
                     FGPostingTracking1."Creation Date" := WorkDate();
                     FGPostingTracking1."Error Text" := GetLastErrorText();
                     FGPostingTracking1.Modify();
-                end else begin
-                    FGPostingTracking1.Status := FGPostingTracking1.Status::Sucess;
-                    FGPostingTracking1."Error Text" := '';
-                    FGPostingTracking1.Modify();
-                end;
+                end ;
             until FGPostingTracking1.Next() = 0;
     end;
 
@@ -55,26 +82,7 @@ codeunit 50006 "FG PutAway Queue"
         FGPostingTracking: Record "FG Posting Tracking";
         FGPostingTracking1: Record "FG Posting Tracking";
         FGPostingTrack: Record "FG Posting Tracking";
+        FGPostingTrackShip: Record "FG Posting Tracking";
         WhseReceiptLine1: Record "Warehouse Receipt Line";
         WhsePostReceipt1: Codeunit "Whse.-Post Receipt";
-
-    procedure PostWareReceipts()
-    begin
-        FGPostingTrack.Reset();
-        FGPostingTrack.SetRange("Output Posted", True);
-        FGPostingTrack.SetRange("Transfer Shipment Posted", True);
-        FGPostingTrack.SetRange("Transfer Receipt Posted", false);
-        FGPostingTrack.SetFilter("Warehouse Receipt No", '<>%1', '');
-        If FGPostingTrack.FindSet() then
-            repeat
-                WhseReceiptLine1.Reset();
-                WhseReceiptLine1.SetRange("No.", FGPostingTrack."Warehouse Receipt No");
-                If WhseReceiptLine1.FindFirst() then
-                    WhsePostReceipt1.Run(WhseReceiptLine1);
-                FGPostingTrack."Transfer Receipt Posted" := True;
-                FGPostingTrack.Status := FGPostingTrack.Status::Sucess;
-                FGPostingTrack."Error Text" := '';
-                FGPostingTrack.Modify();
-            until FGPostingTrack.Next() = 0;
-    end;
 }

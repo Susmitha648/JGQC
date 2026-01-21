@@ -3,7 +3,7 @@ codeunit 50005 "FG Putaway"
     TableNo = "FG Posting Tracking";
     trigger OnRun()
     begin
-        ManufacturingSetup.Get();
+          ManufacturingSetup.Get();
         Clear(LineNo);
         Clear(TransferNo);
         ProdOrderLine.Reset();
@@ -124,12 +124,13 @@ codeunit 50005 "FG Putaway"
             ItemJnlLinePost.SetRange("Entry Type", ItemJnlLinePost."Entry Type"::Output);
             ItemJnlLinePost.SetRange("Line No.", LineNo);
             If ItemJnlLinePost.FindFirst() then;
-            // ItemJnlPostBatch.SetSuppressCommit(true);
+            ItemJnlPostBatch.SetSuppressCommit(true);
             ItemJnlPostBatch.Run(ItemJnlLinePost);
 
             Rec."Output Posted" := True;
             Rec.Modify();
             Commit();
+            
             TransferOrder.Init();
             TransferOrder.Insert(True);
             TransferOrder.Validate("Transfer-from Code", ProdOrderLine."Location Code");
@@ -139,6 +140,7 @@ codeunit 50005 "FG Putaway"
                 TransferOrder.Validate("Transfer-to Code", ManufacturingSetup."FG Passed Move To Location");
             TransferOrder.Validate("In-Transit Code", 'INTRANSIT');
             TransferNo := TransferOrder."No.";
+            TransferOrder."External Document No." := Rec."Serial No.";
             TransferOrder.Modify(true);
             TransferLine.Init();
             TransferLine.Validate("Document No.", TransferNo);
@@ -200,7 +202,7 @@ codeunit 50005 "FG Putaway"
                 ReservationEntry1.Insert();
             End;
             If TransferOrderPost.Get(TransferNo) then;
-            //TransferOrderPostShipment.SetSuppressCommit(True);
+            TransferOrderPostShipment.SetSuppressCommit(True);
             TransferOrderPostShipment.Run(TransferOrderPost);
             Rec."Transfer Shipment Posted" := True;
             Rec."Transfer Order No" := TransferNo;
@@ -236,27 +238,30 @@ codeunit 50005 "FG Putaway"
             If not WhseReceiptLine.FindFirst() then
                 Error('Warehouse Receipt Line does not exist');
 
-            //WhsePostReceipt.SetSuppressCommit(true);
+            WhsePostReceipt.SetSuppressCommit(true);
             WhsePostReceipt.Run(WhseReceiptLine);
 
             Rec."Transfer Receipt Posted" := True;
+            Rec.Status := Rec.Status::Sucess;
             Rec.Modify();
             Commit();
+
         end;
     end;
 
-   
+
 
 
     var
         ReservationEntry1: Record "Reservation Entry";
+        ReservationEntrytemp: Record "Reservation Entry";
         ProdOrderLine: Record "Prod. Order Line";
         ProdOrderRoutingLine: Record "Prod. Order Routing Line";
         ItemJnlLine: Record "Item Journal Line";
         ItemJnlLine1: Record "Item Journal Line";
         ItemJnlLinePost: Record "Item Journal Line";
         TransferOrderPost: Record "Transfer Header";
-       
+
         TransferNo: Code[20];
         ItemJnlTemplate: Record "Item Journal Template";
         ItemTrackingMgt: Codeunit "Item Tracking Management";
@@ -271,7 +276,7 @@ codeunit 50005 "FG Putaway"
         WarehouseReceiptHeader: Record "Warehouse Receipt Header";
         WarehouseReceiptHeader1: Record "Warehouse Receipt Header";
         WhsePostReceipt: Codeunit "Whse.-Post Receipt";
-        
+
         Location: Record Location;
         WhseReceiptLine: Record "Warehouse Receipt Line";
         WhseReceiptLine1: Record "Warehouse Receipt Line";
@@ -283,4 +288,10 @@ codeunit 50005 "FG Putaway"
         Text000: Label '%1 journal';
         ToBatchName: Code[10];
         Text004: Label 'Production Journal';
+        TempReservEntry: Record "Reservation Entry" temporary;
+        TransLine: Record "Transfer Line";
+        CreateReservEntry: Codeunit "Create Reserv. Entry";
+        ReservStatus: Enum "Reservation Status";
+        CurrentSourceRowID: Text[250];
+        SecondSourceRowID: Text[250];
 }
