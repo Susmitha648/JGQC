@@ -11,6 +11,7 @@ report 50018 "FG Output Summary"
         {
 
             RequestFilterFields = "Due Date";
+            column(DueDate;Format("Due Date")){}
             dataitem(ItemLedgerEntry; "Item Ledger Entry")
             {
                 DataItemTableView = where("Entry Type" = CONST(Output), "Item Category Code" = filter('FG'), "Location Code" = filter('SF1'|'SF2'));

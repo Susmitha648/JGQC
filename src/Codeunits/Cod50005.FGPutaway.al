@@ -3,7 +3,7 @@ codeunit 50005 "FG Putaway"
     TableNo = "FG Posting Tracking";
     trigger OnRun()
     begin
-          ManufacturingSetup.Get();
+        ManufacturingSetup.Get();
         Clear(LineNo);
         Clear(TransferNo);
         ProdOrderLine.Reset();
@@ -126,12 +126,9 @@ codeunit 50005 "FG Putaway"
             If ItemJnlLinePost.FindFirst() then;
             ItemJnlPostBatch.SetSuppressCommit(true);
             ItemJnlPostBatch.Run(ItemJnlLinePost);
-
-            Rec."Output Posted" := True;
-            Rec.Modify();
             Commit();
             
-            TransferOrder.Init();
+            /*TransferOrder.Init();
             TransferOrder.Insert(True);
             TransferOrder.Validate("Transfer-from Code", ProdOrderLine."Location Code");
             If Rec.Rejected then
@@ -244,7 +241,7 @@ codeunit 50005 "FG Putaway"
             Rec."Transfer Receipt Posted" := True;
             Rec.Status := Rec.Status::Sucess;
             Rec.Modify();
-            Commit();
+            Commit();*/
 
         end;
     end;

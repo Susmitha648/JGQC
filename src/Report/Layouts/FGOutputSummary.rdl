@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-21T07:07:53.1864889Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-22T08:28:36.3658581Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -22,6 +22,58 @@
       <rd:DataSourceID>54184ad9-324f-4343-ae96-ad2b250e4cbc</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="DueDate">
+          <DataField>DueDate</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="Item_No_">
+          <DataField>Item_No_</DataField>
+        </Field>
+        <Field Name="Order_Line_No_">
+          <DataField>Order_Line_No_</DataField>
+        </Field>
+        <Field Name="Document_No_">
+          <DataField>Document_No_</DataField>
+        </Field>
+        <Field Name="Quantity">
+          <DataField>Quantity</DataField>
+        </Field>
+        <Field Name="QuantityFormat">
+          <DataField>QuantityFormat</DataField>
+        </Field>
+        <Field Name="Quantity_Pieces">
+          <DataField>Quantity_Pieces</DataField>
+        </Field>
+        <Field Name="Quantity_PiecesFormat">
+          <DataField>Quantity_PiecesFormat</DataField>
+        </Field>
+        <Field Name="WorkShift">
+          <DataField>WorkShift</DataField>
+        </Field>
+        <Field Name="GobCut">
+          <DataField>GobCut</DataField>
+        </Field>
+        <Field Name="GobCutFormat">
+          <DataField>GobCutFormat</DataField>
+        </Field>
+        <Field Name="Net_Weight">
+          <DataField>Net_Weight</DataField>
+        </Field>
+        <Field Name="Net_WeightFormat">
+          <DataField>Net_WeightFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -944,7 +996,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1395,7 +1446,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value EvaluationMode="Constant">FG Output Summary</Value>
+                    <Value>="FG Output Summary as of " &amp; Fields!DueDate.Value</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -1411,7 +1462,7 @@
             <Top>0.44662cm</Top>
             <Left>0cm</Left>
             <Height>0.72347cm</Height>
-            <Width>25.22329cm</Width>
+            <Width>25.5937cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1425,7 +1476,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>3.16327cm</Height>
+        <Height>4.66258cm</Height>
         <Style />
       </Body>
       <Width>25.59371cm</Width>
@@ -1441,6 +1492,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1480,53 +1537,4 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="Posting_Date">
-          <DataField>Posting_Date</DataField>
-        </Field>
-        <Field Name="Item_No_">
-          <DataField>Item_No_</DataField>
-        </Field>
-        <Field Name="Order_Line_No_">
-          <DataField>Order_Line_No_</DataField>
-        </Field>
-        <Field Name="Document_No_">
-          <DataField>Document_No_</DataField>
-        </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
-        </Field>
-        <Field Name="QuantityFormat">
-          <DataField>QuantityFormat</DataField>
-        </Field>
-        <Field Name="Quantity_Pieces">
-          <DataField>Quantity_Pieces</DataField>
-        </Field>
-        <Field Name="Quantity_PiecesFormat">
-          <DataField>Quantity_PiecesFormat</DataField>
-        </Field>
-        <Field Name="WorkShift">
-          <DataField>WorkShift</DataField>
-        </Field>
-        <Field Name="GobCut">
-          <DataField>GobCut</DataField>
-        </Field>
-        <Field Name="GobCutFormat">
-          <DataField>GobCutFormat</DataField>
-        </Field>
-        <Field Name="Net_Weight">
-          <DataField>Net_Weight</DataField>
-        </Field>
-        <Field Name="Net_WeightFormat">
-          <DataField>Net_WeightFormat</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

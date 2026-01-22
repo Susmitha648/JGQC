@@ -110,47 +110,11 @@ codeunit 50007 "Post Shipment Receipts"
                 If TransferOrderPost.Get(TransferNo) then;
                 TransferOrderPostShipment.SetSuppressCommit(True);
                 TransferOrderPostShipment.Run(TransferOrderPost);
-                Rec."Transfer Shipment Posted" := True;
-                Rec."Transfer Order No" := TransferNo;
-                Rec.Modify();
-                Commit();
+                
 
                 CODEUNIT.Run(CODEUNIT::"Release Transfer Document", TransferOrderPost);
 
                 TransferOrderPost.TestField(Status, TransferOrderPost.Status::Released);
-                WarehouseRequest.SetRange(Type, WarehouseRequest.Type::Inbound);
-                WarehouseRequest.SetRange("Source Type", Database::"Transfer Line");
-                WarehouseRequest.SetRange("Source Subtype", 1);
-                WarehouseRequest.SetRange("Source No.", TransferOrderPost."No.");
-                WarehouseRequest.SetRange("Document Status", WarehouseRequest."Document Status"::Released);
-                GetSourceDocInbound.GetRequireReceiveRqst(WarehouseRequest);
-
-
-                Clear(GetSourceDocuments);
-                GetSourceDocuments.UseRequestPage(false);
-                GetSourceDocuments.SetTableView(WarehouseRequest);
-                GetSourceDocuments.SetHideDialog(true);
-                GetSourceDocuments.SetSuppressCommit(True);
-                GetSourceDocuments.RunModal();
-
-                GetSourceDocuments.GetLastReceiptHeader(WarehouseReceiptHeader);
-                Rec."Warehouse Receipt No" := WarehouseReceiptHeader."No.";
-                Rec.Modify();
-                WarehouseReceiptHeader1.Get(WarehouseReceiptHeader."No.");
-                WarehouseReceiptHeader1.Status := WarehouseReceiptHeader1.Status::Released;
-                WarehouseReceiptHeader1.Modify();
-                WhseReceiptLine.Reset();
-                WhseReceiptLine.SetRange("No.", WarehouseReceiptHeader1."No.");
-                If not WhseReceiptLine.FindFirst() then
-                    Error('Warehouse Receipt Line does not exist');
-
-                WhsePostReceipt.SetSuppressCommit(true);
-                WhsePostReceipt.Run(WhseReceiptLine);
-
-                Rec."Transfer Receipt Posted" := True;
-                Rec.Status := Rec.Status::Sucess;
-                Rec."Error Text" := '';
-                Rec.Modify();
                 Commit();
             end;
     end;
