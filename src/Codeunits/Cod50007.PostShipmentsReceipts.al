@@ -112,9 +112,9 @@ codeunit 50007 "Post Shipment Receipts"
                 TransferOrderPostShipment.Run(TransferOrderPost);
                 
 
-                CODEUNIT.Run(CODEUNIT::"Release Transfer Document", TransferOrderPost);
+               // CODEUNIT.Run(CODEUNIT::"Release Transfer Document", TransferOrderPost);
 
-                TransferOrderPost.TestField(Status, TransferOrderPost.Status::Released);
+               // TransferOrderPost.TestField(Status, TransferOrderPost.Status::Released);
                 Commit();
             end;
     end;

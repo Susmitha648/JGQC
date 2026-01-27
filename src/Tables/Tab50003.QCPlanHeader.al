@@ -38,14 +38,15 @@ table 50003 "QC Plan Header"
             begin
                 TestField(Status, Status::Open);
                 If Customer.get("Customer Code") then
-                    "Customer Name" := Customer.Name;
+                    "Customer Name" := Customer.Name
+                else
+                   "Customer Name" := '';
             end;
         }
         field(5; "Customer Name"; Text[100])
         {
             DataClassification = CustomerContent;
             Editable = false;
-
         }
         field(6; "Room Temperature"; Text[80])
         {
@@ -76,7 +77,6 @@ table 50003 "QC Plan Header"
         {
             Caption = 'Status';
             Editable = false;
-
         }
         field(10; "Drawing Number"; Text[80])
         {

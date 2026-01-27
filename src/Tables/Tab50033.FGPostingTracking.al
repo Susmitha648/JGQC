@@ -67,6 +67,10 @@ table 50033 "FG Posting Tracking"
         {
             Caption = 'Warehouse Receipt No';
         }
+          field(17; "Receipt Posting Attempt"; Integer)
+        {
+            Caption = 'Receipt Posting Attempt';
+        }
     }
 
     keys

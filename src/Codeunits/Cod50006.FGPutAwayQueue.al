@@ -75,7 +75,10 @@ codeunit 50006 "FG PutAway Queue"
                 Commit();
                 If not Codeunit.Run(CodeUnit::"Ware Receipts Posting", FGPostingTrack) then begin
                     FGPostingTrack."Error Text" := GetLastErrorText();
+                    FGPostingTrack."Receipt Posting Attempt" += 1;
                     FGPostingTrack.Modify();
+                    //If FGPostingTrack."Receipt Posting Attempt" = 2 then
+                     // If Codeunit.Run(CodeUnit::"UndoShipment Post", FGPostingTrack) then;
                 end else begin
                     FGPostingTrack."Error Text" := '';
                     FGPostingTrack."Transfer Receipt Posted" := True;
