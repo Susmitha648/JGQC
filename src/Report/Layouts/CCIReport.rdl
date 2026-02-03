@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-28T07:08:51.1572886Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-01-30T08:00:57.5713942Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1624,8 +1624,10 @@
                   <Value>=First(Fields!Picture.Value, "DataSet_Result")</Value>
                   <MIMEType>image/jpeg</MIMEType>
                   <Sizing>FitProportional</Sizing>
-                  <Height>1.23891in</Height>
-                  <Width>1.69in</Width>
+                  <Top>0.16667in</Top>
+                  <Left>0.29167in</Left>
+                  <Height>0.6in</Height>
+                  <Width>0.6in</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
