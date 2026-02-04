@@ -13,6 +13,7 @@ report 50019 "Production Summary"
             column(DueDate; Format("Due Date")) { }
             column(MachineNo; MachineNo) { }
             column(JobNo; "Source No.") { }
+            column(QtyProdGobCut; QtyProdGobCut) { }
             dataitem(ProductionOrder1; "Production Order")
             {
                 DataItemLink = "Shortcut Dimension 2 Code" = field("Source No."), "Due Date" = Field("Due Date");
@@ -20,7 +21,7 @@ report 50019 "Production Summary"
                 {
                     DataItemTableView = where("Entry Type" = CONST(Output), "Item Category Code" = filter('FG'), "Location Code" = filter('SF1' | 'SF2'));
                     DataItemLink = "Document No." = field("No.");
-                    column(Quantity_Pieces; "Quantity Pieces") { }
+                    column(QtyPacked; "Quantity Pieces") { }
                 }
             }
             trigger OnPreDataItem()
