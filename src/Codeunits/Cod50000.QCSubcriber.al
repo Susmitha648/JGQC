@@ -154,39 +154,55 @@ codeunit 50000 "QC Subcriber"
             until ProdOrderLine.Next() = 0;
 
     end;
-    [EventSubscriber(ObjectType:: Codeunit, Codeunit::"Whse.-Post Receipt", 'OnAfterCreatePutAwayDoc', '', false, false)]
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse.-Post Receipt", 'OnAfterCreatePutAwayDoc', '', false, false)]
     local procedure UpdateSerialNo(var WarehouseReceiptHeader: Record "Warehouse Receipt Header"; var CounterPutAways: Integer; var WhseActivHeader: Record "Warehouse Activity Header")
     var
         WarehouseActivityH: Record "Warehouse Activity Header";
-        WareActivityLine : Record "Warehouse Activity Line";
+        WareActivityLine: Record "Warehouse Activity Line";
     begin
-        
-             WareActivityLine.Reset();
-             WareActivityLine.SetRange("Activity Type",WareActivityLine."Activity Type"::"Put-away");
-             WareActivityLine.SetRange("No.",WhseActivHeader."No.");
-             WareActivityLine.Setfilter("Serial No.",'<>%1','');
-             If WareActivityLine.FindFirst() then begin
-                WarehouseActivityH.Reset();
-                WarehouseActivityH.SetRange(Type,WarehouseActivityH.Type::"Put-away");
-                WarehouseActivityH.SetRange("No.",WareActivityLine."No.");
-                If WarehouseActivityH.FindFirst() then begin
-                    WarehouseActivityH."External Document No.2" := WareActivityLine."Serial No.";
-                    WarehouseActivityH.Modify();
-                end;
-                
-             end;
+
+        WareActivityLine.Reset();
+        WareActivityLine.SetRange("Activity Type", WareActivityLine."Activity Type"::"Put-away");
+        WareActivityLine.SetRange("No.", WhseActivHeader."No.");
+        WareActivityLine.Setfilter("Serial No.", '<>%1', '');
+        If WareActivityLine.FindFirst() then begin
+            WarehouseActivityH.Reset();
+            WarehouseActivityH.SetRange(Type, WarehouseActivityH.Type::"Put-away");
+            WarehouseActivityH.SetRange("No.", WareActivityLine."No.");
+            If WarehouseActivityH.FindFirst() then begin
+                WarehouseActivityH."External Document No.2" := WareActivityLine."Serial No.";
+                WarehouseActivityH.Modify();
+            end;
+
+        end;
     end;
-    [EventSubscriber(ObjectType:: Codeunit, Codeunit::"Whse.-Activity-Register", 'OnAfterRegisterWhseActivity', '', false, false)]
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse.-Activity-Register", 'OnAfterRegisterWhseActivity', '', false, false)]
     local procedure UpdateRegisterMarked(var WarehouseActivityHeader: Record "Warehouse Activity Header")
     var
-       PutAway : Record "Put Away";
+        PutAway: Record "Put Away";
     begin
-          PutAway.Reset();
-          PutAway.SetRange("Serial No",WarehouseActivityHeader."External Document No.2"); 
-          If PutAway.FindFirst() then begin
+        PutAway.Reset();
+        PutAway.SetRange("Serial No", WarehouseActivityHeader."External Document No.2");
+        If PutAway.FindFirst() then begin
             PutAway.Registered := True;
             PutAway.Modify();
-          end;
+        end;
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse. Jnl.-Register Line", 'OnBeforeBinContentInsert', '', false, false)]
+    local procedure OnBeforeBinContentInsert(var BinContent: Record "Bin Content"; WarehouseEntry: Record "Warehouse Entry"; Bin: Record Bin);
+    var
+        PutAway: Record "Put Away";
+        Location: Record Location;
+    begin
+        If Location.Get(Bin."Location Code") then 
+        If Location."Skip Default Bin Update" then begin
+            BinContent.Default := false;
+            BinContent.Fixed := false;
+        end;
+
     end;
 
 

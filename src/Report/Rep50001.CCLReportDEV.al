@@ -18,7 +18,7 @@ report 50001 "CCI Report (DEV)"
             column(Complaint_Category_Remarks; "Complaint Category Remarks ") { }
             column(Customer_ComplaintNo; "Customer No") { }
             column(Description; Description) { }
-            column(CustomerContact; CustomerContact) { }
+            column(CustomerContact; "Customer Contact") { }
             column(Picture; Compinfo.Picture) { }
             column(Investigation; Investigation) { }
             column(RootCause; "Root Cause") { }

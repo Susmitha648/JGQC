@@ -174,6 +174,22 @@ table 50005 "Customer Complaint Log"
                 TestField(Status, Status::Open);
             end;
         }
+         field(22; "Customer Contact"; Code[100])
+        {
+            Caption = 'Customer Contact';
+            TableRelation = Contact;//where ("Company No." = field("Customer No"));
+            ValidateTableRelation = false;
+            trigger OnLookup()
+            begin
+                TestField(Status, Status::Open);
+                LookupContactList();
+            end;
+
+            trigger OnValidate()
+            begin
+                TestField(Status, Status::Open);
+            end;
+        }
     }
     keys
     {
@@ -188,6 +204,28 @@ table 50005 "Customer Complaint Log"
         if Rec.Status <> Rec.Status::Released then begin
             Rec.Status := Rec.Status::Released;
             Commit();
+        end;
+    end;
+     procedure LookupContactList()
+    var
+        ContactBusinessRelation: Record "Contact Business Relation";
+        ContactForLookup: Record Contact;
+        TempCustomer: Record Customer temporary;
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+
+
+        ContactForLookup.FilterGroup(2);
+        if ContactBusinessRelation.FindByRelation(ContactBusinessRelation."Link to Table"::Customer, "Customer No") then
+            ContactForLookup.SetRange("Company No.", ContactBusinessRelation."Contact No.")
+        else
+            ContactForLookup.SetRange("Company No.", '');
+
+        if "Customer Contact" <> '' then
+            if ContactForLookup.Get("Customer Contact") then;
+        if Page.RunModal(0, ContactForLookup) = Action::LookupOK then begin
+            Validate("Customer Contact", ContactForLookup.Name);
         end;
     end;
 }

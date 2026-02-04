@@ -28,6 +28,10 @@ page 50007 "Customer Complaint Log"
                 {
                     ToolTip = 'Specifies the value of the Customer Name field.', Comment = '%';
                 }
+                 field("Customer Contact"; Rec."Customer Contact")
+                {
+                    ToolTip = 'Specifies the value of the Customer Contact field.', Comment = '%';
+                }
                 field("Job No"; Rec."Job No")
                 {
                     ToolTip = 'Specifies the value of the Job No field.', Comment = '%';
