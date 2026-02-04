@@ -14,6 +14,7 @@ report 50019 "Production Summary"
             column(MachineNo; MachineNo) { }
             column(JobNo; "Source No.") { }
             column(QtyProdGobCut; QtyProdGobCut) { }
+            column(NoOfDaysRun; NoOfDaysRun) { }
             dataitem(ProductionOrder1; "Production Order")
             {
                 DataItemLink = "Shortcut Dimension 2 Code" = field("Source No."), "Due Date" = Field("Due Date");
@@ -22,6 +23,9 @@ report 50019 "Production Summary"
                     DataItemTableView = where("Entry Type" = CONST(Output), "Item Category Code" = filter('FG'), "Location Code" = filter('SF1' | 'SF2'));
                     DataItemLink = "Document No." = field("No.");
                     column(QtyPacked; "Quantity Pieces") { }
+                    column(Cullet; QtyProdGobCut - "Quantity Pieces") { }
+                    column(Total; "Quantity Pieces") { }
+                    column(PackEfficiency; "Quantity Pieces" / QtyProdGobCut * 100) { }
                 }
             }
             trigger OnPreDataItem()
@@ -40,9 +44,9 @@ report 50019 "Production Summary"
                 If DimensionSetEntry.FindFirst() then
                     MachineNo := DimensionSetEntry."Dimension Value Code";
                 ProductionLine.Reset();
-                ProductionLine.SetRange("Prod. Order No.","No.");
-                ProductionLine.Setfilter("Work Shift",'<>%1','');
-                If ProductionLine.FindSet() then 
+                ProductionLine.SetRange("Prod. Order No.", "No.");
+                ProductionLine.Setfilter("Work Shift", '<>%1', '');
+                If ProductionLine.FindSet() then
                     repeat
                         QtyProdGobCut += ProductionLine.Quantity;
                     until ProductionLine.Next() = 0;
@@ -75,7 +79,10 @@ report 50019 "Production Summary"
         DimensionSetEntry: Record "Dimension Set Entry";
         GeneralLedgerSetup: Record "General Ledger Setup";
         MachineNo: Code[20];
-        NoOfDaysRun : Integer;
-        ProductionLine : Record "Prod. Order Line";
-        QtyProdGobCut : Integer;
+        NoOfDaysRun: Integer;
+        ProductionLine: Record "Prod. Order Line";
+        QtyProdGobCut: Integer;
+        Cullet: Integer;
+        Total: Integer;
+        PackEfficiency: Decimal;
 }
