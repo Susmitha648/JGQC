@@ -92,31 +92,68 @@ page 50007 "Customer Complaint Log"
                 {
                     ToolTip = 'Specifies the value of the CC ShopFloor Update field.', Comment = '%';
                 }
-                field("Investigation"; Rec.Investigation)
-                {
-                    ToolTip = 'Specifies the value of the Investigation field.', Comment = '%';
-                    MultiLine = true;
-                }
-                field("Root Cause"; Rec."Root Cause")
-                {
-                    ToolTip = 'Specifies the value of the Root Cause field.', Comment = '%';
-                    MultiLine = true;
-                }
-                field("Corrective Action"; Rec."Corrective Action")
-                {
-                    ToolTip = 'Specifies the value of the Corrective Action field.', Comment = '%';
-                    MultiLine = true;
-                }
-                field("Preventive Action"; Rec."Preventive Action")
-                {
-                    ToolTip = 'Specifies the value of the Preventive Action field.', Comment = '%';
-                    MultiLine = true;
-                }
                  field(Status; Rec.Status)
                 {
                     ToolTip = 'Specifies the value of the Status by field.', Comment = '%';
                 }
             }
+            group(Investigation)
+            {
+                field(Invest; Invest)
+                {
+                    ToolTip = 'Specifies the value of the Investigation field.', Comment = '%';
+                    MultiLine = true;
+                    ExtendedDatatype = RichContent;
+                    ShowCaption = false;
+                    trigger OnValidate()
+                    begin
+                        Rec.Investigation := Invest;
+                    end;
+                }
+            }
+            group("Root Cause")
+            {
+                field(RootCause; RootCause)
+                {
+                    ToolTip = 'Specifies the value of the Root Cause field.', Comment = '%';
+                    MultiLine = true;
+                    ExtendedDatatype = RichContent;
+                    ShowCaption = false;
+                    trigger OnValidate()
+                    begin
+                        Rec."Root Cause" := RootCause;
+                    end;
+                }
+            }
+            group("Corrective Action")
+            {
+                field(CorrectiveAction;CorrectiveAction)
+                {
+                    ToolTip = 'Specifies the value of the Corrective Action field.', Comment = '%';
+                    MultiLine = true;
+                    ExtendedDatatype = RichContent;
+                    ShowCaption = false;
+                    trigger OnValidate()
+                    begin
+                        Rec."Corrective Action" := CorrectiveAction;
+                    end;
+                }
+            }
+            group("Preventive Action")
+            {
+                field(PreventiveAction; PreventiveAction)
+                {
+                    ToolTip = 'Specifies the value of the Preventive Action field.', Comment = '%';
+                    MultiLine = true;
+                    ExtendedDatatype = RichContent;
+                    ShowCaption = false;
+                    trigger OnValidate()
+                    begin
+                        Rec."Preventive Action" := PreventiveAction;
+                    end;
+                }
+            }
+
         }
         area(factboxes)
         {
@@ -201,8 +238,16 @@ page 50007 "Customer Complaint Log"
     }
     trigger OnAfterGetRecord()
     begin
+        Clear(Invest);
+        Clear(RootCause);
+        Clear(PreventiveAction);
+        Clear(CorrectiveAction);
         if Rec."No." <> '' then
             Rec.Get(Rec."No.");
+        Invest := Rec.Investigation;
+        RootCause := Rec."Root Cause";
+        PreventiveAction := Rec."Preventive Action";
+        CorrectiveAction := Rec."Corrective Action";
     end;
      procedure PerformManualReopen()
     begin
@@ -221,4 +266,9 @@ page 50007 "Customer Complaint Log"
              Rec.Modify();
         end;
     end;
+    var
+    Invest : Text;
+    RootCause : Text;
+    CorrectiveAction : Text;
+    PreventiveAction : Text;
 }

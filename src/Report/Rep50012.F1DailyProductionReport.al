@@ -1,6 +1,6 @@
 report 50012 "F1 - Daily Production Report"
 {
-  ApplicationArea = All;
+    ApplicationArea = All;
     Caption = 'F1 - Daily Production Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
@@ -255,6 +255,7 @@ report 50012 "F1 - Daily Production Report"
                 ProductionProgrammeLine.Insert();
                 ProductionOrderLine.Reset();
                 ProductionOrderLine.SetRange("Prod. Order No.", ProductionProgrammeLineFilter."Production Order No.");
+                ProductionOrderLine.SetFilter("Work Shift", '<>%1', '');
                 If ProductionOrderLine.FindSet() then
                     repeat
                         ProdOrderLine.Init();

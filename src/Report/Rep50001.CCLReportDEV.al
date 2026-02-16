@@ -20,7 +20,9 @@ report 50001 "CCI Report (DEV)"
             column(Description; Description) { }
             column(CustomerContact; "Customer Contact") { }
             column(Picture; Compinfo.Picture) { }
-            column(Investigation; Investigation) { }
+            column(Investigation; Investigation) {
+              
+             }
             column(RootCause; "Root Cause") { }
             column(CorrectiveAction; "Corrective Action") { }
             column(PreventiveAction; "Preventive Action") { }
@@ -36,7 +38,8 @@ report 50001 "CCI Report (DEV)"
 
             trigger OnAfterGetRecord()
             var
-                CustomerRec: Record Customer;
+                CustomerRec : Record Customer;
+                RichTextInv : InStream ;
             begin
                 if CustomerRec.Get("Customer No") then begin
                     CustomerContact := CustomerRec.Contact;
@@ -45,6 +48,7 @@ report 50001 "CCI Report (DEV)"
                     CustomerContact := 'Customer Not Found';
                     CustomerExists := false;
                 end;
+
             end;
 
 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:ap="http://schemas.microsoft.com/sqlserver/reporting/accessibilityproperties" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
   <am:AuthoringMetadata>
     <am:CreatedBy>
       <am:Name>MSRB</am:Name>
@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-30T08:00:57.5713942Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-02-15T09:05:17.3852256Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1089,12 +1089,14 @@
                       <CellContents>
                         <Textbox Name="Textbox58">
                           <CanGrow>true</CanGrow>
+                          <ap:StructureTypeOverwrite>Heading1</ap:StructureTypeOverwrite>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Investigation.Value</Value>
+                                  <MarkupType>HTML</MarkupType>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1113,22 +1115,6 @@
                               <Style>Solid</Style>
                               <Width>0.5pt</Width>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                            </RightBorder>
                             <VerticalAlign>Middle</VerticalAlign>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -1204,6 +1190,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!RootCause.Value</Value>
+                                  <MarkupType>HTML</MarkupType>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1313,6 +1300,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!CorrectiveAction.Value</Value>
+                                  <MarkupType>HTML</MarkupType>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1420,6 +1408,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!PreventiveAction.Value</Value>
+                                  <MarkupType>HTML</MarkupType>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9pt</FontSize>
@@ -1820,7 +1809,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox67</rd:DefaultName>
-              <Top>0in</Top>
               <Left>0.84167in</Left>
               <Height>0.25in</Height>
               <Width>1in</Width>

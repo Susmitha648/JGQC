@@ -142,7 +142,7 @@ table 50005 "Customer Complaint Log"
            Editable = false;
            
         }
-        field(18; Investigation; Text[1000])
+        field(18; Investigation; Text[1500])
         {
            Caption = 'Investigation';
            trigger OnValidate()
@@ -150,7 +150,7 @@ table 50005 "Customer Complaint Log"
                 TestField(Status, Status::Open);
             end;
         }
-         field(19; "Root Cause"; Text[1000])
+         field(19; "Root Cause"; Text[1500])
         {
            Caption = 'Root Cause';
            trigger OnValidate()
@@ -158,7 +158,7 @@ table 50005 "Customer Complaint Log"
                 TestField(Status, Status::Open);
             end;
         }
-         field(20; "Corrective Action"; Text[1000])
+         field(20; "Corrective Action"; Text[1500])
         {
            Caption = 'Corrective Action';
            trigger OnValidate()
@@ -166,7 +166,7 @@ table 50005 "Customer Complaint Log"
                 TestField(Status, Status::Open);
             end;
         }
-         field(21; "Preventive Action"; Text[1000])
+         field(21; "Preventive Action"; Text[1500])
         {
            Caption = 'Preventive Action';
            trigger OnValidate()

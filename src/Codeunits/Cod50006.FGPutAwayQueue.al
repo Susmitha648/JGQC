@@ -2,7 +2,7 @@ codeunit 50006 "FG PutAway Queue"
 {
     trigger OnRun()
     begin
-     //staging preparation
+        //staging preparation
         ReservationEntry.Reset();
         ReservationEntry.SetRange("Recording Slip Printed", True);
         ReservationEntry.SetRange("Output Posted", false);
@@ -77,8 +77,6 @@ codeunit 50006 "FG PutAway Queue"
                     FGPostingTrack."Error Text" := GetLastErrorText();
                     FGPostingTrack."Receipt Posting Attempt" += 1;
                     FGPostingTrack.Modify();
-                    //If FGPostingTrack."Receipt Posting Attempt" = 2 then
-                     // If Codeunit.Run(CodeUnit::"UndoShipment Post", FGPostingTrack) then;
                 end else begin
                     FGPostingTrack."Error Text" := '';
                     FGPostingTrack."Transfer Receipt Posted" := True;
@@ -87,8 +85,20 @@ codeunit 50006 "FG PutAway Queue"
                 end;
             until FGPostingTrack.Next() = 0;
 
+        FGPostingTrackingUndo.Reset();
+        FGPostingTrackingUndo.SetRange("Output Posted", true);
+        FGPostingTrackingUndo.SetRange("Transfer Shipment Posted", True);
+        FGPostingTrackingUndo.SetRange("Transfer Receipt Posted", False);
+        FGPostingTrackingUndo.SetRange("Receipt Posting Attempt", 2);
+        If FGPostingTrackingUndo.FindSet() then
+            repeat
+                Commit();
+                If not Codeunit.Run(CodeUnit::"UndoShipment Post", FGPostingTrackingUndo) then begin
+                    FGPostingTrackingUndo."Error Text" := GetLastErrorText();
+                    FGPostingTrackingUndo.Modify();
+                end;
+            until FGPostingTrackingUndo.Next() = 0;
 
-       
     end;
 
     var
@@ -99,6 +109,7 @@ codeunit 50006 "FG PutAway Queue"
         RESourceID: Code[20];
         RESerialNo: Code[50];
         FGPostingTracking: Record "FG Posting Tracking";
+        FGPostingTrackingUndo: Record "FG Posting Tracking";
         FGPostingTracking1: Record "FG Posting Tracking";
         FGPostingTrack: Record "FG Posting Tracking";
         FGPostingTrackShip: Record "FG Posting Tracking";
