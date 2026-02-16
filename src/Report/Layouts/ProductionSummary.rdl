@@ -22,6 +22,55 @@
       <rd:DataSourceID>c1dbb450-5c85-470a-aeee-9890c91df445</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="DueDate">
+          <DataField>DueDate</DataField>
+        </Field>
+        <Field Name="MachineNo">
+          <DataField>MachineNo</DataField>
+        </Field>
+        <Field Name="JobNo">
+          <DataField>JobNo</DataField>
+        </Field>
+        <Field Name="QtyProdGobCut">
+          <DataField>QtyProdGobCut</DataField>
+        </Field>
+        <Field Name="NoOfDaysRun">
+          <DataField>NoOfDaysRun</DataField>
+        </Field>
+        <Field Name="QtyPacked">
+          <DataField>QtyPacked</DataField>
+        </Field>
+        <Field Name="QtyPackedFormat">
+          <DataField>QtyPackedFormat</DataField>
+        </Field>
+        <Field Name="Cullet">
+          <DataField>Cullet</DataField>
+        </Field>
+        <Field Name="CulletFormat">
+          <DataField>CulletFormat</DataField>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+        </Field>
+        <Field Name="TotalFormat">
+          <DataField>TotalFormat</DataField>
+        </Field>
+        <Field Name="PackEfficiency">
+          <DataField>PackEfficiency</DataField>
+        </Field>
+        <Field Name="PackEfficiencyFormat">
+          <DataField>PackEfficiencyFormat</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2046,6 +2095,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>8pt</FontSize>
+                                    <Format>0.00%</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2276,6 +2326,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox23">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -2291,7 +2342,9 @@
                                   </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox23</rd:DefaultName>
@@ -2991,6 +3044,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""

@@ -14,15 +14,7 @@ report 50019 "Production Summary"
             column(DueDate; Format("Due Date")) { }
             column(MachineNo; MachineNo) { }
             column(JobNo; "Source No.") { }
-            dataitem("Prod. Order Line"; "Prod. Order Line")
-            {
-                DataItemLink = "Prod. Order No." = field("No.");
-                column(QtyProdGobCut; Quantity) { }
-                trigger OnPreDataItem()
-                begin
-                    SetFilter("Work Shift", '<>%1', '');
-                end;
-            }
+            column(QtyProdGobCut; QtyProdGobCut) { }
             dataitem(ProductionOrder1; "Production Order")
             {
                 DataItemLink = "Shortcut Dimension 2 Code" = field("Source No."), "Due Date" = Field("Due Date");
@@ -32,30 +24,8 @@ report 50019 "Production Summary"
                 {
                     DataItemTableView = where("Entry Type" = CONST(Output), "Item Category Code" = filter('FG'), "Location Code" = filter('SF1' | 'SF2'));
                     DataItemLink = "Document No." = field("No.");
-                    DataItemLinkReference = ProductionOrder1;
-                    column(QtyPacked; ReceivedQty) { }
-                    column(LogisticsQty; LogisticsQty) { }
-                    trigger OnAfterGetRecord()
-                    begin
-                        Clear(ReceivedQty);
-                        Clear(LogisticsQty);
-                        ItemledgerEntry1.Reset();
-                        ItemledgerEntry1.SetRange("Entry Type", "Entry Type"::Transfer);
-                        ItemledgerEntry1.SetRange("Document Type", ItemledgerEntry1."Document Type"::"Transfer Receipt");
-                        ItemledgerEntry1.SetRange("Serial No.", "Serial No.");
-                        ItemledgerEntry1.SetRange("Location Code", 'FGWH');
-                        If ItemledgerEntry1.FindFirst() then begin
-                            If Item.Get("Item No.") then
-                                if Packsize.Get(Item."Pack Size") then
-                                    LogisticsQty := Packsize."Qty Per Pack";
-                        end;
-
-                        If Item.Get("Item No.") then
-                            if Packsize.Get(Item."Pack Size") then
-                                ReceivedQty := Packsize."Qty Per Pack";
-                    end;
+                    column(QtyPacked; "Quantity Pieces") { }
                 }
-
             }
             trigger OnPreDataItem()
             begin
@@ -110,20 +80,9 @@ report 50019 "Production Summary"
         DimensionSetEntry: Record "Dimension Set Entry";
         GeneralLedgerSetup: Record "General Ledger Setup";
         MachineNo: Code[20];
-        NoOfDaysRun: Integer;
-        ProductionLine: Record "Prod. Order Line";
-        QtyProdGobCut: Integer;
-        FirstDayNextMonth: Date;
-        CutoffDateTime: DateTime;
-        startdatetime: DateTime;
-        Item: Record Item;
-        Packsize: Record "Pack Size";
-        ItemRL: Record Item;
-        PacksizeRL: Record "Pack Size";
-        PackSizeProd: Decimal;
-        PackSizeRLQty: Decimal;
-        ItemledgerEntry1: Record "Item Ledger Entry";
-        ReceivedQty: Decimal;
-        LogisticsQty: Decimal;
-        ProductionProgLine: Record "Production Programme Line";
+        NoOfDaysRun : Integer;
+        ProductionLine : Record "Prod. Order Line";
+        QtyProdGobCut : Integer;
+        ProductionProgLine : Record "Production Programme Line";
+
 }
