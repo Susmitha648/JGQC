@@ -142,7 +142,7 @@ table 50006 "Customer Complaint Report"
                 TestField(Status, Status::Open);
             end;
         }
-        field(16; Status; Enum "QC Status")
+        field(16; Status; Enum "Status")
         {
             Caption = 'Status';
             Editable = false;

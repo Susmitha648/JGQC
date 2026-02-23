@@ -136,7 +136,7 @@ table 50005 "Customer Complaint Log"
                 TestField(Status, Status::Open);
             end;
         }
-         field(17; Status; Enum "QC Status")
+         field(17; Status; Enum "Status")
         {
            Caption = 'Status';
            Editable = false;
@@ -201,8 +201,8 @@ table 50005 "Customer Complaint Log"
     procedure PerformManualRelease()
     begin
     
-        if Rec.Status <> Rec.Status::Released then begin
-            Rec.Status := Rec.Status::Released;
+        if Rec.Status <> Rec.Status::Closed then begin
+            Rec.Status := Rec.Status::Closed;
             Commit();
         end;
     end;

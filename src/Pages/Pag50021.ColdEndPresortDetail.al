@@ -5,6 +5,7 @@ page 50021 "Cold End Presort Detail"
     PageType = Document;
     SourceTable = "Cold End Presort Detail Header";
     PromotedActionCategoriesML = ENU = 'Create, Report';
+   
     layout
     {
         area(Content)
@@ -49,8 +50,8 @@ page 50021 "Cold End Presort Detail"
                 {
                     ToolTip = 'Specifies the value of the Customer Name field.', Comment = '%';
                 }
-                
-                 field("Shift 1 Leading Hand"; Rec."Shift 1 Leading Hand")
+
+                field("Shift 1 Leading Hand"; Rec."Shift 1 Leading Hand")
                 {
                     ToolTip = 'Specifies the value of the Shift 1 Leading Hand field.', Comment = '%';
                 }
@@ -82,7 +83,7 @@ page 50021 "Cold End Presort Detail"
                 {
                     ToolTip = 'Specifies the value of the Weight Issue Min field.', Comment = '%';
                 }
-                 field("Weight Issue Max"; Rec."Weight Issue Max")
+                field("Weight Issue Max"; Rec."Weight Issue Max")
                 {
                     ToolTip = 'Specifies the value of the Weight Issue Max field.', Comment = '%';
                 }
@@ -94,7 +95,6 @@ page 50021 "Cold End Presort Detail"
                 UpdatePropagation = Both;
             }
         }
-
     }
     actions
     {
@@ -139,7 +139,7 @@ page 50021 "Cold End Presort Detail"
                             ColdEndLine.DeleteAll();
                             Clear(Count);
                             foreach Time in Enum::Time.Ordinals() do begin
-                                for Enumtext := 1 to Enum::"Section No.".Ordinals().Count - 1  do begin
+                                for Enumtext := 1 to Enum::"Section No.".Ordinals().Count - 1 do begin
                                     foreach FrontBack in Enum::"Front Back".Ordinals() do begin
                                         ColdEndLine.Init();
                                         ColdEndLine."Released Prod Order No." := Rec."Released Prod Order No.";
@@ -156,7 +156,7 @@ page 50021 "Cold End Presort Detail"
                                         Evaluate(ColdEndLine."Section No.", Format(Enumtext));
                                         Evaluate(ColdEndLine."Front/Back", Format(FrontBack));
                                         Evaluate(ColdEndLine.Frequency, Format(Time));
-
+                                        ColdEndLine.Validate(ColdEndLine.Frequency, ColdEndLine.Frequency);
                                         UploadMouldNo.Reset();
                                         UploadMouldNo.SetRange("Work Order No.", Rec."Released Prod Order No.");
                                         UploadMouldNo.SetRange("Section No.", ColdEndLine."Section No.");
@@ -171,7 +171,7 @@ page 50021 "Cold End Presort Detail"
                                     end;
                                 end;
                             end;
-                            
+
                             If Count > 1 then
                                 Message('Lines created')
                             else
@@ -179,7 +179,7 @@ page 50021 "Cold End Presort Detail"
                         end;
                     end;
                 }
-                
+
             }
 
             group(Action13)

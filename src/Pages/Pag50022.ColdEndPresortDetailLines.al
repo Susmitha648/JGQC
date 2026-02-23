@@ -5,6 +5,7 @@ page 50022 "Cold End Presort Detail Lines"
     PageType = ListPart;
     SourceTable = "Cold End Presort Detail Lines";
     DeleteAllowed = false;
+     SourceTableView = sorting("Frequency Sort Order") order(ascending);
     layout
     {
         area(Content)

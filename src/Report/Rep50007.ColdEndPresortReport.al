@@ -3,7 +3,7 @@ report 50007 "Cold End Presort Report"
     ApplicationArea = All;
     Caption = 'Cold End Presort Report';
     UsageCategory = ReportsAndAnalysis;
-    RDLCLayout = './src/Report/Layouts/ColdEndPresortReport.rdlc';
+    RDLCLayout = './src/Report/Layouts/ColdEndPresortReport.rdl';
     DefaultLayout = RDLC;
 
     dataset

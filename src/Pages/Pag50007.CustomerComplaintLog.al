@@ -177,7 +177,7 @@ page 50007 "Customer Complaint Log"
                 {
                     ApplicationArea = Suite;
                     Caption = 'Re&lease';
-                    Enabled = Rec.Status <> Rec.Status::Released;
+                    Enabled = Rec.Status <> Rec.Status::Closed;
                     Image = ReleaseDoc;
                     ShortCutKey = 'Ctrl+F9';
                     Promoted = True;
@@ -261,8 +261,8 @@ page 50007 "Customer Complaint Log"
     procedure PerformManualRelease()
     begin
        
-        if Rec.Status <> Rec.Status::Released then begin
-            Rec.Status := Rec.Status::Released;
+        if Rec.Status <> Rec.Status::Closed then begin
+            Rec.Status := Rec.Status::Closed;
              Rec.Modify();
         end;
     end;

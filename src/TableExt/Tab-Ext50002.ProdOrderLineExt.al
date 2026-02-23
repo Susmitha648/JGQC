@@ -24,5 +24,36 @@ tableextension 50002 "Prod Order Line Ext" extends "Prod. Order Line"
             Caption = 'Ending Time';
             DataClassification = CustomerContent;
         }
+        modify("Item No.")
+        {
+            trigger OnBeforeValidate()
+            var
+                ProducOrder: Record "Production Order";
+                Item: Record Item;
+                DimensionSetEntry: Record "Default Dimension";
+                JobExist: Boolean;
+                ItemCategoryExists: Boolean;
+            begin
+                JobExist := false;
+                ItemCategoryExists := false;
+                If ProducOrder.Get(ProducOrder.Status::Released, Rec."Prod. Order No.") then
+                    if ProducOrder."Gen. Prod. Posting Group" = 'FG' then begin
+                        DimensionSetEntry.Reset();
+                        DimensionSetEntry.SetRange("Table ID", 27);
+                        DimensionSetEntry.SetRange("No.", Rec."Item No.");
+                        If DimensionSetEntry.FindSet() then
+                            repeat
+                                If DimensionSetEntry."Dimension Code" = 'JOB' then
+                                    JobExist := True;
+                                If DimensionSetEntry."Dimension Code" = 'ITEM CATEGORY' then
+                                    ItemCategoryExists := True;
+                            until DimensionSetEntry.Next() = 0;
+                        If not (JobExist) or not (ItemCategoryExists) then
+                            Error('Please update dimensions Job/Item Categroy in the Item Card');
+                    end;
+
+
+            end;
+        }
     }
 }
