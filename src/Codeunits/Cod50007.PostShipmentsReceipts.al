@@ -1,21 +1,20 @@
 codeunit 50007 "Post Shipment Receipts"
 {
-   TableNo = "FG Posting Tracking";
+    TableNo = "FG Posting Tracking";
     trigger OnRun()
     begin
-            ManufacturingSetup.Get();
-            Clear(LineNo);
-            Clear(TransferNo);
-            ProdOrderLine.Reset();
-            ProdOrderLine.SetRange("Prod. Order No.", Rec."Source ID");
-            ProdOrderLine.SetRange("Line No.", Rec."Source Prod. Order Line");
-            If ProdOrderLine.FindFirst() then begin
-                TransferOrder.Reset();
-                TransferOrder.SetRange("External Document No.", Rec."Serial No.");
-                if not TransferOrder.FindFirst() then begin
-                    TransferOrder.Init();
-                    TransferOrder.Insert(True);
-                end;
+        ManufacturingSetup.Get();
+        Clear(LineNo);
+        Clear(TransferNo);
+        ProdOrderLine.Reset();
+        ProdOrderLine.SetRange("Prod. Order No.", Rec."Source ID");
+        ProdOrderLine.SetRange("Line No.", Rec."Source Prod. Order Line");
+        If ProdOrderLine.FindFirst() then begin
+            TransferOrder.Reset();
+            TransferOrder.SetRange("External Document No.", Rec."Serial No.");
+            if not TransferOrder.FindFirst() then begin
+                TransferOrder.Init();
+                TransferOrder.Insert(True);
                 TransferOrder.Validate("Transfer-from Code", ProdOrderLine."Location Code");
                 If Rec.Rejected then
                     TransferOrder.Validate("Transfer-to Code", ManufacturingSetup."FG Rejected Move To Location")
@@ -25,15 +24,16 @@ codeunit 50007 "Post Shipment Receipts"
                 TransferNo := TransferOrder."No.";
                 TransferOrder."External Document No." := Rec."Serial No.";
                 TransferOrder.Modify(true);
+            end;
 
-                TransferLine.Reset();
-                TransferLine.SetRange("Document No.", TransferNo);
-                If not TransferLine.FindFirst() then begin
-                    TransferLine.Init();
-                    TransferLine.Validate("Document No.", TransferNo);
-                    TransferLine."Line No." := 10000;
-                    TransferLine.Insert(True);
-                end;
+            TransferNo := TransferOrder."No.";
+            TransferLine.Reset();
+            TransferLine.SetRange("Document No.", TransferNo);
+            If not TransferLine.FindFirst() then begin
+                TransferLine.Init();
+                TransferLine.Validate("Document No.", TransferNo);
+                TransferLine."Line No." := 10000;
+                TransferLine.Insert(True);
                 TransferLine.Validate("Item No.", ProdOrderLine."Item No.");
                 TransferLine.Validate(Quantity, 1);
                 If TransferLine."Transfer-To Bin Code" = '' then begin
@@ -44,79 +44,76 @@ codeunit 50007 "Post Shipment Receipts"
                 End;
                 //TransferLine.Validate("Qty. to Ship", 1);
                 TransferLine.Modify();
-
-                TransferLine1.Reset();
-                TransferLine1.SetRange("Document No.", TransferNo);
-                If TransferLine1.FindFirst() then begin
-                    ReservationEntry1.Reset();
-                    ReservationEntry1.SetRange("Serial No.", Rec."Serial No.");
-                    ReservationEntry1.SetRange("Source Type", 5741);
-                    ReservationEntry1.SetRange("Source Subtype", 0);
-                    ReservationEntry1.SetRange("Source ID", TransferNo);
-                    if not ReservationEntry1.FindFirst() then begin
-                        ReservationEntry1.Init();
-                        ReservationEntry1."Entry No." := 0;
-                        ReservationEntry1."Item No." := TransferLine1."Item No.";
-
-
-                        ReservationEntry1."Location Code" := TransferLine1."Transfer-from Code";
-                        ReservationEntry1."Planning Flexibility" := ReservationEntry1."Planning Flexibility"::Unlimited;
-                        ReservationEntry1."Item Tracking" := ReservationEntry1."Item Tracking"::"Serial No.";
-                        ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Surplus;
-                        ReservationEntry1."Serial No." := Rec."Serial No.";
-                        ReservationEntry1."Source ID" := TransferNo;
-                        ReservationEntry1."Source Type" := 5741;
-                        ReservationEntry1."Source Subtype" := 0;
-                        ReservationEntry1."Source Batch Name" := '';
-                        ReservationEntry1.Validate(Positive, false);
-                        ReservationEntry1.Validate("Quantity (Base)", -1);
-                        ReservationEntry1."Source Ref. No." := TransferLine1."Line No.";
-                        ReservationEntry1."Shipment Date" := WorkDate();
-                        ReservationEntry1."Created By" := UserId;
-                        ReservationEntry1."Creation Date" := WorkDate();
-                        ReservationEntry1.Insert();
-                    end;
-
-                    ReservationEntry1.Reset();
-                    ReservationEntry1.SetRange("Serial No.", Rec."Serial No.");
-                    ReservationEntry1.SetRange("Source Type", 5741);
-                    ReservationEntry1.SetRange("Source Subtype", 1);
-                    ReservationEntry1.SetRange("Source ID", TransferNo);
-                    if not ReservationEntry1.FindFirst() then begin
-                        ReservationEntry1.Init();
-                        ReservationEntry1."Entry No." := 0;
-                        ReservationEntry1.Validate("Item No.", TransferLine."Item No.");
-
-
-                        ReservationEntry1."Location Code" := TransferLine."Transfer-to Code";
-                        ReservationEntry1."Planning Flexibility" := ReservationEntry1."Planning Flexibility"::Unlimited;
-                        ReservationEntry1."Item Tracking" := ReservationEntry1."Item Tracking"::"Serial No.";
-                        ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Surplus;
-                        ReservationEntry1."Serial No." := Rec."Serial No.";
-                        ReservationEntry1."Source ID" := TransferNo;
-                        ReservationEntry1."Source Type" := 5741;
-                        ReservationEntry1."Source Subtype" := 1;
-                        ReservationEntry1."Source Batch Name" := '';
-                        ReservationEntry1.Positive := true;
-                        ReservationEntry1.Validate("Quantity (Base)", 1);
-                        ReservationEntry1."Source Ref. No." := TransferLine."Line No.";
-                        ReservationEntry1."Expected Receipt Date" := WorkDate();
-                        ReservationEntry1."Created By" := UserId;
-                        ReservationEntry1."Creation Date" := WorkDate();
-                        ReservationEntry1.Insert();
-                    end;
-                End;
-
-                If TransferOrderPost.Get(TransferNo) then;
-                TransferOrderPostShipment.SetSuppressCommit(True);
-                TransferOrderPostShipment.Run(TransferOrderPost);
-                
-
-               // CODEUNIT.Run(CODEUNIT::"Release Transfer Document", TransferOrderPost);
-
-               // TransferOrderPost.TestField(Status, TransferOrderPost.Status::Released);
-                Commit();
             end;
+
+
+            TransferLine1.Reset();
+            TransferLine1.SetRange("Document No.", TransferNo);
+            If TransferLine1.FindFirst() then begin
+                ReservationEntry1.Reset();
+                ReservationEntry1.SetRange("Serial No.", Rec."Serial No.");
+                ReservationEntry1.SetRange("Source Type", 5741);
+                ReservationEntry1.SetRange("Source Subtype", 0);
+                ReservationEntry1.SetRange("Source ID", TransferNo);
+                if not ReservationEntry1.FindFirst() then begin
+                    ReservationEntry1.Init();
+                    ReservationEntry1."Entry No." := 0;
+                    ReservationEntry1."Item No." := TransferLine1."Item No.";
+                    ReservationEntry1."Location Code" := TransferLine1."Transfer-from Code";
+                    ReservationEntry1."Planning Flexibility" := ReservationEntry1."Planning Flexibility"::Unlimited;
+                    ReservationEntry1."Item Tracking" := ReservationEntry1."Item Tracking"::"Serial No.";
+                    ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Surplus;
+                    ReservationEntry1."Serial No." := Rec."Serial No.";
+                    ReservationEntry1."Source ID" := TransferNo;
+                    ReservationEntry1."Source Type" := 5741;
+                    ReservationEntry1."Source Subtype" := 0;
+                    ReservationEntry1."Source Batch Name" := '';
+                    ReservationEntry1.Validate(Positive, false);
+                    ReservationEntry1.Validate("Quantity (Base)", -1);
+                    ReservationEntry1."Source Ref. No." := TransferLine1."Line No.";
+                    ReservationEntry1."Shipment Date" := WorkDate();
+                    ReservationEntry1."Created By" := UserId;
+                    ReservationEntry1."Creation Date" := WorkDate();
+                    ReservationEntry1.Insert();
+                end;
+
+                ReservationEntry1.Reset();
+                ReservationEntry1.SetRange("Serial No.", Rec."Serial No.");
+                ReservationEntry1.SetRange("Source Type", 5741);
+                ReservationEntry1.SetRange("Source Subtype", 1);
+                ReservationEntry1.SetRange("Source ID", TransferNo);
+                if not ReservationEntry1.FindFirst() then begin
+                    ReservationEntry1.Init();
+                    ReservationEntry1."Entry No." := 0;
+                    ReservationEntry1.Validate("Item No.", TransferLine."Item No.");
+                    ReservationEntry1."Location Code" := TransferLine."Transfer-to Code";
+                    ReservationEntry1."Planning Flexibility" := ReservationEntry1."Planning Flexibility"::Unlimited;
+                    ReservationEntry1."Item Tracking" := ReservationEntry1."Item Tracking"::"Serial No.";
+                    ReservationEntry1."Reservation Status" := ReservationEntry1."Reservation Status"::Surplus;
+                    ReservationEntry1."Serial No." := Rec."Serial No.";
+                    ReservationEntry1."Source ID" := TransferNo;
+                    ReservationEntry1."Source Type" := 5741;
+                    ReservationEntry1."Source Subtype" := 1;
+                    ReservationEntry1."Source Batch Name" := '';
+                    ReservationEntry1.Positive := true;
+                    ReservationEntry1.Validate("Quantity (Base)", 1);
+                    ReservationEntry1."Source Ref. No." := TransferLine."Line No.";
+                    ReservationEntry1."Expected Receipt Date" := WorkDate();
+                    ReservationEntry1."Created By" := UserId;
+                    ReservationEntry1."Creation Date" := WorkDate();
+                    ReservationEntry1.Insert();
+                end;
+            End;
+
+            If TransferOrderPost.Get(TransferNo) then;
+            TransferOrderPostShipment.SetSuppressCommit(True);
+            TransferOrderPostShipment.Run(TransferOrderPost);
+
+            // CODEUNIT.Run(CODEUNIT::"Release Transfer Document", TransferOrderPost);
+
+            // TransferOrderPost.TestField(Status, TransferOrderPost.Status::Released);
+            Commit();
+        end;
     end;
 
     var

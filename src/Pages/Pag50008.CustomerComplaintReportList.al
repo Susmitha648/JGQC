@@ -42,6 +42,14 @@ page 50008 "Customer Complaint Report List"
                 {
                     ToolTip = 'Specifies the value of the Ring Finish field.', Comment = '%';
                 }
+                  field("Complaint Type"; Rec."Complaint Type")
+                {
+                    ToolTip = 'Specifies the value of the Complaint Type field.', Comment = '%';
+                }
+                 field("Defect Name"; Rec."Defect Name")
+                {
+                    ToolTip = 'Specifies the value of the Defect Name field.', Comment = '%';
+                }
                 field("Complaint Received Date"; Rec."Complaint Received Date")
                 {
                     ToolTip = 'Specifies the value of the Complaint Received Date field.', Comment = '%';

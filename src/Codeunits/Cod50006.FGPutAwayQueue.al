@@ -78,7 +78,7 @@ codeunit 50006 "FG PutAway Queue"
                     FGPostingTrack."Receipt Posting Attempt" += 1;
                     FGPostingTrack.Modify();
                 end else begin
-                    FGPostingTrack."Error Text" := '';
+                    //FGPostingTrack."Error Text" := '';
                     FGPostingTrack."Transfer Receipt Posted" := True;
                     FGPostingTrack.Status := FGPostingTrack.Status::Sucess;
                     FGPostingTrack.Modify();
@@ -89,12 +89,15 @@ codeunit 50006 "FG PutAway Queue"
         FGPostingTrackingUndo.SetRange("Output Posted", true);
         FGPostingTrackingUndo.SetRange("Transfer Shipment Posted", True);
         FGPostingTrackingUndo.SetRange("Transfer Receipt Posted", False);
-        FGPostingTrackingUndo.SetRange("Receipt Posting Attempt", 2);
+        FGPostingTrackingUndo.Setfilter("Receipt Posting Attempt",'%1|%2',2,3);
         If FGPostingTrackingUndo.FindSet() then
             repeat
                 Commit();
                 If not Codeunit.Run(CodeUnit::"UndoShipment Post", FGPostingTrackingUndo) then begin
                     FGPostingTrackingUndo."Error Text" := GetLastErrorText();
+                    FGPostingTrackingUndo.Modify();
+                end else begin
+                    FGPostingTrackingUndo."Transfer Shipment Posted" := false;
                     FGPostingTrackingUndo.Modify();
                 end;
             until FGPostingTrackingUndo.Next() = 0;

@@ -19,6 +19,16 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                 ApplicationArea = All;
                 ToolTip = 'Ending Time';
             }
+            field(Section; Rec.Section)
+            {
+                ApplicationArea = All;
+                ToolTip = 'Section';
+            }
+            field("Speed Bpm"; Rec."Speed Bpm")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Speed Bpm';
+            }
 
         }
         modify("Starting Date-Time")
@@ -55,6 +65,8 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     ItemRec: Record Item;
                     CountQty: Decimal;
                 begin
+                   // If (Time < Rec."Starting Time WO") or (Time > Rec."Ending Time WO") then
+                      // Error('Recording slip is only allowed to print with in the shift between %1 - %2',Rec."Starting Time WO",Rec."Ending Time WO");
                     MyReportID := Report::RecordingSlipReport;
                     CurrPage.SetSelectionFilter(DocumentNo);
                     CheckItemVariants(Rec);

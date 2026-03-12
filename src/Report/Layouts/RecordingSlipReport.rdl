@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-01-08T03:21:35.6482740Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-06T04:14:44.8550970Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -356,7 +356,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=First(Fields!Last_Date_Modified.Value, "DataSet_Result")</Value>
+                                      <Value>=Fields!Last_Date_Modified.Value &amp; " " &amp; Format(Fields!DateTime.Value(), "hh:mm tt")</Value>
                                       <Style>
                                         <FontStyle>Normal</FontStyle>
                                         <FontSize>22pt</FontSize>
@@ -2206,6 +2206,9 @@ ohhNZOMp2UrqoTkcOfwTbdukMGnSBG697Q7sNttxtvIJHQ+333oTz/Xsdn5Z1OWU8zeZMWsOb703jJ5P
         </Field>
         <Field Name="Last_Date_Modified">
           <DataField>Last_Date_Modified</DataField>
+        </Field>
+        <Field Name="DateTime">
+          <DataField>DateTime</DataField>
         </Field>
         <Field Name="Job_Code">
           <DataField>Job_Code</DataField>

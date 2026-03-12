@@ -30,7 +30,7 @@ pageextension 50001 "Finished Production Order" extends "Finished Production Ord
                 ToolTip = 'Machine/Section Stoppages Details';
                 Promoted = true;
                 PromotedCategory = Category4;
-                RunObject = Page "Machine/SectionStoppagesFinLis";
+                RunObject = Page "Machine/Section Stoppages List";
                 RunPageLink = "Production Order No." = field("No.");
             }
             action(COADetails)

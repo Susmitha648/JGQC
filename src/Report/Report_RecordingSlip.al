@@ -69,6 +69,7 @@ report 50005 RecordingSlipReport
             {
             }
             column(Last_Date_Modified; Format("Due Date")) { }
+            column(DateTime; CurrentDateTime()) { }
             column(Job_Code; "Shortcut Dimension 2 Code") { }
             column(Description; Description) { }
             column(Finish; QCPlanHeader.Finish) { }
@@ -108,6 +109,7 @@ report 50005 RecordingSlipReport
                 BarcodeFontProvider2D: Interface "Barcode Font Provider 2D";
                 MinDateDiff: Integer;
                 MaxDateDiff: Integer;
+                ProdOrdlineUpdate : Record "Prod. Order Line";
             begin
                 Clear(MachineNo);
                 Clear(WorkShiftCode);
@@ -195,6 +197,13 @@ report 50005 RecordingSlipReport
                 If Rejected then
                 ReservationEntry.Rejected := True;
                 ReservationEntry.Insert();
+                
+                If Rejected Then
+                   If ProdOrdlineUpdate.Get(ProdOrdlineUpdate.Status::Released,"Prod. Order No.","Line No.") then begin
+                       ProdOrdlineUpdate."QCD Quantity" += 1;
+                       ProdOrdlineUpdate.Modify();
+                   end;
+
             end;
         }
     }

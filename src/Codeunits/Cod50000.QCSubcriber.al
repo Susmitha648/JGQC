@@ -197,11 +197,60 @@ codeunit 50000 "QC Subcriber"
         PutAway: Record "Put Away";
         Location: Record Location;
     begin
-        If Location.Get(Bin."Location Code") then 
-        If Location."Skip Default Bin Update" then begin
-            BinContent.Default := false;
-            BinContent.Fixed := false;
-        end;
+        If Location.Get(Bin."Location Code") then
+            If Location."Skip Default Bin Update" then begin
+                BinContent.Default := false;
+                BinContent.Fixed := false;
+            end;
+
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Production Order", 'OnAfterCreateDim', '', false, false)]
+    local procedure OnAfterCreateDim(var ProductionOrder: Record "Production Order"; DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])
+    var
+        ProductionProgramme: Record "Production Programme Line";
+        DimMgt: Codeunit DimensionManagement;
+        NewDimSetID: Integer;
+        OldDimSetID: Integer;
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        DimSetEntry: Record "Dimension Set Entry";
+    begin
+        /*If ProductionOrder."Inventory Posting Group" = 'PB' then begin
+            ProductionProgramme.Reset();
+            ProductionProgramme.SetRange(Job, ProductionOrder."Source No.");
+            ProductionProgramme.SetRange(Date, ProductionOrder."Due Date");
+            If ProductionProgramme.FindFirst() then begin
+                OldDimSetID := ProductionOrder."Dimension Set ID";
+                DimMgt.GetDimensionSet(TempDimSetEntry, OldDimSetID);
+
+                //assign new/update existing dimension with data from external system
+                TempDimSetEntry.Reset();
+                TempDimSetEntry.SetRange("Dimension Code", ProductionOrderDimensionCode);
+                if TempDimSetEntry.FindFirst() then begin
+                    TempDimSetEntry.Validate("Dimension Value Code", DimensionValue);
+                    TempDimSetEntry.Modify();
+                end
+
+                else begin
+                    TempDimSetEntry.Init();
+                    TempDimSetEntry.Validate("Dimension Code", DimensionCode);
+                    TempDimSetEntry.Validate("Dimension Value Code", DimensionValue);
+                    TempDimSetEntry.Insert();
+                end;
+
+                //obtain DimSetID after line dimension update
+                NewDimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
+
+                //update line dimension set id 
+                if OldDimSetID <> NewDimSetID then begin
+                    PurchaseLine."Dimension Set ID" := NewDimSetID;
+                    PurchaseLine.Modify();
+                end;
+
+                //update line's global dimensions
+                DimMgt.UpdateGlobalDimFromDimSetID(PurchaseLine."Dimension Set ID", PurchaseLine."Shortcut Dimension 1 Code", PurchaseLine."Shortcut Dimension 2 Code");
+            end;
+        end;*/
 
     end;
 

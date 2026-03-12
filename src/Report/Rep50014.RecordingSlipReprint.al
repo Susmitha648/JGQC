@@ -69,6 +69,7 @@ report 50014 "Recording Slip Reprint"
             {
             }
             column(Last_Date_Modified; Format("Due Date")) { }
+            column(DateTime; CurrentDateTime()) { }
             column(Job_Code; "Shortcut Dimension 2 Code") { }
             column(Description; Description) { }
             column(Finish; QCPlanHeader.Finish) { }

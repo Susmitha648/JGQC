@@ -170,7 +170,9 @@ page 50029 "Production Programme Subform"
                 ProductionLine.Validate(Quantity, 8 * 60 * ProdProgramLine."Bottles Per Minute");
                 HdrQty += 8 * 60 * ProdProgramLine."Bottles Per Minute";
                 ProductionLine.Validate("Net Weight", ProdProgramLine.WT);
-
+                ProductionLine."Speed Bpm" := ProdProgramLine."Bottles Per Minute";
+                
+                Evaluate(ProductionLine.Section ,DelChr(Format(ProdProgramLine.Speed),'=','S'));
                 ShopCalender.Reset();
                 ShopCalender.SetRange("Work Shift Code", WorkShift.Code);
 

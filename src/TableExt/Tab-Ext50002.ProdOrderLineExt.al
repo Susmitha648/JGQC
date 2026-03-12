@@ -7,6 +7,17 @@ tableextension 50002 "Prod Order Line Ext" extends "Prod. Order Line"
             Caption = 'Work Shift';
             DataClassification = CustomerContent;
             TableRelation = "Work Shift".Code;
+            trigger OnValidate()
+            var
+                Workshift: Record "Work Shift";
+            begin
+                If Workshift.Get("Work Shift") then begin
+                    "Starting Time WO" := Workshift."Starting Time";
+                    "Ending Time WO" := Workshift."Ending Time"
+                end;
+
+
+            end;
         }
         field(50001; "Work Center"; Code[20])
         {
@@ -22,6 +33,21 @@ tableextension 50002 "Prod Order Line Ext" extends "Prod. Order Line"
         field(50003; "Ending Time WO"; Time)
         {
             Caption = 'Ending Time';
+            DataClassification = CustomerContent;
+        }
+        field(50004; "Section"; Integer)
+        {
+            Caption = 'Section';
+            DataClassification = CustomerContent;
+        }
+        field(50005; "Speed Bpm"; Integer)
+        {
+            Caption = 'Speed Bpm';
+            DataClassification = CustomerContent;
+        }
+        field(50007; "QCD Quantity"; Decimal)
+        {
+            Caption = 'QCD Quantity';
             DataClassification = CustomerContent;
         }
         modify("Item No.")
