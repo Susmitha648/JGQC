@@ -10,6 +10,7 @@ tableextension 50005 "Released PH Ext" extends "Production Order"
             TableRelation = "Production Programme Header"."No.";
             Editable = false;
         }
+         
         modify("Source No.")
         {
             trigger OnBeforeValidate()

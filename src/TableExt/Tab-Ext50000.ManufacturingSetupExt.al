@@ -37,6 +37,11 @@ tableextension 50000 "Manufacturing Setup Ext" extends "Manufacturing Setup"
             Caption = 'Work Shift Hours';
             DataClassification = CustomerContent;
         }
-       
+        field(50006; "Machine Draining Batch"; Code[10] )
+        {
+            Caption = 'Machine Draining Batch';
+            DataClassification = CustomerContent;
+            TableRelation = "Item Journal Batch".Name where ("Journal Template Name" = FILTER('ITEM'));
+        }
     }
 }

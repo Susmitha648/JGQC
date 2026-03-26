@@ -9,7 +9,7 @@ table 50023 "QC Details"
         {
             Caption = 'Work Order No';
             TableRelation = "Production Order"."No.";
-            Editable  = false;
+            Editable = false;
 
         }
         field(2; Shift; Code[20])
@@ -21,8 +21,6 @@ table 50023 "QC Details"
         {
             Caption = 'Machine No.';
             TableRelation = "Dimension Value".Code;
-            Editable  = false;
-
             trigger OnLookup()
             begin
                 GeneralLegderSetup.Get();
@@ -73,18 +71,18 @@ table 50023 "QC Details"
     var
         GeneralLegderSetup: Record "General Ledger Setup";
         DimensionValue: Record "Dimension Value";
-        ProductionOrder : Record "Production Order";
-        DimensionSetEntry : Record "Dimension Set Entry";
+        ProductionOrder: Record "Production Order";
+        DimensionSetEntry: Record "Dimension Set Entry";
 
     trigger OnInsert()
     begin
-       GeneralLegderSetup.Get();
-       If ProductionOrder.Get(ProductionOrder.Status::Released,"Work Order No") then begin
-        DimensionSetEntry.Reset();
-        DimensionSetEntry.SetRange("Dimension Set ID",ProductionOrder."Dimension Set ID");
-        DimensionSetEntry.SetRange("Dimension Code",GeneralLegderSetup."Shortcut Dimension 8 Code"); 
-        If DimensionSetEntry.FindFirst() then
-          Rec."Machine No." := DimensionSetEntry."Dimension Value Code";
-       end;
+        GeneralLegderSetup.Get();
+        If ProductionOrder.Get(ProductionOrder.Status::Released, "Work Order No") then begin
+            DimensionSetEntry.Reset();
+            DimensionSetEntry.SetRange("Dimension Set ID", ProductionOrder."Dimension Set ID");
+            DimensionSetEntry.SetRange("Dimension Code", GeneralLegderSetup."Shortcut Dimension 8 Code");
+            If DimensionSetEntry.FindFirst() then
+                Rec."Machine No." := DimensionSetEntry."Dimension Value Code";
+        end;
     end;
 }

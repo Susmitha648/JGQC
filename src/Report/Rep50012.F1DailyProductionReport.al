@@ -1,7 +1,7 @@
-report 50012 "F1 - Daily Production Report"
+report 50012 "F1 - DailyProductionReportOld"
 {
     ApplicationArea = All;
-    Caption = 'F1 - Daily Production Report';
+    Caption = 'F1 - Daily Production Report Old';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
     RDLCLayout = './src/Report/Layouts/DailyProductionReportF1.rdl';

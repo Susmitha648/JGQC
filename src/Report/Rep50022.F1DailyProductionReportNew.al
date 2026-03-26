@@ -1,10 +1,10 @@
-report 50020 "F2 Daily Production Report New"
+report 50022 F1DailyProductionReportNew
 {
     ApplicationArea = All;
-    Caption = 'F2 - Daily Production Report';
+    Caption = 'F1 - Daily Production Report';
     UsageCategory = ReportsAndAnalysis;
     DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/DailyProductionReportF2New.rdl';
+    RDLCLayout = './src/Report/Layouts/DailyProductionReportF1New.rdl';
     dataset
     {
         dataitem(ProductionOrder; "Production Order")
@@ -63,7 +63,6 @@ report 50020 "F2 Daily Production Report New"
                     Clear(PassQuantity);
                     Clear(TonPerLineTot1);
                     //Clear(Furnace);
-                    
 
 
                     If "Starting Time WO" < "Ending Time WO" then
@@ -110,7 +109,7 @@ report 50020 "F2 Daily Production Report New"
 
                 trigger OnPreDataItem()
                 begin
-                    SetFilter(Furnace, '%1', 'F2*');
+                    SetFilter(Furnace, '%1', 'F1*');
                 end;
             }
             dataitem(ProductionOrderFG; "Production Order")
@@ -180,7 +179,7 @@ report 50020 "F2 Daily Production Report New"
 
                     trigger OnPreDataItem()
                     begin
-                        SetFilter("Machine No.", '%1', 'F2*');
+                        SetFilter("Machine No.", '%1', 'F1*');
                     end;
 
                 }
@@ -292,7 +291,7 @@ report 50020 "F2 Daily Production Report New"
         ItemLedgerEntryMCDrawing.Reset();
         ItemLedgerEntryMCDrawing.SetAutoCalcFields("Shortcut Dimension 8 Code");
         ItemLedgerEntryMCDrawing.SetRange("Posting Date", DailyProdReport);
-        ItemLedgerEntryMCDrawing.SetFilter("Shortcut Dimension 8 Code", '%1', 'F2*');
+        ItemLedgerEntryMCDrawing.SetFilter("Shortcut Dimension 8 Code", '%1', 'F1*');
         ItemLedgerEntryMCDrawing.SetRange("Entry Type", ItemLedgerEntryMCDrawing."Entry Type"::"Positive Adjmt.");
         ItemLedgerEntryMCDrawing.SetRange("Document Type", ItemLedgerEntryMCDrawing."Document Type"::" ");
         If ItemLedgerEntryMCDrawing.FindSet() then
@@ -302,18 +301,17 @@ report 50020 "F2 Daily Production Report New"
                 ProdOrderLine.Status := ProdOrderLine.Status::Released;
                 ProdOrderLine."Prod. Order No." := PO."No.";
                 ProdOrderLine."Line No." := ItemLedgerEntryMCDrawing."Entry No.";
-                ProdOrderLine."Item No." := 'DRAINING';
                 ProdOrderLine."Due Date" := ItemLedgerEntryMCDrawing."Posting Date";
+                ProdOrderLine."Item No." := 'DRAINING';
                 //ProdOrderLine.Furnace := ItemLedgerEntryMCDrawing."Shortcut Dimension 8 Code";
                 ProdOrderLine.Quantity := ItemLedgerEntryMCDrawing.Quantity;
                 ProdOrderLine.Furnace := ItemLedgerEntryMCDrawing."Shortcut Dimension 8 Code";
                 ProdOrderLine.Insert();
             until ItemLedgerEntryMCDrawing.Next() = 0;
-        
 
         ProductioProgLineMTD.Reset();
         ProductioProgLineMTD.SetRange(Date, CalcDate('<-CM>', DailyProdReport), DailyProdReport);
-        ProductioProgLineMTD.SetFilter(Furnace, '%1', 'F2*');
+        ProductioProgLineMTD.SetFilter(Furnace, '%1', 'F1*');
         ProductioProgLineMTD.SetFilter("Production Order No.", '<>%1', '');
         If ProductioProgLineMTD.FindSet() then
             repeat
@@ -348,7 +346,7 @@ report 50020 "F2 Daily Production Report New"
         ItemLedgerEntryMTD.Reset();
         ItemLedgerEntryMTD.SetAutoCalcFields("Shortcut Dimension 8 Code");
         ItemLedgerEntryMTD.SetRange("Posting Date", DailyProdReport);
-        ItemLedgerEntryMTD.SetFilter("Shortcut Dimension 8 Code", '%1', 'F2*');
+        ItemLedgerEntryMTD.SetFilter("Shortcut Dimension 8 Code", '%1', 'F1*');
         ItemLedgerEntryMTD.SetRange("Entry Type", ItemLedgerEntryMCDrawing."Entry Type"::"Positive Adjmt.");
         ItemLedgerEntryMTD.SetRange("Document Type", ItemLedgerEntryMCDrawing."Document Type"::" ");
         If ItemLedgerEntryMTD.FindSet() then
@@ -359,7 +357,7 @@ report 50020 "F2 Daily Production Report New"
         // YTD 
         ProductioProgLineYTD.Reset();
         ProductioProgLineYTD.SetRange(Date, CalcDate('<-CY>', DailyProdReport), DailyProdReport);
-        ProductioProgLineYTD.SetFilter(Furnace, '%1', 'F2*');
+        ProductioProgLineYTD.SetFilter(Furnace, '%1', 'F1*');
         ProductioProgLineYTD.SetFilter("Production Order No.", '<>%1', '');
         If ProductioProgLineYTD.FindSet() then
             repeat
@@ -391,7 +389,7 @@ report 50020 "F2 Daily Production Report New"
         ItemLedgerEntryYTD.Reset();
         ItemLedgerEntryYTD.SetAutoCalcFields("Shortcut Dimension 8 Code");
         ItemLedgerEntryYTD.SetRange("Posting Date", DailyProdReport);
-        ItemLedgerEntryYTD.SetFilter("Shortcut Dimension 8 Code", '%1', 'F2*');
+        ItemLedgerEntryYTD.SetFilter("Shortcut Dimension 8 Code", '%1', 'F1*');
         ItemLedgerEntryYTD.SetRange("Entry Type", ItemLedgerEntryMCDrawing."Entry Type"::"Positive Adjmt.");
         ItemLedgerEntryYTD.SetRange("Document Type", ItemLedgerEntryMCDrawing."Document Type"::" ");
         If ItemLedgerEntryYTD.FindSet() then

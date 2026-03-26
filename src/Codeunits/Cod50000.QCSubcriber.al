@@ -152,7 +152,6 @@ codeunit 50000 "QC Subcriber"
                 ProdOrderLine.Validate("Location Code", Rec."Location Code");
                 ProdOrderLine.Modify();
             until ProdOrderLine.Next() = 0;
-
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse.-Post Receipt", 'OnAfterCreatePutAwayDoc', '', false, false)]
@@ -191,6 +190,25 @@ codeunit 50000 "QC Subcriber"
         end;
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post", 'OnBeforeCode', '', false, false)]
+    local procedure OnBeforeCodeCheckWorkCenter(var ItemJournalLine: Record "Item Journal Line"; var HideDialog: Boolean; var SuppressCommit: Boolean; var IsHandled: Boolean)
+    var
+        ManufSetup: Record "Manufacturing Setup";
+        DimensionSetEntry: Record "Dimension Set Entry";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+    begin
+        ManufSetup.Get();
+        GeneralLedgerSetup.Get();
+        If ItemJournalLine."Journal Batch Name" = ManufSetup."Machine Draining Batch" then begin
+            DimensionSetEntry.Reset();
+            DimensionSetEntry.SetRange("Dimension Set ID", ItemJournalLine."Dimension Set ID");
+            DimensionSetEntry.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
+            If Not DimensionSetEntry.FindFirst() then
+                Error('Dimension Work Center Code should have value');
+        end;
+
+    end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Whse. Jnl.-Register Line", 'OnBeforeBinContentInsert', '', false, false)]
     local procedure OnBeforeBinContentInsert(var BinContent: Record "Bin Content"; WarehouseEntry: Record "Warehouse Entry"; Bin: Record Bin);
     var
@@ -206,7 +224,8 @@ codeunit 50000 "QC Subcriber"
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"Production Order", 'OnAfterCreateDim', '', false, false)]
-    local procedure OnAfterCreateDim(var ProductionOrder: Record "Production Order"; DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])
+    local procedure OnAfterCreateDimOnAfterCreateDim(var ProductionOrder: Record "Production Order"; DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])
+
     var
         ProductionProgramme: Record "Production Programme Line";
         DimMgt: Codeunit DimensionManagement;
@@ -214,8 +233,13 @@ codeunit 50000 "QC Subcriber"
         OldDimSetID: Integer;
         TempDimSetEntry: Record "Dimension Set Entry" temporary;
         DimSetEntry: Record "Dimension Set Entry";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        ProdOrderLine: Record "Prod. Order Line";
+        LineOldDimSetID: Integer;
+        LineNewDimSetID: Integer;
     begin
-        /*If ProductionOrder."Inventory Posting Group" = 'PB' then begin
+        GeneralLedgerSetup.Get();
+        If ProductionOrder."Inventory Posting Group" = 'PB' then begin
             ProductionProgramme.Reset();
             ProductionProgramme.SetRange(Job, ProductionOrder."Source No.");
             ProductionProgramme.SetRange(Date, ProductionOrder."Due Date");
@@ -224,36 +248,73 @@ codeunit 50000 "QC Subcriber"
                 DimMgt.GetDimensionSet(TempDimSetEntry, OldDimSetID);
 
                 //assign new/update existing dimension with data from external system
-                TempDimSetEntry.Reset();
-                TempDimSetEntry.SetRange("Dimension Code", ProductionOrderDimensionCode);
-                if TempDimSetEntry.FindFirst() then begin
-                    TempDimSetEntry.Validate("Dimension Value Code", DimensionValue);
-                    TempDimSetEntry.Modify();
-                end
+                TempDimSetEntry.Init();
+                TempDimSetEntry.Validate("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
+                TempDimSetEntry.Validate("Dimension Value Code", ProductionProgramme.Furnace);
+                TempDimSetEntry.Insert();
 
-                else begin
-                    TempDimSetEntry.Init();
-                    TempDimSetEntry.Validate("Dimension Code", DimensionCode);
-                    TempDimSetEntry.Validate("Dimension Value Code", DimensionValue);
-                    TempDimSetEntry.Insert();
-                end;
 
                 //obtain DimSetID after line dimension update
                 NewDimSetID := DimMgt.GetDimensionSetID(TempDimSetEntry);
 
                 //update line dimension set id 
                 if OldDimSetID <> NewDimSetID then begin
-                    PurchaseLine."Dimension Set ID" := NewDimSetID;
-                    PurchaseLine.Modify();
+                    ProductionOrder."Dimension Set ID" := NewDimSetID;
+                    ProductionOrder.Modify();
                 end;
 
                 //update line's global dimensions
-                DimMgt.UpdateGlobalDimFromDimSetID(PurchaseLine."Dimension Set ID", PurchaseLine."Shortcut Dimension 1 Code", PurchaseLine."Shortcut Dimension 2 Code");
+                ProdOrderLine.Reset();
+                ProdOrderLine.SetRange("Prod. Order No.", ProductionOrder."No.");
+                ProdOrderLine.SetRange(Status, ProdOrderLine.Status::Released);
+                ProdOrderLine.SetRange("Inventory Posting Group", 'PB');
+                ProdOrderLine.SetRange("Item No.", ProductionOrder."Source No.");
+                If ProdOrderLine.FindSet(true) then
+                    repeat
+                        LineOldDimSetID := ProdOrderLine."Dimension Set ID";
+                        LineNewDimSetID := DimMgt.GetDeltaDimSetID(ProdOrderLine."Dimension Set ID", NewDimSetID, OldDimSetID);
+                        if ProdOrderLine."Dimension Set ID" <> LineNewDimSetID then begin
+                            ProdOrderLine."Dimension Set ID" := LineNewDimSetID;
+                            DimMgt.UpdateGlobalDimFromDimSetID(
+                              ProdOrderLine."Dimension Set ID", ProdOrderLine."Shortcut Dimension 1 Code", ProdOrderLine."Shortcut Dimension 2 Code");
+                            ProdOrderLine.Modify();
+                            ProdOrderLine.UpdateProdOrderCompDim(LineNewDimSetID, LineOldDimSetID);
+                        end;
+                    until ProdOrderLine.Next() = 0;
             end;
-        end;*/
+        end;
 
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Prod. Order Line", 'OnAfterCreateDim', '', false, false)]
+    local procedure OnAfterCreateDimLine(var ProdOrderLine: Record "Prod. Order Line"; DefaultDimSource: List of [Dictionary of [Integer, Code[20]]])
+
+    var
+        ProductionProgramme: Record "Production Programme Line";
+        DimMgt: Codeunit DimensionManagement;
+        NewDimSetID: Integer;
+        OldDimSetID: Integer;
+        TempDimSetEntry: Record "Dimension Set Entry" temporary;
+        DimSetEntry: Record "Dimension Set Entry";
+        GeneralLedgerSetup: Record "General Ledger Setup";
+        LineOldDimSetID: Integer;
+        LineNewDimSetID: Integer;
+        ProdOrder: Record "Production Order";
+    begin
+        GeneralLedgerSetup.Get();
+        If (ProdOrderLine."Inventory Posting Group" = 'PB') and not (ProdOrderLine."Line No." = 0) then
+            If ProdOrder.Get(ProdOrder.Status::Released, ProdOrderLine."Prod. Order No.") then begin
+                //update line's global dimensions
+
+                if ProdOrderLine."Dimension Set ID" <> ProdOrder."Dimension Set ID" then begin
+                    ProdOrderLine."Dimension Set ID" := ProdOrder."Dimension Set ID";
+                    DimMgt.UpdateGlobalDimFromDimSetID(
+                      ProdOrderLine."Dimension Set ID", ProdOrderLine."Shortcut Dimension 1 Code", ProdOrderLine."Shortcut Dimension 2 Code");
+                    ProdOrderLine.Modify();
+                end;
+            end;
+
+    end;
 
     Procedure SetProductionHdr(ProductionHdr: Record "Production Order")
     begin

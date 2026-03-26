@@ -12,7 +12,6 @@ page 50014 "Machine/Section Stoppages"
             group(General)
             {
                 Caption = 'General';
-
                 field("Production Order No."; Rec."Production Order No.")
                 {
                     ToolTip = 'Specifies the value of the Production Order No. field.', Comment = '%';
@@ -43,8 +42,7 @@ page 50014 "Machine/Section Stoppages"
                     ToolTip = 'Specifies the value of the Section Stoppage Description field.', Comment = '%';
                     MultiLine = true;
                 }
-                
-                 field("Machine Number"; Rec."Machine Number")
+                field("Machine Number"; Rec."Machine Number")
                 {
                     ToolTip = 'Specifies the value of the Machine Number field.', Comment = '%';
                 }
@@ -120,7 +118,6 @@ page 50014 "Machine/Section Stoppages"
                 {
                     ToolTip = 'Specifies the value of the Status field.', Comment = '%';
                 }
-
             }
         }
         area(factboxes)
@@ -131,11 +128,9 @@ page 50014 "Machine/Section Stoppages"
                 Caption = 'Documents';
                 UpdatePropagation = Both;
                 SubPageLink = "Table ID" = const(Database::"Machine/Section Stoppages"),
-                              "No." = field("Production Order No."),"Line No." = field("Line No.");
+                              "No." = field("Production Order No."), "Line No." = field("Line No.");
             }
         }
-            
-
     }
     actions
     {
@@ -145,7 +140,6 @@ page 50014 "Machine/Section Stoppages"
             {
                 Caption = 'Copy';
                 Image = Copy;
-               
                 action(CopyDoc)
                 {
                     ApplicationArea = Suite;
@@ -157,25 +151,25 @@ page 50014 "Machine/Section Stoppages"
                     ToolTip = 'Copy Machine Section Stoppages';
                     trigger OnAction()
                     var
-                    CopyReport : Report "Copy Machine Stoppages";
+                        CopyReport: Report "Copy Machine Stoppages";
                     begin
                         CopyReport.Set(Rec);
                         CopyReport.RunModal();
-                       
-                        if Rec.Get(Rec."Production Order No.",Rec."Line No.") then;
-                        
+                        if Rec.Get(Rec."Production Order No.", Rec."Line No.") then;
                         CurrPage.Update();
                     end;
                 }
             }
         }
     }
-
     trigger OnNewRecord(BelowxRec: Boolean)
     var
         MachinSectinStoppages: Record "Machine/Section Stoppages";
-         ReleaseProdOrder: Record "Production Order";
+        ReleaseProdOrder: Record "Production Order";
+        DimensionSetEntry: Record "Dimension Set Entry";
+        GeneralLedgerSetup : Record "General Ledger Setup";
     begin
+        GeneralLedgerSetup.Get();
         MachinSectinStoppages.Reset();
         MachinSectinStoppages.SetAscending("Line No.", false);
         MachinSectinStoppages.SetRange("Production Order No.", Rec."Production Order No.");
@@ -185,7 +179,11 @@ page 50014 "Machine/Section Stoppages"
             Rec."Line No." := 10;
         If ReleaseProdOrder.Get(ReleaseProdOrder.Status::Released, Rec."Production Order No.") then
             If ReleaseProdOrder."Source Type" = ReleaseProdOrder."Source Type"::Item then begin
-                Rec."Machine Number" := ReleaseProdOrder."Location Code";
+                DimensionSetEntry.Reset();
+                DimensionSetEntry.SetRange("Dimension Set ID", ReleaseProdOrder."Dimension Set ID");
+                DimensionSetEntry.SetRange("Dimension Code", GeneralLedgerSetup."Shortcut Dimension 8 Code");
+                If DimensionSetEntry.FindFirst() then
+                    Rec."Machine Number" := DimensionSetEntry."Dimension Value Code";
                 Rec."Incident Date" := ReleaseProdOrder."Due Date";
             end;
     end;

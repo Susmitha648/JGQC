@@ -17,10 +17,10 @@ report 50019 "Production Summary"
             dataitem("Prod. Order Line"; "Prod. Order Line")
             {
                 DataItemLink = "Prod. Order No." = field("No.");
-                column(QtyProdGobCut; Quantity) { }
+                column(QtyProdGobCut; "Finished Quantity") { }
                 trigger OnPreDataItem()
                 begin
-                    SetFilter("Work Shift", '<>%1', '');
+                    SetRange("Inventory Posting Group",'PB');
                 end;
             }
             dataitem(ProductionOrder1; "Production Order")

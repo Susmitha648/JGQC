@@ -50,6 +50,11 @@ tableextension 50002 "Prod Order Line Ext" extends "Prod. Order Line"
             Caption = 'QCD Quantity';
             DataClassification = CustomerContent;
         }
+         field(50008; "Furnace"; Code[20])
+        {
+            Caption = 'Furncae';
+            DataClassification = CustomerContent;
+        }
         modify("Item No.")
         {
             trigger OnBeforeValidate()
