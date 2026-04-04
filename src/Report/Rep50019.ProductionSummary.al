@@ -3,8 +3,9 @@ report 50019 "Production Summary"
     ApplicationArea = All;
     Caption = 'Production Summary';
     UsageCategory = ReportsAndAnalysis;
-    DefaultLayout = RDLC;
-    RDLCLayout = './src/Report/Layouts/ProductionSummary.rdl';
+    //DefaultLayout = RDLC;
+    //RDLCLayout = './src/Report/Layouts/ProductionSummary.rdl';
+    DefaultRenderingLayout = LayoutWithoutMachine;
     dataset
     {
         dataitem("Production Order"; "Production Order")
@@ -18,9 +19,20 @@ report 50019 "Production Summary"
             {
                 DataItemLink = "Prod. Order No." = field("No.");
                 column(QtyProdGobCut; "Finished Quantity") { }
+                column(Consumption; Consumption) { }
                 trigger OnPreDataItem()
                 begin
-                    SetRange("Inventory Posting Group",'PB');
+                    SetRange("Inventory Posting Group", 'PB');
+                end;
+                trigger OnAfterGetRecord()
+                begin
+                    ItemLedgerConsumption.Reset();
+                    ItemLedgerConsumption.SetRange("Document No.","Prod. Order Line"."Prod. Order No.");
+                    ItemLedgerConsumption.SetRange("Document Line No.","Prod. Order Line"."Line No.");
+                    ItemLedgerConsumption.SetRange("Entry Type",ItemLedgerConsumption."Entry Type"::Consumption);
+                    ItemLedgerConsumption.SetRange("Item No.",'MG');
+                    If ItemLedgerConsumption.FindFirst() then
+                       Consumption := ItemLedgerConsumption.Quantity;
                 end;
             }
             dataitem(ProductionOrder1; "Production Order")
@@ -54,7 +66,7 @@ report 50019 "Production Summary"
                                 if Packsize.Get(Item."Pack Size") then
                                     LogisticsQty := Packsize."Qty Per Pack";
                         end;
-                        
+
                         PackedPallets := 1;
                         If Item.Get("Item No.") then
                             if Packsize.Get(Item."Pack Size") then
@@ -76,7 +88,7 @@ report 50019 "Production Summary"
                 ProductionProgLine.Reset();
                 ProductionProgLine.SetRange("No.", "Production Programme");
                 ProductionProgLine.SetRange(Date, "Due Date");
-                ProductionProgLine.SetRange(Job,"Source No.");
+                ProductionProgLine.SetRange(Job, "Source No.");
                 If ProductionProgLine.FindFirst() then
                     MachineNo := ProductionProgLine.Furnace;
 
@@ -110,6 +122,24 @@ report 50019 "Production Summary"
             }
         }
     }
+    rendering
+    {
+        layout(LayoutWithoutMachine)
+        {
+            Type = RDLC;
+            
+            LayoutFile = './src/Report/Layouts/ProductionSummaryWithoutMachineNO.rdl';
+            Caption = 'Production Summary';
+            Summary = 'Without Machine No.';
+        }
+        layout(LayoutWithMachine)
+        {
+            Type = RDLC;
+            LayoutFile = './src/Report/Layouts/ProductionSummary.rdl';
+            Caption = 'Production Summary';
+            Summary = 'With Machine No.';
+        }
+    }
     var
         StartDate: Date;
         EndDate: Date;
@@ -131,7 +161,9 @@ report 50019 "Production Summary"
         ItemledgerEntry1: Record "Item Ledger Entry";
         ReceivedQty: Decimal;
         LogisticsQty: Decimal;
-        LogisticsPallets : Integer;
-        PackedPallets : Integer;
+        LogisticsPallets: Integer;
+        PackedPallets: Integer;
         ProductionProgLine: Record "Production Programme Line";
+        Consumption : Decimal;
+        ItemLedgerConsumption : Record "Item Ledger Entry";
 }

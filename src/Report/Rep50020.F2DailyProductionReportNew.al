@@ -63,7 +63,7 @@ report 50020 "F2 Daily Production Report New"
                     Clear(PassQuantity);
                     Clear(TonPerLineTot1);
                     //Clear(Furnace);
-                    
+
 
 
                     If "Starting Time WO" < "Ending Time WO" then
@@ -118,72 +118,7 @@ report 50020 "F2 Daily Production Report New"
                 DataItemLinkReference = ProductionOrder;
                 DataItemLink = "Shortcut Dimension 2 Code" = field("Source No.");
 
-                dataitem("QC Details"; "QC Details")
-                {
-                    DataItemLink = "Work Order No" = field("No.");
-                    DataItemLinkReference = ProductionOrderFG;
-                    column(MachineNo; "Machine No.") { }
-                    column(Shift1; Shift) { }
-                    column(IRIZ; "IRIZ %") { }
-                    column(SL; "SL %") { }
-                    column(DefectCodeArray1; DefectTxt) { }
-                    column(DeptTxt; DeptTxt) { }
-                    column(RemarksTxt; RemarksTxt) { }
-                    column(StoppageTxt; StoppageTxt) { }
-                    trigger OnAfterGetRecord()
-                    begin
-                        Clear(DefectCodeArray);
-                        Clear(DefectTxt);
-                        Clear(DeptTxt);
-                        Clear(RemarksTxt);
 
-                        cr := 13;
-                        lf := 10;
-                        If DefectCode.Get("Defect Code 1") then
-                            DefectCodeArray[1] := DefectCode."Defect Name";
-                        If DefectCode.Get("Defect Code 2") then
-                            DefectCodeArray[2] := DefectCode."Defect Name";
-                        If DefectCode.Get("Defect Code 3") then
-                            DefectCodeArray[3] := DefectCode."Defect Name";
-
-                        if DefectCodeArray[1] <> '' then
-                            DefectTxt += DefectCodeArray[1] + Format(cr) + Format(lf);
-                        if DefectCodeArray[2] <> '' then
-                            DefectTxt += DefectCodeArray[2] + Format(cr) + Format(lf);
-                        if DefectCodeArray[3] <> '' then
-                            DefectTxt += DefectCodeArray[3];
-                        Clear(StoppagesArray);
-                        Clear(StoppageTxt);
-                        MachineSectionStoppages.Reset();
-                        MachineSectionStoppages.SetRange("Incident Date", DailyProdReport);
-                        MachineSectionStoppages.SetRange(Shift, "QC Details".Shift);
-                        MachineSectionStoppages.SetRange("Machine Number","Machine No.");
-                        If MachineSectionStoppages.FindSet() then
-                            repeat
-                                StoppagesArray[1] := MachineSectionStoppages."Machine Stoppage Description";
-                                StoppagesArray[2] := MachineSectionStoppages."Section Stoppage Description";
-                                if StoppagesArray[1] <> '' then
-                                    StoppageTxt += StoppagesArray[1] + Format(cr) + Format(lf);
-                                if StoppagesArray[2] <> '' then
-                                    StoppageTxt += StoppagesArray[2] + Format(cr) + Format(lf);
-                                RemarksTxt += MachineSectionStoppages.Remarks + Format(cr) + Format(lf);
-                                DeptTxt += MachineSectionStoppages.Department + Format(cr) + Format(lf);
-                            until MachineSectionStoppages.Next() = 0;
-                        //to remove extra line on the last line
-                        If StoppageTxt <> '' then
-                            StoppageTxt := CopyStr(StoppageTxt, 1, StrLen(StoppageTxt) - 2);
-                        If RemarksTxt <> '' then
-                            RemarksTxt := CopyStr(RemarksTxt, 1, StrLen(RemarksTxt) - 2);
-                        If DeptTxt <> '' then
-                            DeptTxt := CopyStr(DeptTxt, 1, StrLen(DeptTxt) - 2);
-                    end;
-
-                    trigger OnPreDataItem()
-                    begin
-                        SetFilter("Machine No.", '%1', 'F2*');
-                    end;
-
-                }
                 trigger OnPreDataItem()
                 begin
                     SetRange("Due Date", DailyProdReport);
@@ -218,6 +153,73 @@ report 50020 "F2 Daily Production Report New"
                                 TotalPackQty += ILE."Quantity Pieces";
                             until ILE.Next() = 0;
                     until ProdOrderLineTot.Next() = 0;
+            end;
+
+        }
+        dataitem(QCDetails; "QC Details")
+        {
+            //DataItemLink = "Work Order No" = field("No.");
+            //DataItemLinkReference = ProductionOrderFG;
+            UseTemporary = True;
+            column(MachineNo; "Machine No.") { }
+            column(Shift1; Shift) { }
+            column(IRIZ; "IRIZ %") { }
+            column(SL; "SL %") { }
+            column(DefectCodeArray1; DefectTxt) { }
+            column(DeptTxt; DeptTxt) { }
+            column(RemarksTxt; RemarksTxt) { }
+            column(StoppageTxt; StoppageTxt) { }
+            trigger OnAfterGetRecord()
+            begin
+                Clear(DefectCodeArray);
+                Clear(DefectTxt);
+                Clear(DeptTxt);
+                Clear(RemarksTxt);
+
+                cr := 13;
+                lf := 10;
+                If DefectCode.Get("Defect Code 1") then
+                    DefectCodeArray[1] := DefectCode."Defect Name";
+                If DefectCode.Get("Defect Code 2") then
+                    DefectCodeArray[2] := DefectCode."Defect Name";
+                If DefectCode.Get("Defect Code 3") then
+                    DefectCodeArray[3] := DefectCode."Defect Name";
+
+                if DefectCodeArray[1] <> '' then
+                    DefectTxt += DefectCodeArray[1] + Format(cr) + Format(lf);
+                if DefectCodeArray[2] <> '' then
+                    DefectTxt += DefectCodeArray[2] + Format(cr) + Format(lf);
+                if DefectCodeArray[3] <> '' then
+                    DefectTxt += DefectCodeArray[3];
+                Clear(StoppagesArray);
+                Clear(StoppageTxt);
+                MachineSectionStoppages.Reset();
+                MachineSectionStoppages.SetRange("Incident Date", DailyProdReport);
+                MachineSectionStoppages.SetRange(Shift, QCDetails.Shift);
+                MachineSectionStoppages.SetRange("Machine Number", "Machine No.");
+                If MachineSectionStoppages.FindSet() then
+                    repeat
+                        StoppagesArray[1] := MachineSectionStoppages."Machine Stoppage Description";
+                        StoppagesArray[2] := MachineSectionStoppages."Section Stoppage Description";
+                        if StoppagesArray[1] <> '' then
+                            StoppageTxt += StoppagesArray[1] + Format(cr) + Format(lf);
+                        if StoppagesArray[2] <> '' then
+                            StoppageTxt += StoppagesArray[2] + Format(cr) + Format(lf);
+                        RemarksTxt += MachineSectionStoppages.Remarks + Format(cr) + Format(lf);
+                        DeptTxt += MachineSectionStoppages.Department + Format(cr) + Format(lf);
+                    until MachineSectionStoppages.Next() = 0;
+                //to remove extra line on the last line
+                If StoppageTxt <> '' then
+                    StoppageTxt := CopyStr(StoppageTxt, 1, StrLen(StoppageTxt) - 2);
+                If RemarksTxt <> '' then
+                    RemarksTxt := CopyStr(RemarksTxt, 1, StrLen(RemarksTxt) - 2);
+                If DeptTxt <> '' then
+                    DeptTxt := CopyStr(DeptTxt, 1, StrLen(DeptTxt) - 2);
+            end;
+
+            trigger OnPreDataItem()
+            begin
+                SetFilter("Machine No.", '%1', 'F2*');
             end;
 
         }
@@ -309,7 +311,7 @@ report 50020 "F2 Daily Production Report New"
                 ProdOrderLine.Furnace := ItemLedgerEntryMCDrawing."Shortcut Dimension 8 Code";
                 ProdOrderLine.Insert();
             until ItemLedgerEntryMCDrawing.Next() = 0;
-        
+
 
         ProductioProgLineMTD.Reset();
         ProductioProgLineMTD.SetRange(Date, CalcDate('<-CM>', DailyProdReport), DailyProdReport);
@@ -399,6 +401,40 @@ report 50020 "F2 Daily Production Report New"
                 YTDTonnageWithDraining += ABS(ItemLedgerEntryYTD.Quantity / 1000);
             until ItemLedgerEntryYTD.Next() = 0;
 
+        ProdHdr.Reset();
+        ProdHdr.SetRange("Due Date", DailyProdReport);
+        If ProdHdr.FindSet() then
+            repeat
+                QCDetailFound := false;
+                QCDetails2.Reset();
+                QCDetails2.SetRange("Work Order No", ProdHdr."No.");
+                If QCDetails2.FindSet() then
+                    repeat
+                        QCDetailFound := true;
+                        QCDetails.Init();
+                        QCDetails.TransferFields(QCDetails2);
+                        QCDetails.Insert();
+                    until QCDetails2.Next() = 0;
+                MachineSecStop.Reset();
+                MachineSecStop.SetRange("Production Order No.", ProdHdr."No.");
+                If MachineSecStop.FindSet() then
+                    repeat
+                        QCDetails.Reset();
+                        QCDetails.SetRange(Shift, MachineSecStop.Shift);
+                        QCDetails.SetRange("Machine No.", MachineSecStop."Machine Number");
+                        If not QCDetails.FindFirst() then begin
+                            
+                                QCDetails.Init();
+                                QCDetails."Work Order No" := ProdHdr."No.";
+                                QCDetails."Machine No." := MachineSecStop."Machine Number";
+                                QCDetails.Shift := MachineSecStop.Shift;
+                                QCDetails.Insert();
+                        
+                        end;
+                    until MachineSecStop.Next() = 0;
+            until ProdHdr.Next() = 0;
+
+
     end;
 
     var
@@ -415,7 +451,7 @@ report 50020 "F2 Daily Production Report New"
         YTDTonnageWithDraining: Decimal;
         YTDTonnageWithOutDraining: Decimal;
         YTDPackTonWithDraining: Decimal;
-
+        ProdHdr: Record "Production Order";
         ProdOrdLineFG: Record "Prod. Order Line";
         ProdOrdLineFGMTD: Record "Prod. Order Line";
         ProdOrdLineFGYTD: Record "Prod. Order Line";
@@ -451,7 +487,9 @@ report 50020 "F2 Daily Production Report New"
         QCDQty: Decimal;
         ItemLedgerEntryFG: Record "Item Ledger Entry";
         PassQuantity: Decimal;
-
+        MachineSecStop: Record "Machine/Section Stoppages";
+        QCDetails2: Record "QC Details";
         GeneralLedgerSetup: Record "General Ledger Setup";
         DimensionSetEntry: Record "Dimension Set Entry";
+        QCDetailFound: Boolean;
 }

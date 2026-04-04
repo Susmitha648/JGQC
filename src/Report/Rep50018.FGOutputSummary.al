@@ -40,7 +40,7 @@ report 50018 "FG Output Summary"
                         ProdOrderLinePB.SetRange("Item No.", "Global Dimension 2 Code");
                         ProdOrderLinePB.SetRange("Work Shift", ProdOrderLine."Work Shift");
                         If ProdOrderLinePB.FindFirst() then begin
-                            GobCut := ProdOrderLinePB.Quantity;
+                            GobCut := ProdOrderLinePB."Finished Quantity";
                         end;
                     end;
 

@@ -1,8 +1,8 @@
 codeunit 50000 "QC Subcriber"
 {
     SingleInstance = true;
-    [EventSubscriber(ObjectType::Page, Page::"Document Attachment Factbox", 'OnBeforeDrillDown', '', false, false)]
-    local procedure OnBeforeDrillDown(DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
+    [EventSubscriber(ObjectType::Page, Page::"Doc. Attachment List Factbox", 'OnAfterGetRecRefFail', '', false, false)]
+    local procedure OnBeforeDrillDown(var Sender: Page "Doc. Attachment List Factbox"; DocumentAttachment: Record "Document Attachment"; var RecRef: RecordRef);
     var
         CustComplLog: Record "Customer Complaint Log";
         CustComplRep: Record "Customer Complaint Report";

@@ -1,7 +1,8 @@
 pageextension 50000 "Released Production Order" extends "Released Production Order"
 {
-    
-    layout{
+
+    layout
+    {
         modify("Starting Date-Time")
         {
             Visible = false;
@@ -38,9 +39,9 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 Image = List;
                 ToolTip = 'COA Details';
                 RunObject = Page "COA Details";
-                RunPageLink = "Released Prod Order No." = field("No."),"Production Order Date" = field("Due Date");
+                RunPageLink = "Released Prod Order No." = field("No."), "Production Order Date" = field("Due Date");
             }
-            
+
             action(BatchOperationEntry)
             {
                 ApplicationArea = All;
@@ -57,7 +58,7 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                     Singleinstance.SetProductionHdr(Rec);
                 end;
             }
-             action(QCUpdate)
+            action(QCUpdate)
             {
                 ApplicationArea = All;
                 Caption = 'CE Update Details';
@@ -75,7 +76,7 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "Inspection Challenge Samples";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
-             action(ColdEndPresort)
+            action(ColdEndPresort)
             {
                 ApplicationArea = All;
                 Caption = 'Cold End Presort Detail';
@@ -84,19 +85,19 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
                 RunObject = Page "Cold End Presort Details";
                 RunPageLink = "Released Prod Order No." = field("No.");
             }
-             action(UpdateMouldNo)
-                {
-                    ApplicationArea = Suite;
-                    Caption = 'Update Mould No';
-                    ToolTip = 'Update Mould No';
-                    Image = Create;
-                    RunObject = Page "Update Mould No";
-                    RunPageLink = "Work Order No." = field("No.");
-                }
+            action(UpdateMouldNo)
+            {
+                ApplicationArea = Suite;
+                Caption = 'Update Mould No';
+                ToolTip = 'Update Mould No';
+                Image = Create;
+                RunObject = Page "Update Mould No";
+                RunPageLink = "Work Order No." = field("No.");
+            }
         }
         addafter("Shortage List")
         {
-            
+
             action("Daily Batch Consumption")
             {
                 ApplicationArea = Manufacturing;
@@ -140,13 +141,13 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
             actionref(BatchOperationEntry_Promoted; BatchOperationEntry)
             {
             }
-             actionref(InspectionChallengeSample_Promoted; InspectionChallengeSample)
+            actionref(InspectionChallengeSample_Promoted; InspectionChallengeSample)
             {
             }
-              actionref(ColdEndPresort_Promoted; ColdEndPresort)
+            actionref(ColdEndPresort_Promoted; ColdEndPresort)
             {
             }
-             actionref(UpdateMouldNo_Promoted; UpdateMouldNo)
+            actionref(UpdateMouldNo_Promoted; UpdateMouldNo)
             {
             }
         }
@@ -160,11 +161,35 @@ pageextension 50000 "Released Production Order" extends "Released Production Ord
             {
             }
         }
-         addafter("Re&plan_Promoted")
+        addafter("Re&plan_Promoted")
         {
             actionref("QCUpdate_Promoted"; QCUpdate)
             {
             }
+        }
+        modify("Change &Status")
+        {
+            trigger OnBeforeAction()
+            var
+                DimensionSetEntry: Record "Dimension Set Entry";
+                GeneralLedgerSetup: Record "General Ledger Setup";
+                WorkCenterExists: Boolean;
+            begin
+                If Rec."Inventory Posting Group" = 'PB' then begin
+                    WorkCenterExists := false;
+                    GeneralLedgerSetup.Get();
+                    DimensionSetEntry.Reset();
+                    DimensionSetEntry.SetRange("Dimension Set ID", Rec."Dimension Set ID");
+                    If DimensionSetEntry.FindSet() then
+                        repeat
+                            If DimensionSetEntry."Dimension Code" = GeneralLedgerSetup."Shortcut Dimension 8 Code" then
+                                If not (DimensionSetEntry."Dimension Value Code" = '') then
+                                    WorkCenterExists := True;
+                        until DimensionSetEntry.Next() = 0;
+                    If not WorkCenterExists then
+                        Error('Please update work Center Dimension');
+                end;
+            end;
         }
     }
 }
