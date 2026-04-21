@@ -26,13 +26,14 @@ report 50019 "Production Summary"
                 end;
                 trigger OnAfterGetRecord()
                 begin
+                    Clear(Consumption);
                     ItemLedgerConsumption.Reset();
                     ItemLedgerConsumption.SetRange("Document No.","Prod. Order Line"."Prod. Order No.");
-                    ItemLedgerConsumption.SetRange("Document Line No.","Prod. Order Line"."Line No.");
+                    ItemLedgerConsumption.SetRange("Order Line No.","Prod. Order Line"."Line No.");
                     ItemLedgerConsumption.SetRange("Entry Type",ItemLedgerConsumption."Entry Type"::Consumption);
-                    ItemLedgerConsumption.SetRange("Item No.",'MG');
+                   // ItemLedgerConsumption.SetRange("Item No.",'MG');
                     If ItemLedgerConsumption.FindFirst() then
-                       Consumption := ItemLedgerConsumption.Quantity;
+                       Consumption := ABS(ItemLedgerConsumption.Quantity);
                 end;
             }
             dataitem(ProductionOrder1; "Production Order")
@@ -49,12 +50,14 @@ report 50019 "Production Summary"
                     column(LogisticsQty; LogisticsQty) { }
                     column(LogisticsPallets; LogisticsPallets) { }
                     column(PackedPallets; PackedPallets) { }
+                    column(PackTon; PackTon) { }
                     trigger OnAfterGetRecord()
                     begin
                         Clear(ReceivedQty);
                         Clear(LogisticsQty);
                         Clear(LogisticsPallets);
                         Clear(PackedPallets);
+                        Clear(PackTon);
                         ItemledgerEntry1.Reset();
                         ItemledgerEntry1.SetRange("Entry Type", "Entry Type"::Transfer);
                         ItemledgerEntry1.SetRange("Document Type", ItemledgerEntry1."Document Type"::"Transfer Receipt");
@@ -71,6 +74,8 @@ report 50019 "Production Summary"
                         If Item.Get("Item No.") then
                             if Packsize.Get(Item."Pack Size") then
                                 ReceivedQty := Packsize."Qty Per Pack";
+
+                        PackTon := ("Net Weight" * ReceivedQty)/1000000;
                     end;
                 }
 
@@ -166,4 +171,5 @@ report 50019 "Production Summary"
         ProductionProgLine: Record "Production Programme Line";
         Consumption : Decimal;
         ItemLedgerConsumption : Record "Item Ledger Entry";
+        PackTon : Decimal;
 }
