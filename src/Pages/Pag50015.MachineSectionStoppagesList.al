@@ -29,9 +29,17 @@ page 50015 "Machine/Section Stoppages List"
                 {
                     ToolTip = 'Specifies the value of the Machine Stoppages Code field.', Comment = '%';
                 }
+                 field("Machine Stoppage Description"; Rec."Machine Stoppage Description")
+                {
+                    ToolTip = 'Specifies the value of the Machine Stoppage Description field.', Comment = '%';
+                }
                 field("Section Stoppage Code"; Rec."Section Stoppage Code")
                 {
                     ToolTip = 'Specifies the value of the Section Stoppage Code field.', Comment = '%';
+                }
+                 field("Section Stoppage Description"; Rec."Section Stoppage Description")
+                {
+                    ToolTip = 'Specifies the value of the "Section Stoppage Description" field.', Comment = '%';
                 }
                 field("Section No."; Rec."Section No.")
                 {
@@ -48,6 +56,14 @@ page 50015 "Machine/Section Stoppages List"
                 field("Downtime (Hrs)"; Rec."Downtime (Hrs)")
                 {
                     ToolTip = 'Specifies the value of the Downtime (Hrs) field.', Comment = '%';
+                }
+                 field("Incident Date"; Rec."Incident Date")
+                {
+                    ToolTip = 'Specifies the value of the Incident Date field.', Comment = '%';
+                }
+                field("Machine Number"; Rec."Machine Number")
+                {
+                    ToolTip = 'Specifies the value of the Machine Number field.', Comment = '%';
                 }
             }
         }
