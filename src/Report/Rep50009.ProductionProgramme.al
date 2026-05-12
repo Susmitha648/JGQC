@@ -158,7 +158,7 @@ report 50009 "Production Programme"
                         trigger OnAfterGetRecord()
                         var
                             PrevLine: Record "Production Programme Line";
-
+                            PrevLine1: Record "Production Programme Line";
                         begin
                             IsFirstJobRow := false;
 
@@ -187,8 +187,14 @@ report 50009 "Production Programme"
                                     PrevLine.SetRange("No.", ProductionProgrammeLine."No.");
                                     PrevLine.SetRange(Furnace, ProductionProgrammeLine.Furnace);
                                     If PrevLine.FindFirst() then
-                                        If PrevLine.Date = ProductionProgrammeLine.Date then
-                                            IsFirstJobRow := false;
+                                        If PrevLine.Date = ProductionProgrammeLine.Date then begin
+                                            PrevLine1.Reset();
+                                            PrevLine1.SetRange(Furnace, PrevLine.Furnace);
+                                            PrevLine1.SetRange(Date, CalcDate('<-1D>', PrevLine.Date));
+                                            PrevLine1.SetRange(Job, PrevLine.Job);
+                                            If PrevLine1.FindFirst() then
+                                                IsFirstJobRow := false;
+                                        end;
                                 end;
                             end;
 

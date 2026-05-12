@@ -75,7 +75,7 @@ page 50029 "Production Programme Subform"
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
-                 /*field("Record Slip No"; Rec."Record Slip No")
+              /*   field("Record Slip No"; Rec."Record Slip No")
                 {
                     ToolTip = 'Specifies the value of the Record Slip No field.', Comment = '%';
                 }

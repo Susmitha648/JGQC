@@ -58,6 +58,7 @@ report 50019 "Production Summary"
                         Clear(LogisticsPallets);
                         Clear(PackedPallets);
                         Clear(PackTon);
+                        ItemledgerEntry1.SetLoadFields("Entry Type","Document Type","Serial No.","Location Code");
                         ItemledgerEntry1.Reset();
                         ItemledgerEntry1.SetRange("Entry Type", "Entry Type"::Transfer);
                         ItemledgerEntry1.SetRange("Document Type", ItemledgerEntry1."Document Type"::"Transfer Receipt");
@@ -78,6 +79,10 @@ report 50019 "Production Summary"
                         PackTon := ("Net Weight" * ReceivedQty)/1000000;
                     end;
                 }
+                trigger OnPreDataItem()
+                begin
+                    ItemLedgerEntry.SetLoadFields("Entry Type","Item Category Code","Location Code","Document No.")
+                end;
 
             }
             trigger OnPreDataItem()
