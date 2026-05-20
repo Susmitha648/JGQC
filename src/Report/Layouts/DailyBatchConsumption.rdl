@@ -9,7 +9,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.0.20283.0</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-04-08T08:35:36.8593776Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-05-18T08:30:07.0565195Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -1419,7 +1419,7 @@
                                   <Value>=Fields!Component_Glass_Yield.Value</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
-                                    <Format>#,0.00;(#,0.00)</Format>
+                                    <Format>#,0.000;(#,0.000)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -2065,6 +2065,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

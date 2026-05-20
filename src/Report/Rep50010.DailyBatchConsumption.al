@@ -195,7 +195,7 @@ report 50010 "Daily Batch Consumption"
                         ExpectedQuantity := "Expected Quantity" / 1000
                     Else
                         ExpectedQuantity := "Expected Quantity";
-                    ComponentGlassYield := Round(ExpectedQuantity * (YieldPercent / 100), 0.01);
+                    ComponentGlassYield := Round(ExpectedQuantity * (YieldPercent / 100), 0.001);
                     ProdOrderComp1.Reset();
                     ProdOrderComp1.SetRange("Prod. Order No.", ProdOrderComponent."Prod. Order No.");
                     ProdOrderComp1.SetRange("Item No.", ProdOrderComponent."Item No.");
@@ -204,7 +204,8 @@ report 50010 "Daily Batch Consumption"
                         ProdOrderComp1 := ProdOrderComponent;
                         ProdOrderComp1.Insert();
 
-                        TotalComponentGlassYield += Round(ExpectedQuantity * (YieldPercent / 100), 0.01);
+                        TotalComponentGlassYield += Round(ExpectedQuantity * (YieldPercent / 100), 0.001);
+                        //TotalComponentGlassYield += ComponentGlassYield;
                     end;
                 end;
 

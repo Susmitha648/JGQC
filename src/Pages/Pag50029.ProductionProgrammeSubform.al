@@ -75,21 +75,25 @@ page 50029 "Production Programme Subform"
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
                 }
-              /*   field("Record Slip No"; Rec."Record Slip No")
+                /* field("Record Slip No"; Rec."Record Slip No")
                 {
                     ToolTip = 'Specifies the value of the Record Slip No field.', Comment = '%';
+                    Editable = false;
                 }
                 field("Sequence No"; Rec."Sequence No")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
+                    Editable = false;
                 }
                 field("First Line"; Rec."First Line")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
+                    Editable = false;
                 }
                 field("Last Line"; Rec."Last Line")
                 {
                     ToolTip = 'Specifies the value of the Prod Order Created field.', Comment = '%';
+                    Editable = false;
                 }*/
             }
         }
