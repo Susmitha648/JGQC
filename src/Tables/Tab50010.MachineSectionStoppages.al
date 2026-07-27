@@ -90,15 +90,15 @@ table 50010 "Machine/Section Stoppages"
         {
             Caption = 'Remarks';
         }
-        field(16; "Root Cause"; Text[100])
+        field(16; "Root Cause"; Text[1000])
         {
             Caption = 'Root Cause';
         }
-        field(17; "Corrective Action Taken"; Text[100])
+        field(17; "Corrective Action Taken"; Text[1000])
         {
             Caption = 'Corrective Action Taken';
         }
-        field(18; "Preventive Action Taken"; Text[100])
+        field(18; "Preventive Action Taken"; Text[1000])
         {
             Caption = 'Preventive Action Taken';
         }

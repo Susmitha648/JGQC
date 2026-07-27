@@ -38,7 +38,7 @@ pageextension 50009 "Bin Ext" extends Bins
                 BinContent.CalcFields(Quantity);
                 Quantity += BinContent.Quantity;
             until BinContent.Next() = 0;
-        If Rec."Remaining Pallet Capacity" > 0 then begin
+        If Rec."Remaining Pallet Capacity" <>  (Rec."Pallet Capacity" - Quantity) then begin
             Rec."Remaining Pallet Capacity" := Rec."Pallet Capacity" - Quantity;
             Rec.Modify(false);
         end;
