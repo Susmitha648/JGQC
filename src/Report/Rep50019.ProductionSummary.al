@@ -10,7 +10,7 @@ report 50019 "Production Summary"
     {
         dataitem("Production Order"; "Production Order")
         {
-            DataItemTableView = where("Gen. Prod. Posting Group" = Filter('PB'));
+            DataItemTableView = Sorting("Source No.","Due Date") where("Gen. Prod. Posting Group" = Filter('PB'));
             RequestFilterFields = "Due Date";
             column(DueDate; Format("Due Date")) { }
             column(MachineNo; MachineNo) { }
@@ -77,6 +77,13 @@ report 50019 "Production Summary"
                                 ReceivedQty := Packsize."Qty Per Pack";
 
                         PackTon := ("Net Weight" * ReceivedQty)/1000000;
+                        If RepeatedPB then begin
+                            LogisticsQty := 0;
+                            ReceivedQty := 0;
+                            PackedPallets := 0;
+                            PackTon := 0;
+                            LogisticsPallets := 0;
+                        end;
                     end;
                 }
                 trigger OnPreDataItem()
@@ -93,6 +100,9 @@ report 50019 "Production Summary"
 
             trigger OnAfterGetRecord()
             begin
+                RepeatedPB := false;
+                If (SourceNo = "Source No.") and (DueDate = "Due Date") then 
+                    RepeatedPB := true;
                 Clear(MachineNo);
                 Clear(QtyProdGobCut);
                 ProductionProgLine.Reset();
@@ -109,6 +119,8 @@ report 50019 "Production Summary"
                     repeat
                         QtyProdGobCut += ProductionLine.Quantity;
                     until ProductionLine.Next() = 0;
+                SourceNo := "Source No.";
+                DueDate := "Due Date";
             end;
         }
     }
@@ -177,4 +189,7 @@ report 50019 "Production Summary"
         Consumption : Decimal;
         ItemLedgerConsumption : Record "Item Ledger Entry";
         PackTon : Decimal;
+        SourceNo : Code[20];
+        DueDate : Date;
+        RepeatedPB : Boolean;
 }
