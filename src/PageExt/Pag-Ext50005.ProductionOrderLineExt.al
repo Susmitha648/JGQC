@@ -65,8 +65,9 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
                     ItemRec: Record Item;
                     CountQty: Decimal;
                 begin
-                   // If (Time < Rec."Starting Time WO") or (Time > Rec."Ending Time WO") then
-                      // Error('Recording slip is only allowed to print with in the shift between %1 - %2',Rec."Starting Time WO",Rec."Ending Time WO");
+                    If (Rec."Work Shift" = 'A') or (Rec."Work Shift" = 'B') then
+                        If (Time < Rec."Starting Time WO") or (Time > Rec."Ending Time WO") then
+                            Error('Recording slip is only allowed to print with in the shift between %1 - %2', Rec."Starting Time WO", Rec."Ending Time WO");
                     MyReportID := Report::RecordingSlipReport;
                     CurrPage.SetSelectionFilter(DocumentNo);
                     CheckItemVariants(Rec);
@@ -113,9 +114,9 @@ pageextension 50005 "Production Order Line Ext" extends "Released Prod. Order Li
     begin
         ProdOrder.Reset();
         ProdOrder.SetRange("No.", ProductionLine."Prod. Order No.");
-        If ProdOrder.FindFirst() then 
+        If ProdOrder.FindFirst() then
             If ProdOrder."Source No." <> ProductionLine."Item No." then
-              Error('Source No. in the header is different from Production Line item No');
-        
+                Error('Source No. in the header is different from Production Line item No');
+
     end;
 }
